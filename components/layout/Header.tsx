@@ -167,7 +167,7 @@ const Header: React.FC = () => {
 
                 {/* Dropdown for desktop */}
                 {item.children && item.label === "Brands" && (
-                  <div className="absolute left-0 mt-1 w-80 origin-top-right rounded-md shadow-lg overflow-hidden bg-white dark:bg-secondary-900 ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
+                  <div className="absolute left-0 mt-1 w-80 origin-top-right rounded-md shadow-lg overflow-hidden bg-white dark:bg-secondary-900 ring-1 ring-secondary-200 dark:ring-secondary-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
                     <div className="p-4">
                       <div className="grid grid-cols-3 gap-3">
                         {item.children.map((child) => (
@@ -190,7 +190,7 @@ const Header: React.FC = () => {
                 )}
                 {/* Regular dropdown for other items */}
                 {item.children && item.label !== "Brands" && (
-                  <div className="absolute left-0 mt-1 w-56 origin-top-right rounded-md shadow-lg overflow-hidden bg-white dark:bg-secondary-900 ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
+                  <div className="absolute left-0 mt-1 w-56 origin-top-right rounded-md shadow-lg overflow-hidden bg-white dark:bg-secondary-900 ring-1 ring-secondary-200 dark:ring-secondary-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
                     <div className="py-1">
                       {item.children.map((child) => (
                         <Link
@@ -260,7 +260,7 @@ const Header: React.FC = () => {
             {navItems.map((item) => (
               <div
                 key={item.label}
-                className="border-b border-secondary-700/30"
+                className="border-b border-secondary-200 dark:border-secondary-700/30"
               >
                 {item.children ? (
                   <div>
@@ -279,7 +279,7 @@ const Header: React.FC = () => {
                     </button>
 
                     {activeMobileDropdown === item.label && (
-                      <div className="ml-4 mb-4 border-l border-primary-600/30 pl-4 space-y-3">
+                      <div className="ml-4 mb-4 border-l border-primary-300 dark:border-primary-600/30 pl-4 space-y-3">
                         {item.children.map((child) => (
                           <Link
                             key={child.label}

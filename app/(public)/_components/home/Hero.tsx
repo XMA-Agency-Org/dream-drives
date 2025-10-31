@@ -5,34 +5,41 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
+import { AuroraBackground } from "@/components/ui/shadcn-io/aurora-background";
 
 export default function Hero() {
   return (
-    <div className="relative pt-24 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 z-10 pointer-events-none">
-        
-        {/* Pattern overlay */}
-        <div 
-          className="absolute inset-0 opacity-5 z-50" 
-          style={{ 
-            backgroundImage: "url('/grid-pattern.svg')", 
-            backgroundSize: "30px",
-          }}
-        ></div>
-        
-        {/* Gradient orbs */}
-        <div className="absolute top-1/4 -left-20 w-72 h-72 bg-primary-600/30 rounded-full blur-[100px] -z-10"></div>
-        <div className="absolute bottom-1/3 right-0 w-96 h-96 bg-primary-700/20 rounded-full blur-[120px] -z-10"></div>
-      </div>
+    <AuroraBackground className="h-auto min-h-screen pt-24 overflow-hidden">
+      <div className="relative w-full z-10">
+        {/* Background Elements */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          
+          {/* Pattern overlay */}
+          <div 
+            className="absolute inset-0 opacity-5 z-50" 
+            style={{ 
+              backgroundImage: "url('/grid-pattern.svg')", 
+              backgroundSize: "30px",
+            }}
+          ></div>
+          
+          {/* Gradient orbs */}
+          {/* 
+            This orb is hidden in light mode because the AuroraBackground provides enough visual interest.
+            In dark mode, this orb adds depth, but whether to keep it visible in both modes should be a design lead decision.
+          */}
+          <div className="hidden dark:block absolute top-1/4 -left-20 w-72 h-72 bg-primary-600/30 rounded-full blur-[100px] -z-10"></div>
+          {/* <div className="absolute top-1/4 -left-20 w-72 h-72 bg-primary-600/30 rounded-full blur-[100px] -z-10"></div> */}
+          <div className="absolute bottom-1/3 right-0 w-96 h-96 bg-primary-700/20 rounded-full blur-[120px] -z-10"></div>
+        </div>
 
-      {/* Hero Content */}
-      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+        {/* Hero Content */}
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center lg:items-start py-12 md:py-20 lg:py-28">
           {/* Left Content */}
           <div className="w-full lg:w-1/2 space-y-6 text-center lg:text-left mb-12 lg:mb-0">
-            <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary-900/30 border border-primary-700/40 text-primary-300 text-sm mb-3">
-              <span className="bg-primary-500 rounded-full w-2 h-2 mr-2"></span>
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 border border-primary-200 text-primary-900 dark:bg-primary-900/30 dark:border-primary-700/40 dark:text-primary-300 text-sm mb-3 font-medium">
+              <span className="bg-primary-600 dark:bg-primary-500 rounded-full w-2 h-2 mr-2"></span>
               Premium Car Rental Service
             </div>
             
@@ -155,7 +162,8 @@ export default function Hero() {
         {/*     </div> */}
         {/*   </div> */}
         {/* </div> */}
+        </div>
       </div>
-    </div>
+    </AuroraBackground>
   );
 }
