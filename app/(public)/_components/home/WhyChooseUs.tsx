@@ -83,7 +83,7 @@ export default function WhyChooseUs() {
       {/* Content container - positioned to the right */}
       <div className="max-w-7xl mx-auto px-4 py-24 relative z-20">
         <div className="flex justify-end">
-          <div className="w-full lg:w-1/2 lg:pl-12">
+          <div className="w-full lg:w-1/2 lg:pl-12 bg-secondary-50/80 dark:bg-secondary-950/80 backdrop-blur-sm dark:backdrop-blur-sm rounded-lg p-6 lg:p-8">
             {/* Header */}
             <div className="mb-12">
               <div className="inline-block bg-primary-600 text-white dark:text-white text-xs font-medium px-4 py-2 rounded-md uppercase tracking-wider mb-4">

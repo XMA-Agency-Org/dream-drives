@@ -13,7 +13,6 @@ import {
   LamborghiniIcon,
   FerrariLogo,
   AudiIcon,
-  BMWIcon,
   PorscheIcon,
   ToyotaIcon,
   KiaIcon,
@@ -27,7 +26,7 @@ import {
   MazdaIcon,
   GMCLogo,
 } from "@cardog-icons/react";
-import BMW from "@/public/brands/bmw-logo-2020-white-download.png";
+import BMW from "@/public/brands/light-mode/BMW-logo-lm.png";
 
 interface NavItem {
   label: string;
@@ -327,35 +326,33 @@ const Header: React.FC = () => {
 
 // Helper function to get brand icons for dropdown
 function getBrandIcon(brandId: string) {
-  const iconProps = {
-    className: "mr-2 md:mr-0 text-3xl",
-  };
+  const baseClassName = "mr-2 md:mr-0 text-3xl";
 
-  const brandIconMap: Record<string, JSX.Element> = {
-    mercedes: <MBIcon style={{ filter: "invert(1)" }} {...iconProps} />,
-    "mercedes-benz": <MBIcon style={{ filter: "invert(1)" }} {...iconProps} />,
-    bentley: <BentleyIcon {...iconProps} />,
+  const brandIconMap: Record<string, React.ReactElement> = {
+    mercedes: <MBIcon className={baseClassName} />,
+    "mercedes-benz": <MBIcon className={baseClassName} />,
+    bentley: <BentleyIcon className={baseClassName} />,
     "rolls-royce": (
-      <RollsRoyceIcon style={{ filter: "invert(1)" }} {...iconProps} />
+      <RollsRoyceIcon className={baseClassName} />
     ),
-    "land-rover": <LandroverIcon {...iconProps} />,
-    "range-rover": <LandroverIcon {...iconProps} />,
-    lamborghini: <LamborghiniIcon {...iconProps} />,
-    ferrari: <FerrariLogo {...iconProps} />,
-    audi: <AudiIcon style={{ filter: "invert(1)" }} {...iconProps} />,
-    bmw: <Image src={BMW} width={20} height={50} {...iconProps} />,
-    porsche: <PorscheIcon {...iconProps} />,
-    toyota: <ToyotaIcon {...iconProps} />,
-    kia: <KiaIcon style={{ filter: "invert(1)" }} {...iconProps} />,
-    hyundai: <HyundaiIcon {...iconProps} />,
-    nissan: <NissanLogo style={{ filter: "invert(1)" }} {...iconProps} />,
-    mitsubishi: <MitsubishiIcon {...iconProps} />,
-    chevrolet: <ChevroletLogo style={{ filter: "invert(1)" }} {...iconProps} />,
-    cadillac: <CadillacIcon {...iconProps} />,
-    gmc: <GMCLogo style={{ filter: "invert(1)" }} {...iconProps} />,
-    fiat: <FiatIcon {...iconProps} />,
-    mini: <MiniIcon style={{ filter: "invert(1)" }} {...iconProps} />,
-    mazda: <MazdaIcon {...iconProps} />,
+    "land-rover": <LandroverIcon className={baseClassName} />,
+    "range-rover": <LandroverIcon className={baseClassName} />,
+    lamborghini: <LamborghiniIcon className={baseClassName} />,
+    ferrari: <FerrariLogo className={baseClassName} />,
+    audi: <AudiIcon className={baseClassName} />,
+    bmw: <Image src={BMW} width={20} height={50} alt="BMW" className={baseClassName} />,
+    porsche: <PorscheIcon className={baseClassName} />,
+    toyota: <ToyotaIcon className={baseClassName} />,
+    kia: <KiaIcon className={baseClassName} />,
+    hyundai: <HyundaiIcon className={baseClassName} />,
+    nissan: <NissanLogo className={baseClassName} />,
+    mitsubishi: <MitsubishiIcon className={baseClassName} />,
+    chevrolet: <ChevroletLogo className={baseClassName} />,
+    cadillac: <CadillacIcon className={baseClassName} />,
+    gmc: <GMCLogo className={baseClassName} />,
+    fiat: <FiatIcon className={baseClassName} />,
+    mini: <MiniIcon className={baseClassName} />,
+    mazda: <MazdaIcon className={baseClassName} />,
   };
 
   return brandIconMap[brandId] || null;

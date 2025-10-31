@@ -6,8 +6,8 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import BrandGrid from "./BrandGrid";
 import Mercedes from "@/public/brands/Mercedes-Benz-logo-2009-1920x1080.png"
 import Bentley from "@/public/brands/bentley-logo-2002-download.png"
-import Rollsroyce from "@/public/brands/rolls-royce.svg"
-import Bmw from "@/public/brands/bmw-logo-2020-white-download.png"
+import Rollsroyce from "@/public/brands/light-mode/rolls-royce-lm.png"
+import Bmw from "@/public/brands/light-mode/BMW-logo-lm.png"
 import Lamborghini from "@/public/brands/lamborghini.svg"
 import Porsche from "@/public/brands/porsche-logo-2014-download.png"
 
@@ -70,7 +70,7 @@ export default function HowItWorks() {
         {/* Brands Section */}
         <div className="mt-24">
           <h3 className="text-center text-xl font-semibold text-secondary-900 dark:text-white mb-8">
-            The World's Finest Automobile Brands
+            The World&apos;s Finest Automobile Brands
           </h3>
           <BrandGrid brands={brands} />
         </div>
