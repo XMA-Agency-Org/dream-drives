@@ -32,10 +32,10 @@ export default function ContactUsPage() {
       <Header />
       <main className="pt-24">
         {/* Hero Section */}
-        <section className="relative py-16 md:py-24 bg-secondary-900 dark:bg-secondary-950 overflow-hidden">
+        <section className="relative py-16 md:py-24 bg-secondary-50 dark:bg-secondary-900 overflow-hidden">
           {/* Background pattern */}
           <div className="absolute inset-0 -z-10">
-            <div className="absolute inset-0 bg-gradient-to-br from-secondary-800 via-secondary-900 to-black opacity-95"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-secondary-100 via-secondary-200 to-secondary-300 dark:from-secondary-800 dark:via-secondary-900 dark:to-black opacity-95"></div>
             
             {/* Pattern overlay */}
             <div 
@@ -53,10 +53,10 @@ export default function ContactUsPage() {
 
           <div className="max-w-7xl mx-auto px-4 md:px-6 text-center">
             <div className="max-w-3xl mx-auto">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary-900 dark:text-white mb-6">
                 Get in Touch With Our Team
               </h1>
-              <p className="text-secondary-300 text-lg mb-8">
+              <p className="text-secondary-600 dark:text-secondary-300 text-lg mb-8">
                 We're here to answer any questions about our luxury vehicles and services. 
                 Our dedicated team of specialists is ready to assist you.
               </p>
@@ -67,8 +67,8 @@ export default function ContactUsPage() {
                   <div className="inline-flex items-center justify-center bg-primary-600/20 p-3 rounded-full mb-4">
                     <Phone className="h-6 w-6 text-primary-400" />
                   </div>
-                  <h3 className="text-white text-lg font-semibold mb-2">Call Us</h3>
-                  <p className="text-secondary-300 mb-3">Speak directly with our team</p>
+                  <h3 className="text-secondary-900 dark:text-white text-lg font-semibold mb-2">Call Us</h3>
+                  <p className="text-secondary-600 dark:text-secondary-300 mb-3">Speak directly with our team</p>
                   <a href="tel:+971569700700" className="text-primary-400 font-medium hover:text-primary-300">
                     +971569700700
                   </a>
@@ -78,8 +78,8 @@ export default function ContactUsPage() {
                   <div className="inline-flex items-center justify-center bg-primary-600/20 p-3 rounded-full mb-4">
                     <Mail className="h-6 w-6 text-primary-400" />
                   </div>
-                  <h3 className="text-white text-lg font-semibold mb-2">Email Us</h3>
-                  <p className="text-secondary-300 mb-3">Send us your inquiries</p>
+                  <h3 className="text-secondary-900 dark:text-white text-lg font-semibold mb-2">Email Us</h3>
+                  <p className="text-secondary-600 dark:text-secondary-300 mb-3">Send us your inquiries</p>
                   <a href="mailto:info@4maticrental.com" className="text-primary-400 font-medium hover:text-primary-300">
                     info@4maticrental.com
                   </a>
@@ -89,8 +89,8 @@ export default function ContactUsPage() {
                   <div className="inline-flex items-center justify-center bg-primary-600/20 p-3 rounded-full mb-4">
                     <MapPin className="h-6 w-6 text-primary-400" />
                   </div>
-                  <h3 className="text-white text-lg font-semibold mb-2">Visit Us</h3>
-                  <p className="text-secondary-300 mb-3">Our showroom location</p>
+                  <h3 className="text-secondary-900 dark:text-white text-lg font-semibold mb-2">Visit Us</h3>
+                  <p className="text-secondary-600 dark:text-secondary-300 mb-3">Our showroom location</p>
                   <p className="text-primary-400 font-medium">Business Bay Marquise Square Tower Shop 04, Dubai</p>
                 </div>
               </div>

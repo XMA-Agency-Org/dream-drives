@@ -14,7 +14,7 @@ export default function FeatureItem({ icon, title, description }: FeatureItemPro
         {icon}
       </div>
       <div>
-        <h3 className="text-white text-xl font-semibold mb-1">{title}</h3>
+        <h3 className="text-secondary-900 dark:text-white text-xl font-semibold mb-1">{title}</h3>
         <p className="text-secondary-300">{description}</p>
       </div>
     </div>

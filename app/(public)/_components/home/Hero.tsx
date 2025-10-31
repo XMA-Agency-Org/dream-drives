@@ -36,7 +36,7 @@ export default function Hero() {
               Premium Car Rental Service
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary-900 dark:text-white leading-tight tracking-tight">
               Find And Book Your <span className="text-primary-400 relative">
                 Perfect Car
                 <svg className="absolute bottom-0 left-0 w-full h-3 text-primary-500/30" viewBox="0 0 300 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,7 +45,7 @@ export default function Hero() {
               </span>
             </h1>
             
-            <p className="text-secondary-300 text-lg md:text-xl max-w-xl mx-auto lg:mx-0">
+            <p className="text-secondary-600 dark:text-secondary-300 text-lg md:text-xl max-w-xl mx-auto lg:mx-0">
               Experience the freedom of the road with our premium selection of vehicles. 
               Quick booking, transparent pricing, no hidden fees.
             </p>

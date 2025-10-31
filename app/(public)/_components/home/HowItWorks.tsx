@@ -82,7 +82,7 @@ export default function HowItWorks() {
 function CtaSection() {
   return (
     <div className="flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-primary-600 to-primary-700 rounded-xl p-8 md:p-10 shadow-lg">
-      <div className="mb-6 md:mb-0 text-white">
+      <div className="mb-6 md:mb-0 text-white dark:text-white">
         <h3 className="text-2xl font-bold mb-2">Ready to experience luxury?</h3>
         <p className="text-primary-100 max-w-md">
           Book your premium vehicle today and elevate your journey with our exceptional service and attention to detail.

@@ -161,7 +161,7 @@ export default function ImageCarousel({ images, altText }: ImageCarouselProps) {
         </button>
 
         {/* Image counter */}
-        <div className="absolute bottom-4 right-4 bg-black/60 text-white text-sm px-3 py-1 rounded-full">
+        <div className="absolute bottom-4 right-4 bg-black/60 dark:bg-black/60 text-white dark:text-white text-sm px-3 py-1 rounded-full">
           {currentImageIndex + 1} / {validImages.length}
         </div>
       </div>
@@ -197,7 +197,7 @@ export default function ImageCarousel({ images, altText }: ImageCarouselProps) {
         <div className="fixed inset-0 bg-black z-50 flex items-center justify-center">
           <button
             onClick={toggleFullscreen}
-            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/50 flex items-center justify-center text-white hover:bg-black/70 focus:outline-none"
+            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/50 dark:bg-black/50 flex items-center justify-center text-white dark:text-white hover:bg-black/70 dark:hover:bg-black/70 focus:outline-none"
             aria-label="Exit fullscreen"
           >
             <Maximize2 className="w-6 h-6" />
@@ -235,14 +235,14 @@ export default function ImageCarousel({ images, altText }: ImageCarouselProps) {
           <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-4">
             <button
               onClick={handlePrevious}
-              className="w-12 h-12 rounded-full bg-black/50 flex items-center justify-center text-white hover:bg-black/70 focus:outline-none"
+              className="w-12 h-12 rounded-full bg-black/50 dark:bg-black/50 flex items-center justify-center text-white dark:text-white hover:bg-black/70 dark:hover:bg-black/70 focus:outline-none"
               aria-label="Previous image"
             >
               <ChevronLeft className="w-8 h-8" />
             </button>
             <button
               onClick={handleNext}
-              className="w-12 h-12 rounded-full bg-black/50 flex items-center justify-center text-white hover:bg-black/70 focus:outline-none"
+              className="w-12 h-12 rounded-full bg-black/50 dark:bg-black/50 flex items-center justify-center text-white dark:text-white hover:bg-black/70 dark:hover:bg-black/70 focus:outline-none"
               aria-label="Next image"
             >
               <ChevronRight className="w-8 h-8" />
@@ -250,7 +250,7 @@ export default function ImageCarousel({ images, altText }: ImageCarouselProps) {
           </div>
 
           {/* Image counter in fullscreen */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-full">
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/70 dark:bg-black/70 text-white dark:text-white px-4 py-2 rounded-full">
             {currentImageIndex + 1} / {validImages.length}
           </div>
         </div>

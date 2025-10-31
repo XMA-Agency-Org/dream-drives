@@ -143,7 +143,7 @@ const Header: React.FC = () => {
                 {item.children ? (
                   <button
                     className={`px-4 py-2 text-sm font-medium rounded-md transition-colors flex items-center 
-                      ${scrolled ? "text-secondary-900 dark:text-white" : "text-white"}
+                      text-secondary-900 dark:text-white
                       hover:text-primary-600 dark:hover:text-primary-400`}
                   >
                     {item.label}
@@ -153,7 +153,7 @@ const Header: React.FC = () => {
                   <Link
                     href={item.href}
                     className={`px-4 py-2 text-sm font-medium rounded-md transition-colors
-                      ${scrolled ? "text-secondary-900 dark:text-white" : "text-white"}
+                      text-secondary-900 dark:text-white
                       hover:text-primary-600 dark:hover:text-primary-400`}
                   >
                     {item.label}
@@ -224,11 +224,11 @@ const Header: React.FC = () => {
           >
             {isOpen ? (
               <X
-                className={`h-6 w-6 ${scrolled ? "text-secondary-900 dark:text-white" : "text-white"}`}
+                className={`h-6 w-6 text-secondary-900 dark:text-white`}
               />
             ) : (
               <Menu
-                className={`h-6 w-6 ${scrolled ? "text-secondary-900 dark:text-white" : "text-white"}`}
+                className={`h-6 w-6 text-secondary-900 dark:text-white`}
               />
             )}
           </button>
@@ -244,7 +244,7 @@ const Header: React.FC = () => {
         {/* Close button - Fixed at top right */}
         <button
           onClick={closeMobileMenu}
-          className="absolute top-6 right-6 p-2 text-white hover:text-primary-400 transition-colors"
+          className="absolute top-6 right-6 p-2 text-secondary-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
           aria-label="Close menu"
         >
           <X className="h-6 w-6" />
@@ -261,7 +261,7 @@ const Header: React.FC = () => {
                   <div>
                     <button
                       onClick={() => toggleMobileDropdown(item.label)}
-                      className="flex items-center justify-between w-full py-4 text-white font-medium"
+                      className="flex items-center justify-between w-full py-4 text-secondary-900 dark:text-white font-medium"
                     >
                       {item.label}
                       <ChevronDown
@@ -279,7 +279,7 @@ const Header: React.FC = () => {
                           <Link
                             key={child.label}
                             href={child.href}
-                            className="flex items-center py-2 text-secondary-200 hover:text-white text-sm"
+                            className="flex items-center py-2 text-secondary-600 dark:text-secondary-200 hover:text-secondary-900 dark:hover:text-white text-sm"
                             onClick={closeMobileMenu}
                           >
                             {getBrandIcon(child.href.split("brand=")[1])}
@@ -292,7 +292,7 @@ const Header: React.FC = () => {
                 ) : (
                   <Link
                     href={item.href}
-                    className="block py-4 text-white font-medium"
+                    className="block py-4 text-secondary-900 dark:text-white font-medium"
                     onClick={closeMobileMenu}
                   >
                     {item.label}
