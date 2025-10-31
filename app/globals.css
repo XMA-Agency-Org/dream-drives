@@ -1,0 +1,73 @@
+@import "tailwindcss";
+@import "./theme.css";
+@import "./components.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* Define scrollbar appearance for the entire app */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-secondary-300) transparent;
+}
+
+/* Webkit browsers (Chrome, Safari, newer Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-secondary-300);
+  border-radius: 20px;
+}
+
+/* Dark mode scrollbar */
+.dark * {
+  scrollbar-color: var(--color-secondary-700) transparent;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background-color: var(--color-secondary-700);
+}
+
+/* Scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Additional helper utilities */
+.scrollable-hint {
+  position: relative;
+}
+
+.scrollable-hint::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 24px;
+  background: linear-gradient(to top, var(--color-secondary-100) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
+.dark .scrollable-hint::before {
+  background: linear-gradient(to top, var(--color-secondary-800) 0%, transparent 100%);
+}
+
+.logo-image {
+  max-width: 200px;
+  height: auto;
+}
