@@ -1,6 +1,5 @@
 // components/layout/Footer.tsx
 import Link from "next/link";
-import Image from "next/image";
 import {
   Phone,
   Mail,
@@ -9,6 +8,7 @@ import {
   Instagram,
   ArrowRight,
   Award,
+  CarFront,
 } from "lucide-react";
 
 export default function Footer() {
@@ -66,14 +66,19 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Company info */}
           <div className="lg:col-span-2">
-            <div className="flex items-center mb-6">
-              <Image
+            <div className="flex items-center gap-3 mb-6">
+              {/* TODO: Replace the logo image file /4MAticlogo.png with the new Dream Drives logo */}
+              {/* <Image
                 src="/4MAticlogo.png"
                 alt="Dream Drives Logo"
                 width={200}
                 height={200}
                 className="logo-image"
-              />
+              /> */}
+              <CarFront className="h-8 w-8 md:h-10 md:w-10 text-primary-600 dark:text-primary-400" />
+              <span className="text-2xl md:text-3xl font-bold text-secondary-900 dark:text-white">
+                Dream Drives
+              </span>
             </div>
             <p className="text-secondary-600 dark:text-secondary-400 mb-6">
               Experience the epitome of luxury and performance with our premium

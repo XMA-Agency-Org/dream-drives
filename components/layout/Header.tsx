@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, CarFront } from "lucide-react";
 import Button from "../ui/Button";
 import {
   MBIcon,
@@ -125,14 +125,19 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="relative z-10">
-            <div className="flex items-center">
-              <Image
+            <div className="flex items-center gap-2">
+              {/* TODO: Replace the logo image file /4MAticlogo.png with the new Dream Drives logo */}
+              {/* <Image
                 src="/4MAticlogo.png"
                 alt="Dream Drives Logo"
                 width={100}
                 height={100}
                 className="h-14 w-auto"
-              />
+              /> */}
+              <CarFront className="h-6 w-6 md:h-7 md:w-7 text-primary-600 dark:text-primary-400" />
+              <span className="text-xl md:text-2xl font-bold text-secondary-900 dark:text-white">
+                Dream Drives
+              </span>
             </div>
           </Link>
 
