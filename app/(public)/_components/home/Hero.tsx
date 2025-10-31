@@ -14,15 +14,16 @@ export default function Hero() {
         {/* Background Elements */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           
-          {/* Pattern overlay */}
+          {/* // Pattern overlay (currently commented out, needs lead approval)
           <div 
             className="absolute inset-0 opacity-5 z-50" 
             style={{ 
-              backgroundImage: "url('/grid-pattern.svg')", 
+              backgroundImage: "url('grid-pattern.svg')", 
               backgroundSize: "30px",
             }}
           ></div>
-          
+          // ></div> */}
+
           {/* Gradient orbs */}
           {/* 
             This orb is hidden in light mode because the AuroraBackground provides enough visual interest.
