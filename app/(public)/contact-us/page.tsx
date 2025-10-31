@@ -11,7 +11,7 @@ import ContactForm from "./_components/ContactForm";
 import LocationMapContainer from "./_components/LocationMapContainer";
 
 export const metadata: Metadata = {
-  title: "Contact Us | 4MATIC Luxury Car Rental",
+  title: "Contact Us | Dream Drives Luxury Car Rental",
   description: "Get in touch with our luxury car rental specialists. We're here to help with bookings, inquiries, and personalized service.",
 };
 
@@ -21,7 +21,7 @@ const location = {
   name: "Dubai Office",
   address: "Business Bay Marquise Square Tower Shop 04, Dubai, UAE",
   phone: "+971 56 970 0700",
-  email: "info@4maticrental.com",
+  email: "info@dreamdrives.com",
   hours: "Mon-Fri: 9am-8pm | Sat-Sun: 10am-6pm",
   coordinates: { lat: 25.186, lng: 55.280 } // Dubai Business Bay coordinates
 };
@@ -80,8 +80,8 @@ export default function ContactUsPage() {
                   </div>
                   <h3 className="text-secondary-900 dark:text-white text-lg font-semibold mb-2">Email Us</h3>
                   <p className="text-secondary-600 dark:text-secondary-300 mb-3">Send us your inquiries</p>
-                  <a href="mailto:info@4maticrental.com" className="text-primary-400 font-medium hover:text-primary-300">
-                    info@4maticrental.com
+                  <a href="mailto:info@dreamdrives.com" className="text-primary-400 font-medium hover:text-primary-300">
+                    info@dreamdrives.com
                   </a>
                 </div>
                 

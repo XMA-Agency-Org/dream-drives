@@ -25,7 +25,7 @@ export default function Testimonials() {
     {
       id: 1,
       rating: 5.0,
-      text: "The experience with 4MATIC Luxury exceeded all expectations. The Mercedes-Benz S-Class was immaculate, and the concierge service was exceptional—arranging everything from airport pickup to special requests. The level of professionalism and attention to detail sets them apart from any other luxury rental service I've used.",
+      text: "The experience with Dream Drives Luxury exceeded all expectations. The Mercedes-Benz S-Class was immaculate, and the concierge service was exceptional—arranging everything from airport pickup to special requests. The level of professionalism and attention to detail sets them apart from any other luxury rental service I've used.",
       name: "James Wilson",
       position: "Executive Director",
       location: "New York, US",
@@ -35,7 +35,7 @@ export default function Testimonials() {
     {
       id: 2,
       rating: 4.9,
-      text: "Renting the Bentley Continental GT from 4MATIC Luxury transformed our anniversary weekend. From the moment we received the keys, we knew this was unlike any other rental experience. The vehicle was pristine, the booking process seamless, and the personalized service made us feel truly valued. Absolutely worth every penny.",
+      text: "Renting the Bentley Continental GT from Dream Drives Luxury transformed our anniversary weekend. From the moment we received the keys, we knew this was unlike any other rental experience. The vehicle was pristine, the booking process seamless, and the personalized service made us feel truly valued. Absolutely worth every penny.",
       name: "Sophie Chen",
       position: "Design Director",
       location: "San Francisco, US",
@@ -102,7 +102,7 @@ export default function Testimonials() {
             Exceptional Service, Memorable Journeys
           </h2>
           <p className="text-secondary-600 dark:text-secondary-400 text-lg">
-            Discover what our distinguished clients have to say about their 4MATIC Luxury experience
+            Discover what our distinguished clients have to say about their Dream Drives Luxury experience
           </p>
         </div>
 

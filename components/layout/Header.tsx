@@ -128,7 +128,7 @@ const Header: React.FC = () => {
             <div className="flex items-center">
               <Image
                 src="/4MAticlogo.png"
-                alt="4MATIC Logo"
+                alt="Dream Drives Logo"
                 width={100}
                 height={100}
                 className="h-14 w-auto"

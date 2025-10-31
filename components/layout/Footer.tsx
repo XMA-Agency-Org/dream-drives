@@ -69,7 +69,7 @@ export default function Footer() {
             <div className="flex items-center mb-6">
               <Image
                 src="/4MAticlogo.png"
-                alt="4MATIC Logo"
+                alt="Dream Drives Logo"
                 width={200}
                 height={200}
                 className="logo-image"
@@ -91,9 +91,9 @@ export default function Footer() {
               </div>
               <div className="flex items-start">
                 <Mail className="w-5 h-5 text-primary-600 dark:text-primary-400 mt-0.5 mr-3" />
-                <Link href="mailto:info@4maticrental.com">
+                <Link href="mailto:info@dreamdrives.com">
                   <span className="text-secondary-600 dark:text-secondary-400">
-                    info@4maticrental.com
+                    info@dreamdrives.com
                   </span>
                 </Link>
               </div>
@@ -197,19 +197,19 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between">
           {/* Copyright */}
           <p className="text-secondary-600 dark:text-secondary-400 text-sm mb-4 md:mb-0">
-            © {currentYear} 4MATIC Luxury Car Rentals. All rights reserved.
+            © {currentYear} Dream Drives Luxury Car Rentals. All rights reserved.
           </p>
 
           {/* Social links */}
           <div className="flex space-x-4">
             <a
-              href="https://www.facebook.com/4maticrental/"
+              href="https://www.facebook.com/dreamdrives/"
               className="text-secondary-600 dark:text-secondary-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
             >
               <Facebook className="w-5 h-5" />
             </a>
             <a
-              href="https://www.instagram.com/4maticrental/"
+              href="https://www.instagram.com/dreamdrives/"
               className="text-secondary-600 dark:text-secondary-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
             >
               <Instagram className="w-5 h-5" />

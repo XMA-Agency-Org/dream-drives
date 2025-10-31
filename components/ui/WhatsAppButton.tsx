@@ -5,7 +5,7 @@ import { FaWhatsapp } from "react-icons/fa";
 const WhatsAppButton = () => {
   const phoneNumber = "+971563626000";
   const message =
-    "Hello 4MATIC Luxury Car Rental, I would like to inquire about your services.";
+    "Hello Dream Drives Luxury Car Rental, I would like to inquire about your services.";
 
   const handleClick = () => {
     const encodedMessage = encodeURIComponent(message);

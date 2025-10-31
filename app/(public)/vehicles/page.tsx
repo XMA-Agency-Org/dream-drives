@@ -8,7 +8,7 @@ import Footer from "@/components/layout/Footer";
 import Loading from "./_components/Loading";
 
 export const metadata: Metadata = {
-  title: "4MATIC | Browse Our Vehicle Collection",
+  title: "Dream Drives | Browse Our Vehicle Collection",
   description: "Explore our premium selection of vehicles. Find the perfect car for your needs with our easy-to-use filtering options.",
 };
 
