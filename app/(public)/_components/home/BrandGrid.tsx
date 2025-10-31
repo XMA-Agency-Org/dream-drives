@@ -25,7 +25,7 @@ export default function BrandGrid({ brands }: BrandProps) {
       {brands.map((brand) => (
         <div
           key={brand.name}
-          className="flex items-center justify-center p-6 rounded-lg border border-secondary-200 dark:border-secondary-800 bg-white dark:bg-secondary-800 opacity-60 hover:opacity-100 transition-opacity duration-300"
+          className="flex items-center justify-center p-6 rounded-lg border border-secondary-200 dark:border-secondary-800 bg-white dark:bg-secondary-800 opacity-80 hover:opacity-100 transition-opacity duration-300"
         >
           <div className="h-20 flex items-center justify-center">
             {/* Using explicit sizing with the component */}
