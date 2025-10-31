@@ -4,7 +4,7 @@ import Button from "@/components/ui/Button";
 import StepCard from "./StepCard";
 import SectionHeader from "@/components/ui/SectionHeader";
 import BrandGrid from "./BrandGrid";
-import Mercedes from "@/public/brands/Mercedes-Benz-logo-2009-1920x1080.png"
+import Mercedes from "@/public/brands/light-mode/mercedes-lm.png"
 import Bentley from "@/public/brands/bentley-logo-2002-download.png"
 import Rollsroyce from "@/public/brands/light-mode/rolls-royce-lm.png"
 import Bmw from "@/public/brands/light-mode/BMW-logo-lm.png"
