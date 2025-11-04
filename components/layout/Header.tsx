@@ -36,12 +36,11 @@ interface NavItem {
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [activeMobileDropdown, setActiveMobileDropdown] = useState<
     string | null
   >(null);
   const [brands, setBrands] = useState<Array<{ id: string; label: string }>>(
-    [],
+    []
   );
 
   // Updated navigation items for a luxury car rental service
@@ -84,24 +83,6 @@ const Header: React.FC = () => {
     fetchBrands();
   }, []);
 
-  // Handle scroll effect
-  useEffect(() => {
-    // Check the scroll position immediately when component mounts
-    const checkInitialScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-
-    // Run once on mount to set the correct initial state
-    checkInitialScroll();
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   // Toggle mobile dropdown
   const toggleMobileDropdown = (label: string) => {
     setActiveMobileDropdown(activeMobileDropdown === label ? null : label);
@@ -114,11 +95,8 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/90 dark:bg-secondary-950/90 shadow-sm md:backdrop-blur-sm py-3"
-          : "bg-transparent py-5"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white py-4"
+      style={{ boxShadow: "0 2px 0 0 #E7E7E7" }}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
@@ -146,7 +124,7 @@ const Header: React.FC = () => {
               <div key={item.label} className="relative group">
                 {item.children ? (
                   <button
-                    className={`px-4 py-2 text-sm font-medium rounded-md transition-colors flex items-center 
+                    className={`px-4 py-2 text-sm font-semibold rounded-md transition-colors flex items-center 
                       text-secondary-900 dark:text-white
                       hover:text-primary-600 dark:hover:text-primary-400`}
                   >
@@ -156,7 +134,7 @@ const Header: React.FC = () => {
                 ) : (
                   <Link
                     href={item.href}
-                    className={`px-4 py-2 text-sm font-medium rounded-md transition-colors
+                    className={`px-4 py-2 text-sm font-semibold rounded-md transition-colors
                       text-secondary-900 dark:text-white
                       hover:text-primary-600 dark:hover:text-primary-400`}
                   >
@@ -227,13 +205,9 @@ const Header: React.FC = () => {
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <X
-                className={`h-6 w-6 text-secondary-900 dark:text-white`}
-              />
+              <X className={`h-6 w-6 text-secondary-900 dark:text-white`} />
             ) : (
-              <Menu
-                className={`h-6 w-6 text-secondary-900 dark:text-white`}
-              />
+              <Menu className={`h-6 w-6 text-secondary-900 dark:text-white`} />
             )}
           </button>
         </div>
@@ -265,7 +239,7 @@ const Header: React.FC = () => {
                   <div>
                     <button
                       onClick={() => toggleMobileDropdown(item.label)}
-                      className="flex items-center justify-between w-full py-4 text-secondary-900 dark:text-white font-medium"
+                      className="flex items-center justify-between w-full py-4 text-secondary-900 dark:text-white font-semibold"
                     >
                       {item.label}
                       <ChevronDown
@@ -296,7 +270,7 @@ const Header: React.FC = () => {
                 ) : (
                   <Link
                     href={item.href}
-                    className="block py-4 text-secondary-900 dark:text-white font-medium"
+                    className="block py-4 text-secondary-900 dark:text-white font-semibold"
                     onClick={closeMobileMenu}
                   >
                     {item.label}
@@ -332,15 +306,21 @@ function getBrandIcon(brandId: string) {
     mercedes: <MBIcon className={baseClassName} />,
     "mercedes-benz": <MBIcon className={baseClassName} />,
     bentley: <BentleyIcon className={baseClassName} />,
-    "rolls-royce": (
-      <RollsRoyceIcon className={baseClassName} />
-    ),
+    "rolls-royce": <RollsRoyceIcon className={baseClassName} />,
     "land-rover": <LandroverIcon className={baseClassName} />,
     "range-rover": <LandroverIcon className={baseClassName} />,
     lamborghini: <LamborghiniIcon className={baseClassName} />,
     ferrari: <FerrariLogo className={baseClassName} />,
     audi: <AudiIcon className={baseClassName} />,
-    bmw: <Image src={BMW} width={20} height={50} alt="BMW" className={baseClassName} />,
+    bmw: (
+      <Image
+        src={BMW}
+        width={20}
+        height={50}
+        alt="BMW"
+        className={baseClassName}
+      />
+    ),
     porsche: <PorscheIcon className={baseClassName} />,
     toyota: <ToyotaIcon className={baseClassName} />,
     kia: <KiaIcon className={baseClassName} />,
