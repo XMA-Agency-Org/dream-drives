@@ -70,13 +70,13 @@ export default function HeroSection() {
         {/* Search Bar - Centered below both columns */}
         <div className="relative z-20 mt-8 flex justify-center">
           <div
-            className="bg-white rounded-xl p-3 flex items-center w-full max-w-xl"
+            className="bg-white rounded-xl py-3 px-4 flex items-center w-full max-w-xl"
             style={{ boxShadow: "0 1px 2px rgba(0, 0, 0, 0.09)" }}
           >
             <input
               type="text"
               placeholder="Car brand, model, and etc."
-              className="flex-1 px-6 py-5 text-base font-bold bg-transparent border-none outline-none focus:ring-0 text-gray-900 placeholder:text-gray-900 placeholder:font-bold"
+              className="flex-1 text-base font-bold bg-transparent border-none outline-none focus:ring-0 text-gray-900 placeholder:text-gray-900 placeholder:font-bold"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyPress={handleKeyPress}
@@ -97,4 +97,3 @@ export default function HeroSection() {
     </div>
   );
 }
-

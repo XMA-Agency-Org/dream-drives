@@ -6,8 +6,8 @@ export default function HowItWorksSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <p className="text-md text-gray-500 mb-2">How it Works</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-950">
+          <p className="text-md text-[#6B7C85] mb-2">How it Works</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-950">
             Follow 3 easy steps
           </h2>
         </div>
@@ -58,8 +58,7 @@ export default function HowItWorksSection() {
                 Book your car
               </h3>
               <p className="text-sm text-gray-500 leading-relaxed">
-                Know your offer: Deal ratings on new and used listings near
-                you
+                Know your offer: Deal ratings on new and used listings near you
               </p>
             </div>
           </div>
@@ -68,4 +67,3 @@ export default function HowItWorksSection() {
     </section>
   );
 }
-

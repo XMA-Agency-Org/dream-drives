@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function BrandTeaser() {
   return (
-    <section className="pb-16 pt-8 bg-white">
+    <section className="pt-8 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Card - Rental Deals */}

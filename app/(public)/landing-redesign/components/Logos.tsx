@@ -5,6 +5,9 @@ import Rollsroyce from "@/public/brands/light-mode/rolls-royce-lm.png";
 import Bmw from "@/public/brands/light-mode/BMW-logo-lm.png";
 import Lamborghini from "@/public/brands/lamborghini.svg";
 import Porsche from "@/public/brands/porsche-logo-2014-download.png";
+import Audi from "@/public/brands/audi-logo-2016-download.png";
+import Ferrari from "@/public/brands/ferrari-logo-2002-download.png";
+import Toyota from "@/public/brands/toyota.png";
 
 const brands = [
   { name: "Mercedes-Benz", icon: Mercedes },
@@ -13,6 +16,9 @@ const brands = [
   { name: "BMW", icon: Bmw },
   { name: "Lamborghini", icon: Lamborghini },
   { name: "Porsche", icon: Porsche },
+  { name: "Audi", icon: Audi },
+  { name: "Ferrari", icon: Ferrari },
+  { name: "Toyota", icon: Toyota },
 ];
 
 export default function Logos() {
@@ -37,4 +43,3 @@ export default function Logos() {
     </div>
   );
 }
-
