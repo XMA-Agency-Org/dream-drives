@@ -66,7 +66,7 @@ export default function SortDropdown({ currentSort }: SortDropdownProps) {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 bg-white dark:bg-secondary-800 border border-secondary-200 dark:border-secondary-700 rounded-lg px-3 py-2 text-sm font-medium text-secondary-900 dark:text-white hover:bg-secondary-50 dark:hover:bg-secondary-700 transition-colors"
+        className="flex items-center space-x-2 bg-white dark:bg-secondary-800 border border-secondary-200 dark:border-secondary-700 rounded-lg px-3 py-2 text-sm font-medium text-secondary-900 dark:text-white hover:bg-secondary-50 dark:hover:bg-secondary-700 transition-colors cursor-pointer"
         aria-label="Sort vehicles"
       >
         <span className="flex items-center">
@@ -77,16 +77,16 @@ export default function SortDropdown({ currentSort }: SortDropdownProps) {
       </button>
       
       {isOpen && (
-        <div className="absolute right-0 z-10 mt-2 w-60 rounded-md bg-white dark:bg-secondary-800 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <div className="absolute right-0 z-10 mt-2 w-60 card card-shadow focus:outline-none">
           <div className="py-1">
             {sortOptions.map((option) => (
               <button
                 key={option.id}
                 onClick={() => handleSortChange(option.id)}
-                className={`flex items-center w-full px-4 py-2 text-sm ${
+                className={`flex items-center w-full px-4 py-2 text-sm transition-colors cursor-pointer ${
                   currentSort === option.id
-                    ? "bg-secondary-100 dark:bg-secondary-700 text-primary-600 dark:text-primary-400 font-medium"
-                    : "text-secondary-700 dark:text-secondary-300 hover:bg-secondary-50 dark:hover:bg-secondary-700"
+                    ? "bg-accent-50 dark:bg-accent-900/30 text-accent-600 dark:text-accent-400 font-medium"
+                    : "text-body hover:bg-secondary-50 dark:hover:bg-secondary-700"
                 }`}
               >
                 <span className="mr-2">{option.icon}</span>

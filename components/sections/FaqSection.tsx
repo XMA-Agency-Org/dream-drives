@@ -44,47 +44,47 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="pb-20 bg-white">
-      <div className="landing-container max-w-6xl">
+    <section className="section bg-white dark:bg-secondary-950">
+      <div className="container-default max-w-6xl">
         {/* Header */}
-        <div className="landing-section-header">
-          <p className="landing-section-subtitle">Faq</p>
-          <h2 className="landing-section-title">Popular Questions</h2>
+        <div className="section-header">
+          <p className="subtitle">Faq</p>
+          <h2 className="title-section">Popular Questions</h2>
         </div>
 
         {/* FAQ Items */}
         <div className="space-y-2">
           {faqItems.map((item, index) => (
-            <div key={index} className="landing-faq-item">
+            <div key={index} className="accordion-item">
               <button
                 onClick={() => toggleFaq(index)}
-                className="landing-faq-button group"
+                className="accordion-button group"
                 aria-expanded={openIndex === index}
               >
-                <h3 className="landing-faq-title">{item.question}</h3>
+                <h3 className="accordion-title">{item.question}</h3>
                 <div
-                  className={`landing-faq-icon-container ${
+                  className={`accordion-icon-container ${
                     openIndex === index
-                      ? "landing-faq-icon-container-active"
-                      : "landing-faq-icon-container-inactive"
+                      ? "accordion-icon-active"
+                      : "accordion-icon-inactive"
                   }`}
                 >
                   <ChevronDown
                     className={`w-5 h-5 transition-all duration-200 ${
                       openIndex === index
-                        ? "rotate-180 text-white"
-                        : "text-black"
+                        ? "rotate-180 text-white dark:text-secondary-900"
+                        : "text-black dark:text-white"
                     }`}
                   />
                 </div>
               </button>
 
               <div
-                className={`landing-faq-content ${
+                className={`accordion-content ${
                   openIndex === index ? "max-h-96" : "max-h-0"
                 }`}
               >
-                <div className="landing-faq-answer">{item.answer}</div>
+                <div className="accordion-body">{item.answer}</div>
               </div>
             </div>
           ))}

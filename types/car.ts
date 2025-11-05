@@ -50,6 +50,8 @@ export interface ContentfulVehicle {
 // Legacy interfaces for backward compatibility
 export interface CarSpecs {
   acceleration: string;
+  topSpeed?: string;
+  driveTrain?: string;
   fuelConsumption?: string;
   features: string[];
 }

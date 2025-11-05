@@ -2,27 +2,27 @@ import Image from "next/image";
 
 export default function BrandTeaser() {
   return (
-    <section className="landing-section-sm">
-      <div className="landing-container">
+    <section className="section-sm">
+      <div className="container-default">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Card */}
-          <div className="landing-card h-[500px] group">
+          <div className="card-image h-[500px] group">
             <Image
-              src="/landing-redesign/5DRqsrNraWafPJYylxJFw7hnnXQ.jpeg"
+              src="/landing-redesign/ahmed-aldaie-lVSrpZ-0B8o-unsplash-opt.jpg"
               alt="Luxury car on city street"
               fill
               className="object-cover"
             />
             {/* Overlay */}
-            <div className="landing-card-overlay"></div>
+            <div className="card-overlay"></div>
 
             {/* Content */}
             <div className="absolute top-8 left-8 right-8">
-              <div className="landing-card-content-dark">
-                <h3 className="landing-card-title-white">
+              <div className="card-primary">
+                <h3 className="title-card-white mb-2">
                   Experience luxury car rentals in Dubai
                 </h3>
-                <p className="landing-card-description-white">
+                <p className="text-white opacity-90 text-sm leading-relaxed">
                   Dream Drives offers an exclusive collection of premium and
                   luxury vehicles in Dubai. From exotic supercars to elegant
                   sedans, discover the perfect car for your journey through the
@@ -33,23 +33,23 @@ export default function BrandTeaser() {
           </div>
 
           {/* Right Card */}
-          <div className="landing-card h-[500px] group">
+          <div className="card-image h-[500px] group">
             <Image
-              src="/landing-redesign/qcHmEYofDfhcS57d0hEjJHIjiUo.jpeg"
+              src="/landing-redesign/zafeerah-heesambee-bXsJnwcIykw-unsplash.jpg"
               alt="Premium car rental service in Dubai"
               fill
               className="object-cover"
             />
             {/* Overlay */}
-            <div className="landing-card-overlay"></div>
+            <div className="card-overlay"></div>
 
             {/* Content */}
             <div className="absolute bottom-8 left-8 right-8">
-              <div className="landing-card-content-medium">
-                <h3 className="landing-card-title-white">
+              <div className="card-primary-light">
+                <h3 className="title-card-white mb-2">
                   Transparent pricing across Dubai
                 </h3>
-                <p className="landing-card-description-white">
+                <p className="text-white opacity-90 text-sm leading-relaxed">
                   All our rentals include comprehensive insurance, 24/7 roadside
                   assistance, flexible pick-up and drop-off locations across
                   Dubai, and dedicated customer support throughout your rental

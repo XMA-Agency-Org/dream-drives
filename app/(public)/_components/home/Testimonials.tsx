@@ -77,31 +77,29 @@ export default function Testimonials() {
   }, [currentIndex]);
 
   return (
-    <section className="py-24 bg-secondary-50 dark:bg-secondary-950 relative overflow-hidden">
+    <section className="section-lg bg-secondary-50 dark:bg-secondary-950 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
         {/* Gradient background */}
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary-50/30 to-transparent dark:from-primary-900/10 dark:to-transparent"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-accent-50/30 to-transparent dark:from-accent-900/10 dark:to-transparent"></div>
         
         {/* Decorative quotes */}
-        <div className="absolute top-20 left-20 text-primary-200/10 dark:text-primary-900/10">
+        <div className="absolute top-20 left-20 text-accent-200/10 dark:text-accent-900/10">
           <Quote size={120} />
         </div>
-        <div className="absolute bottom-20 right-20 text-primary-200/10 dark:text-primary-900/10 transform rotate-180">
+        <div className="absolute bottom-20 right-20 text-accent-200/10 dark:text-accent-900/10 transform rotate-180">
           <Quote size={120} />
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
+      <div className="container-default">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-800 text-primary-700 dark:text-primary-300 text-sm font-medium mb-4">
-            Client Experiences
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-white mb-6">
+        <div className="section-header">
+          <p className="subtitle">Client Experiences</p>
+          <h2 className="title-section mb-6">
             Exceptional Service, Memorable Journeys
           </h2>
-          <p className="text-secondary-600 dark:text-secondary-400 text-lg">
+          <p className="text-body text-muted max-w-2xl mx-auto">
             Discover what our distinguished clients have to say about their Dream Drives Luxury experience
           </p>
         </div>
@@ -111,7 +109,7 @@ export default function Testimonials() {
           {/* Main Testimonial */}
           <div 
             ref={testimonialsRef}
-            className="flex flex-col lg:flex-row items-center bg-white dark:bg-secondary-900 rounded-2xl p-6 md:p-8 shadow-xl"
+            className="flex flex-col lg:flex-row items-center card card-shadow card-body-lg"
           >
             {/* Left side - Image */}
             <div className="w-full lg:w-1/3 mb-8 lg:mb-0 lg:pr-8">
@@ -126,16 +124,16 @@ export default function Testimonials() {
                 
                 {/* Rating on image */}
                 <div className="absolute bottom-4 left-4 flex items-center">
-                  <div className="bg-white dark:bg-secondary-800 rounded-full px-3 py-1 flex items-center shadow-md">
+                  <div className="badge-pill bg-white dark:bg-secondary-800 shadow-md">
                     <div className="flex">
                       {[...Array(5)].map((_, i) => (
                         <Star
                           key={i}
-                          className={`w-4 h-4 ${i < Math.floor(testimonials[currentIndex].rating) ? "text-yellow-400 fill-yellow-400" : "text-secondary-300"}`}
+                          className={`w-4 h-4 ${i < Math.floor(testimonials[currentIndex].rating) ? "text-warning-400 fill-warning-400" : "text-secondary-300"}`}
                         />
                       ))}
                     </div>
-                    <span className="ml-2 font-bold text-secondary-900 dark:text-white">
+                    <span className="font-bold text-secondary-900 dark:text-white">
                       {testimonials[currentIndex].rating.toFixed(1)}
                     </span>
                   </div>
@@ -147,14 +145,14 @@ export default function Testimonials() {
                 <h4 className="text-lg font-bold text-secondary-900 dark:text-white">
                   {testimonials[currentIndex].name}
                 </h4>
-                <p className="text-primary-600 dark:text-primary-400 text-sm">
+                <p className="text-accent-600 dark:text-accent-400 text-sm">
                   {testimonials[currentIndex].position}
                 </p>
-                <p className="text-secondary-500 dark:text-secondary-400 text-xs mt-1">
+                <p className="text-muted text-xs mt-1">
                   {testimonials[currentIndex].location}
                 </p>
                 {testimonials[currentIndex].carRented && (
-                  <p className="text-secondary-600 dark:text-secondary-500 text-xs mt-2 italic">
+                  <p className="text-muted text-xs mt-2 italic">
                     Vehicle: {testimonials[currentIndex].carRented}
                   </p>
                 )}
@@ -164,18 +162,18 @@ export default function Testimonials() {
             {/* Right side - Content */}
             <div className="w-full lg:w-2/3">
               <div className="relative">
-                <div className="absolute -top-6 -left-6 text-primary-200 dark:text-primary-800">
+                <div className="absolute -top-6 -left-6 text-accent-200 dark:text-accent-800">
                   <Quote size={48} />
                 </div>
                 
                 <div className="pt-8 pl-8">
-                  <p className="text-secondary-700 dark:text-secondary-300 text-lg italic leading-relaxed mb-8">
+                  <p className="text-body text-muted italic leading-relaxed mb-8">
                     {testimonials[currentIndex].text}
                   </p>
                   
                   {/* Person info - desktop */}
                   <div className="hidden lg:flex items-center">
-                    <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-primary-200 dark:border-primary-800">
+                    <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-accent-200 dark:border-accent-800">
                       <Image
                         src={testimonials[currentIndex].image || "/testimonials/default.jpg"}
                         alt={testimonials[currentIndex].name}
@@ -188,16 +186,16 @@ export default function Testimonials() {
                         {testimonials[currentIndex].name}
                       </h4>
                       <div className="flex flex-col md:flex-row md:items-center">
-                        <span className="text-primary-600 dark:text-primary-400 text-sm">
+                        <span className="text-accent-600 dark:text-accent-400 text-sm">
                           {testimonials[currentIndex].position}
                         </span>
                         <span className="hidden md:block mx-2 text-secondary-400">•</span>
-                        <span className="text-secondary-500 dark:text-secondary-400 text-sm">
+                        <span className="text-muted text-sm">
                           {testimonials[currentIndex].location}
                         </span>
                       </div>
                       {testimonials[currentIndex].carRented && (
-                        <span className="text-secondary-600 dark:text-secondary-500 text-xs italic">
+                        <span className="text-muted text-xs italic">
                           Vehicle: {testimonials[currentIndex].carRented}
                         </span>
                       )}
@@ -213,7 +211,7 @@ export default function Testimonials() {
             <div className="flex space-x-2">
               <button
                 onClick={handlePrev}
-                className="p-2 rounded-full bg-white dark:bg-secondary-800 text-secondary-600 dark:text-secondary-400 hover:text-primary-600 dark:hover:text-primary-400 shadow-md transition-colors"
+                className="btn-icon bg-white dark:bg-secondary-800 text-secondary-600 dark:text-secondary-400 hover:text-accent-600 dark:hover:text-accent-400 shadow-md transition-colors"
                 disabled={animating}
                 aria-label="Previous testimonial"
               >
@@ -221,7 +219,7 @@ export default function Testimonials() {
               </button>
               <button
                 onClick={handleNext}
-                className="p-2 rounded-full bg-white dark:bg-secondary-800 text-secondary-600 dark:text-secondary-400 hover:text-primary-600 dark:hover:text-primary-400 shadow-md transition-colors"
+                className="btn-icon bg-white dark:bg-secondary-800 text-secondary-600 dark:text-secondary-400 hover:text-accent-600 dark:hover:text-accent-400 shadow-md transition-colors"
                 disabled={animating}
                 aria-label="Next testimonial"
               >
@@ -236,7 +234,7 @@ export default function Testimonials() {
                   key={index}
                   className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                     currentIndex === index 
-                      ? "bg-primary-600 dark:bg-primary-400 w-6" 
+                      ? "bg-accent-600 dark:bg-accent-400 w-6" 
                       : "bg-secondary-300 dark:bg-secondary-700"
                   }`}
                   onClick={() => !animating && setCurrentIndex(index)}

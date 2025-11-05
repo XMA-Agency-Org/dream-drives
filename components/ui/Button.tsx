@@ -2,9 +2,9 @@ import { ButtonHTMLAttributes, AnchorHTMLAttributes, ReactNode, forwardRef } fro
 import { cn } from '@/lib/utils';
 import { Loader2 } from 'lucide-react';
 
-// Base button properties
+// Base button properties - mapped to design system classes
 interface BaseButtonProps {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'link';
+  variant?: 'primary' | 'secondary' | 'accent' | 'outline' | 'ghost' | 'ghost-accent' | 'black' | 'white';
   size?: 'sm' | 'md' | 'lg';
   isLoading?: boolean;
   isDisabled?: boolean;
@@ -50,37 +50,31 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
     },
     ref
   ) => {
-    // Base styles for all button variants
-    const baseStyles = cn(
-      'inline-flex items-center justify-center font-medium rounded-md transition-colors',
-      'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500',
-      'disabled:opacity-60 disabled:pointer-events-none',
+    // Map to design system classes from components.css
+    const baseClass = 'btn';
+    
+    // Size variations - use design system btn-* classes
+    const sizeClass = size === 'sm' ? 'btn-sm' : size === 'lg' ? 'btn-lg' : 'btn-md';
+
+    // Variant styles - use design system btn-* classes
+    const variantClass = variant === 'primary' ? 'btn-primary'
+      : variant === 'secondary' ? 'btn-secondary'
+      : variant === 'accent' ? 'btn-accent'
+      : variant === 'black' ? 'btn-black'
+      : variant === 'white' ? 'btn-white'
+      : variant === 'outline' ? 'btn-outline'
+      : variant === 'ghost' ? 'btn-ghost'
+      : variant === 'ghost-accent' ? 'btn-ghost-accent'
+      : 'btn-primary';
+
+    const buttonStyles = cn(
+      baseClass,
+      sizeClass,
+      variantClass,
       {
         'w-full': fullWidth,
         'opacity-60 pointer-events-none': isLoading || isDisabled,
-      }
-    );
-
-    // Size variations
-    const sizeStyles = {
-      sm: 'px-3 py-1.5 text-sm',
-      md: 'px-4 py-2 text-base',
-      lg: 'px-6 py-3 text-lg',
-    };
-
-    // Variant styles
-    const variantStyles = {
-      primary: 'bg-primary-600 text-white hover:bg-primary-700',
-      secondary: 'bg-secondary-600 text-white hover:bg-secondary-700',
-      outline: 'border border-secondary-300 dark:border-gray-700 text-secondary-900 dark:text-secondary-100 bg-transparent hover:bg-secondary-100 dark:hover:bg-gray-800',
-      ghost: 'text-secondary-600 dark:text-gray-300 hover:bg-secondary-100 dark:hover:bg-gray-100 hover:text-secondary-900 dark:hover:text-gray-900',
-      link: 'text-primary-600 hover:text-primary-700 hover:underline p-0 bg-transparent',
-    };
-
-    const buttonStyles = cn(
-      baseStyles,
-      sizeStyles[size],
-      variantStyles[variant],
+      },
       className
     );
 

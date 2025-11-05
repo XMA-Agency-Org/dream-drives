@@ -23,36 +23,65 @@ export function formatBrandName(brand: string): string {
 }
 
 /**
- * Gets the CSS classes for brand badge styling
+ * Gets the brand logo path for a given brand
+ * Only returns logos that actually exist in /public/brands/
  */
-export function getBrandStyle(brand: string): string {
+export function getBrandLogo(brand: string): string | null {
+  // Map brands to their logo file paths (only logos that actually exist)
   switch (brand) {
     case "mercedes":
-      return "bg-secondary-100 text-secondary-800";
-    case "bentley":
-      return "bg-green-50 text-green-800";
-    case "rolls-royce":
-      return "bg-purple-50 text-purple-800";
-    case "range-rover":
-      return "bg-green-50 text-green-800";
-    case "porsche":
-      return "bg-red-50 text-red-800";
-    case "ferrari":
-      return "bg-red-50 text-red-800";
-    case "lamborghini":
-      return "bg-yellow-50 text-yellow-800";
+      return "/brands/Mercedes-Benz-logo-2009-1920x1080.png";
     case "bmw":
-      return "bg-blue-50 text-blue-800";
+      return "/brands/bmw-logo-2020-white-download.png";
     case "audi":
-      return "bg-gray-100 text-gray-800";
-    case "cadillac":
-      return "bg-secondary-100 text-secondary-800";
-    case "mini":
-      return "bg-red-50 text-red-800";
-    case "gmc":
-      return "bg-orange-50 text-orange-800";
+      return "/brands/audi-logo-2016-download.png";
+    case "bentley":
+      return "/brands/bentley-logo-2002-download.png";
+    case "rolls-royce":
+      return "/brands/Rolls-Royce-RR-logo-1920x1080.png";
+    case "porsche":
+      return "/brands/porsche-logo-2014-download.png";
+    case "ferrari":
+      return "/brands/ferrari-logo-2002-download.png";
+    case "lamborghini":
+      return "/brands/lamborghini.svg";
+    case "toyota":
+      return "/brands/toyota.png";
+    // Brands without logos will show text badge fallback:
+    // mini, gmc, range-rover, chevrolet, cadillac, nissan, kia, mitsubishi, fiat
     default:
-      return "bg-blue-50 text-blue-800";
+      return null;
+  }
+}
+
+/**
+ * Gets the CSS classes for brand badge styling
+ * Using design system badge classes for consistency
+ * @deprecated - Use getBrandLogo() instead for displaying brand images
+ */
+export function getBrandStyle(brand: string): string {
+  // Map brands to design system badge classes
+  switch (brand) {
+    case "mercedes":
+    case "bmw":
+    case "audi":
+    case "cadillac":
+      return "badge badge-secondary";
+    case "bentley":
+    case "range-rover":
+      return "badge badge-success";
+    case "rolls-royce":
+      return "badge badge-primary";
+    case "porsche":
+    case "ferrari":
+    case "mini":
+      return "badge badge-error";
+    case "lamborghini":
+      return "badge badge-warning";
+    case "gmc":
+      return "badge badge-accent";
+    default:
+      return "badge badge-secondary";
   }
 }
 

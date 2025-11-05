@@ -20,7 +20,7 @@ export default function ContactForm() {
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
+    >
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -49,9 +49,9 @@ export default function ContactForm() {
         message: "",
         vehicleInterest: "not-specified",
       });
-    } catch (err) {
+    } catch {
       setError(
-        "There was an error submitting your message. Please try again later.",
+        "There was an error submitting your message. Please try again later."
       );
     } finally {
       setIsSubmitting(false);
@@ -60,8 +60,8 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800 rounded-lg p-6 text-center">
-        <div className="inline-flex items-center justify-center bg-primary-100 dark:bg-primary-900/40 text-primary-600 dark:text-primary-400 p-3 rounded-full mb-4">
+      <div className="card card-bordered p-6 text-center bg-accent-50 dark:bg-accent-900/20 border-accent-200 dark:border-accent-800">
+        <div className="inline-flex items-center justify-center bg-accent-100 dark:bg-accent-900/40 text-accent-600 dark:text-accent-400 p-3 rounded-full mb-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -77,16 +77,14 @@ export default function ContactForm() {
             <polyline points="22 4 12 14.01 9 11.01" />
           </svg>
         </div>
-        <h3 className="text-xl font-semibold text-secondary-900 dark:text-white mb-2">
-          Thank You!
-        </h3>
-        <p className="text-secondary-600 dark:text-secondary-400 mb-4">
+        <h3 className="title-card mb-2">Thank You!</h3>
+        <p className="text-muted mb-4">
           Your message has been received. Our team at Business Bay will get back
           to you shortly.
         </p>
         <button
           onClick={() => setSubmitted(false)}
-          className="text-primary-600 dark:text-primary-400 font-medium hover:text-primary-700 dark:hover:text-primary-300"
+          className="text-accent-600 dark:text-accent-400 font-medium hover:text-accent-700 dark:hover:text-accent-300 transition-colors"
         >
           Send another message
         </button>
@@ -95,14 +93,11 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <form onSubmit={handleSubmit} className="space-y-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
-          <label
-            htmlFor="name"
-            className="block text-secondary-700 dark:text-secondary-300 mb-2 font-medium"
-          >
-            Full Name <span className="text-red-500">*</span>
+          <label htmlFor="name" className="form-label">
+            Full Name <span className="text-error-500">*</span>
           </label>
           <input
             id="name"
@@ -111,17 +106,14 @@ export default function ContactForm() {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 rounded-lg border border-secondary-300 dark:border-secondary-700 bg-white dark:bg-secondary-900 text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400"
-            placeholder="Your full name"
+            className="form-input"
+            placeholder="John Doe"
           />
         </div>
 
         <div>
-          <label
-            htmlFor="email"
-            className="block text-secondary-700 dark:text-secondary-300 mb-2 font-medium"
-          >
-            Email <span className="text-red-500">*</span>
+          <label htmlFor="email" className="form-label">
+            Email <span className="text-error-500">*</span>
           </label>
           <input
             id="email"
@@ -130,18 +122,15 @@ export default function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 rounded-lg border border-secondary-300 dark:border-secondary-700 bg-white dark:bg-secondary-900 text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400"
-            placeholder="Your email address"
+            className="form-input"
+            placeholder="john@example.com"
           />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
-          <label
-            htmlFor="phone"
-            className="block text-secondary-700 dark:text-secondary-300 mb-2 font-medium"
-          >
+          <label htmlFor="phone" className="form-label">
             Phone Number
           </label>
           <input
@@ -150,16 +139,13 @@ export default function ContactForm() {
             type="tel"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg border border-secondary-300 dark:border-secondary-700 bg-white dark:bg-secondary-900 text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400"
-            placeholder="Your phone number"
+            className="form-input"
+            placeholder="+971 50 123 4567"
           />
         </div>
 
         <div>
-          <label
-            htmlFor="vehicleInterest"
-            className="block text-secondary-700 dark:text-secondary-300 mb-2 font-medium"
-          >
+          <label htmlFor="vehicleInterest" className="form-label">
             Vehicle Interest
           </label>
           <select
@@ -167,7 +153,7 @@ export default function ContactForm() {
             name="vehicleInterest"
             value={formData.vehicleInterest}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg border border-secondary-300 dark:border-secondary-700 bg-white dark:bg-secondary-900 text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400"
+            className="form-select"
           >
             <option value="not-specified">Not Specified</option>
             <option value="luxury">Luxury Sedans</option>
@@ -180,11 +166,8 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label
-          htmlFor="subject"
-          className="block text-secondary-700 dark:text-secondary-300 mb-2 font-medium"
-        >
-          Subject <span className="text-red-500">*</span>
+        <label htmlFor="subject" className="form-label">
+          Subject <span className="text-error-500">*</span>
         </label>
         <input
           id="subject"
@@ -193,17 +176,14 @@ export default function ContactForm() {
           value={formData.subject}
           onChange={handleChange}
           required
-          className="w-full px-4 py-3 rounded-lg border border-secondary-300 dark:border-secondary-700 bg-white dark:bg-secondary-900 text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400"
-          placeholder="What's this regarding?"
+          className="form-input"
+          placeholder="How can we help you?"
         />
       </div>
 
       <div>
-        <label
-          htmlFor="message"
-          className="block text-secondary-700 dark:text-secondary-300 mb-2 font-medium"
-        >
-          Message <span className="text-red-500">*</span>
+        <label htmlFor="message" className="form-label">
+          Message <span className="text-error-500">*</span>
         </label>
         <textarea
           id="message"
@@ -211,33 +191,30 @@ export default function ContactForm() {
           value={formData.message}
           onChange={handleChange}
           required
-          rows={6}
-          className="w-full px-4 py-3 rounded-lg border border-secondary-300 dark:border-secondary-700 bg-white dark:bg-secondary-900 text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400"
-          placeholder="How can we help you?"
+          rows={5}
+          className="form-textarea"
+          placeholder="Tell us about your rental needs..."
         />
       </div>
 
       {error && (
-        <div className="bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-300 p-4 rounded-lg">
+        <div className="bg-error-50 dark:bg-error-900/20 text-error-700 dark:text-error-300 px-4 py-3 rounded-xl border border-error-200 dark:border-error-800 text-sm">
           {error}
         </div>
       )}
 
-      <div className="flex items-center">
+      <div className="flex items-start gap-3 pt-1">
         <input
           id="privacy"
           type="checkbox"
           required
-          className="h-4 w-4 text-primary-600 dark:text-primary-400 border-secondary-300 dark:border-secondary-700 rounded focus:ring-primary-500 dark:focus:ring-primary-400"
+          className="mt-0.5 h-4 w-4 text-accent-600 border-secondary-300 dark:border-secondary-600 rounded focus:ring-2 focus:ring-accent-500 cursor-pointer"
         />
-        <label
-          htmlFor="privacy"
-          className="ml-2 block text-sm text-secondary-600 dark:text-secondary-400"
-        >
+        <label htmlFor="privacy" className="text-sm text-muted cursor-pointer">
           I agree to the{" "}
           <a
             href="/privacy-policy"
-            className="text-primary-600 dark:text-primary-400 hover:underline"
+            className="text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 transition-colors"
           >
             privacy policy
           </a>
@@ -247,7 +224,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full py-3 px-6 rounded-lg bg-primary-600 hover:bg-primary-700 text-white font-medium transition-colors duration-200 disabled:opacity-70 flex items-center justify-center"
+        className="btn btn-ghost-accent w-full"
       >
         {isSubmitting ? (
           <>

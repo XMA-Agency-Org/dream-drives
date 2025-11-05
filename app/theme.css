@@ -1,57 +1,72 @@
-/* Updated theme.css */
+/* Updated theme.css - Unified Design System */
 @theme {
-  /* New modern color palette */
-  /* Primary: Teal-based palette for accents and CTAs */
-  /* --color-primary-50: #f0fdfa; */
-  /* --color-primary-100: #ccfbf1; */
-  /* --color-primary-200: #99f6e4; */
-  /* --color-primary-300: #5eead4; */
-  /* --color-primary-400: #2dd4bf; */
-  /* --color-primary-500: #14b8a6; */
-  /* --color-primary-600: #0d9488; */
-  /* --color-primary-700: #0f766e; */
-  /* --color-primary-800: #115e59; */
-  /* --color-primary-900: #134e4a; */
-  /* --color-primary-950: #042f2e; */
+  /* ============================================
+     SEMANTIC COLOR SYSTEM - 60-30-10 RULE
+     Based on landing-redesign neutral palette
+     ============================================
+     
+     COLOR USAGE GUIDE (60-30-10 RULE):
+     
+     60% NEUTRAL (Secondary)  - Backgrounds, containers, subtle elements
+        - Page backgrounds: bg-white / dark:bg-secondary-950
+        - Section backgrounds: bg-secondary-50 / dark:bg-secondary-900
+        - Card backgrounds: bg-white / dark:bg-secondary-900
+        - Body text: text-secondary-600 / dark:text-secondary-400
+     
+     30% BRAND (Primary)      - Major UI elements, cards, emphasis
+        - Card colored variants: card-primary, card-primary-dark
+        - Branded sections and CTAs
+        - Important feature highlights
+        - Navigation active states
+     
+     10% ACCENT (Accent)      - CTAs, links, icons, highlights
+        - Primary buttons: btn-accent
+        - Links and hover states
+        - Icons in cards/sections
+        - Active states and focus indicators
+        - Badges and status indicators
+     
+     ============================================ */
 
-  --color-primary-50:  var(--color-sky-50); 
-  --color-primary-100: var(--color-sky-100);
-  --color-primary-200: var(--color-sky-200);
-  --color-primary-300: var(--color-sky-300);
-  --color-primary-400: var(--color-sky-400);
-  --color-primary-500: var(--color-sky-500);
-  --color-primary-600: var(--color-sky-600);
-  --color-primary-700: var(--color-sky-700);
-  --color-primary-800: var(--color-sky-800);
-  --color-primary-900: var(--color-sky-900);
-  --color-primary-950: var(--color-sky-950);
+  /* Primary: Main brand colors - sophisticated slate/blue-gray */
+  --color-primary-50: #f8f9fa;
+  --color-primary-100: #f1f3f5;
+  --color-primary-200: #e9ecef;
+  --color-primary-300: #dee2e6;
+  --color-primary-400: #adb5bd;
+  --color-primary-500: #6f828a; /* Card medium from landing */
+  --color-primary-600: #5a6b75; /* Card light from landing */
+  --color-primary-700: #454f53; /* Card dark from landing */
+  --color-primary-800: #343a40;
+  --color-primary-900: #212529;
+  --color-primary-950: #0d0f11;
 
-  /* Secondary:  Slate slate neutrals for backgrounds and text */
-  --color-secondary-50:  var(--color-slate-50); 
-  --color-secondary-100: var(--color-slate-100);
-  --color-secondary-200: var(--color-slate-200);
-  --color-secondary-300: var(--color-slate-300);
-  --color-secondary-400: var(--color-slate-400);
-  --color-secondary-500: var(--color-slate-500);
-  --color-secondary-600: var(--color-slate-600);
-  --color-secondary-700: var(--color-slate-700);
-  --color-secondary-800: var(--color-slate-800);
-  --color-secondary-900: var(--color-slate-900);
-  --color-secondary-950: var(--color-slate-950);
+  /* Secondary: Neutral grays for backgrounds and subtle elements */
+  --color-secondary-50: #fcfcfc; /* BG primary from landing */
+  --color-secondary-100: #f8f9fa;
+  --color-secondary-200: #f2f2f2; /* BG secondary from landing */
+  --color-secondary-300: #e9ecef;
+  --color-secondary-400: #ced4da;
+  --color-secondary-500: #adb5bd;
+  --color-secondary-600: #868e96;
+  --color-secondary-700: #6c757d;
+  --color-secondary-800: #495057;
+  --color-secondary-900: #343a40;
+  --color-secondary-950: #1a1d20;
 
-  /* Accent: Amber highlights for attention and energy */
-  --color-accent-50: #fffbeb;
-  --color-accent-100: #fef3c7;
-  --color-accent-200: #fde68a;
-  --color-accent-300: #fcd34d;
-  --color-accent-400: #fbbf24;
-  --color-accent-500: #f59e0b;
-  --color-accent-600: #d97706;
-  --color-accent-700: #b45309;
-  --color-accent-800: #92400e;
-  --color-accent-900: #78350f;
-  --color-accent-950: #451a03;
-  
+  /* Accent: Sophisticated teal for highlights and CTAs (10% rule) */
+  --color-accent-50: #f0fdfa;
+  --color-accent-100: #ccfbf1;
+  --color-accent-200: #99f6e4;
+  --color-accent-300: #5eead4;
+  --color-accent-400: #2dd4bf;
+  --color-accent-500: #14b8a6; /* Main accent color */
+  --color-accent-600: #0d9488; /* Hover state */
+  --color-accent-700: #0f766e; /* Active state */
+  --color-accent-800: #115e59;
+  --color-accent-900: #134e4a;
+  --color-accent-950: #042f2e;
+
   /* Status colors */
   --color-success-50: #f0fdf4;
   --color-success-100: #dcfce7;
@@ -90,41 +105,84 @@
   --color-error-950: #450a0a;
 
   /* Base colors */
-  --color-black: #000;
-  --color-white: #fff;
+  --color-black: #000000;
+  --color-white: #ffffff;
 
-  /* Typography system */
-  --font-sans: 'var(--font-geist-sans)', Inter, ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'var(--font-geist-mono)', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
-  
-  /* Box shadows - more subtle and modern */
+  /* ============================================
+     TYPOGRAPHY SYSTEM
+     ============================================ */
+  --font-sans: "var(--font-geist-sans)", Inter, ui-sans-serif, system-ui,
+    sans-serif;
+  --font-mono: "var(--font-geist-mono)", ui-monospace, SFMono-Regular, Menlo,
+    Monaco, monospace;
+
+  /* Font sizes - semantic scale */
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.25rem; /* 20px */
+  --text-2xl: 1.5rem; /* 24px */
+  --text-3xl: 1.875rem; /* 30px */
+  --text-4xl: 2.25rem; /* 36px */
+  --text-5xl: 3rem; /* 48px */
+  --text-6xl: 3.75rem; /* 60px */
+  --text-7xl: 4.5rem; /* 72px */
+
+  /* ============================================
+     SPACING SYSTEM
+     ============================================ */
+  --spacing-section: 4rem; /* 64px - between major sections */
+  --spacing-section-sm: 2rem; /* 32px - between minor sections */
+  --spacing-component: 3rem; /* 48px - between components */
+  --spacing-element: 1.5rem; /* 24px - between elements */
+
+  /* ============================================
+     SHADOWS - Subtle and modern
+     ============================================ */
   --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.09);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-  
-  /* Border radius */
-  --radius-xs: 0.125rem;
-  --radius-sm: 0.25rem;
-  --radius-md: 0.375rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 0.75rem;
-  --radius-2xl: 1rem;
-  --radius-3xl: 1.5rem;
+
+  /* ============================================
+     BORDER RADIUS
+     ============================================ */
+  --radius-xs: 0.125rem; /* 2px */
+  --radius-sm: 0.25rem; /* 4px */
+  --radius-md: 0.375rem; /* 6px */
+  --radius-lg: 0.5rem; /* 8px */
+  --radius-xl: 0.75rem; /* 12px */
+  --radius-2xl: 1rem; /* 16px */
+  --radius-3xl: 1.5rem; /* 24px */
   --radius-full: 9999px;
-  
-  /* Transition timing */
+
+  /* ============================================
+     TRANSITIONS
+     ============================================ */
   --transition-fast: 150ms;
+  --transition-base: 200ms;
   --transition-normal: 250ms;
   --transition-slow: 350ms;
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
   --ease-in: cubic-bezier(0.4, 0, 1, 1);
-  
-  /* Other existing values remain unchanged */
-  /* ... */
+  --ease-spring: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* ============================================
+     BORDERS
+     ============================================ */
+  --border-width: 1px;
+  --border-width-2: 2px;
+  --border-color: #cccada;
+  --border-color-light: var(--color-secondary-200);
+  --border-color-dark: var(--color-secondary-300);
 }
 
 /* Additional global styles */
@@ -138,11 +196,27 @@
   body {
     @apply bg-secondary-50 text-secondary-900 dark:bg-secondary-950 dark:text-secondary-100;
     font-feature-settings: "ss01", "ss03", "cv01", "cv02";
+    font-family: var(--font-sans);
   }
-  
+
   /* Modern focus styles */
   *:focus-visible {
-    @apply outline-none ring-2 ring-primary-500 ring-offset-2 ring-offset-white dark:ring-offset-secondary-950;
+    @apply outline-none ring-2 ring-accent-500 ring-offset-2 ring-offset-white dark:ring-offset-secondary-950;
+  }
+
+  /* Headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-extrabold text-secondary-900 dark:text-secondary-50;
+  }
+
+  /* Links */
+  a {
+    @apply transition-colors duration-200;
   }
 }
 

@@ -46,16 +46,16 @@ const FilterSection = ({ title, isOpen, onToggle, children }: FilterSectionProps
   <div className="border-b border-secondary-200 dark:border-secondary-700 py-4">
     <button
       onClick={onToggle}
-      className="flex items-center justify-between w-full text-left font-medium text-secondary-900 dark:text-white"
+      className="flex items-center justify-between w-full text-left font-semibold text-secondary-900 dark:text-white hover:text-accent-600 dark:hover:text-accent-400 transition-colors cursor-pointer"
     >
       {title}
       {isOpen ? (
-        <ChevronUp className="h-5 w-5 text-secondary-500" />
+        <ChevronUp className="h-5 w-5 text-muted" />
       ) : (
-        <ChevronDown className="h-5 w-5 text-secondary-500" />
+        <ChevronDown className="h-5 w-5 text-muted" />
       )}
     </button>
-    {isOpen && <div className="mt-4">{children}</div>}
+    {isOpen && <div className="mt-4 space-y-2">{children}</div>}
   </div>
 );
 
@@ -258,26 +258,19 @@ export default function FilterSidebar() {
             isOpen={openSections.category}
             onToggle={() => toggleSection("category")}
           >
-            <div className="space-y-2">
-              {categories.map((category) => (
-                <div key={category.id} className="flex items-center">
-                  <input
-                    type="radio"
-                    id={`mobile-category-${category.id}`}
-                    name="mobile-category"
-                    className="w-4 h-4 text-primary-600 dark:text-primary-400 border-secondary-300 dark:border-secondary-700 rounded focus:ring-primary-500 dark:focus:ring-primary-400"
-                    checked={currentCategory === category.id}
-                    onChange={() => handleCategoryChange(category.id)}
-                  />
-                  <label
-                    htmlFor={`mobile-category-${category.id}`}
-                    className="ml-2 text-secondary-700 dark:text-secondary-300"
-                  >
-                    {category.label}
-                  </label>
-                </div>
-              ))}
-            </div>
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => handleCategoryChange(category.id)}
+                className={`w-full text-left px-4 py-2.5 rounded-lg transition-all cursor-pointer ${
+                  currentCategory === category.id
+                    ? "bg-accent-50 dark:bg-accent-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 font-medium"
+                    : "bg-secondary-50 dark:bg-secondary-800 border-2 border-transparent hover:border-secondary-300 dark:hover:border-secondary-600 text-body"
+                }`}
+              >
+                {category.label}
+              </button>
+            ))}
           </FilterSection>
 
           <FilterSection
@@ -285,24 +278,19 @@ export default function FilterSidebar() {
             isOpen={openSections.brand}
             onToggle={() => toggleSection("brand")}
           >
-            <div className="space-y-2 max-h-60 overflow-y-auto">
+            <div className="max-h-60 overflow-y-auto pr-1 space-y-2">
               {brands.map((brand) => (
-                <div key={brand.id} className="flex items-center">
-                  <input
-                    type="radio"
-                    id={`mobile-brand-${brand.id}`}
-                    name="mobile-brand"
-                    className="w-4 h-4 text-primary-600 dark:text-primary-400 border-secondary-300 dark:border-secondary-700 rounded focus:ring-primary-500 dark:focus:ring-primary-400"
-                    checked={currentBrand === brand.id}
-                    onChange={() => handleBrandChange(brand.id)}
-                  />
-                  <label
-                    htmlFor={`mobile-brand-${brand.id}`}
-                    className="ml-2 text-secondary-700 dark:text-secondary-300"
-                  >
-                    {brand.label}
-                  </label>
-                </div>
+                <button
+                  key={brand.id}
+                  onClick={() => handleBrandChange(brand.id)}
+                  className={`w-full text-left px-4 py-2.5 rounded-lg transition-all cursor-pointer ${
+                    currentBrand === brand.id
+                      ? "bg-accent-50 dark:bg-accent-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 font-medium"
+                      : "bg-secondary-50 dark:bg-secondary-800 border-2 border-transparent hover:border-secondary-300 dark:hover:border-secondary-600 text-body"
+                  }`}
+                >
+                  {brand.label}
+                </button>
               ))}
             </div>
           </FilterSection>
@@ -354,31 +342,24 @@ export default function FilterSidebar() {
             isOpen={openSections.passengers}
             onToggle={() => toggleSection("passengers")}
           >
-            <div className="space-y-2">
-              {passengerOptions.map((option) => (
-                <div key={option.value} className="flex items-center">
-                  <input
-                    type="radio"
-                    id={`mobile-passengers-${option.value}`}
-                    name="mobile-passengers"
-                    className="w-4 h-4 text-primary-600 dark:text-primary-400 border-secondary-300 dark:border-secondary-700 rounded focus:ring-primary-500 dark:focus:ring-primary-400"
-                    checked={currentPassengers === option.value}
-                    onChange={() => handlePassengerChange(option.value)}
-                  />
-                  <label
-                    htmlFor={`mobile-passengers-${option.value}`}
-                    className="ml-2 text-secondary-700 dark:text-secondary-300"
-                  >
-                    {option.label}
-                  </label>
-                </div>
-              ))}
-            </div>
+            {passengerOptions.map((option) => (
+              <button
+                key={option.value}
+                onClick={() => handlePassengerChange(option.value)}
+                className={`w-full text-left px-4 py-2.5 rounded-lg transition-all cursor-pointer ${
+                  currentPassengers === option.value
+                    ? "bg-accent-50 dark:bg-accent-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 font-medium"
+                    : "bg-secondary-50 dark:bg-secondary-800 border-2 border-transparent hover:border-secondary-300 dark:hover:border-secondary-600 text-body"
+                }`}
+              >
+                {option.label}
+              </button>
+            ))}
           </FilterSection>
 
           <div className="mt-6 flex space-x-3">
             <Button
-              variant="ghost"
+              variant="outline"
               size="sm"
               fullWidth
               onClick={clearFilters}
@@ -386,7 +367,7 @@ export default function FilterSidebar() {
               Clear All
             </Button>
             <Button
-              variant="primary"
+              variant="accent"
               size="sm"
               fullWidth
               onClick={toggleMobileFilter}
@@ -398,7 +379,7 @@ export default function FilterSidebar() {
       </div>
 
       {/* Desktop Filter Sidebar */}
-      <div className="hidden lg:block sticky top-24 bg-white dark:bg-secondary-900 rounded-xl shadow-sm p-6">
+      <div className="hidden lg:block sticky top-24 card card-shadow card-body">
         <div className="flex justify-between items-center mb-6">
           <h2 className="font-bold text-lg text-secondary-900 dark:text-white">Filters</h2>
           {/* Show clear button if any filters are applied */}
@@ -425,26 +406,19 @@ export default function FilterSidebar() {
           isOpen={openSections.category}
           onToggle={() => toggleSection("category")}
         >
-          <div className="space-y-2">
-            {categories.map((category) => (
-              <div key={category.id} className="flex items-center">
-                <input
-                  type="radio"
-                  id={`category-${category.id}`}
-                  name="category"
-                  className="w-4 h-4 text-primary-600 dark:text-primary-400 border-secondary-300 dark:border-secondary-700 rounded focus:ring-primary-500 dark:focus:ring-primary-400"
-                  checked={currentCategory === category.id}
-                  onChange={() => handleCategoryChange(category.id)}
-                />
-                <label
-                  htmlFor={`category-${category.id}`}
-                  className="ml-2 text-secondary-700 dark:text-secondary-300"
-                >
-                  {category.label}
-                </label>
-              </div>
-            ))}
-          </div>
+          {categories.map((category) => (
+            <button
+              key={category.id}
+              onClick={() => handleCategoryChange(category.id)}
+              className={`w-full text-left px-4 py-2.5 rounded-lg transition-all cursor-pointer ${
+                currentCategory === category.id
+                  ? "bg-accent-50 dark:bg-accent-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 font-medium"
+                  : "bg-secondary-50 dark:bg-secondary-800 border-2 border-transparent hover:border-secondary-300 dark:hover:border-secondary-600 text-body"
+              }`}
+            >
+              {category.label}
+            </button>
+          ))}
         </FilterSection>
 
         <FilterSection
@@ -452,24 +426,19 @@ export default function FilterSidebar() {
           isOpen={openSections.brand}
           onToggle={() => toggleSection("brand")}
         >
-          <div className="space-y-2 max-h-60 overflow-y-auto">
+          <div className="max-h-60 overflow-y-auto pr-1 space-y-2">
             {brands.map((brand) => (
-              <div key={brand.id} className="flex items-center">
-                <input
-                  type="radio"
-                  id={`brand-${brand.id}`}
-                  name="brand"
-                  className="w-4 h-4 text-primary-600 dark:text-primary-400 border-secondary-300 dark:border-secondary-700 rounded focus:ring-primary-500 dark:focus:ring-primary-400"
-                  checked={currentBrand === brand.id}
-                  onChange={() => handleBrandChange(brand.id)}
-                />
-                <label
-                  htmlFor={`brand-${brand.id}`}
-                  className="ml-2 text-secondary-700 dark:text-secondary-300"
-                >
-                  {brand.label}
-                </label>
-              </div>
+              <button
+                key={brand.id}
+                onClick={() => handleBrandChange(brand.id)}
+                className={`w-full text-left px-4 py-2.5 rounded-lg transition-all cursor-pointer ${
+                  currentBrand === brand.id
+                    ? "bg-accent-50 dark:bg-accent-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 font-medium"
+                    : "bg-secondary-50 dark:bg-secondary-800 border-2 border-transparent hover:border-secondary-300 dark:hover:border-secondary-600 text-body"
+                }`}
+              >
+                {brand.label}
+              </button>
             ))}
           </div>
         </FilterSection>
@@ -521,26 +490,19 @@ export default function FilterSidebar() {
           isOpen={openSections.passengers}
           onToggle={() => toggleSection("passengers")}
         >
-          <div className="space-y-2">
-            {passengerOptions.map((option) => (
-              <div key={option.value} className="flex items-center">
-                <input
-                  type="radio"
-                  id={`passengers-${option.value}`}
-                  name="passengers"
-                  className="w-4 h-4 text-primary-600 dark:text-primary-400 border-secondary-300 dark:border-secondary-700 rounded focus:ring-primary-500 dark:focus:ring-primary-400"
-                  checked={currentPassengers === option.value}
-                  onChange={() => handlePassengerChange(option.value)}
-                />
-                <label
-                  htmlFor={`passengers-${option.value}`}
-                  className="ml-2 text-secondary-700 dark:text-secondary-300"
-                >
-                  {option.label}
-                </label>
-              </div>
-            ))}
-          </div>
+          {passengerOptions.map((option) => (
+            <button
+              key={option.value}
+              onClick={() => handlePassengerChange(option.value)}
+              className={`w-full text-left px-4 py-2.5 rounded-lg transition-all cursor-pointer ${
+                currentPassengers === option.value
+                  ? "bg-accent-50 dark:bg-accent-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 font-medium"
+                  : "bg-secondary-50 dark:bg-secondary-800 border-2 border-transparent hover:border-secondary-300 dark:hover:border-secondary-600 text-body"
+              }`}
+            >
+              {option.label}
+            </button>
+          ))}
         </FilterSection>
       </div>
     </>

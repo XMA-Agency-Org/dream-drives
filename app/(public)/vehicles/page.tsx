@@ -32,7 +32,7 @@ export default function VehiclesPage({ searchParams }: VehiclesPageProps) {
         {/* Page Header */}
         <CollectionHeader />
         
-        <div className="max-w-7xl mx-auto px-4 md:px-6 py-12">
+        <div className="container-default py-12">
           {/* Car Collection - Now with modal filtering */}
           <Suspense fallback={<Loading />}>
             <CarCollection searchParams={searchParams} />

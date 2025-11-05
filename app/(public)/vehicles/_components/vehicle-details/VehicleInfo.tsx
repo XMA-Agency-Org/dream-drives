@@ -25,15 +25,11 @@ export default function VehicleInfo({ car }: VehicleInfoProps) {
   const brandName = formatBrandName(car.brand);
 
   return (
-    <div className="bg-white dark:bg-secondary-900 rounded-xl shadow-sm p-6 border border-secondary-200 dark:border-secondary-800">
+    <div className="card card-shadow p-12">
       <div className="flex justify-between items-start mb-4">
         <div>
-          <div className="inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-medium bg-primary-100 dark:bg-primary-900/40 text-primary-800 dark:text-primary-300 mb-2">
-            {brandName}
-          </div>
-          <h1 className="text-2xl font-bold text-secondary-900 dark:text-white mb-2">
-            {car.name}
-          </h1>
+          <div className="badge badge-secondary mb-2">{brandName}</div>
+          <h1 className="title-card-lg mb-2">{car.name}</h1>
           <div className="flex items-center">
             <StarRating
               rating={car.rating}
@@ -49,28 +45,20 @@ export default function VehicleInfo({ car }: VehicleInfoProps) {
       {/* Quick Info */}
       <div className="border-t border-b border-secondary-200 dark:border-secondary-800 py-4 my-4 grid grid-cols-2 gap-y-3">
         <div className="flex items-center">
-          <Users className="w-5 h-5 text-primary-500 dark:text-primary-400 mr-2" />
-          <span className="text-secondary-700 dark:text-secondary-300">
-            {car.passengers} Passengers
-          </span>
+          <Users className="w-5 h-5 text-accent-500 dark:text-accent-400 mr-2" />
+          <span className="text-body">{car.passengers} Passengers</span>
         </div>
         <div className="flex items-center">
-          <DoorOpen className="w-5 h-5 text-primary-500 dark:text-primary-400 mr-2" />
-          <span className="text-secondary-700 dark:text-secondary-300">
-            {car.doors} Doors
-          </span>
+          <DoorOpen className="w-5 h-5 text-accent-500 dark:text-accent-400 mr-2" />
+          <span className="text-body">{car.doors} Doors</span>
         </div>
         <div className="flex items-center">
-          <Gauge className="w-5 h-5 text-primary-500 dark:text-primary-400 mr-2" />
-          <span className="text-secondary-700 dark:text-secondary-300">
-            {car.transmission}
-          </span>
+          <Gauge className="w-5 h-5 text-accent-500 dark:text-accent-400 mr-2" />
+          <span className="text-body">{car.transmission}</span>
         </div>
         <div className="flex items-center">
-          <Fuel className="w-5 h-5 text-primary-500 dark:text-primary-400 mr-2" />
-          <span className="text-secondary-700 dark:text-secondary-300">
-            {car.specs?.fuelType || "Gasoline"}
-          </span>
+          <Fuel className="w-5 h-5 text-accent-500 dark:text-accent-400 mr-2" />
+          <span className="text-body">{car.specs?.fuelType || "Gasoline"}</span>
         </div>
       </div>
 
@@ -81,12 +69,10 @@ export default function VehicleInfo({ car }: VehicleInfoProps) {
             amount={car.price}
             currency="AED"
             period="day"
-            size="xl"
-            className="text-primary-600 dark:text-primary-400"
+            size="lg"
+            className="text-accent-600 dark:text-accent-400"
           />
-          <div className="text-secondary-600 dark:text-secondary-400 text-sm">
-            +AED 75 booking fee
-          </div>
+          <div className="text-muted text-sm">+AED 75 booking fee</div>
         </div>
 
         <div className="space-y-4 mt-6">
@@ -97,36 +83,36 @@ export default function VehicleInfo({ car }: VehicleInfoProps) {
       {/* Benefits */}
       <div className="space-y-3 text-sm">
         <div className="flex items-start">
-          <div className="mt-0.5 mr-2 text-primary-500 dark:text-primary-400">
+          <div className="mt-0.5 mr-2 text-accent-500 dark:text-accent-400">
             <Clock className="w-4 h-4" />
           </div>
-          <div className="text-secondary-700 dark:text-secondary-300">
+          <div className="text-body">
             <strong>24/7 Concierge Service</strong>
-            <p className="text-secondary-600 dark:text-secondary-400 text-xs mt-0.5">
+            <p className="text-muted text-xs mt-0.5">
               Premium assistance whenever you need it
             </p>
           </div>
         </div>
 
         <div className="flex items-start">
-          <div className="mt-0.5 mr-2 text-primary-500 dark:text-primary-400">
+          <div className="mt-0.5 mr-2 text-accent-500 dark:text-accent-400">
             <Shield className="w-4 h-4" />
           </div>
-          <div className="text-secondary-700 dark:text-secondary-300">
+          <div className="text-body">
             <strong>Comprehensive Insurance</strong>
-            <p className="text-secondary-600 dark:text-secondary-400 text-xs mt-0.5">
+            <p className="text-muted text-xs mt-0.5">
               All rentals include premium coverage
             </p>
           </div>
         </div>
 
         <div className="flex items-start">
-          <div className="mt-0.5 mr-2 text-primary-500 dark:text-primary-400">
+          <div className="mt-0.5 mr-2 text-accent-500 dark:text-accent-400">
             <Award className="w-4 h-4" />
           </div>
-          <div className="text-secondary-700 dark:text-secondary-300">
+          <div className="text-body">
             <strong>Exclusive Experience</strong>
-            <p className="text-secondary-600 dark:text-secondary-400 text-xs mt-0.5">
+            <p className="text-muted text-xs mt-0.5">
               Personalized service and special amenities
             </p>
           </div>

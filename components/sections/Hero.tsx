@@ -21,10 +21,10 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="relative bg-landing-primary overflow-hidden">
+    <section className="relative bg-secondary-50 dark:bg-secondary-950 overflow-hidden">
       {/* Decorative circles */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border-[80px] border-gray-200/30 -translate-y-1/3 translate-x-1/4"></div>
-      <div className="absolute top-20 right-20 w-[600px] h-[600px] rounded-full border-[60px] border-gray-200/20 translate-x-1/4"></div>
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border-[80px] border-gray-200/30 dark:border-gray-700/30 -translate-y-1/3 translate-x-1/4"></div>
+      <div className="absolute top-20 right-20 w-[600px] h-[600px] rounded-full border-[60px] border-gray-200/20 dark:border-gray-700/20 translate-x-1/4"></div>
 
       {/* Background art element */}
       <div className="absolute top-[360px] left-[650px] -translate-x-1/4 -translate-y-1/2 w-[700px] h-[700px] md:w-[750px] md:h-[750px] lg:w-[800px] lg:h-[800px] pointer-events-none">
@@ -38,15 +38,15 @@ export default function HeroSection() {
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 landing-container text-center lg:text-left pt-28 lg:pt-52 pb-16">
+      <div className="relative z-10 container-default text-center lg:text-left pt-28 lg:pt-52 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left Content */}
           <div className="space-y-3 relative z-20">
-            <h1 className="landing-hero-title leading-[1.2]">
+            <h1 className="title-hero leading-tight">
               The largest luxury car rentals marketplace
             </h1>
 
-            <p className="text-md text-landing-muted lg:max-w-xl">
+            <p className="text-body text-muted lg:max-w-xl">
               Our team offering you a wide selection of high-end cars for rent
             </p>
           </div>
@@ -83,7 +83,7 @@ export default function HeroSection() {
             />
             <button
               onClick={handleSearch}
-              className="bg-black hover:bg-gray-800 text-white p-4 rounded-xl transition-all duration-200 flex items-center justify-center cursor-pointer"
+              className="btn-icon bg-accent-500 hover:bg-accent-600 active:bg-accent-700 text-white transition-all duration-200 cursor-pointer"
               aria-label="Search"
             >
               <Search className="w-5 h-5" />
@@ -94,6 +94,6 @@ export default function HeroSection() {
 
       {/* Bottom decorative element */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-100/50 to-transparent"></div>
-    </div>
+    </section>
   );
 }

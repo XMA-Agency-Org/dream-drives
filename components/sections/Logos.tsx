@@ -23,11 +23,11 @@ const brands = [
 
 export default function Logos() {
   return (
-    <div className="bg-white py-8 border-b-[1.5px] border-landing">
-      <div className="landing-container">
+    <section className="section-sm border-b border-secondary-300 dark:border-secondary-700">
+      <div className="container-default">
         <div className="flex flex-wrap items-center justify-center gap-12 md:gap-16 lg:gap-20">
           {brands.map((brand) => (
-            <div key={brand.name} className="group cursor-pointer">
+            <div key={brand.name} className="group">
               <Image
                 src={brand.icon}
                 alt={brand.name}
@@ -39,6 +39,6 @@ export default function Logos() {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

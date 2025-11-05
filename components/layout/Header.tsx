@@ -94,11 +94,8 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white py-4"
-      style={{ boxShadow: "0 2px 0 0 #E7E7E7" }}
-    >
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white dark:bg-secondary-950 py-4 border-b border-secondary-200 dark:border-secondary-800">
+      <div className="container-default">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="relative z-10">
@@ -111,7 +108,7 @@ const Header: React.FC = () => {
                 height={100}
                 className="h-14 w-auto"
               /> */}
-              <CarFront className="h-6 w-6 md:h-7 md:w-7 text-primary-600 dark:text-primary-400" />
+              <CarFront className="h-6 w-6 md:h-7 md:w-7 text-accent-600 dark:text-accent-400" />
               <span className="text-xl md:text-2xl font-bold text-secondary-900 dark:text-white">
                 Dream Drives
               </span>
@@ -126,7 +123,7 @@ const Header: React.FC = () => {
                   <button
                     className={`px-4 py-2 text-sm font-semibold rounded-md transition-colors flex items-center 
                       text-secondary-900 dark:text-white
-                      hover:text-primary-600 dark:hover:text-primary-400`}
+                      hover:text-accent-600 dark:hover:text-accent-400`}
                   >
                     {item.label}
                     <ChevronDown className="h-4 w-4 ml-1 opacity-70" />
@@ -136,7 +133,7 @@ const Header: React.FC = () => {
                     href={item.href}
                     className={`px-4 py-2 text-sm font-semibold rounded-md transition-colors
                       text-secondary-900 dark:text-white
-                      hover:text-primary-600 dark:hover:text-primary-400`}
+                      hover:text-accent-600 dark:hover:text-accent-400`}
                   >
                     {item.label}
                   </Link>
@@ -192,9 +189,9 @@ const Header: React.FC = () => {
               size="sm"
               icon={<Phone className="h-4 w-4" />}
               asLink
-              href="tel:+971563626000"
+              href="tel:+971545555402"
             >
-              +971 56 362 6000
+              +971 54 555 5402
             </Button>
           </div>
 

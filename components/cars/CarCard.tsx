@@ -3,7 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Star, Zap, Settings, Gauge, Fuel, ArrowRight } from "lucide-react";
 import { Car } from "@/types/car";
-import { formatBrandName, getBrandStyle } from "@/lib/formatters";
+import { formatBrandName } from "@/lib/formatters";
+import { getBrandIcon } from "@/lib/brand-icons";
 
 interface CarCardProps {
   car: Car;
@@ -11,32 +12,37 @@ interface CarCardProps {
 }
 
 export default function CarCard({ car, showFeatures = true }: CarCardProps) {
-  // Get the brand name and badge styling
+  // Get the brand name and icon
   const brandName = formatBrandName(car.brand);
-  const brandBadgeStyle = getBrandStyle(car.brand);
+  const brandIcon = getBrandIcon(car.brand, "w-full h-full object-contain");
   const detailUrl = `/vehicles/${car.id}`;
 
   return (
-    <div className="group relative bg-white dark:bg-secondary-800 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col">
+    <div className="group relative card card-shadow overflow-hidden h-full flex flex-col">
       {/* Accent top border with gradient */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-400 to-primary-600"></div>
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-400 to-accent-600"></div>
 
       {/* Car Image - Clickable with larger size */}
       <Link
         href={detailUrl}
-        className="block relative h-64 overflow-hidden bg-gradient-to-b from-secondary-100 to-white dark:from-secondary-700 dark:to-secondary-800"
+        className="block card-image h-64 bg-gradient-to-b from-secondary-100 to-white dark:from-secondary-700 dark:to-secondary-800"
       >
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-primary-500/10 transition-opacity duration-300"></div>
         {car.image ? (
-          <Image
-            src={car.image}
-            alt={car.name}
-            height={100}
-            width={500}
-            className="object-cover p-0 w-full h-full transform group-hover:scale-105 transition-transform duration-500"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            priority={car.id.includes("mercedes") || car.id.includes("bentley")}
-          />
+          <>
+            <Image
+              src={car.image}
+              alt={car.name}
+              height={100}
+              width={500}
+              className="object-cover p-0 w-full h-full transform group-hover:scale-105 transition-transform duration-500"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority={
+                car.id.includes("mercedes") || car.id.includes("bentley")
+              }
+            />
+            {/* Overlay using design system */}
+            <div className="card-overlay"></div>
+          </>
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-secondary-200 to-secondary-300 dark:from-secondary-600 dark:to-secondary-700 flex items-center justify-center">
             <div className="text-secondary-500 dark:text-secondary-400 text-center">
@@ -59,19 +65,23 @@ export default function CarCard({ car, showFeatures = true }: CarCardProps) {
           </span>
         </div>
 
-        {/* Brand badge */}
-        <div
-          className={`absolute top-3 right-3 ${brandBadgeStyle} px-2.5 py-1.5 rounded-md text-sm font-medium`}
-        >
-          {brandName}
-        </div>
+        {/* Brand icon - Using same icon system as nav */}
+        {brandIcon ? (
+          <div className="absolute top-3 right-3 bg-white/95 dark:bg-secondary-800/95 backdrop-blur-sm p-1.5 rounded-lg shadow-sm w-12 h-12 flex items-center justify-center">
+            {brandIcon}
+          </div>
+        ) : (
+          <div className="absolute top-3 right-3 badge badge-secondary">
+            {brandName}
+          </div>
+        )}
       </Link>
 
       {/* Content */}
       <div className="p-5 flex-1 flex flex-col">
         {/* Car Name - Clickable */}
         <Link href={detailUrl} className="block">
-          <h3 className="text-xl font-semibold text-secondary-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+          <h3 className="title-card mb-2 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">
             {car.name}
           </h3>
         </Link>
@@ -81,32 +91,30 @@ export default function CarCard({ car, showFeatures = true }: CarCardProps) {
           <div className="grid grid-cols-2 gap-y-3 gap-x-2 mt-3 mb-4">
             {car.specs?.acceleration && (
               <div className="flex items-center">
-                <Zap className="w-4 h-4 text-secondary-500 dark:text-secondary-400 mr-2 flex-shrink-0" />
-                <span className="text-secondary-700 dark:text-secondary-300 text-sm">
+                <Zap className="w-4 h-4 text-muted mr-2 flex-shrink-0" />
+                <span className="text-body text-sm">
                   {car.specs.acceleration}
                 </span>
               </div>
             )}
             {car.specs?.driveTrain && (
               <div className="flex items-center">
-                <Settings className="w-4 h-4 text-secondary-500 dark:text-secondary-400 mr-2 flex-shrink-0" />
-                <span className="text-secondary-700 dark:text-secondary-300 text-sm">
+                <Settings className="w-4 h-4 text-muted mr-2 flex-shrink-0" />
+                <span className="text-body text-sm">
                   {car.specs.driveTrain}
                 </span>
               </div>
             )}
             {car.specs?.topSpeed && (
               <div className="flex items-center">
-                <Gauge className="w-4 h-4 text-secondary-500 dark:text-secondary-400 mr-2 flex-shrink-0" />
-                <span className="text-secondary-700 dark:text-secondary-300 text-sm">
-                  {car.specs.topSpeed}
-                </span>
+                <Gauge className="w-4 h-4 text-muted mr-2 flex-shrink-0" />
+                <span className="text-body text-sm">{car.specs.topSpeed}</span>
               </div>
             )}
             {car.specs?.fuelConsumption && (
               <div className="flex items-center">
-                <Fuel className="w-4 h-4 text-secondary-500 dark:text-secondary-400 mr-2 flex-shrink-0" />
-                <span className="text-secondary-700 dark:text-secondary-300 text-sm">
+                <Fuel className="w-4 h-4 text-muted mr-2 flex-shrink-0" />
+                <span className="text-body text-sm">
                   {car.specs.fuelConsumption}
                 </span>
               </div>
@@ -116,7 +124,7 @@ export default function CarCard({ car, showFeatures = true }: CarCardProps) {
 
         {/* Category tag */}
         <div className="mb-4">
-          <span className="inline-flex px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 dark:bg-primary-900/40 text-primary-800 dark:text-primary-300">
+          <span className="badge badge-accent">
             {car.category.charAt(0).toUpperCase() + car.category.slice(1)}
           </span>
         </div>
@@ -130,13 +138,13 @@ export default function CarCard({ car, showFeatures = true }: CarCardProps) {
             <span className="block text-2xl font-bold text-secondary-900 dark:text-white">
               AED {car.price}
             </span>
-            <span className="text-primary-600 dark:text-primary-400 text-sm font-medium">
+            <span className="text-accent-600 dark:text-accent-400 text-sm font-medium">
               per day
             </span>
           </div>
           <Link
             href={detailUrl}
-            className="inline-flex items-center justify-center bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 font-medium px-3 py-2 rounded-md hover:bg-primary-100 dark:hover:bg-primary-900/50 transition-colors"
+            className="btn-sm btn-ghost-accent inline-flex items-center"
           >
             View details
             <ArrowRight className="ml-1.5 w-4 h-4" />

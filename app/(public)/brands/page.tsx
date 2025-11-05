@@ -41,12 +41,13 @@ export default async function BrandsPage() {
     <>
       <Header />
       <div className="min-h-screen bg-white dark:bg-secondary-950 pt-28 pb-16">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-secondary-900 dark:text-white mb-4">
+        <div className="container-default">
+          <div className="section-header">
+            <p className="subtitle">Luxury Vehicles</p>
+            <h1 className="title-section">
               Our Premium Brands
             </h1>
-            <p className="text-lg text-secondary-600 dark:text-secondary-300 max-w-2xl mx-auto">
+            <p className="text-body text-muted max-w-2xl mx-auto">
               Discover our collection of luxury and premium automotive brands,
               each offering exceptional quality and performance.
             </p>
@@ -57,13 +58,13 @@ export default async function BrandsPage() {
               <Link
                 key={brand.id}
                 href={`/vehicles?brand=${brand.id}`}
-                className="group bg-white dark:bg-secondary-900 rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-secondary-100 dark:border-secondary-800 hover:border-primary-200 dark:hover:border-primary-700"
+                className="group card card-shadow p-6 hover:border-accent-200 dark:hover:border-accent-700 transition-all duration-300"
               >
                 <div className="flex flex-col items-center text-center space-y-4">
                   <div className="w-16 h-16 md:w-20 md:h-20 relative flex items-center justify-center">
                     {getBrandIcon(brand.id)}
                   </div>
-                  <h3 className="font-semibold text-secondary-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                  <h3 className="font-semibold text-secondary-900 dark:text-white group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">
                     {brand.label}
                   </h3>
                 </div>

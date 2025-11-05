@@ -4,7 +4,7 @@ import { Building2, Phone, Mail } from "lucide-react";
 
 export default function ContactSection() {
   return (
-    <section className="relative py-16 overflow-hidden bg-landing-secondary">
+    <section className="relative section overflow-hidden bg-secondary-200 dark:bg-secondary-800">
       {/* Map Background with Gradient Mask */}
       <div
         className="absolute top-0 bottom-0 -right-1/4 left-1/4 z-0"
@@ -28,11 +28,11 @@ export default function ContactSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-20 landing-container">
+      <div className="relative z-20 container-default">
         {/* Header */}
-        <div className="landing-section-header">
-          <p className="landing-section-subtitle">Contact Us</p>
-          <h2 className="landing-section-title">Get in touch</h2>
+        <div className="section-header">
+          <p className="subtitle">Contact Us</p>
+          <h2 className="title-section">Get in touch</h2>
         </div>
 
         {/* Two Column Layout */}
@@ -40,13 +40,11 @@ export default function ContactSection() {
           {/* Left Column - Contact Cards */}
           <div className="space-y-4">
             {/* Headquarter Office */}
-            <div className="landing-contact-card-dark">
+            <div className="card-primary-dark">
               <div className="flex items-start justify-between">
                 <div>
-                  <h3 className="landing-contact-title">
-                    Headquarter office
-                  </h3>
-                  <div className="landing-contact-address">
+                  <h3 className="title-card-white mb-2">Headquarter office</h3>
+                  <div className="text-gray-200 text-sm leading-snug space-y-0.5">
                     <p>Dubai Marina</p>
                     <p>Marina Plaza Building</p>
                     <p>Office 2304</p>
@@ -60,15 +58,12 @@ export default function ContactSection() {
             </div>
 
             {/* Phone */}
-            <div className="landing-contact-card-medium">
+            <div className="card-primary">
               <div className="flex items-start justify-between">
                 <div>
-                  <h3 className="landing-contact-title">
-                    +971 (4) 555-0132
-                  </h3>
-                  <p className="landing-contact-description">
-                    Call us
-                  </p>
+                  <h3 className="title-card-white mb-1">+971 54 555 5402</h3>
+                  <h3 className="title-card-white mb-1">+971 54 555 5403</h3>
+                  <p className="text-gray-200 text-sm">Call us</p>
                 </div>
                 <div className="bg-white/10 p-3 rounded-lg">
                   <Phone className="w-6 h-6 text-white" />
@@ -77,15 +72,13 @@ export default function ContactSection() {
             </div>
 
             {/* Email */}
-            <div className="landing-contact-card-light">
+            <div className="card-primary-light">
               <div className="flex items-start justify-between">
                 <div>
-                  <h3 className="landing-contact-title">
-                    contact@dreamdrives.ae
+                  <h3 className="title-card-white mb-1">
+                    info@dreamdrives.com
                   </h3>
-                  <p className="landing-contact-description">
-                    Send your email
-                  </p>
+                  <p className="text-gray-200 text-sm">Send your email</p>
                 </div>
                 <div className="bg-white/10 p-3 rounded-lg">
                   <Mail className="w-6 h-6 text-white" />

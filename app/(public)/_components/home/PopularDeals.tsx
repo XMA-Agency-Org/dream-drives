@@ -15,7 +15,7 @@ export default function PopularDeals() {
   const [allCars, setAllCars] = useState<Car[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(0);
-  
+
   const itemsPerPage = 4;
   const totalPages = Math.ceil(popularCars.length / itemsPerPage);
 
@@ -34,15 +34,15 @@ export default function PopularDeals() {
       setLoading(true);
       try {
         const [featuredRes, allRes] = await Promise.all([
-          fetch('/api/vehicles?type=featured'),
-          fetch('/api/vehicles')
+          fetch("/api/vehicles?type=featured"),
+          fetch("/api/vehicles"),
         ]);
-        
+
         const [featured, all] = await Promise.all([
           featuredRes.json(),
-          allRes.json()
+          allRes.json(),
         ]);
-        
+
         // Use featured cars if available, otherwise use top-rated cars from all
         setAllCars(all);
         if (featured.length > 0) {
@@ -60,26 +60,22 @@ export default function PopularDeals() {
         setLoading(false);
       }
     }
-    
+
     loadCars();
   }, []);
 
   // Effect to filter cars based on selected category
   useEffect(() => {
     if (allCars.length === 0) return;
-    
+
     let filtered = allCars;
-    
+
     if (activeCategory !== "all") {
-      filtered = allCars.filter(car => car.category === activeCategory);
+      filtered = allCars.filter((car) => car.category === activeCategory);
     }
-    
+
     // Sort by rating and limit to 8 cars
-    setPopularCars(
-      filtered
-        .sort((a, b) => b.rating - a.rating)
-        .slice(0, 8)
-    );
+    setPopularCars(filtered.sort((a, b) => b.rating - a.rating).slice(0, 8));
     setCurrentPage(0); // Reset to first page when category changes
   }, [activeCategory, allCars]);
 
@@ -97,32 +93,29 @@ export default function PopularDeals() {
   );
 
   return (
-    <section className="py-24 bg-white dark:bg-secondary-900">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
+    <section className="section bg-white dark:bg-secondary-950">
+      <div className="container-default">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-800 text-primary-700 dark:text-primary-300 text-sm font-medium mb-4">
-            Featured Vehicles
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-white mb-6">
-            Our Premium Fleet Selection
-          </h2>
-          <p className="text-secondary-600 dark:text-secondary-400 text-lg">
-            Experience the epitome of luxury and performance with our carefully curated vehicle collection
+        <div className="section-header">
+          <div className="subtitle mb-4">Featured Vehicles</div>
+          <h2 className="title-section mb-4">Our Premium Fleet Selection</h2>
+          <p className="text-body text-muted max-w-2xl mx-auto">
+            Experience the epitome of luxury and performance with our carefully
+            curated vehicle collection
           </p>
         </div>
 
         {/* Category Filters */}
-        <div className="flex justify-center mb-12 overflow-x-auto pb-4">
-          <div className="inline-flex bg-secondary-100 dark:bg-secondary-800 p-1 rounded-lg shadow-sm">
+        <div className="flex justify-center mb-12">
+          <div className="inline-flex flex-wrap gap-3 justify-center">
             {categories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id as CategoryType)}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                className={`px-6 py-3 rounded-xl text-sm font-medium transition-all cursor-pointer ${
                   activeCategory === category.id
-                    ? "bg-white dark:bg-secondary-700 text-secondary-900 dark:text-white shadow-sm"
-                    : "text-secondary-700 dark:text-secondary-300 hover:text-secondary-900 dark:hover:text-white"
+                    ? "bg-accent-50 dark:bg-accent-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 shadow-sm"
+                    : "bg-secondary-50 dark:bg-secondary-800 border-2 border-transparent hover:border-secondary-300 dark:hover:border-secondary-600 text-body"
                 }`}
               >
                 {category.label}
@@ -136,18 +129,16 @@ export default function PopularDeals() {
           {loading ? (
             // Loading skeleton
             Array.from({ length: 4 }).map((_, i) => (
-              <div key={i} className="bg-white dark:bg-secondary-800 rounded-lg p-4 animate-pulse">
-                <div className="bg-secondary-200 dark:bg-secondary-700 h-48 rounded-lg mb-4"></div>
-                <div className="bg-secondary-200 dark:bg-secondary-700 h-4 rounded mb-2"></div>
-                <div className="bg-secondary-200 dark:bg-secondary-700 h-4 rounded w-3/4"></div>
+              <div key={i} className="card p-4">
+                <div className="skeleton h-48 rounded-lg mb-4"></div>
+                <div className="skeleton h-4 rounded mb-2"></div>
+                <div className="skeleton h-4 rounded w-3/4"></div>
               </div>
             ))
           ) : currentCars.length > 0 ? (
-            currentCars.map((car) => (
-              <CarCard key={car.id} car={car} />
-            ))
+            currentCars.map((car) => <CarCard key={car.id} car={car} />)
           ) : (
-            <div className="col-span-full text-center text-secondary-500 dark:text-secondary-400 py-12">
+            <div className="col-span-full text-center text-muted py-12">
               No vehicles found for this category.
             </div>
           )}
@@ -157,17 +148,19 @@ export default function PopularDeals() {
         <div className="flex justify-between items-center">
           {/* Pagination */}
           <div className="hidden md:flex space-x-2">
-            <button 
+            <button
               onClick={handlePrevPage}
               disabled={totalPages <= 1}
-              className="p-2 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-500 dark:text-secondary-400 hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="btn-icon btn-ghost cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              aria-label="Previous page"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
-            <button 
+            <button
               onClick={handleNextPage}
               disabled={totalPages <= 1}
-              className="p-2 rounded-full bg-secondary-100 dark:bg-secondary-800 text-secondary-500 dark:text-secondary-400 hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="btn-icon btn-ghost cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              aria-label="Next page"
             >
               <ChevronRight className="w-5 h-5" />
             </button>

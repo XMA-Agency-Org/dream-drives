@@ -17,8 +17,8 @@ export default function RelatedVehicles({ cars }: RelatedVehiclesProps) {
   }
 
   return (
-    <section className="py-16 bg-secondary-50 dark:bg-secondary-900">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
+    <section className="section bg-secondary-50 dark:bg-secondary-900">
+      <div className="container-default">
         <SectionHeader
           title="Similar Vehicles You Might Like"
           description="Explore more options in our collection that match your preferences"
@@ -35,7 +35,7 @@ export default function RelatedVehicles({ cars }: RelatedVehiclesProps) {
         <div className="text-center">
           <Link
             href="/vehicles"
-            className="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium hover:text-primary-700 dark:hover:text-primary-300"
+            className="inline-flex items-center text-accent-600 dark:text-accent-400 font-medium hover:text-accent-700 dark:hover:text-accent-300 transition-colors"
           >
             View all vehicles
             <ArrowRight className="ml-2 w-4 h-4" />

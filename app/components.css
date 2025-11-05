@@ -1,4 +1,591 @@
-/* Custom scrollbar styles */
+/* ============================================
+   UNIFIED COMPONENT SYSTEM
+   High-quality, modular, and maintainable components
+   ============================================ */
+
+/* ============================================
+   LAYOUT COMPONENTS
+   ============================================ */
+@layer components {
+  /* Section containers */
+  .section {
+    @apply py-16 bg-white dark:bg-secondary-950;
+  }
+
+  .section-sm {
+    @apply py-8 bg-white dark:bg-secondary-950;
+  }
+
+  .section-lg {
+    @apply py-24 bg-white dark:bg-secondary-950;
+  }
+
+  .section-primary {
+    @apply py-16 bg-secondary-50 dark:bg-secondary-900;
+  }
+
+  .section-secondary {
+    @apply py-16 bg-secondary-200 dark:bg-secondary-800;
+  }
+
+  /* Container utilities */
+  .container-fluid {
+    @apply w-full px-4 mx-auto;
+  }
+
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-4;
+  }
+
+  .container-default {
+    @apply max-w-7xl mx-auto px-4;
+  }
+
+  @media (min-width: 640px) {
+    .container-fluid,
+    .container-narrow,
+    .container-default {
+      @apply px-6;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-fluid,
+    .container-narrow,
+    .container-default {
+      @apply px-8;
+    }
+  }
+
+  /* Section headers */
+  .section-header {
+    @apply text-center mb-12;
+  }
+
+  .section-header-lg {
+    @apply text-center mb-16;
+  }
+
+  .section-header-left {
+    @apply text-left mb-12;
+  }
+}
+
+/* ============================================
+   BUTTON COMPONENTS
+   ============================================ */
+@layer components {
+  /* Base button styles */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-bold rounded-xl px-6 py-3 transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+  }
+
+  /* Button sizes */
+  .btn-sm {
+    @apply px-4 py-2 text-sm rounded-lg;
+  }
+
+  .btn-md {
+    @apply px-6 py-3 text-base rounded-xl;
+  }
+
+  .btn-lg {
+    @apply px-8 py-4 text-lg rounded-xl;
+  }
+
+  /* Button variants */
+  .btn-primary {
+    @apply bg-primary-700 text-white hover:bg-primary-800 active:bg-primary-900 focus-visible:ring-primary-500;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary-300 text-secondary-900 hover:bg-secondary-400 active:bg-secondary-500 focus-visible:ring-secondary-500;
+  }
+
+  .btn-accent {
+    @apply bg-accent-500 text-white hover:bg-accent-600 active:bg-accent-700 focus-visible:ring-accent-500;
+  }
+
+  .btn-black {
+    @apply bg-black text-white hover:bg-secondary-800 active:bg-secondary-900 focus-visible:ring-black;
+  }
+
+  .btn-white {
+    @apply bg-white text-secondary-900 hover:bg-secondary-50 active:bg-secondary-100 border border-secondary-300 focus-visible:ring-secondary-400;
+  }
+
+  .btn-outline {
+    @apply bg-transparent border-2 border-primary-700 text-primary-700 hover:bg-primary-700 hover:text-white active:bg-primary-800 active:border-primary-800 focus-visible:ring-primary-500;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent text-secondary-700 hover:bg-secondary-100 active:bg-secondary-200 focus-visible:ring-secondary-400 dark:text-secondary-300 dark:hover:bg-secondary-800 dark:active:bg-secondary-700;
+  }
+
+  .btn-ghost-accent {
+    @apply bg-transparent text-accent-600 hover:bg-accent-50 active:bg-accent-100 focus-visible:ring-accent-400 dark:text-accent-400 dark:hover:bg-accent-900/30 dark:active:bg-accent-900/50;
+  }
+
+  /* Button with icon */
+  .btn-icon {
+    @apply p-3 rounded-xl;
+  }
+
+  .btn-icon-sm {
+    @apply p-2 rounded-lg;
+  }
+
+  .btn-icon-lg {
+    @apply p-4 rounded-xl;
+  }
+}
+
+/* ============================================
+   CARD COMPONENTS
+   ============================================ */
+@layer components {
+  /* Base card */
+  .card {
+    @apply bg-white dark:bg-secondary-900 rounded-3xl overflow-hidden transition-all duration-200;
+  }
+
+  .card-bordered {
+    @apply border border-secondary-300 dark:border-secondary-700;
+  }
+
+  .card-shadow {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .card-shadow:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .card-shadow-lg {
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Card with image overlay */
+  .card-image {
+    @apply relative rounded-3xl overflow-hidden;
+  }
+
+  .card-overlay {
+    @apply absolute inset-0 bg-black/10 transition-all duration-400;
+  }
+
+  .card-image:hover .card-overlay {
+    @apply bg-black/0;
+  }
+
+  /* Card content areas */
+  .card-body {
+    @apply p-6;
+  }
+
+  .card-body-lg {
+    @apply p-8;
+  }
+
+  .card-header {
+    @apply px-6 py-4 border-b border-secondary-200 dark:border-secondary-700;
+  }
+
+  .card-footer {
+    @apply px-6 py-4 border-t border-secondary-200 dark:border-secondary-700;
+  }
+
+  /* Card variants with semantic colors */
+  .card-primary {
+    @apply rounded-2xl p-8 text-white shadow-lg;
+    background-color: var(--color-primary-700);
+  }
+
+  .card-primary-light {
+    @apply rounded-2xl p-8 text-white shadow-lg;
+    background-color: var(--color-primary-600);
+  }
+
+  .card-primary-dark {
+    @apply rounded-2xl p-8 text-white shadow-lg;
+    background-color: var(--color-primary-700);
+  }
+
+  .card-accent {
+    @apply rounded-2xl p-8 text-white shadow-lg;
+    background-color: var(--color-accent-500);
+  }
+
+  .card-secondary {
+    @apply rounded-2xl p-8 bg-secondary-100 dark:bg-secondary-800;
+  }
+
+  /* Interactive card */
+  .card-interactive {
+    @apply cursor-pointer hover:shadow-lg hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  /* Glass morphism card */
+  .card-glass {
+    @apply bg-white/40 dark:bg-secondary-900/40 backdrop-blur-sm rounded-xl p-6 transition-colors duration-300;
+  }
+
+  .card-glass:hover {
+    @apply bg-white/50 dark:bg-secondary-900/50;
+  }
+}
+
+/* ============================================
+   TYPOGRAPHY COMPONENTS
+   ============================================ */
+@layer components {
+  /* Titles */
+  .title-hero {
+    @apply text-5xl md:text-5xl lg:text-6xl font-extrabold text-secondary-950 dark:text-white leading-tight;
+  }
+
+  .title-section {
+    @apply text-3xl md:text-4xl font-extrabold text-secondary-900 dark:text-white;
+  }
+
+  .title-subsection {
+    @apply text-2xl md:text-3xl font-bold text-secondary-900 dark:text-white;
+  }
+
+  .title-card {
+    @apply text-xl font-bold text-secondary-900 dark:text-white;
+  }
+
+  .title-card-white {
+    @apply text-xl font-bold text-white;
+  }
+
+  /* Subtitles & labels */
+  .subtitle {
+    @apply text-xs uppercase tracking-wider mb-3 text-accent-500 dark:text-accent-400;
+  }
+
+  .label {
+    @apply text-sm font-semibold text-secondary-700 dark:text-secondary-300 mb-2;
+  }
+
+  /* Body text */
+  .text-muted {
+    @apply text-secondary-600 dark:text-secondary-400;
+  }
+
+  .text-body {
+    @apply text-base text-secondary-700 dark:text-secondary-300 leading-relaxed;
+  }
+
+  .text-body-sm {
+    @apply text-sm text-secondary-600 dark:text-secondary-400 leading-relaxed;
+  }
+
+  .text-description {
+    @apply text-sm text-secondary-500 dark:text-secondary-400 leading-relaxed;
+  }
+
+  /* Link styles */
+  .link {
+    @apply text-primary-700 hover:text-primary-800 underline underline-offset-2 transition-colors;
+  }
+
+  .link-muted {
+    @apply text-secondary-600 hover:text-secondary-900 transition-colors;
+  }
+}
+
+/* ============================================
+   FORM & INPUT COMPONENTS
+   ============================================ */
+@layer components {
+  /* Input base */
+  .input {
+    @apply w-full px-4 py-3 text-base bg-white dark:bg-secondary-900 border border-secondary-300 dark:border-secondary-700 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-accent-500 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .input-sm {
+    @apply px-3 py-2 text-sm rounded-lg;
+  }
+
+  .input-lg {
+    @apply px-6 py-4 text-lg rounded-xl;
+  }
+
+  /* Input with icon */
+  .input-group {
+    @apply relative flex items-center;
+  }
+
+  .input-icon-left {
+    @apply pl-12;
+  }
+
+  .input-icon-right {
+    @apply pr-12;
+  }
+
+  .input-icon {
+    @apply absolute top-1/2 -translate-y-1/2 text-secondary-500 pointer-events-none;
+  }
+
+  .input-icon-left-pos {
+    @apply left-4;
+  }
+
+  .input-icon-right-pos {
+    @apply right-4;
+  }
+
+  /* Textarea */
+  .textarea {
+    @apply w-full px-4 py-3 text-base bg-white dark:bg-secondary-900 border border-secondary-300 dark:border-secondary-700 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-accent-500 disabled:opacity-50 disabled:cursor-not-allowed resize-none;
+  }
+
+  /* Select */
+  .select {
+    @apply w-full px-4 py-3 text-base bg-white dark:bg-secondary-900 border border-secondary-300 dark:border-secondary-700 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-accent-500 disabled:opacity-50 disabled:cursor-not-allowed appearance-none;
+  }
+
+  /* Checkbox & Radio */
+  .checkbox,
+  .radio {
+    @apply w-5 h-5 text-primary-700 border-secondary-300 dark:border-secondary-700 rounded focus:ring-2 focus:ring-accent-500 transition-colors cursor-pointer;
+  }
+
+  .radio {
+    @apply rounded-full;
+  }
+
+  /* Form group */
+  .form-group {
+    @apply mb-6;
+  }
+
+  /* Form aliases for consistency */
+  .form-label {
+    @apply block text-sm font-medium text-secondary-900 dark:text-white mb-2;
+  }
+
+  .form-input {
+    @apply w-full px-4 py-3 text-base bg-secondary-50 dark:bg-secondary-800 border border-secondary-300 dark:border-secondary-700 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-accent-500 disabled:opacity-50 disabled:cursor-not-allowed placeholder:text-secondary-400 dark:placeholder:text-secondary-500;
+  }
+
+  .form-select {
+    @apply w-full px-4 py-3 text-base bg-secondary-50 dark:bg-secondary-800 border border-secondary-300 dark:border-secondary-700 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-accent-500 disabled:opacity-50 disabled:cursor-not-allowed appearance-none cursor-pointer;
+  }
+
+  .form-textarea {
+    @apply w-full px-4 py-3 text-base bg-secondary-50 dark:bg-secondary-800 border border-secondary-300 dark:border-secondary-700 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-accent-500 disabled:opacity-50 disabled:cursor-not-allowed resize-none placeholder:text-secondary-400 dark:placeholder:text-secondary-500;
+  }
+
+  /* Error states */
+  .input-error {
+    @apply border-error-500 focus:ring-error-500 focus:border-error-500;
+  }
+
+  .error-message {
+    @apply mt-2 text-sm text-error-600 dark:text-error-400;
+  }
+
+  /* Success states */
+  .input-success {
+    @apply border-success-500 focus:ring-success-500 focus:border-success-500;
+  }
+}
+
+/* ============================================
+   ACCORDION / FAQ COMPONENTS
+   ============================================ */
+@layer components {
+  .accordion-item {
+    @apply bg-white dark:bg-secondary-900 rounded-2xl border border-secondary-300 dark:border-secondary-700 overflow-hidden transition-all duration-200;
+  }
+
+  .accordion-item:hover {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .accordion-button {
+    @apply w-full px-8 py-4 flex items-center justify-between text-left transition-colors cursor-pointer;
+  }
+
+  .accordion-title {
+    @apply text-base md:text-lg font-bold text-secondary-900 dark:text-white pr-8;
+  }
+
+  .accordion-icon-container {
+    @apply p-3 rounded-lg flex-shrink-0 transition-colors;
+  }
+
+  .accordion-icon-inactive {
+    @apply bg-secondary-100 dark:bg-secondary-800;
+  }
+
+  .accordion-icon-inactive:hover {
+    @apply bg-secondary-200 dark:bg-secondary-700;
+  }
+
+  .accordion-icon-active {
+    @apply bg-black dark:bg-white;
+  }
+
+  .accordion-content {
+    @apply overflow-hidden transition-all duration-300;
+  }
+
+  .accordion-body {
+    @apply px-8 pb-6 pt-2 text-sm text-secondary-700 dark:text-secondary-300;
+  }
+}
+
+/* ============================================
+   BADGE & TAG COMPONENTS
+   ============================================ */
+@layer components {
+  .badge {
+    @apply inline-flex items-center gap-1 px-3 py-1 text-xs font-semibold rounded-full;
+  }
+
+  .badge-primary {
+    @apply bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200;
+  }
+
+  .badge-secondary {
+    @apply bg-secondary-100 text-secondary-800 dark:bg-secondary-800 dark:text-secondary-200;
+  }
+
+  .badge-accent {
+    @apply bg-accent-100 text-accent-800 dark:bg-accent-900 dark:text-accent-200;
+  }
+
+  .badge-success {
+    @apply bg-success-100 text-success-800 dark:bg-success-900 dark:text-success-200;
+  }
+
+  .badge-warning {
+    @apply bg-warning-100 text-warning-800 dark:bg-warning-900 dark:text-warning-200;
+  }
+
+  .badge-error {
+    @apply bg-error-100 text-error-800 dark:bg-error-900 dark:text-error-200;
+  }
+
+  /* Badge pill variant - for status indicators with icon */
+  .badge-pill {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium transition-colors;
+  }
+
+  .badge-pill-primary {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium transition-colors;
+    @apply bg-primary-50 border border-primary-200 text-primary-900 dark:bg-primary-900/30 dark:border-primary-700/40 dark:text-primary-300;
+  }
+
+  .badge-pill-accent {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium transition-colors;
+    @apply bg-accent-50 border border-accent-200 text-accent-900 dark:bg-accent-900/30 dark:border-accent-700/40 dark:text-accent-300;
+  }
+
+  /* Dot indicator for badge pills */
+  .badge-dot {
+    @apply rounded-full w-2 h-2;
+  }
+
+  .badge-dot-primary {
+    @apply bg-primary-600 dark:bg-primary-500;
+  }
+
+  .badge-dot-accent {
+    @apply bg-accent-600 dark:bg-accent-500;
+  }
+}
+
+/* ============================================
+   ICON CONTAINERS
+   ============================================ */
+@layer components {
+  .icon-container {
+    @apply w-16 h-16 rounded-2xl flex items-center justify-center bg-accent-500 text-white;
+  }
+
+  .icon-container-sm {
+    @apply w-12 h-12 rounded-xl;
+  }
+
+  .icon-container-lg {
+    @apply w-20 h-20 rounded-3xl;
+  }
+
+  .icon-container-primary {
+    @apply bg-primary-700 text-white;
+  }
+
+  .icon-container-secondary {
+    @apply bg-secondary-200 text-secondary-700 dark:bg-secondary-700 dark:text-secondary-200;
+  }
+
+  .icon-container-accent {
+    @apply bg-accent-500 text-white;
+  }
+}
+
+/* ============================================
+   FOOTER COMPONENTS
+   ============================================ */
+@layer components {
+  .footer-heading {
+    @apply text-lg font-bold text-white mb-6;
+  }
+
+  .footer-link {
+    @apply text-white transition-opacity duration-200;
+    opacity: 0.7;
+  }
+
+  .footer-link:hover {
+    opacity: 1;
+  }
+
+  .footer-social {
+    @apply text-white transition-opacity duration-200;
+    opacity: 0.6;
+  }
+
+  .footer-social:hover {
+    opacity: 1;
+  }
+
+  .footer-text {
+    @apply text-white;
+    opacity: 0.7;
+  }
+}
+
+/* ============================================
+   STEP / FEATURE COMPONENTS
+   ============================================ */
+@layer components {
+  .step-container {
+    @apply flex flex-col items-center text-center;
+  }
+
+  .step-icon {
+    @apply w-16 h-16 rounded-2xl flex items-center justify-center mb-5 bg-primary-500 text-white;
+  }
+
+  .step-title {
+    @apply text-xl font-bold text-secondary-950 dark:text-white mb-3;
+  }
+
+  .step-description {
+    @apply text-sm text-secondary-500 dark:text-secondary-400 leading-relaxed;
+  }
+}
+
+/* ============================================
+   SCROLLBAR UTILITIES
+   ============================================ */
 @layer components {
   /* Thin scrollbar */
   .scrollbar-thin {
@@ -29,34 +616,11 @@
     border-radius: 9999px;
   }
 
-  /* Additional scrollable container styles */
+  /* Scrollable container */
   .scrollable-container {
     position: relative;
     overflow-y: auto;
     padding-right: 8px;
-  }
-
-  .scrollable-container-indicator {
-    position: relative;
-  }
-
-  .scrollable-container-indicator::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 24px;
-    background: linear-gradient(to top, theme("colors.white"), transparent);
-    pointer-events: none;
-  }
-
-  .dark .scrollable-container-indicator::after {
-    background: linear-gradient(
-      to top,
-      theme("colors.secondary.900"),
-      transparent
-    );
   }
 
   /* Fade edges for scrollable content */
@@ -68,5 +632,34 @@
       black 95%,
       transparent 100%
     );
+  }
+}
+
+/* ============================================
+   UTILITY COMPONENTS
+   ============================================ */
+@layer components {
+  /* Divider */
+  .divider {
+    @apply border-t border-secondary-300 dark:border-secondary-700;
+  }
+
+  .divider-dashed {
+    @apply border-t border-dashed border-secondary-300 dark:border-secondary-700;
+  }
+
+  /* Backdrop blur */
+  .backdrop-card {
+    @apply backdrop-blur-sm bg-white/90 dark:bg-secondary-900/90;
+  }
+
+  /* Skeleton loader */
+  .skeleton {
+    @apply animate-pulse bg-secondary-200 dark:bg-secondary-800 rounded;
+  }
+
+  /* Spinner */
+  .spinner {
+    @apply animate-spin h-5 w-5 border-2 border-secondary-300 border-t-primary-700 rounded-full;
   }
 }

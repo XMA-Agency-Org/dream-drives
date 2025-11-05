@@ -8,12 +8,12 @@ interface BreadcrumbsProps {
 
 export default function Breadcrumbs({ carName }: BreadcrumbsProps) {
   return (
-    <nav className="mb-6 text-sm text-secondary-600 dark:text-secondary-400">
+    <nav className="mb-6 text-sm text-muted">
       <ol className="flex items-center flex-wrap">
         <li className="flex items-center">
           <Link 
             href="/" 
-            className="hover:text-primary-600 dark:hover:text-primary-400"
+            className="hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
           >
             Home
           </Link>
@@ -22,7 +22,7 @@ export default function Breadcrumbs({ carName }: BreadcrumbsProps) {
         <li className="flex items-center">
           <Link 
             href="/vehicles" 
-            className="hover:text-primary-600 dark:hover:text-primary-400"
+            className="hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
           >
             Vehicles
           </Link>

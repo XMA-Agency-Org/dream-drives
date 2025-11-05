@@ -9,7 +9,7 @@ export default function VehicleDetailLoading() {
       <Header />
       
       <main className="pt-24">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 py-12">
+        <div className="container-default py-12">
           {/* Breadcrumbs skeleton */}
           <div className="h-6 w-60 bg-secondary-200 dark:bg-secondary-800 rounded animate-pulse mb-8"></div>
           

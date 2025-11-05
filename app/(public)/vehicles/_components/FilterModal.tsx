@@ -47,13 +47,13 @@ const FilterSection = ({ title, isOpen, onToggle, children }: FilterSectionProps
   <div className="border-b border-secondary-200 dark:border-secondary-700 py-4">
     <button
       onClick={onToggle}
-      className="flex items-center justify-between w-full text-left font-medium text-secondary-900 dark:text-white"
+      className="flex items-center justify-between w-full text-left font-semibold text-secondary-900 dark:text-white hover:text-accent-600 dark:hover:text-accent-400 transition-colors cursor-pointer"
     >
       {title}
       {isOpen ? (
-        <ChevronUp className="h-5 w-5 text-secondary-500" />
+        <ChevronUp className="h-5 w-5 text-muted" />
       ) : (
-        <ChevronDown className="h-5 w-5 text-secondary-500" />
+        <ChevronDown className="h-5 w-5 text-muted" />
       )}
     </button>
     {isOpen && <div className="mt-4">{children}</div>}
@@ -327,7 +327,7 @@ export default function FilterModal() {
       >
         Filters
         {activeFilterCount > 0 && (
-          <span className="ml-2 bg-primary-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+          <span className="ml-2 bg-accent-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
             {activeFilterCount}
           </span>
         )}
@@ -351,7 +351,7 @@ export default function FilterModal() {
         <div className="fixed inset-0 bg-secondary-900/60 z-50 backdrop-blur-sm flex items-center justify-center p-4">
           {/* Modal Content */}
           <div 
-            className="filter-modal-content bg-white dark:bg-secondary-900 rounded-xl shadow-xl w-full max-w-lg max-h-[90vh] overflow-y-auto pointer-events-auto"
+            className="filter-modal-content card card-shadow w-full max-w-lg max-h-[90vh] overflow-y-auto pointer-events-auto"
           >
             <div className="sticky top-0 z-10 bg-white dark:bg-secondary-900 p-4 border-b border-secondary-200 dark:border-secondary-700 flex justify-between items-center">
               <h2 className="font-bold text-xl text-secondary-900 dark:text-white">Filters</h2>
@@ -377,7 +377,7 @@ export default function FilterModal() {
                       onClick={() => handleCategoryChange(category.id)}
                       className={`cursor-pointer border rounded-lg p-3 transition-colors ${
                         tempFilters.category === category.id
-                          ? "border-primary-500 bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300"
+                          ? "border-accent-500 bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300"
                           : "border-secondary-200 dark:border-secondary-700 hover:bg-secondary-50 dark:hover:bg-secondary-800"
                       }`}
                     >
@@ -386,7 +386,7 @@ export default function FilterModal() {
                           {category.label}
                         </span>
                         {tempFilters.category === category.id && (
-                          <Check className="h-4 w-4 text-primary-500" />
+                          <Check className="h-4 w-4 text-accent-500" />
                         )}
                       </div>
                     </div>
@@ -413,7 +413,7 @@ export default function FilterModal() {
                         onClick={() => handleBrandChange(brand.id)}
                         className={`cursor-pointer border rounded-lg p-3 mb-2 transition-colors ${
                           tempFilters.brand === brand.id
-                            ? "border-primary-500 bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300"
+                            ? "border-accent-500 bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300"
                             : "border-secondary-200 dark:border-secondary-700 hover:bg-secondary-50 dark:hover:bg-secondary-800"
                         }`}
                       >
@@ -422,7 +422,7 @@ export default function FilterModal() {
                             {brand.label}
                           </span>
                           {tempFilters.brand === brand.id && (
-                            <Check className="h-4 w-4 text-primary-500" />
+                            <Check className="h-4 w-4 text-accent-500" />
                           )}
                         </div>
                       </div>
@@ -479,29 +479,25 @@ export default function FilterModal() {
                 isOpen={openSections.passengers}
                 onToggle={() => toggleSection("passengers")}
               >
-                <div className="grid grid-cols-2 gap-2 animate-pulse-slow">
+                <div className="grid grid-cols-2 gap-2">
                   {passengerOptions.map((option) => (
                     <div
                       key={option.value}
                       onClick={() => handlePassengerChange(
                         tempFilters.passengers === option.value ? "" : option.value
                       )}
-                      className={`cursor-pointer border rounded-lg p-3 transition-all transform ${
+                      className={`cursor-pointer border-2 rounded-lg p-3 transition-all ${
                         tempFilters.passengers === option.value
-                          ? "border-primary-500 bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 shadow-md"
+                          ? "border-accent-500 bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 font-medium"
                           : "border-secondary-200 dark:border-secondary-700 hover:bg-secondary-50 dark:hover:bg-secondary-800"
                       }`}
                     >
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center">
-                          <span className="text-secondary-900 dark:text-white">
-                            {option.label}
-                          </span>
-                        </div>
+                        <span className="text-sm text-secondary-900 dark:text-white">
+                          {option.label}
+                        </span>
                         {tempFilters.passengers === option.value && (
-                          <div className="bg-primary-500 rounded-full p-0.5">
-                            <Check className="h-3.5 w-3.5 text-white" />
-                          </div>
+                          <Check className="h-4 w-4 text-accent-500" />
                         )}
                       </div>
                     </div>
@@ -519,7 +515,7 @@ export default function FilterModal() {
                   Clear All
                 </Button>
                 <Button
-                  variant="primary"
+                  variant="accent"
                   size="lg"
                   fullWidth
                   onClick={applyFilters}

@@ -14,7 +14,7 @@ export default function Loading() {
         {Array.from({ length: 6 }).map((_, index) => (
           <div 
             key={index} 
-            className="bg-white dark:bg-secondary-800 rounded-xl overflow-hidden shadow-sm h-96 animate-pulse"
+            className="card card-shadow overflow-hidden h-96 animate-pulse"
           >
             {/* Image skeleton */}
             <div className="h-48 bg-secondary-200 dark:bg-secondary-700"></div>
@@ -47,7 +47,7 @@ export default function Loading() {
       </div>
 
       <div className="flex justify-center mt-8">
-        <Loader2 className="h-8 w-8 animate-spin text-primary-600 dark:text-primary-400" />
+        <Loader2 className="h-8 w-8 animate-spin text-accent-600 dark:text-accent-400" />
       </div>
     </div>
   );
