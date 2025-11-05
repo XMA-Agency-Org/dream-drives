@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Mercedes from "@/public/brands/light-mode/mercedes-lm.png";
 import Bentley from "@/public/brands/bentley-logo-2002-download.png";
@@ -8,6 +10,10 @@ import Porsche from "@/public/brands/porsche-logo-2014-download.png";
 import Audi from "@/public/brands/audi-logo-2016-download.png";
 import Ferrari from "@/public/brands/ferrari-logo-2002-download.png";
 import Toyota from "@/public/brands/toyota.png";
+import StaggerContainer, {
+  StaggerItem,
+  staggerItemFadeVariants,
+} from "@/lib/animations/StaggerContainer";
 
 const brands = [
   { name: "Mercedes-Benz", icon: Mercedes },
@@ -25,19 +31,24 @@ export default function Logos() {
   return (
     <section className="section-sm border-b border-secondary-300 dark:border-secondary-700">
       <div className="container-default">
-        <div className="flex flex-wrap items-center justify-center gap-12 md:gap-16 lg:gap-20">
+        <StaggerContainer
+          staggerDelay={0.08}
+          className="flex flex-wrap items-center justify-center gap-12 md:gap-16 lg:gap-20"
+        >
           {brands.map((brand) => (
-            <div key={brand.name} className="group">
-              <Image
-                src={brand.icon}
-                alt={brand.name}
-                width={40}
-                height={20}
-                className="w-8 h-auto md:w-10 lg:w-12 object-contain grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
-              />
-            </div>
+            <StaggerItem key={brand.name} variants={staggerItemFadeVariants}>
+              <div className="group">
+                <Image
+                  src={brand.icon}
+                  alt={brand.name}
+                  width={40}
+                  height={20}
+                  className="w-8 h-auto md:w-10 lg:w-12 object-contain grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                />
+              </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

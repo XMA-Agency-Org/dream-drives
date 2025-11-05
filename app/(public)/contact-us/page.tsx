@@ -1,21 +1,17 @@
 // app/(public)/contact-us/page.tsx
 import { Metadata } from "next";
-import Image from "next/image";
-import { 
-  Phone, 
-  Mail, 
-  MapPin,
-  Building2
-} from "lucide-react";
+import { Phone, Mail, MapPin, Building2 } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FaqSection from "@/components/sections/FaqSection";
 import ContactForm from "./_components/ContactForm";
 import LocationMapContainer from "./_components/LocationMapContainer";
+import ScrollReveal from "@/lib/animations/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Contact Us | Dream Drives Luxury Car Rental",
-  description: "Get in touch with our luxury car rental specialists. We're here to help with bookings, inquiries, and personalized service.",
+  description:
+    "Get in touch with our luxury car rental specialists. We're here to help with bookings, inquiries, and personalized service.",
 };
 
 // Location data
@@ -26,7 +22,7 @@ const location = {
   phone: "+971 56 970 0700",
   email: "info@dreamdrives.com",
   hours: "Mon-Fri: 9am-8pm | Sat-Sun: 10am-6pm",
-  coordinates: { lat: 25.186, lng: 55.280 } // Dubai Business Bay coordinates
+  coordinates: { lat: 25.186, lng: 55.28 }, // Dubai Business Bay coordinates
 };
 
 export default function ContactUsPage() {
@@ -74,7 +70,9 @@ export default function ContactUsPage() {
                 <div className="card-primary-dark">
                   <div className="flex items-start justify-between">
                     <div>
-                      <h3 className="title-card-white mb-2">Headquarter office</h3>
+                      <h3 className="title-card-white mb-2">
+                        Headquarter office
+                      </h3>
                       <div className="text-gray-200 text-sm leading-snug space-y-0.5">
                         <p>Business Bay</p>
                         <p>Marquise Square Tower</p>
@@ -92,7 +90,9 @@ export default function ContactUsPage() {
                 <div className="card-primary">
                   <div className="flex items-start justify-between">
                     <div>
-                      <h3 className="title-card-white mb-1">+971 56 970 0700</h3>
+                      <h3 className="title-card-white mb-1">
+                        +971 56 970 0700
+                      </h3>
                       <p className="text-gray-200 text-sm">Call us anytime</p>
                     </div>
                     <div className="bg-white/10 p-3 rounded-lg">
@@ -128,61 +128,58 @@ export default function ContactUsPage() {
           <div className="container-default">
             <div className="grid md:grid-cols-2 gap-12 items-start">
               {/* Contact Form */}
-              <div className="card card-shadow card-body-lg">
-                <h2 className="title-card mb-4">
-                  Send Us a Message
-                </h2>
-                <p className="text-muted mb-6">
-                  Fill out the form below and we'll get back to you shortly.
-                </p>
-                
-                <ContactForm />
-              </div>
-              
+              <ScrollReveal variant="slideRight" duration={0.8}>
+                <div className="card card-shadow card-body-lg">
+                  <h2 className="title-card mb-4">Send Us a Message</h2>
+                  <p className="text-muted mb-6">
+                    Fill out the form below and we&apos;ll get back to you
+                    shortly.
+                  </p>
+
+                  <ContactForm />
+                </div>
+              </ScrollReveal>
+
               {/* Locations Info */}
-              <div>
-                <h2 className="title-subsection mb-4">
-                  Our Location
-                </h2>
-                <p className="text-muted mb-6">
-                  Visit our showroom to explore our premium fleet in person.
-                </p>
-                
-                <div className="card card-bordered card-body">
-                  <h3 className="title-card mb-4">
-                    {location.name}
-                  </h3>
-                  
-                  <div className="space-y-3">
-                    <div className="flex items-start">
-                      <MapPin className="w-5 h-5 text-muted mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-body">
-                        {location.address}
-                      </span>
-                    </div>
-                    
-                    <div className="flex items-start">
-                      <Phone className="w-5 h-5 text-muted mr-3 flex-shrink-0 mt-0.5" />
-                      <a 
-                        href={`tel:${location.phone.replace(/\D/g, '')}`}
-                        className="text-body hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
-                      >
-                        {location.phone}
-                      </a>
-                    </div>
-                    
-                    <div className="flex items-start">
-                      <Mail className="w-5 h-5 text-muted mr-3 flex-shrink-0 mt-0.5" />
-                      <a 
-                        href={`mailto:${location.email}`}
-                        className="text-body hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
-                      >
-                        {location.email}
-                      </a>
+              <ScrollReveal variant="slideLeft" delay={0.2} duration={0.8}>
+                <div>
+                  <h2 className="title-subsection mb-4">Our Location</h2>
+                  <p className="text-muted mb-6">
+                    Visit our showroom to explore our premium fleet in person.
+                  </p>
+
+                  <div className="card card-bordered card-body">
+                    <h3 className="title-card mb-4">{location.name}</h3>
+
+                    <div className="space-y-3">
+                      <div className="flex items-start">
+                        <MapPin className="w-5 h-5 text-muted mr-3 flex-shrink-0 mt-0.5" />
+                        <span className="text-body">{location.address}</span>
+                      </div>
+
+                      <div className="flex items-start">
+                        <Phone className="w-5 h-5 text-muted mr-3 flex-shrink-0 mt-0.5" />
+                        <a
+                          href={`tel:${location.phone.replace(/\D/g, "")}`}
+                          className="text-body hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
+                        >
+                          {location.phone}
+                        </a>
+                      </div>
+
+                      <div className="flex items-start">
+                        <Mail className="w-5 h-5 text-muted mr-3 flex-shrink-0 mt-0.5" />
+                        <a
+                          href={`mailto:${location.email}`}
+                          className="text-body hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
+                        >
+                          {location.email}
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </ScrollReveal>
             </div>
           </div>
         </section>
@@ -190,22 +187,25 @@ export default function ContactUsPage() {
         {/* Map Section */}
         <section className="section">
           <div className="container-default">
-            <div className="section-header">
-              <h2 className="title-section mb-4">
-                Find Us
-              </h2>
-              <p className="text-body text-muted max-w-2xl mx-auto">
-                Visit our showroom to see our collection of luxury vehicles in person.
-              </p>
-            </div>
-            
+            <ScrollReveal variant="fadeUp">
+              <div className="section-header">
+                <h2 className="title-section mb-4">Find Us</h2>
+                <p className="text-body text-muted max-w-2xl mx-auto">
+                  Visit our showroom to see our collection of luxury vehicles in
+                  person.
+                </p>
+              </div>
+            </ScrollReveal>
+
             {/* Map Component */}
-            <div className="card card-shadow overflow-hidden h-[500px]">
-              <LocationMapContainer location={location} />
-            </div>
+            <ScrollReveal variant="fadeUp" delay={0.2}>
+              <div className="card card-shadow overflow-hidden h-[500px]">
+                <LocationMapContainer location={location} />
+              </div>
+            </ScrollReveal>
           </div>
         </section>
-        
+
         {/* FAQ Section - Using unified component */}
         <FaqSection />
       </main>

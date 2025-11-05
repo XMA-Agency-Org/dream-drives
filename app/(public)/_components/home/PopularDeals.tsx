@@ -6,6 +6,7 @@ import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import CarCard from "@/components/cars/CarCard";
 import Button from "@/components/ui/Button";
 import { Car } from "@/types/car";
+import ScrollReveal from "@/lib/animations/ScrollReveal";
 
 type CategoryType = "all" | "luxury" | "suv" | "sports" | "economy" | "minivan";
 
@@ -96,14 +97,16 @@ export default function PopularDeals() {
     <section className="section bg-white dark:bg-secondary-950">
       <div className="container-default">
         {/* Section Header */}
-        <div className="section-header">
-          <div className="subtitle mb-4">Featured Vehicles</div>
-          <h2 className="title-section mb-4">Our Premium Fleet Selection</h2>
-          <p className="text-body text-muted max-w-2xl mx-auto">
-            Experience the epitome of luxury and performance with our carefully
-            curated vehicle collection
-          </p>
-        </div>
+        <ScrollReveal variant="fadeUp">
+          <div className="section-header">
+            <div className="subtitle mb-4">Featured Vehicles</div>
+            <h2 className="title-section mb-4">Our Premium Fleet Selection</h2>
+            <p className="text-body text-muted max-w-2xl mx-auto">
+              Experience the epitome of luxury and performance with our
+              carefully curated vehicle collection
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Category Filters */}
         <div className="flex justify-center mb-12">

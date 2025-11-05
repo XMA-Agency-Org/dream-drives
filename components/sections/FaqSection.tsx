@@ -2,6 +2,11 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import ScrollReveal from "@/lib/animations/ScrollReveal";
+import StaggerContainer, {
+  StaggerItem,
+  staggerItemVariants,
+} from "@/lib/animations/StaggerContainer";
 
 interface FaqItem {
   question: string;
@@ -47,48 +52,52 @@ export default function FaqSection() {
     <section className="section bg-white dark:bg-secondary-950">
       <div className="container-default max-w-6xl">
         {/* Header */}
-        <div className="section-header">
-          <p className="subtitle">Faq</p>
-          <h2 className="title-section">Popular Questions</h2>
-        </div>
+        <ScrollReveal variant="fadeUp">
+          <div className="section-header">
+            <p className="subtitle">Faq</p>
+            <h2 className="title-section">Popular Questions</h2>
+          </div>
+        </ScrollReveal>
 
         {/* FAQ Items */}
-        <div className="space-y-2">
+        <StaggerContainer staggerDelay={0.08} className="space-y-2">
           {faqItems.map((item, index) => (
-            <div key={index} className="accordion-item">
-              <button
-                onClick={() => toggleFaq(index)}
-                className="accordion-button group"
-                aria-expanded={openIndex === index}
-              >
-                <h3 className="accordion-title">{item.question}</h3>
+            <StaggerItem key={index} variants={staggerItemVariants}>
+              <div className="accordion-item">
+                <button
+                  onClick={() => toggleFaq(index)}
+                  className="accordion-button group"
+                  aria-expanded={openIndex === index}
+                >
+                  <h3 className="accordion-title">{item.question}</h3>
+                  <div
+                    className={`accordion-icon-container ${
+                      openIndex === index
+                        ? "accordion-icon-active"
+                        : "accordion-icon-inactive"
+                    }`}
+                  >
+                    <ChevronDown
+                      className={`w-5 h-5 transition-all duration-200 ${
+                        openIndex === index
+                          ? "rotate-180 text-white dark:text-secondary-900"
+                          : "text-black dark:text-white"
+                      }`}
+                    />
+                  </div>
+                </button>
+
                 <div
-                  className={`accordion-icon-container ${
-                    openIndex === index
-                      ? "accordion-icon-active"
-                      : "accordion-icon-inactive"
+                  className={`accordion-content ${
+                    openIndex === index ? "max-h-96" : "max-h-0"
                   }`}
                 >
-                  <ChevronDown
-                    className={`w-5 h-5 transition-all duration-200 ${
-                      openIndex === index
-                        ? "rotate-180 text-white dark:text-secondary-900"
-                        : "text-black dark:text-white"
-                    }`}
-                  />
+                  <div className="accordion-body">{item.answer}</div>
                 </div>
-              </button>
-
-              <div
-                className={`accordion-content ${
-                  openIndex === index ? "max-h-96" : "max-h-0"
-                }`}
-              >
-                <div className="accordion-body">{item.answer}</div>
               </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

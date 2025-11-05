@@ -4,6 +4,7 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import ScrollReveal from "@/lib/animations/ScrollReveal";
 
 interface Testimonial {
   id: number;
@@ -94,18 +95,21 @@ export default function Testimonials() {
 
       <div className="container-default">
         {/* Section Header */}
-        <div className="section-header">
-          <p className="subtitle">Client Experiences</p>
-          <h2 className="title-section mb-6">
-            Exceptional Service, Memorable Journeys
-          </h2>
-          <p className="text-body text-muted max-w-2xl mx-auto">
-            Discover what our distinguished clients have to say about their Dream Drives Luxury experience
-          </p>
-        </div>
+        <ScrollReveal variant="fadeUp">
+          <div className="section-header">
+            <p className="subtitle">Client Experiences</p>
+            <h2 className="title-section mb-6">
+              Exceptional Service, Memorable Journeys
+            </h2>
+            <p className="text-body text-muted max-w-2xl mx-auto">
+              Discover what our distinguished clients have to say about their Dream Drives Luxury experience
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Testimonials Slider */}
-        <div className="relative">
+        <ScrollReveal variant="fadeUp" delay={0.2}>
+          <div className="relative">
           {/* Main Testimonial */}
           <div 
             ref={testimonialsRef}
@@ -244,6 +248,7 @@ export default function Testimonials() {
             </div>
           </div>
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );
