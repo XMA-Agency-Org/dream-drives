@@ -1,5 +1,6 @@
 // app/(public)/contact-us/page.tsx
 import { Metadata } from "next";
+import Image from "next/image";
 import { 
   Phone, 
   Mail, 
@@ -11,7 +12,7 @@ import ContactForm from "./_components/ContactForm";
 import LocationMapContainer from "./_components/LocationMapContainer";
 
 export const metadata: Metadata = {
-  title: "Contact Us | 4MATIC Luxury Car Rental",
+  title: "Contact Us | Dream Drives Luxury Car Rental",
   description: "Get in touch with our luxury car rental specialists. We're here to help with bookings, inquiries, and personalized service.",
 };
 
@@ -21,7 +22,7 @@ const location = {
   name: "Dubai Office",
   address: "Business Bay Marquise Square Tower Shop 04, Dubai, UAE",
   phone: "+971 56 970 0700",
-  email: "info@4maticrental.com",
+  email: "info@dreamdrives.com",
   hours: "Mon-Fri: 9am-8pm | Sat-Sun: 10am-6pm",
   coordinates: { lat: 25.186, lng: 55.280 } // Dubai Business Bay coordinates
 };
@@ -32,65 +33,58 @@ export default function ContactUsPage() {
       <Header />
       <main className="pt-24">
         {/* Hero Section */}
-        <section className="relative py-16 md:py-24 bg-secondary-900 dark:bg-secondary-950 overflow-hidden">
-          {/* Background pattern */}
-          <div className="absolute inset-0 -z-10">
-            <div className="absolute inset-0 bg-gradient-to-br from-secondary-800 via-secondary-900 to-black opacity-95"></div>
-            
-            {/* Pattern overlay */}
-            <div 
-              className="absolute inset-0 opacity-10" 
-              style={{ 
-                backgroundImage: "url('/grid-pattern.svg')", 
-                backgroundSize: "30px 30px"
-              }}
-            ></div>
-            
-            {/* Gradient orbs */}
-            <div className="absolute top-1/4 -left-20 w-72 h-72 bg-primary-600/30 rounded-full blur-[100px] -z-10"></div>
-            <div className="absolute bottom-1/3 right-0 w-96 h-96 bg-primary-700/20 rounded-full blur-[120px] -z-10"></div>
+        <section className="relative py-16 md:py-24 overflow-hidden">
+          {/* Aurora background image */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/backgrounds/aurora-bg.png"
+              alt=""
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
 
-          <div className="max-w-7xl mx-auto px-4 md:px-6 text-center">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 text-center">
             <div className="max-w-3xl mx-auto">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary-900 dark:text-white mb-6">
                 Get in Touch With Our Team
               </h1>
-              <p className="text-secondary-300 text-lg mb-8">
+              <p className="text-secondary-600 dark:text-secondary-300 text-lg mb-8">
                 We're here to answer any questions about our luxury vehicles and services. 
                 Our dedicated team of specialists is ready to assist you.
               </p>
               
               {/* Quick Contact Options */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/15 transition-colors duration-300">
+                <div className="bg-white/40 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/50 transition-colors duration-300">
                   <div className="inline-flex items-center justify-center bg-primary-600/20 p-3 rounded-full mb-4">
                     <Phone className="h-6 w-6 text-primary-400" />
                   </div>
-                  <h3 className="text-white text-lg font-semibold mb-2">Call Us</h3>
-                  <p className="text-secondary-300 mb-3">Speak directly with our team</p>
+                  <h3 className="text-secondary-900 dark:text-white text-lg font-semibold mb-2">Call Us</h3>
+                  <p className="text-secondary-600 dark:text-secondary-300 mb-3">Speak directly with our team</p>
                   <a href="tel:+971569700700" className="text-primary-400 font-medium hover:text-primary-300">
                     +971569700700
                   </a>
                 </div>
                 
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/15 transition-colors duration-300">
+                <div className="bg-white/40 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/50 transition-colors duration-300">
                   <div className="inline-flex items-center justify-center bg-primary-600/20 p-3 rounded-full mb-4">
                     <Mail className="h-6 w-6 text-primary-400" />
                   </div>
-                  <h3 className="text-white text-lg font-semibold mb-2">Email Us</h3>
-                  <p className="text-secondary-300 mb-3">Send us your inquiries</p>
-                  <a href="mailto:info@4maticrental.com" className="text-primary-400 font-medium hover:text-primary-300">
-                    info@4maticrental.com
+                  <h3 className="text-secondary-900 dark:text-white text-lg font-semibold mb-2">Email Us</h3>
+                  <p className="text-secondary-600 dark:text-secondary-300 mb-3">Send us your inquiries</p>
+                  <a href="mailto:info@dreamdrives.com" className="text-primary-400 font-medium hover:text-primary-300">
+                    info@dreamdrives.com
                   </a>
                 </div>
                 
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/15 transition-colors duration-300">
+                <div className="bg-white/40 backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/50 transition-colors duration-300">
                   <div className="inline-flex items-center justify-center bg-primary-600/20 p-3 rounded-full mb-4">
                     <MapPin className="h-6 w-6 text-primary-400" />
                   </div>
-                  <h3 className="text-white text-lg font-semibold mb-2">Visit Us</h3>
-                  <p className="text-secondary-300 mb-3">Our showroom location</p>
+                  <h3 className="text-secondary-900 dark:text-white text-lg font-semibold mb-2">Visit Us</h3>
+                  <p className="text-secondary-600 dark:text-secondary-300 mb-3">Our showroom location</p>
                   <p className="text-primary-400 font-medium">Business Bay Marquise Square Tower Shop 04, Dubai</p>
                 </div>
               </div>

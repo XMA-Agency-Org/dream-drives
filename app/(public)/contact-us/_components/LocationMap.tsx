@@ -135,7 +135,7 @@ export default function LocationMap({ locations }: LocationMapProps) {
                   
                   <div className="mt-2 px-4 py-2 bg-white dark:bg-secondary-800 rounded-lg shadow-lg whitespace-nowrap">
                     <h3 className="font-medium text-secondary-900 dark:text-white text-sm">
-                      4MATIC Rental
+                      Dream Drives Rental
                     </h3>
                     <p className="text-xs text-secondary-500 dark:text-secondary-400">
                       Business Bay
@@ -175,7 +175,7 @@ export default function LocationMap({ locations }: LocationMapProps) {
                 
                 <div className="flex justify-between pt-1">
                   <a
-                    href={`https://www.google.com/maps/search/?api=1&query=4MATIC+Rental+Business+Bay+Dubai`}
+                    href={`https://www.google.com/maps/search/?api=1&query=Dream+Drives+Rental+Business+Bay+Dubai`}
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center text-sm font-medium text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300"

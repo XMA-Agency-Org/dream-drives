@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "./theme.css";
 @import "./components.css";
+@import "./(public)/landing-redesign/styles.css";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -56,7 +57,11 @@ html {
   left: 0;
   right: 0;
   height: 24px;
-  background: linear-gradient(to top, var(--color-secondary-100) 0%, transparent 100%);
+  background: linear-gradient(
+    to top,
+    var(--color-secondary-100) 0%,
+    transparent 100%
+  );
   pointer-events: none;
   z-index: 1;
   border-bottom-left-radius: inherit;
@@ -64,7 +69,11 @@ html {
 }
 
 .dark .scrollable-hint::before {
-  background: linear-gradient(to top, var(--color-secondary-800) 0%, transparent 100%);
+  background: linear-gradient(
+    to top,
+    var(--color-secondary-800) 0%,
+    transparent 100%
+  );
 }
 
 .logo-image {

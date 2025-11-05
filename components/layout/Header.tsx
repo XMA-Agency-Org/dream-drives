@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, CarFront } from "lucide-react";
 import Button from "../ui/Button";
 import {
   MBIcon,
@@ -13,7 +13,6 @@ import {
   LamborghiniIcon,
   FerrariLogo,
   AudiIcon,
-  BMWIcon,
   PorscheIcon,
   ToyotaIcon,
   KiaIcon,
@@ -27,7 +26,7 @@ import {
   MazdaIcon,
   GMCLogo,
 } from "@cardog-icons/react";
-import BMW from "@/public/brands/bmw-logo-2020-white-download.png";
+import BMW from "@/public/brands/light-mode/BMW-logo-lm.png";
 
 interface NavItem {
   label: string;
@@ -37,12 +36,11 @@ interface NavItem {
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [activeMobileDropdown, setActiveMobileDropdown] = useState<
     string | null
   >(null);
   const [brands, setBrands] = useState<Array<{ id: string; label: string }>>(
-    [],
+    []
   );
 
   // Updated navigation items for a luxury car rental service
@@ -85,24 +83,6 @@ const Header: React.FC = () => {
     fetchBrands();
   }, []);
 
-  // Handle scroll effect
-  useEffect(() => {
-    // Check the scroll position immediately when component mounts
-    const checkInitialScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-
-    // Run once on mount to set the correct initial state
-    checkInitialScroll();
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   // Toggle mobile dropdown
   const toggleMobileDropdown = (label: string) => {
     setActiveMobileDropdown(activeMobileDropdown === label ? null : label);
@@ -115,24 +95,26 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/90 dark:bg-secondary-950/90 shadow-sm md:backdrop-blur-sm py-3"
-          : "bg-transparent py-5"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white py-4"
+      style={{ boxShadow: "0 2px 0 0 #E7E7E7" }}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="relative z-10">
-            <div className="flex items-center">
-              <Image
+            <div className="flex items-center gap-2">
+              {/* TODO: Replace the logo image file /4MAticlogo.png with the new Dream Drives logo */}
+              {/* <Image
                 src="/4MAticlogo.png"
-                alt="4MATIC Logo"
+                alt="Dream Drives Logo"
                 width={100}
                 height={100}
                 className="h-14 w-auto"
-              />
+              /> */}
+              <CarFront className="h-6 w-6 md:h-7 md:w-7 text-primary-600 dark:text-primary-400" />
+              <span className="text-xl md:text-2xl font-bold text-secondary-900 dark:text-white">
+                Dream Drives
+              </span>
             </div>
           </Link>
 
@@ -142,8 +124,8 @@ const Header: React.FC = () => {
               <div key={item.label} className="relative group">
                 {item.children ? (
                   <button
-                    className={`px-4 py-2 text-sm font-medium rounded-md transition-colors flex items-center 
-                      ${scrolled ? "text-secondary-900 dark:text-white" : "text-white"}
+                    className={`px-4 py-2 text-sm font-semibold rounded-md transition-colors flex items-center 
+                      text-secondary-900 dark:text-white
                       hover:text-primary-600 dark:hover:text-primary-400`}
                   >
                     {item.label}
@@ -152,8 +134,8 @@ const Header: React.FC = () => {
                 ) : (
                   <Link
                     href={item.href}
-                    className={`px-4 py-2 text-sm font-medium rounded-md transition-colors
-                      ${scrolled ? "text-secondary-900 dark:text-white" : "text-white"}
+                    className={`px-4 py-2 text-sm font-semibold rounded-md transition-colors
+                      text-secondary-900 dark:text-white
                       hover:text-primary-600 dark:hover:text-primary-400`}
                   >
                     {item.label}
@@ -162,7 +144,7 @@ const Header: React.FC = () => {
 
                 {/* Dropdown for desktop */}
                 {item.children && item.label === "Brands" && (
-                  <div className="absolute left-0 mt-1 w-80 origin-top-right rounded-md shadow-lg overflow-hidden bg-white dark:bg-secondary-900 ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
+                  <div className="absolute left-0 mt-1 w-80 origin-top-right rounded-md shadow-lg overflow-hidden bg-white dark:bg-secondary-900 ring-1 ring-secondary-200 dark:ring-secondary-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
                     <div className="p-4">
                       <div className="grid grid-cols-3 gap-3">
                         {item.children.map((child) => (
@@ -185,7 +167,7 @@ const Header: React.FC = () => {
                 )}
                 {/* Regular dropdown for other items */}
                 {item.children && item.label !== "Brands" && (
-                  <div className="absolute left-0 mt-1 w-56 origin-top-right rounded-md shadow-lg overflow-hidden bg-white dark:bg-secondary-900 ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
+                  <div className="absolute left-0 mt-1 w-56 origin-top-right rounded-md shadow-lg overflow-hidden bg-white dark:bg-secondary-900 ring-1 ring-secondary-200 dark:ring-secondary-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
                     <div className="py-1">
                       {item.children.map((child) => (
                         <Link
@@ -223,13 +205,9 @@ const Header: React.FC = () => {
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <X
-                className={`h-6 w-6 ${scrolled ? "text-secondary-900 dark:text-white" : "text-white"}`}
-              />
+              <X className={`h-6 w-6 text-secondary-900 dark:text-white`} />
             ) : (
-              <Menu
-                className={`h-6 w-6 ${scrolled ? "text-secondary-900 dark:text-white" : "text-white"}`}
-              />
+              <Menu className={`h-6 w-6 text-secondary-900 dark:text-white`} />
             )}
           </button>
         </div>
@@ -244,7 +222,7 @@ const Header: React.FC = () => {
         {/* Close button - Fixed at top right */}
         <button
           onClick={closeMobileMenu}
-          className="absolute top-6 right-6 p-2 text-white hover:text-primary-400 transition-colors"
+          className="absolute top-6 right-6 p-2 text-secondary-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
           aria-label="Close menu"
         >
           <X className="h-6 w-6" />
@@ -255,13 +233,13 @@ const Header: React.FC = () => {
             {navItems.map((item) => (
               <div
                 key={item.label}
-                className="border-b border-secondary-700/30"
+                className="border-b border-secondary-200 dark:border-secondary-700/30"
               >
                 {item.children ? (
                   <div>
                     <button
                       onClick={() => toggleMobileDropdown(item.label)}
-                      className="flex items-center justify-between w-full py-4 text-white font-medium"
+                      className="flex items-center justify-between w-full py-4 text-secondary-900 dark:text-white font-semibold"
                     >
                       {item.label}
                       <ChevronDown
@@ -274,12 +252,12 @@ const Header: React.FC = () => {
                     </button>
 
                     {activeMobileDropdown === item.label && (
-                      <div className="ml-4 mb-4 border-l border-primary-600/30 pl-4 space-y-3">
+                      <div className="ml-4 mb-4 border-l border-primary-300 dark:border-primary-600/30 pl-4 space-y-3">
                         {item.children.map((child) => (
                           <Link
                             key={child.label}
                             href={child.href}
-                            className="flex items-center py-2 text-secondary-200 hover:text-white text-sm"
+                            className="flex items-center py-2 text-secondary-600 dark:text-secondary-200 hover:text-secondary-900 dark:hover:text-white text-sm"
                             onClick={closeMobileMenu}
                           >
                             {getBrandIcon(child.href.split("brand=")[1])}
@@ -292,7 +270,7 @@ const Header: React.FC = () => {
                 ) : (
                   <Link
                     href={item.href}
-                    className="block py-4 text-white font-medium"
+                    className="block py-4 text-secondary-900 dark:text-white font-semibold"
                     onClick={closeMobileMenu}
                   >
                     {item.label}
@@ -322,35 +300,39 @@ const Header: React.FC = () => {
 
 // Helper function to get brand icons for dropdown
 function getBrandIcon(brandId: string) {
-  const iconProps = {
-    className: "mr-2 md:mr-0 text-3xl",
-  };
+  const baseClassName = "mr-2 md:mr-0 text-3xl";
 
-  const brandIconMap: Record<string, JSX.Element> = {
-    mercedes: <MBIcon style={{ filter: "invert(1)" }} {...iconProps} />,
-    "mercedes-benz": <MBIcon style={{ filter: "invert(1)" }} {...iconProps} />,
-    bentley: <BentleyIcon {...iconProps} />,
-    "rolls-royce": (
-      <RollsRoyceIcon style={{ filter: "invert(1)" }} {...iconProps} />
+  const brandIconMap: Record<string, React.ReactElement> = {
+    mercedes: <MBIcon className={baseClassName} />,
+    "mercedes-benz": <MBIcon className={baseClassName} />,
+    bentley: <BentleyIcon className={baseClassName} />,
+    "rolls-royce": <RollsRoyceIcon className={baseClassName} />,
+    "land-rover": <LandroverIcon className={baseClassName} />,
+    "range-rover": <LandroverIcon className={baseClassName} />,
+    lamborghini: <LamborghiniIcon className={baseClassName} />,
+    ferrari: <FerrariLogo className={baseClassName} />,
+    audi: <AudiIcon className={baseClassName} />,
+    bmw: (
+      <Image
+        src={BMW}
+        width={20}
+        height={50}
+        alt="BMW"
+        className={baseClassName}
+      />
     ),
-    "land-rover": <LandroverIcon {...iconProps} />,
-    "range-rover": <LandroverIcon {...iconProps} />,
-    lamborghini: <LamborghiniIcon {...iconProps} />,
-    ferrari: <FerrariLogo {...iconProps} />,
-    audi: <AudiIcon style={{ filter: "invert(1)" }} {...iconProps} />,
-    bmw: <Image src={BMW} width={20} height={50} {...iconProps} />,
-    porsche: <PorscheIcon {...iconProps} />,
-    toyota: <ToyotaIcon {...iconProps} />,
-    kia: <KiaIcon style={{ filter: "invert(1)" }} {...iconProps} />,
-    hyundai: <HyundaiIcon {...iconProps} />,
-    nissan: <NissanLogo style={{ filter: "invert(1)" }} {...iconProps} />,
-    mitsubishi: <MitsubishiIcon {...iconProps} />,
-    chevrolet: <ChevroletLogo style={{ filter: "invert(1)" }} {...iconProps} />,
-    cadillac: <CadillacIcon {...iconProps} />,
-    gmc: <GMCLogo style={{ filter: "invert(1)" }} {...iconProps} />,
-    fiat: <FiatIcon {...iconProps} />,
-    mini: <MiniIcon style={{ filter: "invert(1)" }} {...iconProps} />,
-    mazda: <MazdaIcon {...iconProps} />,
+    porsche: <PorscheIcon className={baseClassName} />,
+    toyota: <ToyotaIcon className={baseClassName} />,
+    kia: <KiaIcon className={baseClassName} />,
+    hyundai: <HyundaiIcon className={baseClassName} />,
+    nissan: <NissanLogo className={baseClassName} />,
+    mitsubishi: <MitsubishiIcon className={baseClassName} />,
+    chevrolet: <ChevroletLogo className={baseClassName} />,
+    cadillac: <CadillacIcon className={baseClassName} />,
+    gmc: <GMCLogo className={baseClassName} />,
+    fiat: <FiatIcon className={baseClassName} />,
+    mini: <MiniIcon className={baseClassName} />,
+    mazda: <MazdaIcon className={baseClassName} />,
   };
 
   return brandIconMap[brandId] || null;

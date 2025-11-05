@@ -24,7 +24,7 @@ export default function StepCard({ step, isLast = false }: StepProps) {
       {/* Card */}
       <div className="bg-secondary-50 dark:bg-secondary-800 rounded-xl p-8 border border-secondary-200 dark:border-secondary-700 h-full transform transition-transform duration-300 group-hover:-translate-y-2 group-hover:shadow-lg relative">
         {/* Step Number */}
-        <div className="absolute -top-4 -right-4 bg-primary-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold shadow-md">
+        <div className="absolute -top-4 -right-4 bg-primary-500 text-white dark:text-white w-10 h-10 rounded-full flex items-center justify-center font-bold shadow-md">
           {step.number}
         </div>
         

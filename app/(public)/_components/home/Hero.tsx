@@ -5,38 +5,46 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
+import { AuroraBackground } from "@/components/ui/shadcn-io/aurora-background";
 
 export default function Hero() {
   return (
-    <div className="relative pt-24 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 z-10 pointer-events-none">
-        
-        {/* Pattern overlay */}
-        <div 
-          className="absolute inset-0 opacity-5 z-50" 
-          style={{ 
-            backgroundImage: "url('/grid-pattern.svg')", 
-            backgroundSize: "30px",
-          }}
-        ></div>
-        
-        {/* Gradient orbs */}
-        <div className="absolute top-1/4 -left-20 w-72 h-72 bg-primary-600/30 rounded-full blur-[100px] -z-10"></div>
-        <div className="absolute bottom-1/3 right-0 w-96 h-96 bg-primary-700/20 rounded-full blur-[120px] -z-10"></div>
-      </div>
+    <AuroraBackground className="h-auto min-h-screen pt-24 overflow-hidden">
+      <div className="relative w-full z-10">
+        {/* Background Elements */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          
+          {/* // Pattern overlay (currently commented out, needs lead approval)
+          <div 
+            className="absolute inset-0 opacity-5 z-50" 
+            style={{ 
+              backgroundImage: "url('grid-pattern.svg')", 
+              backgroundSize: "30px",
+            }}
+          ></div>
+          // ></div> */}
 
-      {/* Hero Content */}
-      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+          {/* Gradient orbs */}
+          {/* 
+            This orb is hidden in light mode because the AuroraBackground provides enough visual interest.
+            In dark mode, this orb adds depth, but whether to keep it visible in both modes should be a design lead decision.
+          */}
+          <div className="hidden dark:block absolute top-1/4 -left-20 w-72 h-72 bg-primary-600/30 rounded-full blur-[100px] -z-10"></div>
+          {/* <div className="absolute top-1/4 -left-20 w-72 h-72 bg-primary-600/30 rounded-full blur-[100px] -z-10"></div> */}
+          <div className="absolute bottom-1/3 right-0 w-96 h-96 bg-primary-700/20 rounded-full blur-[120px] -z-10"></div>
+        </div>
+
+        {/* Hero Content */}
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center lg:items-start py-12 md:py-20 lg:py-28">
           {/* Left Content */}
           <div className="w-full lg:w-1/2 space-y-6 text-center lg:text-left mb-12 lg:mb-0">
-            <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary-900/30 border border-primary-700/40 text-primary-300 text-sm mb-3">
-              <span className="bg-primary-500 rounded-full w-2 h-2 mr-2"></span>
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 border border-primary-200 text-primary-900 dark:bg-primary-900/30 dark:border-primary-700/40 dark:text-primary-300 text-sm mb-3 font-medium">
+              <span className="bg-primary-600 dark:bg-primary-500 rounded-full w-2 h-2 mr-2"></span>
               Premium Car Rental Service
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary-900 dark:text-white leading-tight tracking-tight">
               Find And Book Your <span className="text-primary-400 relative">
                 Perfect Car
                 <svg className="absolute bottom-0 left-0 w-full h-3 text-primary-500/30" viewBox="0 0 300 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,7 +53,7 @@ export default function Hero() {
               </span>
             </h1>
             
-            <p className="text-secondary-300 text-lg md:text-xl max-w-xl mx-auto lg:mx-0">
+            <p className="text-secondary-600 dark:text-secondary-300 text-lg md:text-xl max-w-xl mx-auto lg:mx-0">
               Experience the freedom of the road with our premium selection of vehicles. 
               Quick booking, transparent pricing, no hidden fees.
             </p>
@@ -155,7 +163,8 @@ export default function Hero() {
         {/*     </div> */}
         {/*   </div> */}
         {/* </div> */}
+        </div>
       </div>
-    </div>
+    </AuroraBackground>
   );
 }

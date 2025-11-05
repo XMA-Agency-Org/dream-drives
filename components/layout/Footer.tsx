@@ -1,6 +1,5 @@
 // components/layout/Footer.tsx
 import Link from "next/link";
-import Image from "next/image";
 import {
   Phone,
   Mail,
@@ -9,6 +8,7 @@ import {
   Instagram,
   ArrowRight,
   Award,
+  CarFront,
 } from "lucide-react";
 
 export default function Footer() {
@@ -66,14 +66,19 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Company info */}
           <div className="lg:col-span-2">
-            <div className="flex items-center mb-6">
-              <Image
+            <div className="flex items-center gap-3 mb-6">
+              {/* TODO: Replace the logo image file /4MAticlogo.png with the new Dream Drives logo */}
+              {/* <Image
                 src="/4MAticlogo.png"
-                alt="4MATIC Logo"
+                alt="Dream Drives Logo"
                 width={200}
                 height={200}
                 className="logo-image"
-              />
+              /> */}
+              <CarFront className="h-8 w-8 md:h-10 md:w-10 text-primary-600 dark:text-primary-400" />
+              <span className="text-2xl md:text-3xl font-bold text-secondary-900 dark:text-white">
+                Dream Drives
+              </span>
             </div>
             <p className="text-secondary-600 dark:text-secondary-400 mb-6">
               Experience the epitome of luxury and performance with our premium
@@ -91,9 +96,9 @@ export default function Footer() {
               </div>
               <div className="flex items-start">
                 <Mail className="w-5 h-5 text-primary-600 dark:text-primary-400 mt-0.5 mr-3" />
-                <Link href="mailto:info@4maticrental.com">
+                <Link href="mailto:info@dreamdrives.com">
                   <span className="text-secondary-600 dark:text-secondary-400">
-                    info@4maticrental.com
+                    info@dreamdrives.com
                   </span>
                 </Link>
               </div>
@@ -197,19 +202,19 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between">
           {/* Copyright */}
           <p className="text-secondary-600 dark:text-secondary-400 text-sm mb-4 md:mb-0">
-            © {currentYear} 4MATIC Luxury Car Rentals. All rights reserved.
+            © {currentYear} Dream Drives Luxury Car Rentals. All rights reserved.
           </p>
 
           {/* Social links */}
           <div className="flex space-x-4">
             <a
-              href="https://www.facebook.com/4maticrental/"
+              href="https://www.facebook.com/dreamdrives/"
               className="text-secondary-600 dark:text-secondary-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
             >
               <Facebook className="w-5 h-5" />
             </a>
             <a
-              href="https://www.instagram.com/4maticrental/"
+              href="https://www.instagram.com/dreamdrives/"
               className="text-secondary-600 dark:text-secondary-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
             >
               <Instagram className="w-5 h-5" />

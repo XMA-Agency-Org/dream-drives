@@ -24,9 +24,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "4MATIC | Premium Car Rental Service",
+  title: "Dream Drives | Premium Car Rental Service",
   description:
-    "Experience the road with 4MATIC premium car rental service. Choose from a wide range of luxury, sports, and economy vehicles.",
+    "Experience the road with Dream Drives premium car rental service. Choose from a wide range of luxury, sports, and economy vehicles.",
   keywords: [
     "car rental",
     "luxury cars",
@@ -42,7 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth dark">
+    <html lang="en" className="scroll-smooth light">
       <head>
         <link rel="icon" href="/favicon.png" sizes="any" />
       </head>

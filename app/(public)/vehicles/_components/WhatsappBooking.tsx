@@ -26,7 +26,7 @@ export default function WhatsappBooking({
 
     // Create a template message with the car details and luxury service offering
     const message = `
-Hello 4MATIC Luxury Car Rental,
+Hello Dream Drives Luxury Car Rental,
 
 I'm interested in booking the ${brandName} ${car.name}.
 

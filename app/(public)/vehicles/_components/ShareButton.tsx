@@ -38,8 +38,8 @@ export default function ShareButton({ car }: ShareButtonProps) {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: `4MATIC Luxury: ${brandName} ${car.name}`,
-          text: `Discover the exceptional ${brandName} ${car.name} starting at AED ${car.price}/day with 4MATIC Luxury Car Rental.`,
+          title: `Dream Drives Luxury: ${brandName} ${car.name}`,
+          text: `Discover the exceptional ${brandName} ${car.name} starting at AED ${car.price}/day with Dream Drives Luxury Car Rental.`,
           url: getVehicleUrl(),
         });
       } catch (error) {
@@ -55,8 +55,8 @@ export default function ShareButton({ car }: ShareButtonProps) {
   // Share with specific platforms
   const shareWith = (platform: string) => {
     const url = getVehicleUrl();
-    const title = `4MATIC Luxury: ${brandName} ${car.name}`;
-    const text = `Discover the exceptional ${brandName} ${car.name} starting at AED ${car.price}/day with 4MATIC Luxury Car Rental.`;
+    const title = `Dream Drives Luxury: ${brandName} ${car.name}`;
+    const text = `Discover the exceptional ${brandName} ${car.name} starting at AED ${car.price}/day with Dream Drives Luxury Car Rental.`;
 
     switch (platform) {
       case "facebook":
