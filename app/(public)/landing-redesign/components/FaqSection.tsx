@@ -44,60 +44,47 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="pb-20 bg-white dark:bg-secondary-900">
-      <div className="container mx-auto px-6 max-w-6xl">
+    <section className="pb-20 bg-white">
+      <div className="landing-container max-w-6xl">
         {/* Header */}
-        <div className="text-center mb-12">
-          <p className="text-[#6B7C85] dark:text-gray-400 text-sm uppercase tracking-wider mb-3">
-            Faq
-          </p>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white">
-            Popular Questions
-          </h2>
+        <div className="landing-section-header">
+          <p className="landing-section-subtitle">Faq</p>
+          <h2 className="landing-section-title">Popular Questions</h2>
         </div>
 
         {/* FAQ Items */}
         <div className="space-y-2">
           {faqItems.map((item, index) => (
-            <div
-              key={index}
-              className="bg-white dark:bg-secondary-800 rounded-2xl border border-gray-300 dark:border-secondary-700 overflow-hidden transition-all duration-200 hover:shadow-[0_1px_3px_rgba(0,0,0,0.05)]"
-            >
+            <div key={index} className="landing-faq-item">
               <button
                 onClick={() => toggleFaq(index)}
-                className="w-full px-8 py-4 flex items-center justify-between text-left transition-colors cursor-pointer group"
+                className="landing-faq-button group"
                 aria-expanded={openIndex === index}
               >
-                <h3 className="text-base md:text-lg font-bold text-gray-900 dark:text-white pr-8">
-                  {item.question}
-                </h3>
+                <h3 className="landing-faq-title">{item.question}</h3>
                 <div
-                  className={`p-3 rounded-lg flex-shrink-0 transition-colors ${
+                  className={`landing-faq-icon-container ${
                     openIndex === index
-                      ? "bg-black dark:bg-white"
-                      : "bg-gray-100 dark:bg-secondary-700 group-hover:bg-gray-200 dark:group-hover:bg-secondary-600"
+                      ? "landing-faq-icon-container-active"
+                      : "landing-faq-icon-container-inactive"
                   }`}
                 >
                   <ChevronDown
                     className={`w-5 h-5 transition-all duration-200 ${
                       openIndex === index
-                        ? "rotate-180 text-white dark:text-black"
-                        : "text-black dark:text-gray-400"
+                        ? "rotate-180 text-white"
+                        : "text-black"
                     }`}
                   />
                 </div>
               </button>
 
               <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                className={`landing-faq-content ${
                   openIndex === index ? "max-h-96" : "max-h-0"
                 }`}
               >
-                <div className="px-8 pb-6 pt-2">
-                  <p className="text-sm text-black dark:text-gray-300 leading-relaxed">
-                    {item.answer}
-                  </p>
-                </div>
+                <div className="landing-faq-answer">{item.answer}</div>
               </div>
             </div>
           ))}

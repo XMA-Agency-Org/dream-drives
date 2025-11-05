@@ -39,7 +39,7 @@ export default function Footer() {
   return (
     <footer className="bg-black text-white">
       {/* Main footer content */}
-      <div className="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-20">
+      <div className="landing-container py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Company info */}
           <div className="lg:col-span-2">
@@ -49,33 +49,33 @@ export default function Footer() {
                 Dream Drives
               </span>
             </div>
-            <p className="text-white/70 mb-6">
+            <p className="landing-footer-text mb-6">
               Experience the epitome of luxury and performance with our premium
               vehicle collection. Offering exceptional service and attention to
               detail for discerning clients worldwide.
             </p>
             <div className="space-y-4">
               <div className="flex items-start">
-                <Phone className="w-5 h-5 text-white/70 mt-0.5 mr-3 flex-shrink-0" />
+                <Phone className="w-5 h-5 landing-footer-text mt-0.5 mr-3 flex-shrink-0" />
                 <Link
                   href="tel:+971563626000"
-                  className="text-white/70 hover:text-white transition-colors"
+                  className="landing-footer-text hover:text-white transition-colors"
                 >
                   +971 56 362 6000
                 </Link>
               </div>
               <div className="flex items-start">
-                <Mail className="w-5 h-5 text-white/70 mt-0.5 mr-3 flex-shrink-0" />
+                <Mail className="w-5 h-5 landing-footer-text mt-0.5 mr-3 flex-shrink-0" />
                 <Link
                   href="mailto:info@dreamdrives.com"
-                  className="text-white/70 hover:text-white transition-colors"
+                  className="landing-footer-text hover:text-white transition-colors"
                 >
                   info@dreamdrives.com
                 </Link>
               </div>
               <div className="flex items-start">
-                <MapPin className="w-5 h-5 text-white/70 mt-0.5 mr-3 flex-shrink-0" />
-                <span className="text-white/70">
+                <MapPin className="w-5 h-5 landing-footer-text mt-0.5 mr-3 flex-shrink-0" />
+                <span className="landing-footer-text">
                   Business Bay Marquise Square Tower Shop 04, Dubai
                 </span>
               </div>
@@ -84,14 +84,11 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-bold text-white mb-6">Quick Links</h3>
+            <h3 className="landing-footer-heading">Quick Links</h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-white/70 hover:text-white transition-colors text-[15px]"
-                  >
+                  <Link href={link.href} className="landing-footer-link">
                     {link.name}
                   </Link>
                 </li>
@@ -101,14 +98,11 @@ export default function Footer() {
 
           {/* Vehicle Types */}
           <div>
-            <h3 className="text-lg font-bold text-white mb-6">Vehicle Types</h3>
+            <h3 className="landing-footer-heading">Vehicle Types</h3>
             <ul className="space-y-3">
               {vehicleTypes.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-white/70 hover:text-white transition-colors text-[15px]"
-                  >
+                  <Link href={link.href} className="landing-footer-link">
                     {link.name}
                   </Link>
                 </li>
@@ -118,16 +112,11 @@ export default function Footer() {
 
           {/* Brands */}
           <div>
-            <h3 className="text-lg font-bold text-white mb-6">
-              Premium Brands
-            </h3>
+            <h3 className="landing-footer-heading">Premium Brands</h3>
             <ul className="space-y-3">
               {brands.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-white/70 hover:text-white transition-colors text-[15px]"
-                  >
+                  <Link href={link.href} className="landing-footer-link">
                     {link.name}
                   </Link>
                 </li>
@@ -139,14 +128,14 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/10 py-8">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="landing-container flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Social links */}
           <div className="flex items-center gap-4 order-2 md:order-1">
             <a
               href="https://www.facebook.com/dreamdrives/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/60 hover:text-white transition-colors"
+              className="landing-footer-social"
               aria-label="Facebook"
             >
               <Facebook className="w-5 h-5" />
@@ -155,7 +144,7 @@ export default function Footer() {
               href="https://twitter.com/dreamdrives"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/60 hover:text-white transition-colors"
+              className="landing-footer-social"
               aria-label="Twitter"
             >
               <Twitter className="w-5 h-5" />
@@ -164,7 +153,7 @@ export default function Footer() {
               href="https://www.instagram.com/dreamdrives/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/60 hover:text-white transition-colors"
+              className="landing-footer-social"
               aria-label="Instagram"
             >
               <Instagram className="w-5 h-5" />
@@ -173,7 +162,7 @@ export default function Footer() {
               href="https://www.linkedin.com/company/dreamdrives"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/60 hover:text-white transition-colors"
+              className="landing-footer-social"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5" />
@@ -182,7 +171,7 @@ export default function Footer() {
               href="https://www.pinterest.com/dreamdrives"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/60 hover:text-white transition-colors"
+              className="landing-footer-social"
               aria-label="Pinterest"
             >
               <svg
@@ -197,7 +186,7 @@ export default function Footer() {
           </div>
 
           {/* Copyright */}
-          <p className="text-white/60 text-sm order-1 md:order-2">
+          <p className="landing-footer-social text-sm order-1 md:order-2">
             © {currentYear} Dream Drives Luxury Car Rentals. All rights
             reserved.
           </p>

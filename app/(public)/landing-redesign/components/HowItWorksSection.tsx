@@ -2,14 +2,12 @@ import { Search, CarFront, CalendarDays } from "lucide-react";
 
 export default function HowItWorksSection() {
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="landing-section">
+      <div className="landing-container">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <p className="text-md text-[#6B7C85] mb-2">How it Works</p>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-950">
-            Follow 3 easy steps
-          </h2>
+        <div className="landing-section-header-lg">
+          <p className="text-md text-landing-muted mb-2">How it Works</p>
+          <h2 className="landing-section-title">Follow 3 easy steps</h2>
         </div>
 
         {/* Steps Grid */}
@@ -23,13 +21,13 @@ export default function HowItWorksSection() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 relative z-10">
             {/* Step 1 */}
             <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-[#6B7C85] rounded-2xl flex items-center justify-center mb-5">
+              <div className="landing-step-icon">
                 <Search className="w-7 h-7 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-950 mb-3">
+              <h3 className="landing-step-title">
                 Search for a car
               </h3>
-              <p className="text-sm text-gray-500 leading-relaxed">
+              <p className="landing-step-description">
                 Know your purchase: Tools to calculate budget, financing and
                 more
               </p>
@@ -37,13 +35,13 @@ export default function HowItWorksSection() {
 
             {/* Step 2 */}
             <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-[#6B7C85] rounded-2xl flex items-center justify-center mb-5">
+              <div className="landing-step-icon">
                 <CalendarDays className="w-7 h-7 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-950 mb-3">
+              <h3 className="landing-step-title">
                 Select pick-up date
               </h3>
-              <p className="text-sm text-gray-500 leading-relaxed">
+              <p className="landing-step-description">
                 Know before you buy: Honest reviews, rankings and video
                 test-drives
               </p>
@@ -51,13 +49,13 @@ export default function HowItWorksSection() {
 
             {/* Step 3 */}
             <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-[#6B7C85] rounded-2xl flex items-center justify-center mb-5">
+              <div className="landing-step-icon">
                 <CarFront className="w-7 h-7 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-950 mb-3">
+              <h3 className="landing-step-title">
                 Book your car
               </h3>
-              <p className="text-sm text-gray-500 leading-relaxed">
+              <p className="landing-step-description">
                 Know your offer: Deal ratings on new and used listings near you
               </p>
             </div>

@@ -2,11 +2,11 @@ import Image from "next/image";
 
 export default function BrandTeaser() {
   return (
-    <section className="pt-8 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="landing-section-sm">
+      <div className="landing-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Left Card - Rental Deals */}
-          <div className="relative h-[500px] rounded-3xl overflow-hidden group">
+          {/* Left Card */}
+          <div className="landing-card h-[500px] group">
             <Image
               src="/landing-redesign/5DRqsrNraWafPJYylxJFw7hnnXQ.jpeg"
               alt="Luxury car on city street"
@@ -14,44 +14,46 @@ export default function BrandTeaser() {
               className="object-cover"
             />
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black/40"></div>
+            <div className="landing-card-overlay"></div>
 
             {/* Content */}
             <div className="absolute top-8 left-8 right-8">
-              <div className="backdrop-blur-sm text-center rounded-2xl p-8 bg-[#454F53]">
-                <h3 className="text-xl font-bold text-white mb-2">
-                  Feel the best experience with rental deals
+              <div className="landing-card-content-dark">
+                <h3 className="landing-card-title-white">
+                  Experience luxury car rentals in Dubai
                 </h3>
-                <p className="text-white/90 text-xs leading-relaxed">
-                  The 2023 Volkswagen Jetta is an affordable European sedan that
-                  offers a spacious interior, unique styling, and engaging
-                  driving manners. It comes equipped with an efficient.
+                <p className="landing-card-description-white">
+                  Dream Drives offers an exclusive collection of premium and
+                  luxury vehicles in Dubai. From exotic supercars to elegant
+                  sedans, discover the perfect car for your journey through the
+                  city of dreams.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Right Card - Deal Ratings */}
-          <div className="relative h-[500px] rounded-3xl overflow-hidden group">
+          {/* Right Card */}
+          <div className="landing-card h-[500px] group">
             <Image
               src="/landing-redesign/qcHmEYofDfhcS57d0hEjJHIjiUo.jpeg"
-              alt="Luxury car interior"
+              alt="Premium car rental service in Dubai"
               fill
               className="object-cover"
             />
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black/40"></div>
+            <div className="landing-card-overlay"></div>
 
             {/* Content */}
             <div className="absolute bottom-8 left-8 right-8">
-              <div className="backdrop-blur-sm rounded-2xl text-center p-8 bg-[#6F828A]">
-                <h3 className="text-xl font-bold text-white mb-2">
-                  Deal ratings on all listings near you
+              <div className="landing-card-content-medium">
+                <h3 className="landing-card-title-white">
+                  Transparent pricing across Dubai
                 </h3>
-                <p className="text-white/90 text-xs leading-relaxed">
-                  Standard features include Volkswagen&apos;s Digital Cockpit,
-                  Apple CarPlay/Android Auto, forward collision warning with
-                  automatic emergency braking, blind-spot monitoring.
+                <p className="landing-card-description-white">
+                  All our rentals include comprehensive insurance, 24/7 roadside
+                  assistance, flexible pick-up and drop-off locations across
+                  Dubai, and dedicated customer support throughout your rental
+                  period.
                 </p>
               </div>
             </div>

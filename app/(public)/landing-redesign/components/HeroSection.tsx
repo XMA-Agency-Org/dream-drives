@@ -21,7 +21,7 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="relative bg-[#FCFCFC] overflow-hidden">
+    <div className="relative bg-landing-primary overflow-hidden">
       {/* Decorative circles */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border-[80px] border-gray-200/30 -translate-y-1/3 translate-x-1/4"></div>
       <div className="absolute top-20 right-20 w-[600px] h-[600px] rounded-full border-[60px] border-gray-200/20 translate-x-1/4"></div>
@@ -38,21 +38,21 @@ export default function HeroSection() {
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-52 pb-16">
+      <div className="relative z-10 landing-container text-center lg:text-left pt-28 lg:pt-52 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left Content */}
           <div className="space-y-3 relative z-20">
-            <h1 className="text-5xl md:text-5xl lg:text-6xl font-extrabold text-gray-950 leading-[1.2]">
+            <h1 className="landing-hero-title leading-[1.2]">
               The largest luxury car rentals marketplace
             </h1>
 
-            <p className="text-md text-[#6F828A] max-w-xl">
+            <p className="text-md text-landing-muted lg:max-w-xl">
               Our team offering you a wide selection of high-end cars for rent
             </p>
           </div>
 
           {/* Right Content - Car Image */}
-          <div className="relative h-[300px] z-20">
+          <div className="relative h-[180px] md:h-[220px] lg:h-[300px] z-20 px-4 lg:px-0">
             {/* Car Image */}
             <div className="relative h-full w-full">
               <Image
@@ -83,7 +83,7 @@ export default function HeroSection() {
             />
             <button
               onClick={handleSearch}
-              className="bg-black hover:bg-gray-800 text-white p-4 rounded-xl transition-all duration-200 flex items-center justify-center"
+              className="bg-black hover:bg-gray-800 text-white p-4 rounded-xl transition-all duration-200 flex items-center justify-center cursor-pointer"
               aria-label="Search"
             >
               <Search className="w-5 h-5" />
