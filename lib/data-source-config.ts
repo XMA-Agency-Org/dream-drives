@@ -2,7 +2,7 @@
 // Set to 'mock' to use local data, 'contentful' to use Contentful CMS
 // Change this ONE variable to switch the entire app between mock and Contentful data
 
-export const DATA_SOURCE: "mock" | "contentful" = "mock";
+export const DATA_SOURCE: "mock" | "contentful" = "contentful";
 
 // Helper to check if using mock data
 export const isUsingMockData = () => DATA_SOURCE === "mock";

@@ -42,8 +42,11 @@ const Header: React.FC = () => {
   const [brands, setBrands] = useState<Array<{ id: string; label: string }>>(
     []
   );
+  const [categories, setCategories] = useState<
+    Array<{ id: string; label: string }>
+  >([]);
 
-  // Updated navigation items for a luxury car rental service
+  // Build navigation items dynamically based on fetched data
   const navItems: NavItem[] = [
     { label: "Home", href: "/" },
     {
@@ -51,10 +54,12 @@ const Header: React.FC = () => {
       href: "#",
       children: [
         { label: "Browse All", href: "/vehicles" },
-        { label: "Luxury Sedans", href: "/vehicles?category=luxury" },
-        { label: "Sports Cars", href: "/vehicles?category=sports" },
-        { label: "Premium SUVs", href: "/vehicles?category=suv" },
-        { label: "Economy Cars", href: "/vehicles?category=economy" },
+        ...categories
+          .filter((cat) => cat.id !== "all")
+          .map((cat) => ({
+            label: cat.label,
+            href: `/vehicles?category=${cat.id}`,
+          })),
       ],
     },
     {
@@ -68,7 +73,7 @@ const Header: React.FC = () => {
     { label: "Contact Us", href: "/contact-us" },
   ];
 
-  // Fetch brands on mount
+  // Fetch brands and categories on mount
   useEffect(() => {
     const fetchBrands = async () => {
       try {
@@ -80,7 +85,20 @@ const Header: React.FC = () => {
         setBrands([{ id: "all", label: "All Brands" }]);
       }
     };
+
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch("/api/categories");
+        const categoriesData = await response.json();
+        setCategories(categoriesData);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+        setCategories([{ id: "all", label: "All Vehicles" }]);
+      }
+    };
+
     fetchBrands();
+    fetchCategories();
   }, []);
 
   // Toggle mobile dropdown

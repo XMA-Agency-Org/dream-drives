@@ -13,17 +13,7 @@ import {
 } from "lucide-react";
 import Button from "@/components/ui/Button";
 
-// Updated filter categories and options
-const categories = [
-  { id: "all", label: "All Vehicles" },
-  { id: "luxury", label: "Luxury" },
-  { id: "sports", label: "Sports" },
-  { id: "suv", label: "SUVs" },
-  { id: "economy", label: "Economy" },
-  { id: "minivan", label: "Minivans" },
-];
-
-// Brands will be fetched from Contentful
+// Categories and brands will be fetched from Contentful
 
 const passengerOptions = [
   { value: "2", label: "2 Passengers" },
@@ -79,6 +69,10 @@ export default function FilterSidebar() {
   const [brands, setBrands] = useState([{ id: "all", label: "All Brands" }]);
   const [brandsLoading, setBrandsLoading] = useState(true);
   
+  // Categories state
+  const [categories, setCategories] = useState([{ id: "all", label: "All Vehicles" }]);
+  const [categoriesLoading, setCategoriesLoading] = useState(true);
+  
   // Get current filter values from URL
   const currentCategory = searchParams.get("category") || "all";
   const currentBrand = searchParams.get("brand") || "all";
@@ -108,6 +102,23 @@ export default function FilterSidebar() {
     };
     
     fetchBrands();
+  }, []);
+
+  // Fetch categories via API route
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch('/api/categories');
+        const fetchedCategories = await response.json();
+        setCategories(fetchedCategories);
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+      } finally {
+        setCategoriesLoading(false);
+      }
+    };
+    
+    fetchCategories();
   }, []);
 
   const toggleSection = (section: keyof typeof openSections) => {
