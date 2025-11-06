@@ -319,120 +319,20 @@
      Maps semantic tokens to specific components
      ============================================ */
 
-  /* Button Component Tokens */
-  /* Primary button - Layer 4 wrapper for Layer 3 semantic tokens */
-  --button-primary-bg: var(--color-bg-interactive-primary);
-  --button-primary-bg-hover: var(--color-bg-interactive-primary-hover);
-  --button-primary-bg-active: var(--color-bg-interactive-primary-active);
-  --button-primary-text: var(--color-text-inverse);
-
-  /* Accent button - Layer 4 wrapper for Layer 3 semantic tokens */
-  --button-accent-bg: var(--color-bg-interactive-accent);
-  --button-accent-bg-hover: var(--color-bg-interactive-accent-hover);
-  --button-accent-bg-active: var(--color-bg-interactive-accent-active);
-  --button-accent-text: var(--color-text-inverse);
-
-  /* Ghost accent button - Layer 4 wrapper */
-  --button-ghost-accent-text: var(--color-text-interactive-accent);
-  --button-ghost-accent-text-hover: var(--color-text-interactive-accent-hover);
-  --button-ghost-accent-text-active: var(
-    --color-text-interactive-accent-active
-  );
-
-  /* Outline button */
-  --button-outline-bg: transparent;
-  --button-outline-bg-hover: var(--color-bg-interactive-primary);
-  --button-outline-bg-active: var(--color-bg-interactive-primary-active);
-  --button-outline-text: var(--color-text-interactive-primary);
-  --button-outline-text-hover: var(--color-text-inverse);
-  --button-outline-text-active: var(--color-text-inverse);
-  --button-outline-border: var(--color-border-interactive-primary);
-  --button-outline-border-hover: var(--color-border-interactive-primary-hover);
-  --button-outline-border-active: var(
-    --color-border-interactive-primary-active
-  );
-
-  /* Ghost accent button background tokens */
-  --button-ghost-accent-bg: transparent;
-  --button-ghost-accent-bg-hover: var(--color-bg-interactive-accent-subtle);
-  --button-ghost-accent-bg-active: var(--color-bg-interactive-accent-subtle);
-
-  /* Button layout tokens */
-  --button-radius: var(--radius-xl);
-
-  /* Card Component Tokens */
-  /* Card colors */
-  --card-bg: var(--color-surface);
-  --card-bg-hover: var(--color-surface-hover);
-  --card-border: var(--color-border);
-  --card-border-hover: var(--color-border-strong);
-
-  /* Card variant colors */
-  --card-primary-bg: var(--color-bg-interactive-primary);
-  --card-primary-text: var(--color-text-inverse);
-  --card-primary-light-bg: var(--color-bg-primary-light);
-  --card-primary-light-text: var(--color-text-inverse);
-  /* Dark variant uses same as primary */
-  --card-primary-dark-bg: var(--card-primary-bg);
-  --card-primary-dark-text: var(--card-primary-text);
-  --card-accent-bg: var(--color-bg-interactive-accent);
-  --card-accent-text: var(--color-text-inverse);
-
-  /* Card layout tokens */
-  --card-radius: var(--radius-3xl);
-  --card-shadow: var(--shadow-sm);
-  --card-shadow-hover: var(--shadow-md);
-
-  /* Input Component Tokens */
-  /* Input colors - uses semantic tokens directly where possible */
-  --input-bg: var(--color-surface);
-  --input-border: var(--color-border);
-  --input-border-focus: var(--color-border-focus);
-  --input-text: var(--color-text-primary);
-  --input-placeholder: var(--color-text-muted);
-
-  /* Input layout tokens */
-  --input-radius: var(--radius-xl);
-
-  /* Search Component Tokens - uses input tokens */
-  --search-bg: var(--input-bg);
-  --search-text: var(--input-text);
-  --search-placeholder: var(--input-text);
-  --search-radius: var(--input-radius);
-
-  /* Link Component Tokens */
-  --link-text: var(--color-text-interactive-primary);
-  --link-text-hover: var(--color-text-interactive-primary-hover);
-
-  /* Checkbox & Radio Component Tokens - shared tokens */
-  --checkbox-bg: transparent;
-  --checkbox-border: var(--color-border);
-  --checkbox-text: var(--color-text-interactive-primary);
-  /* Radio uses same tokens as checkbox */
-  --radio-bg: var(--checkbox-bg);
-  --radio-border: var(--checkbox-border);
-  --radio-text: var(--checkbox-text);
-
-  /* Accordion Component Tokens */
+  /* ============================================
+     ACCORDION COMPONENT TOKENS
+     ============================================ */
   --accordion-icon-active-bg: var(--color-bg-interactive-primary);
+  --accordion-item-bg: var(--color-surface);
+  --accordion-item-border: var(--color-border);
+  --accordion-title-color: var(--color-text-primary);
+  --accordion-body-color: var(--color-text-secondary);
+  --accordion-icon-inactive-bg: var(--color-surface-subtle);
+  --accordion-icon-inactive-bg-hover: var(--color-surface-hover);
 
-  /* Badge Pill Component Tokens */
-  --badge-pill-primary-bg: var(--color-bg-interactive-primary-subtle);
-  --badge-pill-primary-bg-dark: var(--badge-primary-bg-dark);
-  --badge-pill-primary-text: var(--color-text-primary);
-  --badge-pill-primary-text-dark: var(--color-text-interactive-primary);
-  --badge-pill-primary-border-dark: var(
-    --color-border-interactive-primary-active
-  );
-  --badge-pill-accent-bg: var(--color-bg-interactive-accent-subtle);
-  --badge-pill-accent-bg-dark: var(--badge-accent-bg-dark);
-  --badge-pill-accent-text: var(--color-text-primary);
-  --badge-pill-accent-text-dark: var(--color-text-interactive-accent);
-  --badge-pill-accent-border-dark: var(
-    --color-border-interactive-accent-active
-  );
-
-  /* Badge Component Tokens */
+  /* ============================================
+     BADGE COMPONENT TOKENS
+     ============================================ */
   /* Primary badge */
   --badge-primary-bg: var(--color-bg-badge-primary);
   --badge-primary-bg-dark: var(--color-bg-badge-primary-dark);
@@ -478,33 +378,37 @@
   /* Badge layout tokens */
   --badge-radius: var(--radius-full);
 
-  /* Focus Ring Component Tokens */
-  --focus-ring-primary: var(--color-border-focus-ring-primary);
-  --focus-ring-accent: var(--color-border-focus-ring-accent);
-  --focus-ring-secondary: var(--color-border-focus-ring-secondary);
-  --focus-ring-success: var(--color-border-focus-ring-success);
-  --focus-ring-error: var(--color-border-focus-ring-error);
-  --focus-ring-dark: var(--color-border-focus-ring-dark);
+  /* Badge Pill Component Tokens */
+  --badge-pill-primary-bg: var(--color-bg-interactive-primary-subtle);
+  --badge-pill-primary-bg-dark: var(--badge-primary-bg-dark);
+  --badge-pill-primary-text: var(--color-text-primary);
+  --badge-pill-primary-text-dark: var(--color-text-interactive-primary);
+  --badge-pill-primary-border-dark: var(
+    --color-border-interactive-primary-active
+  );
+  --badge-pill-accent-bg: var(--color-bg-interactive-accent-subtle);
+  --badge-pill-accent-bg-dark: var(--badge-accent-bg-dark);
+  --badge-pill-accent-text: var(--color-text-primary);
+  --badge-pill-accent-text-dark: var(--color-text-interactive-accent);
+  --badge-pill-accent-border-dark: var(
+    --color-border-interactive-accent-active
+  );
 
-  /* Icon Container Tokens */
-  --icon-container-bg: var(--color-bg-interactive-accent);
-  --icon-container-text: var(--color-text-inverse);
-  --icon-container-primary-bg: var(--color-bg-interactive-primary);
-  --icon-container-primary-text: var(--color-text-inverse);
-  --icon-container-accent-bg: var(--color-bg-interactive-accent);
-  --icon-container-accent-text: var(--color-text-inverse);
-  --icon-container-radius: var(--radius-2xl);
+  /* ============================================
+     BUTTON COMPONENT TOKENS
+     ============================================ */
+  /* Primary button */
+  --button-primary-bg: var(--color-bg-interactive-primary);
+  --button-primary-bg-hover: var(--color-bg-interactive-primary-hover);
+  --button-primary-bg-active: var(--color-bg-interactive-primary-active);
+  --button-primary-text: var(--color-text-inverse);
 
-  /* Spinner Component Tokens */
-  --spinner-border: var(--color-border);
-  --spinner-border-active: var(--color-border-interactive-primary);
+  /* Accent button */
+  --button-accent-bg: var(--color-bg-interactive-accent);
+  --button-accent-bg-hover: var(--color-bg-interactive-accent-hover);
+  --button-accent-bg-active: var(--color-bg-interactive-accent-active);
+  --button-accent-text: var(--color-text-inverse);
 
-  /* Section Component Tokens */
-  --section-bg: var(--color-bg-primary);
-  --section-bg-secondary: var(--color-bg-secondary);
-  --section-bg-subtle: var(--color-bg-subtle);
-
-  /* Button Component Tokens (additional variants) */
   /* Secondary button */
   --button-secondary-bg: var(--color-bg-secondary);
   --button-secondary-bg-hover: var(--color-bg-subtle);
@@ -537,6 +441,7 @@
   --button-white-border: var(--color-border);
   --button-white-border-hover: var(--color-border);
   --button-white-border-active: var(--color-border);
+
   /* Ghost button */
   --button-ghost-bg: transparent;
   --button-ghost-bg-hover: var(--color-surface-hover);
@@ -547,15 +452,215 @@
   --button-ghost-border: transparent;
   --button-ghost-border-hover: transparent;
   --button-ghost-border-active: transparent;
+
+  /* Ghost accent button */
+  --button-ghost-accent-bg: transparent;
+  --button-ghost-accent-bg-hover: var(--color-bg-interactive-accent-subtle);
+  --button-ghost-accent-bg-active: var(--color-bg-interactive-accent-subtle);
+  --button-ghost-accent-text: var(--color-text-interactive-accent);
+  --button-ghost-accent-text-hover: var(--color-text-interactive-accent-hover);
+  --button-ghost-accent-text-active: var(
+    --color-text-interactive-accent-active
+  );
+
+  /* Outline button */
+  --button-outline-bg: transparent;
+  --button-outline-bg-hover: var(--color-bg-interactive-primary);
+  --button-outline-bg-active: var(--color-bg-interactive-primary-active);
+  --button-outline-text: var(--color-text-interactive-primary);
+  --button-outline-text-hover: var(--color-text-inverse);
+  --button-outline-text-active: var(--color-text-inverse);
+  --button-outline-border: var(--color-border-interactive-primary);
+  --button-outline-border-hover: var(--color-border-interactive-primary-hover);
+  --button-outline-border-active: var(
+    --color-border-interactive-primary-active
+  );
+
+  /* Button layout tokens */
+  --button-radius: var(--radius-xl);
   --button-focus-ring-bg: var(--color-bg-primary);
 
-  /* Card Component Tokens (additional) */
+  /* ============================================
+     CARD COMPONENT TOKENS
+     ============================================ */
+  /* Base card colors */
+  --card-bg: var(--color-surface);
+  --card-bg-hover: var(--color-surface-hover);
+  --card-border: var(--color-border);
+  --card-border-hover: var(--color-border-strong);
+
+  /* Card variant colors */
+  --card-primary-bg: var(--color-bg-interactive-primary);
+  --card-primary-text: var(--color-text-inverse);
+  --card-primary-light-bg: var(--color-bg-primary-light);
+  --card-primary-light-text: var(--color-text-inverse);
+  --card-primary-dark-bg: var(--card-primary-bg);
+  --card-primary-dark-text: var(--card-primary-text);
+  --card-accent-bg: var(--color-bg-interactive-accent);
+  --card-accent-text: var(--color-text-inverse);
   --card-secondary-bg: var(--color-bg-subtle);
   --card-glass-bg: var(--color-surface);
-  /* Glass hover uses same as base */
   --card-glass-bg-hover: var(--card-glass-bg);
 
-  /* Typography Component Tokens - semantic aliases for component usage */
+  /* Card layout tokens */
+  --card-radius: var(--radius-3xl);
+  --card-shadow: var(--shadow-sm);
+  --card-shadow-hover: var(--shadow-md);
+
+  /* ============================================
+     CHECKBOX & RADIO COMPONENT TOKENS
+     ============================================ */
+  --checkbox-bg: transparent;
+  --checkbox-border: var(--color-border);
+  --checkbox-text: var(--color-text-interactive-primary);
+  /* Radio uses same tokens as checkbox */
+  --radio-bg: var(--checkbox-bg);
+  --radio-border: var(--checkbox-border);
+  --radio-text: var(--checkbox-text);
+
+  /* ============================================
+     DIVIDER COMPONENT TOKENS
+     ============================================ */
+  --divider-border: var(--color-border);
+  --connecting-line-bg: var(--color-border);
+
+  /* ============================================
+     FOCUS RING COMPONENT TOKENS
+     ============================================ */
+  --focus-ring-primary: var(--color-border-focus-ring-primary);
+  --focus-ring-accent: var(--color-border-focus-ring-accent);
+  --focus-ring-secondary: var(--color-border-focus-ring-secondary);
+  --focus-ring-success: var(--color-border-focus-ring-success);
+  --focus-ring-error: var(--color-border-focus-ring-error);
+  --focus-ring-dark: var(--color-border-focus-ring-dark);
+
+  /* ============================================
+     FOOTER COMPONENT TOKENS
+     ============================================ */
+  --footer-bg: var(--color-black);
+  --footer-heading-color: var(--color-text-inverse);
+  --footer-link-color: var(--color-text-inverse);
+  --footer-social-color: var(--color-text-inverse);
+  --footer-text-color: var(--color-text-inverse);
+
+  /* ============================================
+     ICON CONTAINER COMPONENT TOKENS
+     ============================================ */
+  --icon-container-bg: var(--color-bg-interactive-accent);
+  --icon-container-text: var(--color-text-inverse);
+  --icon-container-primary-bg: var(--color-bg-interactive-primary);
+  --icon-container-primary-text: var(--color-text-inverse);
+  --icon-container-accent-bg: var(--color-bg-interactive-accent);
+  --icon-container-accent-text: var(--color-text-inverse);
+  --icon-container-secondary-bg: var(--color-bg-subtle);
+  --icon-container-secondary-text: var(--color-text-secondary);
+  --icon-container-radius: var(--radius-2xl);
+
+  /* ============================================
+     INPUT COMPONENT TOKENS
+     ============================================ */
+  /* Input colors */
+  --input-bg: var(--color-surface);
+  --input-border: var(--color-border);
+  --input-border-focus: var(--color-border-focus);
+  --input-text: var(--color-text-primary);
+  --input-placeholder: var(--color-text-muted);
+  --input-error-border: var(--color-border-error);
+  --input-success-border: var(--color-border-success);
+  --input-error-text: var(--color-text-error);
+  --form-input-bg: var(--color-bg-secondary);
+
+  /* Input layout tokens */
+  --input-radius: var(--radius-xl);
+
+  /* ============================================
+     LINK COMPONENT TOKENS
+     ============================================ */
+  --link-text: var(--color-text-interactive-primary);
+  --link-text-hover: var(--color-text-interactive-primary-hover);
+
+  /* ============================================
+     MODAL/OVERLAY COMPONENT TOKENS
+     ============================================ */
+  --modal-bg: var(--color-surface);
+  --modal-bg-hover: var(--color-surface-hover);
+  --modal-bg-active: var(--color-surface-active);
+  --modal-dark-bg: var(--color-bg-dark);
+  --modal-text: var(--color-text-inverse);
+  --modal-text-primary: var(--color-text-primary);
+  --modal-overlay-bg: var(--modal-bg);
+
+  /* ============================================
+     RATING COMPONENT TOKENS
+     ============================================ */
+  --rating-icon-color: var(--color-text-rating);
+  --rating-icon-fill: var(--color-text-rating-fill);
+  --rating-text-color: var(--color-text-rating);
+
+  /* ============================================
+     SCROLLBAR COMPONENT TOKENS
+     ============================================ */
+  /* Light mode scrollbar colors */
+  --scrollbar-thumb-color: var(--color-secondary-400);
+  --scrollbar-thumb-hover-color: var(--color-secondary-500);
+  --scrollbar-thumb-active-color: var(--color-secondary-600);
+
+  /* Firefox-specific scrollbar colors */
+  --scrollbar-thumb-color-firefox: var(--color-secondary-500);
+  --scrollbar-thumb-color-firefox-dark: var(--color-secondary-400);
+
+  /* Dark mode scrollbar colors */
+  --scrollbar-thumb-color-dark: var(--color-secondary-600);
+  --scrollbar-thumb-hover-color-dark: var(--color-secondary-500);
+  --scrollbar-thumb-active-color-dark: var(--color-secondary-400);
+
+  /* ============================================
+     SEARCH COMPONENT TOKENS
+     ============================================ */
+  --search-bg: var(--input-bg);
+  --search-text: var(--input-text);
+  --search-placeholder: var(--input-text);
+  --search-radius: var(--input-radius);
+
+  /* ============================================
+     SECTION COMPONENT TOKENS
+     ============================================ */
+  --section-bg: var(--color-bg-primary);
+  --section-bg-secondary: var(--color-bg-secondary);
+  --section-bg-subtle: var(--color-bg-subtle);
+
+  /* ============================================
+     SKELETON COMPONENT TOKENS
+     ============================================ */
+  --skeleton-bg: var(--color-bg-subtle);
+
+  /* ============================================
+     SPINNER COMPONENT TOKENS
+     ============================================ */
+  --spinner-border: var(--color-border);
+  --spinner-border-active: var(--color-border-interactive-primary);
+
+  /* ============================================
+     STEP/FEATURE COMPONENT TOKENS
+     ============================================ */
+  --step-icon-bg: var(--color-bg-emphasized);
+  --step-icon-text: var(--color-text-inverse);
+  --step-title-color: var(--color-text-primary);
+  --step-description-color: var(--color-text-muted);
+
+  /* ============================================
+     SURFACE UTILITY COMPONENT TOKENS
+     ============================================ */
+  --surface-utility-bg: var(--color-surface);
+  --surface-utility-bg-hover: var(--color-surface-hover);
+  --surface-utility-bg-active: var(--color-surface-active);
+  --dark-utility-bg: var(--color-bg-dark);
+  --text-utility-inverse: var(--color-text-inverse);
+  --text-utility-primary: var(--color-text-primary);
+
+  /* ============================================
+     TYPOGRAPHY COMPONENT TOKENS
+     ============================================ */
   --typography-title-color: var(--color-text-primary);
   --typography-title-white-color: var(--color-text-inverse);
   --typography-subtitle-color: var(--color-text-accent);
@@ -566,43 +671,9 @@
   --typography-link-muted-color: var(--color-text-muted);
   --typography-link-muted-hover-color: var(--color-text-primary);
 
-  /* Input Component Tokens (additional) */
-  --input-error-border: var(--color-border-error);
-  --input-success-border: var(--color-border-success);
-  --input-error-text: var(--color-text-error);
-  --form-input-bg: var(--color-bg-secondary);
-
-  /* Accordion Component Tokens (additional) */
-  --accordion-item-bg: var(--color-surface);
-  --accordion-item-border: var(--color-border);
-  --accordion-title-color: var(--color-text-primary);
-  --accordion-body-color: var(--color-text-secondary);
-  --accordion-icon-inactive-bg: var(--color-surface-subtle);
-  --accordion-icon-inactive-bg-hover: var(--color-surface-hover);
-
-  /* Icon Container Component Tokens (additional) */
-  --icon-container-secondary-bg: var(--color-bg-subtle);
-  --icon-container-secondary-text: var(--color-text-secondary);
-
-  /* Footer Component Tokens */
-  --footer-bg: var(--color-black);
-  --footer-heading-color: var(--color-text-inverse);
-  --footer-link-color: var(--color-text-inverse);
-  --footer-social-color: var(--color-text-inverse);
-  --footer-text-color: var(--color-text-inverse);
-
-  /* Step/Feature Component Tokens */
-  --step-icon-bg: var(--color-bg-emphasized);
-  --step-icon-text: var(--color-text-inverse);
-  --step-title-color: var(--color-text-primary);
-  --step-description-color: var(--color-text-muted);
-
-  /* Rating Component Tokens */
-  --rating-icon-color: var(--color-text-rating);
-  --rating-icon-fill: var(--color-text-rating-fill);
-  --rating-text-color: var(--color-text-rating);
-
-  /* WhatsApp/Success Button Component Tokens */
+  /* ============================================
+     WHATSAPP/SUCCESS BUTTON COMPONENT TOKENS
+     ============================================ */
   --whatsapp-bg: var(--color-bg-success);
   --whatsapp-bg-hover: var(--color-bg-success-hover);
   --whatsapp-bg-active: var(--color-bg-success-active);
@@ -618,48 +689,6 @@
   --whatsapp-button-text: var(--whatsapp-text);
   --icon-success-color: var(--color-text-icon-success);
   --text-success-color: var(--color-text-success);
-
-  /* Modal/Overlay Component Tokens */
-  --modal-bg: var(--color-surface);
-  --modal-bg-hover: var(--color-surface-hover);
-  --modal-bg-active: var(--color-surface-active);
-  --modal-dark-bg: var(--color-bg-dark);
-  --modal-text: var(--color-text-inverse);
-  --modal-text-primary: var(--color-text-primary);
-  /* Overlay uses same as modal bg */
-  --modal-overlay-bg: var(--modal-bg);
-
-  /* Skeleton Component Tokens */
-  --skeleton-bg: var(--color-bg-subtle);
-
-  /* Scrollbar Component Tokens */
-  /* Light mode scrollbar colors - using secondary colors for better visibility */
-  --scrollbar-thumb-color: var(--color-secondary-400);
-  --scrollbar-thumb-hover-color: var(--color-secondary-500);
-  --scrollbar-thumb-active-color: var(--color-secondary-600);
-
-  /* Firefox-specific scrollbar colors - darker for better visibility in light mode */
-  --scrollbar-thumb-color-firefox: var(--color-secondary-500);
-
-  /* Firefox dark mode - lighter for better visibility on dark backgrounds */
-  --scrollbar-thumb-color-firefox-dark: var(--color-secondary-400);
-
-  /* Dark mode scrollbar colors - lighter for better visibility on dark backgrounds */
-  --scrollbar-thumb-color-dark: var(--color-secondary-600);
-  --scrollbar-thumb-hover-color-dark: var(--color-secondary-500);
-  --scrollbar-thumb-active-color-dark: var(--color-secondary-400);
-
-  /* Surface Utility Component Tokens - semantic aliases for utility classes */
-  --surface-utility-bg: var(--color-surface);
-  --surface-utility-bg-hover: var(--color-surface-hover);
-  --surface-utility-bg-active: var(--color-surface-active);
-  --dark-utility-bg: var(--color-bg-dark);
-  --text-utility-inverse: var(--color-text-inverse);
-  --text-utility-primary: var(--color-text-primary);
-
-  /* Divider Component Tokens - use semantic border directly */
-  --divider-border: var(--color-border);
-  --connecting-line-bg: var(--color-border);
 
   /* ============================================
      TYPOGRAPHY SYSTEM
