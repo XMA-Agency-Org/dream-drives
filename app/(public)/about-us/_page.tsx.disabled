@@ -285,7 +285,7 @@ export default function AboutUsPage() {
         <section className="section">
           <div className="container-default">
             <ScrollReveal variant="scale" duration={0.8}>
-              <div className="card-primary text-center max-w-4xl mx-auto">
+              <div className="card-filled-primary text-center max-w-4xl mx-auto">
                 <h2 className="title-section text-white mb-4">
                   Ready to Experience Luxury?
                 </h2>

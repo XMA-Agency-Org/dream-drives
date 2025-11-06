@@ -133,7 +133,7 @@ export default function Testimonials() {
                       {[...Array(5)].map((_, i) => (
                         <Star
                           key={i}
-                          className={`w-4 h-4 ${i < Math.floor(testimonials[currentIndex].rating) ? "text-warning-400 fill-warning-400" : "text-secondary-300"}`}
+                          className={`w-4 h-4 ${i < Math.floor(testimonials[currentIndex].rating) ? "text-rating fill-rating" : "text-secondary-300"}`}
                         />
                       ))}
                     </div>

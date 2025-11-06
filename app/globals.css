@@ -19,49 +19,94 @@
    ROOT VARIABLES
    ============================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Use semantic tokens */
+  --background: var(--color-bg-primary);
+  --foreground: var(--color-text-primary);
+  --border: var(--color-border);
+  --primary: var(--color-text-interactive-primary);
+  --accent: var(--color-text-interactive-accent);
+
+  /* Keep existing spacing tokens */
+  --page-padding-x: clamp(1rem, 5vw, 2rem);
+  --section-spacing: clamp(3rem, 8vw, 6rem);
+  --component-spacing: clamp(1.5rem, 4vw, 3rem);
+}
+
+/* ============================================
+   DARK MODE SHIM VARIABLES
+   Only override shim variables, semantic tokens are handled in theme.css
+   ============================================ */
+.dark {
+  /* Dark mode shim variables - reference semantic tokens */
+  --background: var(--color-bg-primary);
+  --foreground: var(--color-text-primary);
+  --border: var(--color-border);
+  --primary: var(--color-text-interactive-primary);
+  --accent: var(--color-text-interactive-accent);
 }
 
 /* ============================================
    GLOBAL SCROLLBAR STYLES
+   Modern, polished scrollbar with smooth transitions
    ============================================ */
+
+/* Firefox scrollbar - auto width for better visibility, darker colors */
 * {
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-secondary-300) transparent;
+  scrollbar-width: auto;
+  scrollbar-color: var(--scrollbar-thumb-color-firefox) transparent;
 }
 
 /* Webkit browsers (Chrome, Safari, newer Edge) */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
   background: transparent;
+  border-radius: var(--radius-full);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--color-secondary-300);
-  border-radius: 20px;
-  transition: background-color 0.2s ease;
+  background-color: var(--scrollbar-thumb-color);
+  border-radius: var(--radius-full);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.2s ease,
+    height 0.2s ease;
+  min-height: 20px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color-secondary-400);
+  background-color: var(--scrollbar-thumb-hover-color);
+  border-color: transparent;
 }
 
-/* Dark mode scrollbar */
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--scrollbar-thumb-active-color);
+}
+
+/* Corner where horizontal and vertical scrollbars meet */
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Dark mode scrollbar - Firefox */
 .dark * {
-  scrollbar-color: var(--color-secondary-700) transparent;
+  scrollbar-color: var(--scrollbar-thumb-color-firefox-dark) transparent;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background-color: var(--color-secondary-700);
+  background-color: var(--scrollbar-thumb-color-dark);
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color-secondary-600);
+  background-color: var(--scrollbar-thumb-hover-color-dark);
+}
+
+.dark ::-webkit-scrollbar-thumb:active {
+  background-color: var(--scrollbar-thumb-active-color-dark);
 }
 
 /* ============================================
@@ -95,7 +140,7 @@ body {
   height: 24px;
   background: linear-gradient(
     to top,
-    var(--color-secondary-100) 0%,
+    var(--color-bg-subtle) 0%,
     transparent 100%
   );
   pointer-events: none;
@@ -107,7 +152,7 @@ body {
 .dark .scrollable-hint::before {
   background: linear-gradient(
     to top,
-    var(--color-secondary-800) 0%,
+    var(--color-surface-hover) 0%,
     transparent 100%
   );
 }

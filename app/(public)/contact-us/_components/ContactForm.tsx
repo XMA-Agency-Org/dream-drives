@@ -209,7 +209,7 @@ export default function ContactForm() {
           id="privacy"
           type="checkbox"
           required
-          className="mt-0.5 h-4 w-4 accent-green-500 dark:accent-green-600 border-secondary-300 dark:border-secondary-600 rounded focus:ring-2 focus:ring-green-500 cursor-pointer"
+          className="mt-0.5 h-4 w-4 accent-success-500 dark:accent-success-600 border-secondary-300 dark:border-secondary-600 rounded focus:ring-2 focus:ring-success-500 cursor-pointer"
         />
         <label htmlFor="privacy" className="text-sm text-muted cursor-pointer">
           I agree to the{" "}

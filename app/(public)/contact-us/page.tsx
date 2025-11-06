@@ -67,7 +67,7 @@ export default function ContactUsPage() {
               {/* Left Column - Contact Cards */}
               <div className="space-y-4">
                 {/* Headquarter Office */}
-                <div className="card-primary-dark">
+                <div className="card-filled-primary-dark">
                   <div className="flex items-start justify-between">
                     <div>
                       <h3 className="title-card-white mb-2">
@@ -87,7 +87,7 @@ export default function ContactUsPage() {
                 </div>
 
                 {/* Phone */}
-                <div className="card-primary">
+                <div className="card-filled-primary">
                   <div className="flex items-start justify-between">
                     <div>
                       <h3 className="title-card-white mb-1">
@@ -102,7 +102,7 @@ export default function ContactUsPage() {
                 </div>
 
                 {/* Email */}
-                <div className="card-primary-light">
+                <div className="card-filled-primary-light">
                   <div className="flex items-start justify-between">
                     <div>
                       <h3 className="title-card-white mb-1">

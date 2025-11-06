@@ -23,9 +23,9 @@ export default function HowItWorksSection() {
         <div className="relative">
           {/* Connecting lines - positioned absolutely */}
           {/* Line between step 1 and 2 */}
-          <div className="hidden md:block absolute top-8 left-[calc(33.333%-3rem)] w-16 h-[0.8px] bg-gray-300 z-0"></div>
+          <div className="hidden md:block absolute top-8 left-[calc(33.333%-3rem)] w-16 connecting-line-horizontal z-0"></div>
           {/* Line between step 2 and 3 */}
-          <div className="hidden md:block absolute top-8 left-[calc(66.666%-3rem)] w-16 h-[0.8px] bg-gray-300 z-0"></div>
+          <div className="hidden md:block absolute top-8 left-[calc(66.666%-3rem)] w-16 connecting-line-horizontal z-0"></div>
 
           <StaggerContainer
             staggerDelay={0.15}

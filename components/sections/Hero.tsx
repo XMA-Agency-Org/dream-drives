@@ -24,8 +24,8 @@ export default function HeroSection() {
   return (
     <section className="relative bg-secondary-50 dark:bg-secondary-950 overflow-hidden">
       {/* Decorative circles */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border-[80px] border-gray-200/30 dark:border-gray-700/30 -translate-y-1/3 translate-x-1/4"></div>
-      <div className="absolute top-20 right-20 w-[600px] h-[600px] rounded-full border-[60px] border-gray-200/20 dark:border-gray-700/20 translate-x-1/4"></div>
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border-[80px] border-gray-200/30 -translate-y-1/3 translate-x-1/4"></div>
+      <div className="absolute top-20 right-20 w-[600px] h-[600px] rounded-full border-[60px] border-gray-200/30 translate-x-1/4"></div>
 
       {/* Background art element */}
       <div className="absolute top-[360px] left-[650px] xl:top-[360px] xl:left-1/2  -translate-x-1/4 -translate-y-1/2 w-[700px] h-[700px] md:w-[750px] md:h-[750px] lg:w-[800px] lg:h-[800px] pointer-events-none">
@@ -55,7 +55,7 @@ export default function HeroSection() {
               duration={0.8}
               animateOnMount
             >
-              <p className="text-body text-muted lg:max-w-xl">
+              <p className="text-body text-subheading lg:max-w-xl">
                 Our team offering you a wide selection of high-end cars for rent
               </p>
             </ScrollReveal>
@@ -92,14 +92,11 @@ export default function HeroSection() {
           animateOnMount
         >
           <div className="relative z-20 mt-8 flex justify-center">
-            <div
-              className="bg-white rounded-xl py-3 px-4 flex items-center w-full max-w-xl"
-              style={{ boxShadow: "0 1px 2px rgba(0, 0, 0, 0.09)" }}
-            >
+            <div className="search-container max-w-xl">
               <input
                 type="text"
                 placeholder="Car brand, model, and etc."
-                className="flex-1 text-base font-bold bg-transparent border-none outline-none focus:ring-0 text-gray-900 placeholder:text-gray-900 placeholder:font-bold"
+                className="search-input placeholder:font-bold"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyPress={handleKeyPress}
@@ -117,7 +114,7 @@ export default function HeroSection() {
       </div>
 
       {/* Bottom decorative element */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-100/50 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-secondary-100/50 to-transparent"></div>
     </section>
   );
 }

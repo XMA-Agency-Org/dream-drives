@@ -18,7 +18,7 @@ export default function BrandTeaser() {
 
             {/* Content */}
             <div className="absolute top-8 left-8 right-8">
-              <div className="card-primary">
+              <div className="card-filled-primary text-center">
                 <h3 className="title-card-white mb-2">
                   Experience luxury car rentals in Dubai
                 </h3>
@@ -45,7 +45,7 @@ export default function BrandTeaser() {
 
             {/* Content */}
             <div className="absolute bottom-8 left-8 right-8">
-              <div className="card-primary-light">
+              <div className="card-filled-primary-light text-center">
                 <h3 className="title-card-white mb-2">
                   Transparent pricing across Dubai
                 </h3>

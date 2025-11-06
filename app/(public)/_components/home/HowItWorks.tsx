@@ -81,7 +81,7 @@ export default function HowItWorks() {
 
 function CtaSection() {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between card-primary shadow-lg p-8 md:p-10">
+    <div className="flex flex-col md:flex-row items-center justify-between card-filled-primary shadow-lg p-8 md:p-10">
       <div className="mb-6 md:mb-0">
         <h3 className="text-2xl font-bold text-white mb-2">Ready to experience luxury?</h3>
         <p className="text-white/90 max-w-md">

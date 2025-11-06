@@ -148,7 +148,7 @@ export default function ShareButton({ car }: ShareButtonProps) {
             >
               {copySuccess ? (
                 <>
-                  <Check className="mr-3 h-4 w-4 text-green-500" />
+                  <Check className="mr-3 h-4 w-4 icon-success" />
                   Copied!
                 </>
               ) : (

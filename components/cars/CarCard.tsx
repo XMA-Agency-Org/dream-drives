@@ -56,7 +56,7 @@ export default function CarCard({ car, showFeatures = true }: CarCardProps) {
 
         {/* Rating badge */}
         <div className="absolute top-3 left-3 flex items-center bg-white/90 dark:bg-secondary-800/90 backdrop-blur-sm px-2.5 py-1.5 rounded-md shadow-sm">
-          <Star className="w-4 h-4 text-yellow-400 fill-yellow-400 mr-1.5" />
+          <Star className="icon-rating mr-1.5" />
           <span className="text-secondary-900 dark:text-white text-sm font-medium">
             {car.rating.toFixed(1)}
           </span>

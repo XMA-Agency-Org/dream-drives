@@ -48,13 +48,13 @@ export default function ContactSection() {
           <StaggerContainer staggerDelay={0.12} className="space-y-4">
             {/* Headquarter Office */}
             <StaggerItem variants={staggerItemVariants}>
-              <div className="card-primary-dark">
+              <div className="card-filled-primary-dark">
                 <div className="flex items-start justify-between">
                   <div>
                     <h3 className="title-card-white mb-2">
                       Headquarter office
                     </h3>
-                    <div className="text-gray-200 text-sm leading-snug space-y-0.5">
+                    <div className="text-inverse text-sm leading-snug space-y-0.5 opacity-80">
                       <p>Dubai Marina</p>
                       <p>Marina Plaza Building</p>
                       <p>Office 2304</p>
@@ -70,12 +70,12 @@ export default function ContactSection() {
 
             {/* Phone */}
             <StaggerItem variants={staggerItemVariants}>
-              <div className="card-primary">
+              <div className="card-filled-primary">
                 <div className="flex items-start justify-between">
                   <div>
                     <h3 className="title-card-white mb-1">+971 54 555 5402</h3>
                     <h3 className="title-card-white mb-1">+971 54 555 5403</h3>
-                    <p className="text-gray-200 text-sm">Call us</p>
+                    <p className="text-inverse text-sm opacity-80">Call us</p>
                   </div>
                   <div className="bg-white/10 p-3 rounded-lg">
                     <Phone className="w-6 h-6 text-white" />
@@ -86,13 +86,15 @@ export default function ContactSection() {
 
             {/* Email */}
             <StaggerItem variants={staggerItemVariants}>
-              <div className="card-primary-light">
+              <div className="card-filled-primary-light">
                 <div className="flex items-start justify-between">
                   <div>
                     <h3 className="title-card-white mb-1">
                       info@dreamdrives.com
                     </h3>
-                    <p className="text-gray-200 text-sm">Send your email</p>
+                    <p className="text-inverse text-sm opacity-80">
+                      Send your email
+                    </p>
                   </div>
                   <div className="bg-white/10 p-3 rounded-lg">
                     <Mail className="w-6 h-6 text-white" />

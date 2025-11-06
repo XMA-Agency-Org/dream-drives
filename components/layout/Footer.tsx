@@ -37,15 +37,15 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-black text-white dark:bg-secondary-950">
+    <footer className="bg-footer text-inverse">
       {/* Main footer content */}
       <div className="container-default py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Company info */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <CarFront className="h-8 w-8 md:h-10 md:w-10 text-white" />
-              <span className="text-2xl md:text-3xl font-bold text-white">
+              <CarFront className="h-8 w-8 md:h-10 md:w-10 text-inverse" />
+              <span className="text-2xl md:text-3xl font-bold text-inverse">
                 Dream Drives
               </span>
             </div>

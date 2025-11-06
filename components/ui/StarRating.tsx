@@ -38,11 +38,11 @@ export default function StarRating({
             return (
               <Star
                 key={i}
-                className={`${iconSize} text-yellow-400 fill-yellow-400 mr-0.5`}
+                className={`${iconSize} text-rating fill-rating mr-0.5`}
               />
             );
           }
-          
+
           // Partial star (if rating has decimal)
           if (i === Math.floor(rating) && !Number.isInteger(rating)) {
             const percent = Math.round((rating - Math.floor(rating)) * 100);
@@ -50,13 +50,13 @@ export default function StarRating({
               <span key={i} className="relative mr-0.5">
                 {/* Background star (empty) */}
                 <Star className={`${iconSize} text-secondary-300 dark:text-secondary-700`} />
-                
+
                 {/* Foreground star (filled) with width based on rating decimal */}
-                <div 
+                <div
                   className="absolute top-0 left-0 overflow-hidden"
                   style={{ width: `${percent}%` }}
                 >
-                  <Star className={`${iconSize} text-yellow-400 fill-yellow-400`} />
+                  <Star className={`${iconSize} text-rating fill-rating`} />
                 </div>
               </span>
             );
