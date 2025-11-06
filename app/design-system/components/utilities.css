@@ -1,0 +1,216 @@
+/* ============================================
+   UTILITY COMPONENTS
+   ============================================ */
+@layer components {
+  /* Surface & Background utilities */
+  .bg-surface {
+    background-color: var(--surface-utility-bg);
+  }
+
+  .bg-surface-hover {
+    background-color: var(--surface-utility-bg-hover);
+  }
+
+  .bg-surface-active {
+    background-color: var(--surface-utility-bg-active);
+  }
+
+  /* Dark background - replacement for bg-black */
+  .bg-dark {
+    background-color: var(--dark-utility-bg);
+  }
+
+  /* Footer background */
+  .bg-footer {
+    background-color: var(--footer-bg);
+  }
+
+  /* Inverse text - replacement for text-white */
+  .text-inverse {
+    color: var(--text-utility-inverse);
+  }
+
+  /* Primary text - replacement for text-black */
+  .text-primary-color {
+    color: var(--text-utility-primary);
+  }
+
+  /* Border radius semantic utilities */
+  .radius-button {
+    border-radius: var(--button-radius);
+  }
+
+  .radius-card {
+    border-radius: var(--card-radius);
+  }
+
+  .radius-input {
+    border-radius: var(--input-radius);
+  }
+
+  .radius-badge {
+    border-radius: var(--badge-radius);
+  }
+
+  .radius-icon {
+    border-radius: var(--icon-container-radius);
+  }
+
+  /* Divider */
+  .divider {
+    border-top-color: var(--divider-border);
+    @apply border-t;
+  }
+
+  .divider-dashed {
+    border-top-color: var(--divider-border);
+    @apply border-t border-dashed;
+  }
+
+  /* Backdrop blur */
+  .backdrop-card {
+    background-color: color-mix(
+      in srgb,
+      var(--modal-overlay-bg) 90%,
+      transparent
+    );
+    @apply backdrop-blur-sm;
+  }
+
+  /* Skeleton loader */
+  .skeleton {
+    background-color: var(--skeleton-bg);
+    @apply animate-pulse rounded;
+  }
+
+  /* Spinner */
+  .spinner {
+    border-color: var(--spinner-border);
+    border-top-color: var(--spinner-border-active);
+    @apply animate-spin h-5 w-5 border-2 rounded-full;
+  }
+
+  /* Connecting line - for step indicators */
+  .connecting-line {
+    background-color: var(--connecting-line-bg);
+  }
+
+  .connecting-line-vertical {
+    @apply w-px;
+    background-color: var(--connecting-line-bg);
+  }
+
+  .connecting-line-horizontal {
+    @apply h-px;
+    background-color: var(--connecting-line-bg);
+  }
+
+  /* Scrollbar utilities */
+  /* Thin scrollbar */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  /* Thumb styles - using new scrollbar color tokens */
+  .scrollbar-thumb::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb-color);
+  }
+
+  .scrollbar-thumb::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover-color);
+  }
+
+  .scrollbar-thumb::-webkit-scrollbar-thumb:active {
+    background-color: var(--scrollbar-thumb-active-color);
+  }
+
+  .dark .scrollbar-thumb::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb-color-dark);
+  }
+
+  .dark .scrollbar-thumb::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover-color-dark);
+  }
+
+  .dark .scrollbar-thumb::-webkit-scrollbar-thumb:active {
+    background-color: var(--scrollbar-thumb-active-color-dark);
+  }
+
+  /* Track styles */
+  .scrollbar-track-transparent::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  /* Thumb border radius */
+  .scrollbar-thumb-rounded-full::-webkit-scrollbar-thumb {
+    border-radius: 9999px;
+  }
+
+  /* Scrollable container */
+  .scrollable-container {
+    position: relative;
+    overflow-y: auto;
+    padding-right: 8px;
+  }
+
+  /* Fade edges for scrollable content */
+  .fade-edges {
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 5%,
+      black 95%,
+      transparent 100%
+    );
+  }
+
+  /* Rating / Star components */
+  .icon-rating {
+    color: var(--rating-icon-color);
+    fill: var(--rating-icon-fill);
+    @apply w-4 h-4;
+  }
+
+  .text-rating {
+    color: var(--rating-text-color);
+  }
+
+  .fill-rating {
+    fill: var(--rating-icon-fill);
+  }
+
+  /* WhatsApp / Communication components */
+  /* WhatsApp floating action button */
+  .whatsapp-fab {
+    @apply fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-colors cursor-pointer;
+    background-color: var(--whatsapp-fab-bg);
+    color: var(--whatsapp-fab-text);
+  }
+
+  .whatsapp-fab:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--focus-ring-success);
+  }
+
+  .whatsapp-fab:hover {
+    background-color: var(--whatsapp-fab-bg-hover);
+  }
+
+  .whatsapp-fab:active {
+    background-color: var(--whatsapp-fab-bg-active);
+  }
+
+  /* Success/check icons */
+  .icon-success {
+    color: var(--icon-success-color);
+  }
+
+  .text-success {
+    color: var(--text-success-color);
+  }
+}

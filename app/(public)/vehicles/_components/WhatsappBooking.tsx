@@ -54,7 +54,7 @@ Thank you.
 
   return (
     <Button
-      variant="primary"
+      variant="accent"
       fullWidth
       size="lg"
       icon={<Phone className="w-5 h-5" />}

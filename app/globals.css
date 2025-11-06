@@ -3,14 +3,11 @@
    Unified Design System
    ============================================ */
 
-/* Import Tailwind CSS */
+/* Import design system tokens FIRST so Tailwind can use @theme tokens */
+@import "./design-system/index.css";
+
+/* Import Tailwind CSS AFTER tokens are defined */
 @import "tailwindcss";
-
-/* Import design tokens and theme */
-@import "./theme.css";
-
-/* Import reusable component styles */
-@import "./components.css";
 
 /* Custom dark mode variant */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -34,7 +31,7 @@
 
 /* ============================================
    DARK MODE SHIM VARIABLES
-   Only override shim variables, semantic tokens are handled in theme.css
+   Only override shim variables, semantic tokens are handled in design-system/tokens/semantic.css
    ============================================ */
 .dark {
   /* Dark mode shim variables - reference semantic tokens */

@@ -24,8 +24,8 @@ export default function HeroSection() {
   return (
     <section className="relative bg-secondary-50 dark:bg-secondary-950 overflow-hidden">
       {/* Decorative circles */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border-[80px] border-gray-200/30 -translate-y-1/3 translate-x-1/4"></div>
-      <div className="absolute top-20 right-20 w-[600px] h-[600px] rounded-full border-[60px] border-gray-200/30 translate-x-1/4"></div>
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border-[80px] border-gray-200/30 -translate-y-1/3 translate-x-1/4 xl:hidden"></div>
+      <div className="absolute top-20 right-20 w-[600px] h-[600px] rounded-full border-[60px] border-gray-200/30 translate-x-1/4 xl:hidden"></div>
 
       {/* Background art element */}
       <div className="absolute top-[360px] left-[650px] xl:top-[360px] xl:left-1/2  -translate-x-1/4 -translate-y-1/2 w-[700px] h-[700px] md:w-[750px] md:h-[750px] lg:w-[800px] lg:h-[800px] pointer-events-none">
