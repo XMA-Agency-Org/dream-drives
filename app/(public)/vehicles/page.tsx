@@ -9,11 +9,12 @@ import Loading from "./_components/Loading";
 
 export const metadata: Metadata = {
   title: "Dream Drives | Browse Our Vehicle Collection",
-  description: "Explore our premium selection of vehicles. Find the perfect car for your needs with our easy-to-use filtering options.",
+  description:
+    "Explore our premium selection of vehicles. Find the perfect car for your needs with our easy-to-use filtering options.",
 };
 
 interface VehiclesPageProps {
-  searchParams: {
+  searchParams: Promise<{
     category?: string;
     brand?: string;
     minPrice?: string;
@@ -21,7 +22,8 @@ interface VehiclesPageProps {
     passengers?: string;
     sort?: string;
     page?: string;
-  };
+    search?: string;
+  }>;
 }
 
 export default function VehiclesPage({ searchParams }: VehiclesPageProps) {
@@ -31,7 +33,7 @@ export default function VehiclesPage({ searchParams }: VehiclesPageProps) {
       <main className="pt-24">
         {/* Page Header */}
         <CollectionHeader />
-        
+
         <div className="container-default py-12">
           {/* Car Collection - Now with modal filtering */}
           <Suspense fallback={<Loading />}>

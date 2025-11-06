@@ -160,6 +160,7 @@ export async function getFilteredVehicles(params: {
   sort?: string;
   page?: number;
   pageSize?: number;
+  search?: string;
 }): Promise<{ cars: Car[], totalCars: number }> {
   try {
     // Build Contentful query
@@ -200,6 +201,17 @@ export async function getFilteredVehicles(params: {
     // Get all matching vehicles first
     const response = await contentfulClient.getEntries<ContentfulRentalVehicle>(query)
     let cars = response.items.map(transformVehicleToLegacyCar)
+
+    // Apply text search filter (search in name, brand, and category)
+    if (params.search && params.search.trim()) {
+      const searchLower = params.search.toLowerCase().trim();
+      cars = cars.filter((car) => {
+        const nameMatch = car.name.toLowerCase().includes(searchLower);
+        const brandMatch = car.brand.toLowerCase().includes(searchLower);
+        const categoryMatch = car.category.toLowerCase().includes(searchLower);
+        return nameMatch || brandMatch || categoryMatch;
+      });
+    }
 
     // Apply year filtering (client-side since we extract year from names)
     if (params.minYear !== undefined) {

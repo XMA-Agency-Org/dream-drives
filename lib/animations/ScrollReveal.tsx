@@ -15,11 +15,19 @@ import {
 
 interface ScrollRevealProps {
   children: ReactNode;
-  variant?: "fadeUp" | "fadeIn" | "slideLeft" | "slideRight" | "scale" | "slideUp" | "slideDown";
+  variant?:
+    | "fadeUp"
+    | "fadeIn"
+    | "slideLeft"
+    | "slideRight"
+    | "scale"
+    | "slideUp"
+    | "slideDown";
   delay?: number;
   duration?: number;
   threshold?: number; // How much of element must be visible before animating (0-1)
   className?: string;
+  animateOnMount?: boolean; // If true, animate on component mount instead of scroll
 }
 
 const variantMap = {
@@ -34,9 +42,9 @@ const variantMap = {
 
 /**
  * ScrollReveal Component
- * 
+ *
  * Animates children when they scroll into view
- * 
+ *
  * @example
  * ```tsx
  * <ScrollReveal variant="fadeUp" delay={0.2}>
@@ -51,12 +59,16 @@ export default function ScrollReveal({
   duration = 0.6,
   threshold = 0.1,
   className,
+  animateOnMount = false,
 }: ScrollRevealProps) {
+  // If animateOnMount is true, animate immediately on mount (for hero/above-fold content)
+  // Otherwise, animate when scrolling into view
   return (
     <motion.div
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: threshold }}
+      animate={animateOnMount ? "visible" : undefined}
+      whileInView={!animateOnMount ? "visible" : undefined}
+      viewport={!animateOnMount ? { once: true, amount: threshold } : undefined}
       transition={{
         duration,
         delay,
@@ -69,4 +81,3 @@ export default function ScrollReveal({
     </motion.div>
   );
 }
-

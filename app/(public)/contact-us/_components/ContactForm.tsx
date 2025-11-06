@@ -35,6 +35,7 @@ export default function ContactForm() {
     setError("");
 
     try {
+      // TODO: Implement Resend email service
       // In a real implementation, you would send this data to your backend
       // This is a simulated API call
       await new Promise((resolve) => setTimeout(resolve, 1500));
@@ -208,7 +209,7 @@ export default function ContactForm() {
           id="privacy"
           type="checkbox"
           required
-          className="mt-0.5 h-4 w-4 text-accent-600 border-secondary-300 dark:border-secondary-600 rounded focus:ring-2 focus:ring-accent-500 cursor-pointer"
+          className="mt-0.5 h-4 w-4 accent-green-500 dark:accent-green-600 border-secondary-300 dark:border-secondary-600 rounded focus:ring-2 focus:ring-green-500 cursor-pointer"
         />
         <label htmlFor="privacy" className="text-sm text-muted cursor-pointer">
           I agree to the{" "}

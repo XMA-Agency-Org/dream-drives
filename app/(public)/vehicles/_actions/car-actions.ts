@@ -18,6 +18,7 @@ interface GetCarsParams {
   sort?: string;
   page?: number;
   pageSize?: number;
+  search?: string;
 }
 
 // Mock function to get filtered cars from local database
@@ -33,9 +34,21 @@ function getMockFilteredCars(params: GetCarsParams) {
     sort = "recommended",
     page = 1,
     pageSize = 9,
+    search,
   } = params;
 
   let filtered = [...carsDatabase];
+
+  // Apply text search filter (search in name, brand, and category)
+  if (search && search.trim()) {
+    const searchLower = search.toLowerCase().trim();
+    filtered = filtered.filter((car) => {
+      const nameMatch = car.name.toLowerCase().includes(searchLower);
+      const brandMatch = car.brand.toLowerCase().includes(searchLower);
+      const categoryMatch = car.category.toLowerCase().includes(searchLower);
+      return nameMatch || brandMatch || categoryMatch;
+    });
+  }
 
   // Apply filters
   if (category && category !== "all") {
@@ -108,6 +121,7 @@ export async function getCars(params: GetCarsParams) {
     sort = "recommended",
     page = 1,
     pageSize = 9,
+    search,
   } = params;
 
   // Use mock data or Contentful based on DATA_SOURCE
@@ -127,6 +141,7 @@ export async function getCars(params: GetCarsParams) {
     sort,
     page,
     pageSize,
+    search,
   });
 }
 

@@ -139,7 +139,7 @@ const Header: React.FC = () => {
               <div key={item.label} className="relative group">
                 {item.children ? (
                   <button
-                    className={`px-4 py-2 text-sm font-semibold rounded-md transition-colors flex items-center 
+                    className={`px-4 py-2 text-sm font-semibold rounded-md transition-colors flex items-center cursor-pointer
                       text-secondary-900 dark:text-white
                       hover:text-accent-600 dark:hover:text-accent-400`}
                   >
@@ -162,20 +162,32 @@ const Header: React.FC = () => {
                   <div className="absolute left-0 mt-1 w-80 origin-top-right rounded-md shadow-lg overflow-hidden bg-white dark:bg-secondary-900 ring-1 ring-secondary-200 dark:ring-secondary-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
                     <div className="p-4">
                       <div className="grid grid-cols-3 gap-3">
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.label}
-                            href={child.href}
-                            className="flex flex-col items-center p-3 text-xs text-secondary-900 dark:text-white hover:bg-secondary-100 dark:hover:bg-secondary-800 rounded-md transition-colors"
-                          >
-                            <div className="mb-1">
-                              {getBrandIcon(child.href.split("brand=")[1])}
-                            </div>
-                            <span className="text-center leading-tight">
-                              {child.label}
-                            </span>
-                          </Link>
-                        ))}
+                        {item.children.map((child) => {
+                          const isAllBrands = child.label === "All Brands";
+                          const brandIcon = getBrandIcon(
+                            child.href.split("brand=")[1]
+                          );
+                          return (
+                            <Link
+                              key={child.label}
+                              href={child.href}
+                              className={`flex flex-col items-center justify-center p-3 text-xs text-secondary-900 dark:text-white hover:bg-secondary-100 dark:hover:bg-secondary-800 rounded-md transition-colors ${
+                                isAllBrands ? "min-h-[80px]" : ""
+                              }`}
+                            >
+                              {brandIcon && (
+                                <div className="mb-1">{brandIcon}</div>
+                              )}
+                              <span
+                                className={`text-center leading-tight w-full ${
+                                  isAllBrands ? "font-bold" : ""
+                                }`}
+                              >
+                                {child.label}
+                              </span>
+                            </Link>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
@@ -237,7 +249,7 @@ const Header: React.FC = () => {
         {/* Close button - Fixed at top right */}
         <button
           onClick={closeMobileMenu}
-          className="absolute top-6 right-6 p-2 text-secondary-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+          className="absolute top-6 right-6 p-2 text-white hover:text-white/80 transition-colors"
           aria-label="Close menu"
         >
           <X className="h-6 w-6" />
@@ -246,19 +258,16 @@ const Header: React.FC = () => {
         <div className="flex flex-col h-full pt-20 pb-6 px-6 overflow-auto">
           <nav className="space-y-1 mb-8">
             {navItems.map((item) => (
-              <div
-                key={item.label}
-                className="border-b border-secondary-200 dark:border-secondary-700/30"
-              >
+              <div key={item.label} className="border-b border-white/60">
                 {item.children ? (
                   <div>
                     <button
                       onClick={() => toggleMobileDropdown(item.label)}
-                      className="flex items-center justify-between w-full py-4 text-secondary-900 dark:text-white font-semibold"
+                      className="flex items-center justify-between w-full py-4 text-white font-semibold"
                     >
                       {item.label}
                       <ChevronDown
-                        className={`h-5 w-5 transition-transform ${
+                        className={`h-5 w-5 transition-transform text-white ${
                           activeMobileDropdown === item.label
                             ? "rotate-180"
                             : ""
@@ -267,12 +276,12 @@ const Header: React.FC = () => {
                     </button>
 
                     {activeMobileDropdown === item.label && (
-                      <div className="ml-4 mb-4 border-l border-primary-300 dark:border-primary-600/30 pl-4 space-y-3">
+                      <div className="ml-4 mb-4 border-l border-white/60 pl-4 space-y-3">
                         {item.children.map((child) => (
                           <Link
                             key={child.label}
                             href={child.href}
-                            className="flex items-center py-2 text-secondary-600 dark:text-secondary-200 hover:text-secondary-900 dark:hover:text-white text-sm"
+                            className="flex items-center py-2 text-white hover:text-white/90 text-sm"
                             onClick={closeMobileMenu}
                           >
                             {getBrandIcon(child.href.split("brand=")[1])}
@@ -285,7 +294,7 @@ const Header: React.FC = () => {
                 ) : (
                   <Link
                     href={item.href}
-                    className="block py-4 text-secondary-900 dark:text-white font-semibold"
+                    className="block py-4 text-white font-semibold"
                     onClick={closeMobileMenu}
                   >
                     {item.label}

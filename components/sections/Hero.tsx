@@ -28,7 +28,7 @@ export default function HeroSection() {
       <div className="absolute top-20 right-20 w-[600px] h-[600px] rounded-full border-[60px] border-gray-200/20 dark:border-gray-700/20 translate-x-1/4"></div>
 
       {/* Background art element */}
-      <div className="absolute top-[360px] left-[650px] -translate-x-1/4 -translate-y-1/2 w-[700px] h-[700px] md:w-[750px] md:h-[750px] lg:w-[800px] lg:h-[800px] pointer-events-none">
+      <div className="absolute top-[360px] left-[650px] xl:top-[360px] xl:left-1/2  -translate-x-1/4 -translate-y-1/2 w-[700px] h-[700px] md:w-[750px] md:h-[750px] lg:w-[800px] lg:h-[800px] pointer-events-none">
         <Image
           src="https://framerusercontent.com/images/43RJTEoD8nGmYVtJBcLKrep0W8.png?scale-down-to=2048&width=2301&height=1902"
           alt="Bg Shape"
@@ -43,13 +43,18 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left Content */}
           <div className="space-y-3 relative z-20">
-            <ScrollReveal variant="fadeUp" duration={0.8}>
+            <ScrollReveal variant="fadeUp" duration={0.8} animateOnMount>
               <h1 className="title-hero leading-tight">
                 The largest luxury car rentals marketplace
               </h1>
             </ScrollReveal>
 
-            <ScrollReveal variant="fadeUp" delay={0.2} duration={0.8}>
+            <ScrollReveal
+              variant="fadeUp"
+              delay={0.2}
+              duration={0.8}
+              animateOnMount
+            >
               <p className="text-body text-muted lg:max-w-xl">
                 Our team offering you a wide selection of high-end cars for rent
               </p>
@@ -57,7 +62,12 @@ export default function HeroSection() {
           </div>
 
           {/* Right Content - Car Image */}
-          <ScrollReveal variant="slideLeft" delay={0.3} duration={1}>
+          <ScrollReveal
+            variant="slideLeft"
+            delay={0.3}
+            duration={1}
+            animateOnMount
+          >
             <div className="relative h-[180px] md:h-[220px] lg:h-[300px] z-20 px-4 lg:px-0">
               {/* Car Image */}
               <div className="relative h-full w-full">
@@ -75,7 +85,12 @@ export default function HeroSection() {
         </div>
 
         {/* Search Bar - Centered below both columns */}
-        <ScrollReveal variant="fadeUp" delay={0.4} duration={0.8}>
+        <ScrollReveal
+          variant="fadeUp"
+          delay={0.4}
+          duration={0.8}
+          animateOnMount
+        >
           <div className="relative z-20 mt-8 flex justify-center">
             <div
               className="bg-white rounded-xl py-3 px-4 flex items-center w-full max-w-xl"
