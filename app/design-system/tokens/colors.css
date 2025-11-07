@@ -1,58 +1,16 @@
+/* ============================================
+   DESIGN SYSTEM - COLORS
+   Simplified token system
+   ============================================ */
+
 @theme {
   /* ============================================
-     BASE COLOR PALETTES (Layer 1)
-     Raw color definitions - the source of truth
+     LAYER 1: FOUNDATION TOKENS
+     Maps Tailwind primitives to brand identity
+     Change these to rebrand the entire system
      ============================================ */
 
-  /* Slate Color Palette - for base/neutral colors */
-  --color-slate-50: oklch(0.991 0 0);
-  --color-slate-100: oklch(0.982 0 247.95);
-  --color-slate-200: oklch(0.961 0 0);
-  --color-slate-300: oklch(0.942 0.01 247.89);
-  --color-slate-400: oklch(0.867 0.01 247.95);
-  --color-slate-500: oklch(0.769 0.01 248.03);
-  --color-slate-600: oklch(0.643 0.02 248.07);
-  --color-slate-700: oklch(0.557 0.02 244.89);
-  --color-slate-800: oklch(0.428 0.01 248.16);
-  --color-slate-900: oklch(0.345 0.01 248.22);
-  --color-slate-950: oklch(0.229 0.01 248.17);
-
-  /* Blue-gray Color Palette - for primary brand colors */
-  --color-blue-gray-50: oklch(0.982 0 247.95);
-  --color-blue-gray-100: oklch(0.963 0 247.92);
-  --color-blue-gray-200: oklch(0.942 0.01 247.89);
-  --color-blue-gray-300: oklch(0.911 0.01 247.89);
-  --color-blue-gray-400: oklch(0.769 0.01 248.03);
-  --color-blue-gray-500: oklch(0.594 0.03 225.14);
-  --color-blue-gray-600: oklch(0.517 0.03 233.81);
-  --color-blue-gray-700: oklch(0.42 0.01 223.82);
-  --color-blue-gray-800: oklch(0.345 0.01 248.22);
-  --color-blue-gray-900: oklch(0.262 0.01 248.16);
-  --color-blue-gray-950: oklch(0.167 0.01 248.12);
-
-  /* Teal Color Palette - for accent colors */
-  --color-teal-50: oklch(0.984 0.01 180.73);
-  --color-teal-100: oklch(0.953 0.05 180.81);
-  --color-teal-200: oklch(0.91 0.09 180.43);
-  --color-teal-300: oklch(0.855 0.13 181.07);
-  --color-teal-400: oklch(0.784 0.13 181.91);
-  --color-teal-500: oklch(0.704 0.12 182.5);
-  --color-teal-600: oklch(0.6 0.1 184.71);
-  --color-teal-700: oklch(0.511 0.09 186.39);
-  --color-teal-800: oklch(0.437 0.07 188.22);
-  --color-teal-900: oklch(0.386 0.06 188.42);
-  --color-teal-950: oklch(0.277 0.04 192.52);
-
-  /* Base colors */
-  --color-black: oklch(0 0 0);
-  --color-white: oklch(1 0 0);
-
-  /* ============================================
-     FOUNDATION TOKENS (Layer 2)
-     Reference base color palettes
-     ============================================ */
-
-  /* Primary: Main brand colors - sophisticated slate/blue-gray */
+  /* Primary: Main brand colors */
   --color-primary-50: var(--color-blue-50);
   --color-primary-100: var(--color-blue-100);
   --color-primary-200: var(--color-blue-200);
@@ -65,7 +23,7 @@
   --color-primary-900: var(--color-blue-900);
   --color-primary-950: var(--color-blue-950);
 
-  /* base: Neutral grays for backgrounds and subtle elements */
+  /* Base: Neutral grays for backgrounds and subtle elements */
   --color-base-50: var(--color-slate-50);
   --color-base-100: var(--color-slate-100);
   --color-base-200: var(--color-slate-200);
@@ -78,43 +36,194 @@
   --color-base-900: var(--color-slate-900);
   --color-base-950: var(--color-slate-950);
 
-  /* Status colors - using base color palettes */
-  /* Success: Green for positive actions and states */
+  /* Status colors */
   --color-success-50: var(--color-green-50);
   --color-success-100: var(--color-green-100);
-  --color-success-200: var(--color-green-200);
-  --color-success-300: var(--color-green-300);
-  --color-success-400: var(--color-green-400);
-  --color-success-500: var(--color-green-500);
   --color-success-600: var(--color-green-600);
   --color-success-700: var(--color-green-700);
   --color-success-800: var(--color-green-800);
   --color-success-900: var(--color-green-900);
-  --color-success-950: var(--color-green-950);
 
-  /* Warning: Orange/Amber for caution and warnings */
   --color-warning-50: var(--color-orange-50);
   --color-warning-100: var(--color-orange-100);
-  --color-warning-200: var(--color-orange-200);
-  --color-warning-300: var(--color-orange-300);
-  --color-warning-400: var(--color-orange-400);
-  --color-warning-500: var(--color-orange-500);
-  --color-warning-600: var(--color-orange-600);
-  --color-warning-700: var(--color-orange-700);
-  --color-warning-800: var(--color-orange-800);
   --color-warning-900: var(--color-orange-900);
-  --color-warning-950: var(--color-orange-950);
 
-  /* Error: Red for errors and destructive actions */
   --color-error-50: var(--color-red-50);
   --color-error-100: var(--color-red-100);
-  --color-error-200: var(--color-red-200);
-  --color-error-300: var(--color-red-300);
-  --color-error-400: var(--color-red-400);
-  --color-error-500: var(--color-red-500);
   --color-error-600: var(--color-red-600);
-  --color-error-700: var(--color-red-700);
-  --color-error-800: var(--color-red-800);
   --color-error-900: var(--color-red-900);
-  --color-error-950: var(--color-red-950);
+
+  /* ============================================
+     LAYER 2: SEMANTIC TOKENS
+     Purpose-driven tokens using primary/base for scalability
+     These reference foundation tokens above
+     ============================================ */
+
+  /* Text colors */
+  --text-default: var(--color-base-950);
+  --text-base: var(--color-base-600);
+  --text-muted: var(--color-base-500);
+  --text-inverse: var(--color-white);
+  --text-primary: var(--color-primary-700);
+  --text-primary-hover: var(--color-primary-800);
+  --text-primary-active: var(--color-primary-900);
+  --text-accent: var(--color-primary-500);
+  --text-accent-hover: var(--color-primary-600);
+  --text-accent-active: var(--color-primary-700);
+  --text-success: var(--color-success-700);
+  --text-error: var(--color-error-600);
+  --text-rating: var(--color-orange-500);
+  --text-rating-fill: var(--color-orange-500);
+
+  /* Background colors */
+  --bg-page: var(--color-white);
+  --bg-base: var(--color-base-50);
+  --bg-subtle: var(--color-base-100);
+  --bg-muted: var(--color-base-200);
+  --bg-surface: var(--color-white);
+  --bg-surface-hover: var(--color-base-50);
+  --bg-surface-active: var(--color-base-100);
+  --bg-primary: var(--color-primary-700);
+  --bg-primary-hover: var(--color-primary-800);
+  --bg-primary-active: var(--color-primary-900);
+  --bg-primary-subtle: var(--color-primary-50);
+  --bg-accent: var(--color-primary-500);
+  --bg-accent-hover: var(--color-primary-600);
+  --bg-accent-active: var(--color-primary-700);
+  --bg-accent-subtle: var(--color-primary-50);
+  --bg-dark: var(--color-primary-950);
+  --bg-dark-button: var(--color-black);
+  --bg-dark-button-hover: var(--color-base-800);
+  --bg-dark-button-active: var(--color-base-900);
+  --bg-success: var(--color-success-600);
+  --bg-success-hover: var(--color-success-700);
+  --bg-success-active: var(--color-success-800);
+  --bg-success-subtle: var(--color-success-50);
+  --bg-warning-subtle: var(--color-warning-50);
+  --bg-error-subtle: var(--color-error-50);
+
+  /* Border colors */
+  --border-default: var(--color-base-300);
+  --border-light: var(--color-base-200);
+  --border-strong: var(--color-base-400);
+  --border-focus: var(--color-primary-500);
+  --border-primary: var(--color-primary-700);
+  --border-primary-hover: var(--color-primary-800);
+  --border-primary-active: var(--color-primary-900);
+  --border-accent: var(--color-primary-500);
+  --border-accent-hover: var(--color-primary-600);
+  --border-accent-active: var(--color-primary-700);
+  --border-success: var(--color-success-600);
+  --border-error: var(--color-error-600);
+
+  /* Focus ring colors */
+  --focus-ring-primary: var(--color-primary-700);
+  --focus-ring-accent: var(--color-primary-500);
+  --focus-ring-base: var(--color-base-500);
+  --focus-ring-success: var(--color-success-700);
+  --focus-ring-error: var(--color-error-600);
+  --focus-ring-dark: var(--color-white);
+
+  /* Badge colors */
+  --badge-primary-bg: var(--color-primary-100);
+  --badge-primary-bg-dark: var(--color-primary-900);
+  --badge-primary-text: var(--color-primary-700);
+  --badge-primary-text-dark: var(--color-primary-100);
+  --badge-primary-border: var(--color-primary-200);
+  --badge-primary-dot: var(--color-primary-700);
+  --badge-primary-dot-dark: var(--color-primary-100);
+
+  --badge-base-bg: var(--color-base-100);
+  --badge-base-bg-dark: var(--color-base-800);
+  --badge-base-text: var(--color-base-700);
+  --badge-base-text-dark: var(--color-base-100);
+
+  --badge-accent-bg: var(--color-primary-100);
+  --badge-accent-bg-dark: var(--color-primary-900);
+  --badge-accent-text: var(--color-primary-600);
+  --badge-accent-text-dark: var(--color-primary-200);
+  --badge-accent-border: var(--color-primary-200);
+  --badge-accent-dot: var(--color-primary-500);
+  --badge-accent-dot-dark: var(--color-primary-200);
+
+  --badge-success-bg: var(--color-success-100);
+  --badge-success-bg-dark: var(--color-success-900);
+  --badge-success-text: var(--color-success-700);
+  --badge-success-text-dark: var(--color-success-100);
+
+  --badge-warning-bg: var(--color-warning-100);
+  --badge-warning-bg-dark: var(--color-warning-900);
+  --badge-warning-text: var(--color-warning-900);
+  --badge-warning-text-dark: var(--color-warning-100);
+
+  --badge-error-bg: var(--color-error-100);
+  --badge-error-bg-dark: var(--color-error-900);
+  --badge-error-text: var(--color-error-600);
+  --badge-error-text-dark: var(--color-error-100);
+
+  /* Badge pill colors */
+  --badge-pill-primary-bg: var(--color-primary-50);
+  --badge-pill-primary-bg-dark: var(--color-primary-900);
+  --badge-pill-primary-text: var(--color-base-950);
+  --badge-pill-primary-text-dark: var(--color-primary-100);
+  --badge-pill-primary-border-dark: var(--color-primary-900);
+
+  --badge-pill-accent-bg: var(--color-primary-50);
+  --badge-pill-accent-bg-dark: var(--color-primary-900);
+  --badge-pill-accent-text: var(--color-base-950);
+  --badge-pill-accent-text-dark: var(--color-primary-200);
+  --badge-pill-accent-border-dark: var(--color-primary-700);
+
+  /* Scrollbar colors */
+  --scrollbar-thumb: var(--color-base-400);
+  --scrollbar-thumb-hover: var(--color-base-500);
+  --scrollbar-thumb-active: var(--color-base-600);
+  --scrollbar-thumb-firefox: var(--color-base-500);
+  --scrollbar-thumb-firefox-dark: var(--color-base-400);
+  --scrollbar-thumb-dark: var(--color-base-600);
+  --scrollbar-thumb-hover-dark: var(--color-base-500);
+  --scrollbar-thumb-active-dark: var(--color-base-400);
+}
+
+/* ============================================
+   DARK MODE OVERRIDES
+   Semantic tokens for dark theme
+   ============================================ */
+.dark {
+  /* Text colors - Dark Mode */
+  --text-default: var(--color-base-100);
+  --text-base: var(--color-base-400);
+  --text-muted: var(--color-base-500);
+  --text-primary: var(--color-primary-300);
+  --text-primary-hover: var(--color-primary-400);
+  --text-primary-active: var(--color-primary-500);
+  --text-accent: var(--color-primary-400);
+  --text-accent-hover: var(--color-primary-500);
+  --text-accent-active: var(--color-primary-600);
+
+  /* Background colors - Dark Mode */
+  --bg-page: var(--color-base-950);
+  --bg-base: var(--color-base-900);
+  --bg-subtle: var(--color-base-800);
+  --bg-muted: var(--color-base-800);
+  --bg-surface: var(--color-base-900);
+  --bg-surface-hover: var(--color-base-800);
+  --bg-surface-active: var(--color-base-700);
+  --bg-primary: var(--color-primary-300);
+  --bg-primary-hover: var(--color-primary-400);
+  --bg-primary-active: var(--color-primary-500);
+  --bg-accent: var(--color-primary-400);
+  --bg-accent-hover: var(--color-primary-500);
+  --bg-accent-active: var(--color-primary-600);
+
+  /* Border colors - Dark Mode */
+  --border-default: var(--color-base-700);
+  --border-light: var(--color-base-800);
+  --border-strong: var(--color-base-600);
+  --border-primary: var(--color-primary-300);
+  --border-primary-hover: var(--color-primary-400);
+  --border-primary-active: var(--color-primary-500);
+  --border-accent: var(--color-primary-400);
+  --border-accent-hover: var(--color-primary-500);
+  --border-accent-active: var(--color-primary-600);
 }

@@ -5,17 +5,12 @@
 
 /* Import design tokens */
 @import "./tokens/colors.css";
-@import "./tokens/semantic.css";
-@import "./tokens/component-tokens.css";
 @import "./tokens/typography.css";
-@import "./tokens/spacing.css";
 @import "./tokens/visual.css";
 
 /* Import component styles */
 @import "./components/buttons.css";
 @import "./components/cards.css";
 @import "./components/forms.css";
-@import "./components/badges.css";
 @import "./components/layout.css";
 @import "./components/utilities.css";
-

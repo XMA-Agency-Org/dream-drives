@@ -4,105 +4,101 @@
 @layer components {
   /* Surface & Background utilities */
   .bg-surface {
-    background-color: var(--surface-utility-bg);
+    background-color: var(--bg-surface);
   }
 
   .bg-surface-hover {
-    background-color: var(--surface-utility-bg-hover);
+    background-color: var(--bg-surface-hover);
   }
 
   .bg-surface-active {
-    background-color: var(--surface-utility-bg-active);
+    background-color: var(--bg-surface-active);
   }
 
-  /* Dark background - replacement for bg-black */
+  /* Dark background */
   .bg-dark {
-    background-color: var(--dark-utility-bg);
+    background-color: var(--bg-dark);
   }
 
   /* Footer background */
   .bg-footer {
-    background-color: var(--footer-bg);
+    background-color: var(--color-black);
   }
 
-  /* Inverse text - replacement for text-white */
+  /* Inverse text */
   .text-inverse {
-    color: var(--text-utility-inverse);
+    color: var(--text-inverse);
   }
 
-  /* Primary text - replacement for text-black */
+  /* Primary text */
   .text-primary-color {
-    color: var(--text-utility-primary);
+    color: var(--text-default);
   }
 
   /* Border radius semantic utilities */
   .radius-button {
-    border-radius: var(--button-radius);
+    border-radius: var(--radius-xl);
   }
 
   .radius-card {
-    border-radius: var(--card-radius);
+    border-radius: var(--radius-3xl);
   }
 
   .radius-input {
-    border-radius: var(--input-radius);
+    border-radius: var(--radius-xl);
   }
 
   .radius-badge {
-    border-radius: var(--badge-radius);
+    border-radius: var(--radius-full);
   }
 
   .radius-icon {
-    border-radius: var(--icon-container-radius);
+    border-radius: var(--radius-2xl);
   }
 
   /* Divider */
   .divider {
-    border-top-color: var(--divider-border);
+    border-top-color: var(--border-default);
     @apply border-t;
   }
 
   .divider-dashed {
-    border-top-color: var(--divider-border);
+    border-top-color: var(--border-default);
     @apply border-t border-dashed;
   }
 
   /* Backdrop blur */
   .backdrop-card {
-    background-color: color-mix(
-      in srgb,
-      var(--modal-overlay-bg) 90%,
-      transparent
-    );
+    background-color: color-mix(in srgb, var(--bg-surface) 90%, transparent);
     @apply backdrop-blur-sm;
   }
 
   /* Skeleton loader */
   .skeleton {
-    background-color: var(--skeleton-bg);
+    background-color: var(--bg-subtle);
     @apply animate-pulse rounded;
   }
 
   /* Spinner */
   .spinner {
-    border-color: var(--spinner-border);
-    border-top-color: var(--spinner-border-active);
+    border-color: var(--border-default);
+    border-top-color: var(--border-primary);
     @apply animate-spin h-5 w-5 border-2 rounded-full;
   }
 
   /* Connecting line - for step indicators */
   .connecting-line {
-    background-color: var(--connecting-line-bg);
+    background-color: var(--border-default);
   }
 
   .connecting-line-vertical {
     @apply w-px;
-    background-color: var(--connecting-line-bg);
+    background-color: var(--border-default);
   }
 
   .connecting-line-horizontal {
     @apply h-px;
-    background-color: var(--connecting-line-bg);
+    background-color: var(--border-default);
   }
 
   /* Scrollbar utilities */
@@ -116,29 +112,29 @@
     height: 5px;
   }
 
-  /* Thumb styles - using new scrollbar color tokens */
+  /* Thumb styles */
   .scrollbar-thumb::-webkit-scrollbar-thumb {
-    background-color: var(--scrollbar-thumb-color);
+    background-color: var(--scrollbar-thumb);
   }
 
   .scrollbar-thumb::-webkit-scrollbar-thumb:hover {
-    background-color: var(--scrollbar-thumb-hover-color);
+    background-color: var(--scrollbar-thumb-hover);
   }
 
   .scrollbar-thumb::-webkit-scrollbar-thumb:active {
-    background-color: var(--scrollbar-thumb-active-color);
+    background-color: var(--scrollbar-thumb-active);
   }
 
   .dark .scrollbar-thumb::-webkit-scrollbar-thumb {
-    background-color: var(--scrollbar-thumb-color-dark);
+    background-color: var(--scrollbar-thumb-dark);
   }
 
   .dark .scrollbar-thumb::-webkit-scrollbar-thumb:hover {
-    background-color: var(--scrollbar-thumb-hover-color-dark);
+    background-color: var(--scrollbar-thumb-hover-dark);
   }
 
   .dark .scrollbar-thumb::-webkit-scrollbar-thumb:active {
-    background-color: var(--scrollbar-thumb-active-color-dark);
+    background-color: var(--scrollbar-thumb-active-dark);
   }
 
   /* Track styles */
@@ -171,25 +167,25 @@
 
   /* Rating / Star components */
   .icon-rating {
-    color: var(--rating-icon-color);
-    fill: var(--rating-icon-fill);
+    color: var(--text-rating);
+    fill: var(--text-rating-fill);
     @apply w-4 h-4;
   }
 
   .text-rating {
-    color: var(--rating-text-color);
+    color: var(--text-rating);
   }
 
   .fill-rating {
-    fill: var(--rating-icon-fill);
+    fill: var(--text-rating-fill);
   }
 
   /* WhatsApp / Communication components */
   /* WhatsApp floating action button */
   .whatsapp-fab {
     @apply fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-colors cursor-pointer;
-    background-color: var(--whatsapp-fab-bg);
-    color: var(--whatsapp-fab-text);
+    background-color: var(--bg-success);
+    color: var(--text-inverse);
   }
 
   .whatsapp-fab:focus {
@@ -198,19 +194,19 @@
   }
 
   .whatsapp-fab:hover {
-    background-color: var(--whatsapp-fab-bg-hover);
+    background-color: var(--bg-success-hover);
   }
 
   .whatsapp-fab:active {
-    background-color: var(--whatsapp-fab-bg-active);
+    background-color: var(--bg-success-active);
   }
 
   /* Success/check icons */
   .icon-success {
-    color: var(--icon-success-color);
+    color: var(--text-success);
   }
 
   .text-success {
-    color: var(--text-success-color);
+    color: var(--text-success);
   }
 }

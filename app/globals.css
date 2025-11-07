@@ -3,11 +3,12 @@
    Unified Design System
    ============================================ */
 
-/* Import design system tokens FIRST so Tailwind can use @theme tokens */
-@import "./design-system/index.css";
 
 /* Import Tailwind CSS AFTER tokens are defined */
 @import "tailwindcss";
+
+/* Import design system tokens FIRST so Tailwind can use @theme tokens */
+@import "./design-system/index.css";
 
 /* Custom dark mode variant */
 @custom-variant dark (&:where(.dark, .dark *));

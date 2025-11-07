@@ -4,13 +4,13 @@
 @layer components {
   /* Base card */
   .card {
-    background-color: var(--card-bg);
-    border-color: var(--card-border);
+    background-color: var(--bg-surface);
+    border-color: var(--border-default);
     @apply rounded-3xl overflow-hidden transition-all duration-200;
   }
 
   .card-bordered {
-    border-color: var(--card-border);
+    border-color: var(--border-default);
     @apply border;
   }
 
@@ -49,42 +49,42 @@
   }
 
   .card-header {
-    border-bottom-color: var(--card-border);
+    border-bottom-color: var(--border-default);
     @apply px-6 py-4 border-b;
   }
 
   .card-footer {
-    border-top-color: var(--card-border);
+    border-top-color: var(--border-default);
     @apply px-6 py-4 border-t;
   }
 
   /* Card variants with colored backgrounds */
   .card-filled-primary {
-    background-color: var(--card-primary-bg);
-    color: var(--card-primary-text);
+    background-color: var(--bg-primary);
+    color: var(--text-inverse);
     @apply rounded-2xl p-8 shadow-lg;
   }
 
   .card-filled-primary-light {
-    background-color: var(--card-primary-light-bg);
-    color: var(--card-primary-light-text);
+    background-color: var(--bg-primary);
+    color: var(--text-inverse);
     @apply rounded-2xl p-8 shadow-lg;
   }
 
   .card-filled-primary-dark {
-    background-color: var(--card-primary-dark-bg);
-    color: var(--card-primary-dark-text);
+    background-color: var(--bg-primary);
+    color: var(--text-inverse);
     @apply rounded-2xl p-8 shadow-lg;
   }
 
   .card-filled-accent {
-    background-color: var(--card-accent-bg);
-    color: var(--card-accent-text);
+    background-color: var(--bg-accent);
+    color: var(--text-inverse);
     @apply rounded-2xl p-8 shadow-lg;
   }
 
   .card-filled-base {
-    background-color: var(--card-base-bg);
+    background-color: var(--bg-subtle);
     @apply rounded-2xl p-8;
   }
 
@@ -95,14 +95,14 @@
 
   /* Glass morphism card */
   .card-glass {
-    background-color: color-mix(in srgb, var(--card-glass-bg) 40%, transparent);
+    background-color: color-mix(in srgb, var(--bg-surface) 40%, transparent);
     @apply backdrop-blur-sm rounded-xl p-6 transition-colors duration-300;
   }
 
   .card-glass:hover {
     background-color: color-mix(
       in srgb,
-      var(--card-glass-bg-hover) 50%,
+      var(--bg-surface-hover) 50%,
       transparent
     );
   }

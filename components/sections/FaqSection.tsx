@@ -49,7 +49,7 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="section bg-white dark:bg-base-950">
+    <section className="section bg-page">
       <div className="container-default max-w-6xl">
         {/* Header */}
         <ScrollReveal variant="fadeUp">
@@ -80,8 +80,8 @@ export default function FaqSection() {
                     <ChevronDown
                       className={`w-5 h-5 transition-all duration-200 ${
                         openIndex === index
-                          ? "rotate-180 text-white dark:text-base-900"
-                          : "text-black dark:text-white"
+                          ? "rotate-180 text-inverse"
+                          : "text-default"
                       }`}
                     />
                   </div>
