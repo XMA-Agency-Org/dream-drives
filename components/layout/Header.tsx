@@ -118,18 +118,13 @@ const Header: React.FC = () => {
           {/* Logo */}
           <Link href="/" className="relative z-10">
             <div className="flex items-center gap-2">
-              {/* TODO: Replace the logo image file /4MAticlogo.png with the new Dream Drives logo */}
-              {/* <Image
-                src="/4MAticlogo.png"
+              <Image
+                src="/logo.png"
                 alt="Dream Drives Logo"
-                width={100}
-                height={100}
-                className="h-14 w-auto"
-              /> */}
-              <CarFront className="h-6 w-6 md:h-7 md:w-7 text-accent-600 dark:text-accent-400" />
-              <span className="text-xl md:text-2xl font-bold text-base-900 dark:text-white">
-                Dream Drives
-              </span>
+                width={200}
+                height={200}
+                className="h-20 w-auto"
+              />
             </div>
           </Link>
 
@@ -311,9 +306,9 @@ const Header: React.FC = () => {
               fullWidth
               icon={<Phone className="h-5 w-5" />}
               asLink
-              href="tel:+971563626000"
+              href="tel:+971545555402"
             >
-              +971 56 362 6000
+              +971 54 555 5402
             </Button>
           </div>
         </div>

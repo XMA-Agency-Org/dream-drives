@@ -25,7 +25,7 @@ import {
   GMCLogo,
 } from "@cardog-icons/react";
 import Image from "next/image";
-import BMW from "@/public/brands/light-mode/BMW-logo-lm.png"
+import BMW from "@/public/brands/light-mode/BMW-logo-lm.png";
 
 interface Brand {
   id: string;
@@ -40,13 +40,11 @@ export default async function BrandsPage() {
   return (
     <>
       <Header />
-      <div className="min-h-screen bg-white dark:bg-base-950 pt-28 pb-16">
+      <div className="min-h-screen bg-white dark:bg-base-950 pt-44 pb-16">
         <div className="container-default">
           <div className="section-header">
             <p className="subtitle">Luxury Vehicles</p>
-            <h1 className="title-section">
-              Our Premium Brands
-            </h1>
+            <h1 className="title-section">Our Premium Brands</h1>
             <p className="text-body text-muted max-w-2xl mx-auto">
               Discover our collection of luxury and premium automotive brands,
               each offering exceptional quality and performance.
@@ -87,9 +85,7 @@ function getBrandIcon(brandId: string) {
     mercedes: <MBIcon className={baseClassName} />,
     "mercedes-benz": <MBIcon className={baseClassName} />,
     bentley: <BentleyIcon className={baseClassName} />,
-    "rolls-royce": (
-      <RollsRoyceIcon className={baseClassName} />
-    ),
+    "rolls-royce": <RollsRoyceIcon className={baseClassName} />,
     "land-rover": <LandroverIcon className={baseClassName} />,
     "range-rover": <LandroverIcon className={baseClassName} />,
     lamborghini: <LamborghiniIcon className={baseClassName} />,
@@ -112,4 +108,3 @@ function getBrandIcon(brandId: string) {
 
   return brandIconMap[brandId] || null;
 }
-

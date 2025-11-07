@@ -9,23 +9,8 @@ import StaggerContainer, {
 
 export default function ContactSection() {
   return (
-    <section className="relative section overflow-hidden bg-base-300">
+    <section className="relative section overflow-hidden pb-32">
       {/* Map Background with Gradient Mask */}
-      <div
-        className="absolute top-0 bottom-0 -right-1/4 left-1/4 z-0"
-      >
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.0864458515984!2d55.13693931501204!3d25.08037998395047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6ca7b1b1b1b1%3A0x1b1b1b1b1b1b1b1b!2sDubai%20Marina!5e0!3m2!1sen!2sae!4v1635789012345!5m2!1sen!2sae"
-          width="100%"
-          height="100%"
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          className="grayscale"
-        ></iframe>
-      </div>
-
       {/* Content */}
       <div className="relative z-20 container-default">
         {/* Header */}
@@ -49,9 +34,6 @@ export default function ContactSection() {
                       Headquarter office
                     </h3>
                     <div className="text-inverse text-sm leading-snug space-y-0.5 opacity-80">
-                      <p>Dubai Marina</p>
-                      <p>Marina Plaza Building</p>
-                      <p>Office 2304</p>
                       <p>Dubai, United Arab Emirates</p>
                     </div>
                   </div>
@@ -98,8 +80,19 @@ export default function ContactSection() {
             </StaggerItem>
           </StaggerContainer>
 
-          {/* Right Column - Empty (shows map through) */}
-          <div></div>
+          {/* Right Column */}
+          <div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100910.04310938287!2d54.88950351953123!3d25.186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f682b38b7ee3d%3A0x35d9d8e26a1b1b1!2sDubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sae!4v1635789012345!5m2!1sen!2sae"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="rounded-xl"
+            ></iframe>
+          </div>
         </div>
       </div>
     </section>

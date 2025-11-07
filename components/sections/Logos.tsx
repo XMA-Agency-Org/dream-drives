@@ -27,7 +27,7 @@ const brands = [
 
 export default function Logos() {
   return (
-    <section className="section-sm border-b border-base-300 dark:border-base-700">
+    <section className="relative section-sm bg-white border-b border-base-300 dark:border-base-700 z-10">
       <div className="container-default">
         <StaggerContainer
           staggerDelay={0.08}
@@ -35,13 +35,13 @@ export default function Logos() {
         >
           {brands.map((brand) => (
             <StaggerItem key={brand.name} variants={staggerItemFadeVariants}>
-              <div className="group">
+              <div className="group flex items-center justify-center w-10 h-8 md:w-12 md:h-10 lg:w-16 lg:h-12">
                 <Image
                   src={brand.icon}
                   alt={brand.name}
                   width={40}
                   height={20}
-                  className="w-8 h-auto md:w-10 lg:w-12 object-contain grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  className="w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-all duration-300"
                 />
               </div>
             </StaggerItem>

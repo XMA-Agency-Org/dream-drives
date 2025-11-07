@@ -1,74 +1,74 @@
 "use client";
 
-import { Search, CarFront, CalendarDays } from "lucide-react";
+import { Shield, DollarSign, CreditCard } from "lucide-react";
 import ScrollReveal from "@/lib/animations/ScrollReveal";
 import StaggerContainer, {
   StaggerItem,
   staggerItemVariants,
 } from "@/lib/animations/StaggerContainer";
 
-export default function HowItWorksSection() {
+export default function USP() {
   return (
-    <section className="section">
+    <section className="section pb-32">
       <div className="container-default">
         {/* Section Header */}
         <ScrollReveal variant="fadeUp">
           <div className="section-header-lg">
-            <p className="subtitle">How it Works</p>
-            <h2 className="title-section">Follow 3 easy steps</h2>
+            <p className="subtitle">Values</p>
+            <h2 className="title-section">Why Choose Us</h2>
           </div>
         </ScrollReveal>
 
-        {/* Steps Grid */}
+        {/* USP Grid */}
         <div className="relative">
           {/* Connecting lines - positioned absolutely */}
-          {/* Line between step 1 and 2 */}
+          {/* Line between item 1 and 2 */}
           <div className="hidden md:block absolute top-8 left-[calc(33.333%-3rem)] w-16 connecting-line-horizontal z-0"></div>
-          {/* Line between step 2 and 3 */}
+          {/* Line between item 2 and 3 */}
           <div className="hidden md:block absolute top-8 left-[calc(66.666%-3rem)] w-16 connecting-line-horizontal z-0"></div>
 
           <StaggerContainer
             staggerDelay={0.15}
             className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 relative z-10"
           >
-            {/* Step 1 */}
+            {/* Safety First */}
             <StaggerItem variants={staggerItemVariants}>
               <div className="step-container">
                 <div className="step-icon">
-                  <Search className="w-7 h-7" />
+                  <Shield className="w-7 h-7" />
                 </div>
-                <h3 className="step-title">Search for a car</h3>
+                <h3 className="step-title">Safety First</h3>
                 <p className="step-description">
-                  Know your purchase: Tools to calculate budget, financing and
-                  more
+                  All our cars undergo rigorous safety checks and are maintained
+                  by experts to guarantee a safe drive.
                 </p>
               </div>
             </StaggerItem>
 
-            {/* Step 2 */}
+            {/* Transparent Pricing */}
             <StaggerItem variants={staggerItemVariants}>
               <div className="step-container">
                 <div className="step-icon">
-                  <CalendarDays className="w-7 h-7" />
+                  <DollarSign className="w-7 h-7" />
                 </div>
-                <h3 className="step-title">Select pick-up date</h3>
-                <p className="text-sm leading-relaxed text-body">
-                  Know before you buy: Honest reviews, rankings and video
-                  test-drives
+                <h3 className="step-title">Transparent Pricing</h3>
+                <p className="step-description">
+                  No hidden fees or surcharges. What you see is what you pay,
+                  ensuring transparency in your transactions.
                 </p>
               </div>
             </StaggerItem>
 
-            {/* Step 3 */}
+            {/* No Deposit Rental */}
             <StaggerItem variants={staggerItemVariants}>
               <div className="step-container">
                 <div className="step-icon">
-                  <CarFront className="w-7 h-7" />
+                  <CreditCard className="w-7 h-7" />
                 </div>
-                <h3 className="step-title">Book your car</h3>
+                <h3 className="step-title">No Deposit Rental</h3>
                 <p className="step-description">
-                  Know your offer: Deal ratings on new and used listings near
-                  you
+                  Rent your dream car with zero deposit required. Get on the
+                  road faster with our hassle-free rental process.
                 </p>
               </div>
             </StaggerItem>

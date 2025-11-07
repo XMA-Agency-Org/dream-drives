@@ -2,7 +2,6 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import Image from "next/image";
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import ScrollReveal from "@/lib/animations/ScrollReveal";
 
@@ -13,59 +12,92 @@ interface Testimonial {
   name: string;
   position: string;
   location: string;
-  image: string;
   carRented?: string;
 }
 
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
+  const [cardsPerSlide, setCardsPerSlide] = useState(3);
   const testimonialsRef = useRef<HTMLDivElement>(null);
 
   const testimonials: Testimonial[] = [
     {
       id: 1,
       rating: 5.0,
-      text: "The experience with Dream Drives Luxury exceeded all expectations. The Mercedes-Benz S-Class was immaculate, and the concierge service was exceptional—arranging everything from airport pickup to special requests. The level of professionalism and attention to detail sets them apart from any other luxury rental service I've used.",
-      name: "James Wilson",
-      position: "Executive Director",
-      location: "New York, US",
-      image: "/testimonials/person1.jpg",
-      carRented: "Mercedes-Benz S-Class"
+      text: "Amazing company for renting high end and comfort cars. Excellent customer services especially. 100% recommend",
+      name: "Hamza",
+      position: "",
+      location: "Dubai, UAE",
     },
     {
       id: 2,
-      rating: 4.9,
-      text: "Renting the Bentley Continental GT from Dream Drives Luxury transformed our anniversary weekend. From the moment we received the keys, we knew this was unlike any other rental experience. The vehicle was pristine, the booking process seamless, and the personalized service made us feel truly valued. Absolutely worth every penny.",
-      name: "Sophie Chen",
-      position: "Design Director",
-      location: "San Francisco, US",
-      image: "/testimonials/person2.jpg",
-      carRented: "Bentley Continental GT"
+      rating: 5.0,
+      text: "Really great service. Good new car. All inclusive competitive price.",
+      name: "Maya Dillers",
+      position: "",
+      location: "Dubai, UAE",
     },
     {
       id: 3,
       rating: 5.0,
-      text: "My experience with the Rolls-Royce Cullinan rental was nothing short of spectacular. The vehicle arrived in perfect condition, and the delivery was precisely on time. The 24/7 concierge support was particularly impressive—they arranged luxury dining reservations that perfectly complemented our travel itinerary. This is how luxury service should be.",
-      name: "Michael Rodriguez",
-      position: "CEO, Global Ventures",
-      location: "Chicago, US",
-      image: "/testimonials/person3.jpg",
-      carRented: "Rolls-Royce Cullinan"
+      text: "Service was perfect. Always in touch with you. Smoothest rental proses I had in Dubai. Car top spec and clean. Just like advertised. Highly recommended.",
+      name: "Paaso Sidat",
+      position: "",
+      location: "Dubai, UAE",
+    },
+    {
+      id: 4,
+      rating: 5.0,
+      text: "Next time we want a seamless ride around the city, I am definitely booking again! Thanks for the wonderful experience. Would recommend dream drives to anyone looking to drive around Dubai without any hassles.",
+      name: "Sean",
+      position: "",
+      location: "Dubai, UAE",
+    },
+    {
+      id: 5,
+      rating: 5.0,
+      text: "Nice clean cars.",
+      name: "Samir",
+      position: "",
+      location: "Dubai, UAE",
     },
   ];
+
+  // Responsive cards per slide calculation
+  useEffect(() => {
+    const updateCardsPerSlide = () => {
+      if (window.innerWidth < 768) {
+        // Mobile: 1 card per slide
+        setCardsPerSlide(1);
+      } else if (window.innerWidth < 1024) {
+        // Tablet: 2 cards per slide
+        setCardsPerSlide(2);
+      } else {
+        // Desktop: 3 cards per slide
+        setCardsPerSlide(3);
+      }
+    };
+
+    updateCardsPerSlide();
+    window.addEventListener("resize", updateCardsPerSlide);
+    return () => window.removeEventListener("resize", updateCardsPerSlide);
+  }, []);
+
+  // Calculate max slide index based on cards per slide
+  const maxSlideIndex = Math.max(0, testimonials.length - cardsPerSlide);
 
   const handlePrev = () => {
     if (!animating) {
       setAnimating(true);
-      setCurrentIndex(prev => prev === 0 ? testimonials.length - 1 : prev - 1);
+      setCurrentIndex((prev) => (prev === 0 ? maxSlideIndex : prev - 1));
     }
   };
 
   const handleNext = () => {
     if (!animating) {
       setAnimating(true);
-      setCurrentIndex(prev => prev === testimonials.length - 1 ? 0 : prev + 1);
+      setCurrentIndex((prev) => (prev >= maxSlideIndex ? 0 : prev + 1));
     }
   };
 
@@ -73,17 +105,22 @@ export default function Testimonials() {
     const timer = setTimeout(() => {
       setAnimating(false);
     }, 500);
-    
+
     return () => clearTimeout(timer);
   }, [currentIndex]);
 
+  // Reset to first slide when cards per slide changes
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [cardsPerSlide]);
+
   return (
-    <section className="section-lg bg-base-50 dark:bg-base-950 relative overflow-hidden">
+    <section className="section bg-base-50 dark:bg-base-950 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
         {/* Gradient background */}
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-accent-50/30 to-transparent dark:from-accent-900/10 dark:to-transparent"></div>
-        
+
         {/* Decorative quotes */}
         <div className="absolute top-20 left-20 text-accent-200/10 dark:text-accent-900/10">
           <Quote size={120} />
@@ -97,157 +134,147 @@ export default function Testimonials() {
         {/* Section Header */}
         <ScrollReveal variant="fadeUp">
           <div className="section-header">
-            <p className="subtitle">Client Experiences</p>
-            <h2 className="title-section mb-6">
-              Exceptional Service, Memorable Journeys
-            </h2>
-            <p className="text-body text-muted max-w-2xl mx-auto">
-              Discover what our distinguished clients have to say about their Dream Drives Luxury experience
-            </p>
+            <p className="subtitle">Attested Quality</p>
+            <h2 className="title-section">What Our Clients Say</h2>
           </div>
         </ScrollReveal>
 
         {/* Testimonials Slider */}
         <ScrollReveal variant="fadeUp" delay={0.2}>
           <div className="relative">
-          {/* Main Testimonial */}
-          <div 
-            ref={testimonialsRef}
-            className="flex flex-col lg:flex-row items-center card card-shadow card-body-lg"
-          >
-            {/* Left side - Image */}
-            <div className="w-full lg:w-1/3 mb-8 lg:mb-0 lg:pr-8">
-              <div className="relative aspect-w-1 aspect-h-1 rounded-xl overflow-hidden shadow-lg">
-                <Image
-                  src={testimonials[currentIndex].image || "/testimonials/default.jpg"}
-                  alt={testimonials[currentIndex].name}
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                
-                {/* Rating on image */}
-                <div className="absolute bottom-4 left-4 flex items-center">
-                  <div className="badge-pill bg-white dark:bg-base-800 shadow-md">
-                    <div className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className={`w-4 h-4 ${i < Math.floor(testimonials[currentIndex].rating) ? "text-rating fill-rating" : "text-base-300"}`}
-                        />
-                      ))}
-                    </div>
-                    <span className="font-bold text-base-900 dark:text-white">
-                      {testimonials[currentIndex].rating.toFixed(1)}
-                    </span>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Person info - mobile only */}
-              <div className="flex flex-col items-center text-center lg:hidden mt-4">
-                <h4 className="text-lg font-bold text-base-900 dark:text-white">
-                  {testimonials[currentIndex].name}
-                </h4>
-                <p className="text-accent-600 dark:text-accent-400 text-sm">
-                  {testimonials[currentIndex].position}
-                </p>
-                <p className="text-muted text-xs mt-1">
-                  {testimonials[currentIndex].location}
-                </p>
-                {testimonials[currentIndex].carRented && (
-                  <p className="text-muted text-xs mt-2 italic">
-                    Vehicle: {testimonials[currentIndex].carRented}
-                  </p>
-                )}
-              </div>
-            </div>
-            
-            {/* Right side - Content */}
-            <div className="w-full lg:w-2/3">
-              <div className="relative">
-                <div className="absolute -top-6 -left-6 text-accent-200 dark:text-accent-800">
-                  <Quote size={48} />
-                </div>
-                
-                <div className="pt-8 pl-8">
-                  <p className="text-body text-muted italic leading-relaxed mb-8">
-                    {testimonials[currentIndex].text}
-                  </p>
-                  
-                  {/* Person info - desktop */}
-                  <div className="hidden lg:flex items-center">
-                    <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-accent-200 dark:border-accent-800">
-                      <Image
-                        src={testimonials[currentIndex].image || "/testimonials/default.jpg"}
-                        alt={testimonials[currentIndex].name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="ml-4">
-                      <h4 className="font-bold text-base-900 dark:text-white">
-                        {testimonials[currentIndex].name}
-                      </h4>
-                      <div className="flex flex-col md:flex-row md:items-center">
-                        <span className="text-accent-600 dark:text-accent-400 text-sm">
-                          {testimonials[currentIndex].position}
-                        </span>
-                        <span className="hidden md:block mx-2 text-base-400">•</span>
-                        <span className="text-muted text-sm">
-                          {testimonials[currentIndex].location}
-                        </span>
+            {/* Testimonials Container */}
+            <div className="overflow-hidden relative py-4">
+              <div
+                ref={testimonialsRef}
+                className={`flex transition-transform duration-500 ease-in-out ${
+                  animating ? "opacity-70" : "opacity-100"
+                }`}
+                style={{
+                  gap:
+                    cardsPerSlide === 1
+                      ? "0"
+                      : cardsPerSlide === 2
+                      ? "1rem"
+                      : "1.5rem",
+                  transform:
+                    cardsPerSlide === 1
+                      ? `translateX(calc(-${currentIndex} * 100%))`
+                      : cardsPerSlide === 2
+                      ? `translateX(calc(-${currentIndex} * ((100% + 1rem) / 2)))`
+                      : `translateX(calc(-${currentIndex} * ((100% + 1.5rem) / 3)))`,
+                }}
+              >
+                {/* Render all testimonials for smooth sliding */}
+                {testimonials.map((testimonial) => (
+                  <div
+                    key={testimonial.id}
+                    className="flex-shrink-0"
+                    style={{
+                      width:
+                        cardsPerSlide === 1
+                          ? "100%"
+                          : cardsPerSlide === 2
+                          ? "calc((100% - 1rem) / 2)"
+                          : "calc((100% - 3rem) / 3)",
+                    }}
+                  >
+                    <div className="card card-shadow card-body-lg h-full">
+                      <div className="relative">
+                        <div className="pt-6 pl-6 md:pt-8 md:pl-8">
+                          {/* Rating */}
+                          <div className="flex items-center mb-6">
+                            <div className="flex">
+                              {[...Array(5)].map((_, i) => (
+                                <Star
+                                  key={i}
+                                  className={`w-5 h-5 ${
+                                    i < Math.floor(testimonial.rating)
+                                      ? "text-rating fill-rating"
+                                      : "text-base-300"
+                                  }`}
+                                />
+                              ))}
+                            </div>
+                            <span className="ml-2 font-bold text-base-900 dark:text-white">
+                              {testimonial.rating.toFixed(1)}
+                            </span>
+                          </div>
+
+                          <p className="text-body text-muted italic leading-relaxed mb-8">
+                            {testimonial.text}
+                          </p>
+
+                          {/* Person info */}
+                          <div className="flex flex-col">
+                            <h4 className="font-bold text-base-900 dark:text-white text-lg">
+                              {testimonial.name}
+                            </h4>
+                            <div className="flex flex-col sm:flex-row sm:items-center mt-2">
+                              {testimonial.position && (
+                                <>
+                                  <span className="text-accent-600 dark:text-accent-400 text-sm">
+                                    {testimonial.position}
+                                  </span>
+                                  <span className="hidden sm:block mx-2 text-base-400">
+                                    •
+                                  </span>
+                                </>
+                              )}
+                              <span className="text-muted text-sm">
+                                {testimonial.location}
+                              </span>
+                            </div>
+                            {testimonial.carRented && (
+                              <span className="text-muted text-xs italic mt-2">
+                                Vehicle: {testimonial.carRented}
+                              </span>
+                            )}
+                          </div>
+                        </div>
                       </div>
-                      {testimonials[currentIndex].carRented && (
-                        <span className="text-muted text-xs italic">
-                          Vehicle: {testimonials[currentIndex].carRented}
-                        </span>
-                      )}
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
-          </div>
-          
-          {/* Controls */}
-          <div className="mt-8 flex items-center justify-between">
-            <div className="flex space-x-2">
+
+            {/* Controls */}
+            <div className="mt-8 flex items-center justify-center gap-6">
               <button
                 onClick={handlePrev}
-                className="btn-icon bg-white dark:bg-base-800 text-base-600 dark:text-base-400 hover:text-accent-600 dark:hover:text-accent-400 shadow-md transition-colors"
+                className="cursor-pointer btn-icon bg-white dark:bg-base-800 text-base-600 dark:text-base-400 hover:text-accent-600 dark:hover:text-accent-400 shadow-md transition-colors"
                 disabled={animating}
                 aria-label="Previous testimonial"
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
+
+              {/* Indicators */}
+              <div className="flex space-x-2">
+                {Array.from({ length: maxSlideIndex + 1 }).map((_, index) => (
+                  <button
+                    key={index}
+                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                      currentIndex === index
+                        ? "bg-primary-600 dark:bg-primary-400 w-6"
+                        : "bg-base-300 dark:bg-base-700"
+                    }`}
+                    onClick={() => !animating && setCurrentIndex(index)}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+
               <button
                 onClick={handleNext}
-                className="btn-icon bg-white dark:bg-base-800 text-base-600 dark:text-base-400 hover:text-accent-600 dark:hover:text-accent-400 shadow-md transition-colors"
+                className="cursor-pointer btn-icon bg-white dark:bg-base-800 text-base-600 dark:text-base-400 hover:text-accent-600 dark:hover:text-accent-400 shadow-md transition-colors"
                 disabled={animating}
                 aria-label="Next testimonial"
               >
                 <ChevronRight className="w-6 h-6" />
               </button>
             </div>
-            
-            {/* Indicators */}
-            <div className="flex space-x-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                    currentIndex === index 
-                      ? "bg-primary-600 dark:bg-primary-400 w-6" 
-                      : "bg-base-300 dark:bg-base-700"
-                  }`}
-                  onClick={() => !animating && setCurrentIndex(index)}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                />
-              ))}
-            </div>
           </div>
-        </div>
         </ScrollReveal>
       </div>
     </section>

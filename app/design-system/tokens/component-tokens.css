@@ -221,11 +221,11 @@
   /* ============================================
      FOOTER COMPONENT TOKENS
      ============================================ */
-  --footer-bg: var(--color-black);
-  --footer-heading-color: var(--color-text-inverse);
-  --footer-link-color: var(--color-text-inverse);
-  --footer-social-color: var(--color-text-inverse);
-  --footer-text-color: var(--color-text-inverse);
+  --footer-bg: var(--color-white);
+  --footer-heading-color: var(--color-text-primary);
+  --footer-link-color: var(--color-text-primary);
+  --footer-social-color: var(--color-text-primary);
+  --footer-text-color: var(--color-text-primary);
 
   /* ============================================
      ICON CONTAINER COMPONENT TOKENS

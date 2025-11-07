@@ -55,19 +55,17 @@ export default function CarCard({ car, showFeatures = true }: CarCardProps) {
         )}
 
         {/* Rating badge */}
-        <div className="absolute top-3 left-3 flex items-center bg-white/90 dark:bg-base-800/90 backdrop-blur-sm px-2.5 py-1.5 rounded-md shadow-sm">
+        <div className="absolute top-3 left-3 flex items-center bg-white dark:bg-base-800/90 backdrop-blur-sm px-2.5 py-1.5 rounded-md shadow-sm">
           <Star className="icon-rating mr-1.5" />
           <span className="text-base-900 dark:text-white text-sm font-medium">
             {car.rating.toFixed(1)}
           </span>
-          <span className="text-base-500 text-xs ml-1.5">
-            ({car.reviews})
-          </span>
+          <span className="text-base-500 text-xs ml-1.5">({car.reviews})</span>
         </div>
 
         {/* Brand icon - Using same icon system as nav */}
         {brandIcon ? (
-          <div className="absolute top-3 right-3 bg-white/95 dark:bg-base-800/95 backdrop-blur-sm p-1.5 rounded-lg shadow-sm w-12 h-12 flex items-center justify-center">
+          <div className="absolute top-3 right-3 bg-white dark:bg-base-800/95 backdrop-blur-sm p-1.5 rounded-lg shadow-sm w-12 h-12 flex items-center justify-center">
             {brandIcon}
           </div>
         ) : (

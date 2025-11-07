@@ -49,7 +49,7 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="section bg-white dark:bg-base-950">
+    <section className="section bg-white dark:bg-base-950 pt-24">
       <div className="container-default max-w-6xl">
         {/* Header */}
         <ScrollReveal variant="fadeUp">

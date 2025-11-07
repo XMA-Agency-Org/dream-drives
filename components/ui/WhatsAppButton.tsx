@@ -3,7 +3,7 @@
 import { FaWhatsapp } from "react-icons/fa";
 
 const WhatsAppButton = () => {
-  const phoneNumber = "+971563626000";
+  const phoneNumber = "+971545555402";
   const message =
     "Hello Dream Drives Luxury Car Rental, I would like to inquire about your services.";
 
@@ -11,7 +11,7 @@ const WhatsAppButton = () => {
     const encodedMessage = encodeURIComponent(message);
     window.open(
       `https://wa.me/${phoneNumber}?text=${encodedMessage}`,
-      "_blank",
+      "_blank"
     );
   };
 
