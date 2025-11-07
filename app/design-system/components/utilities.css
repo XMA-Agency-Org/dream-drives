@@ -35,44 +35,6 @@
     color: var(--text-default);
   }
 
-  /* Border radius semantic utilities */
-  .radius-button {
-    border-radius: var(--radius-xl);
-  }
-
-  .radius-card {
-    border-radius: var(--radius-3xl);
-  }
-
-  .radius-input {
-    border-radius: var(--radius-xl);
-  }
-
-  .radius-badge {
-    border-radius: var(--radius-full);
-  }
-
-  .radius-icon {
-    border-radius: var(--radius-2xl);
-  }
-
-  /* Divider */
-  .divider {
-    border-top-color: var(--border-default);
-    @apply border-t;
-  }
-
-  .divider-dashed {
-    border-top-color: var(--border-default);
-    @apply border-t border-dashed;
-  }
-
-  /* Backdrop blur */
-  .backdrop-card {
-    background-color: color-mix(in srgb, var(--bg-surface) 90%, transparent);
-    @apply backdrop-blur-sm;
-  }
-
   /* Skeleton loader */
   .skeleton {
     background-color: var(--bg-subtle);
@@ -208,5 +170,29 @@
 
   .text-success {
     color: var(--text-success);
+  }
+
+  /* Icon button - square button with icon only */
+  .btn-icon {
+    @apply inline-flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-200 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-icon:focus {
+    box-shadow: 0 0 0 2px var(--focus-ring-accent);
+  }
+
+  /* Icon button with ghost variant */
+  .btn-ghost {
+    background-color: transparent;
+    color: var(--text-base);
+  }
+
+  .btn-ghost:hover {
+    background-color: var(--bg-subtle);
+    color: var(--text-default);
+  }
+
+  .btn-ghost:active {
+    background-color: var(--bg-base);
   }
 }

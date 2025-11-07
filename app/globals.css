@@ -3,51 +3,108 @@
    Unified Design System
    ============================================ */
 
-
 /* Import Tailwind CSS AFTER tokens are defined */
 @import "tailwindcss";
 
 /* Import design system tokens FIRST so Tailwind can use @theme tokens */
 @import "./design-system/index.css";
+@import "tw-animate-css";
 
 /* Custom dark mode variant */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* ============================================
-   ROOT VARIABLES
-   ============================================ */
 :root {
-  /* Use semantic tokens */
-  --background: var(--color-bg-primary);
-  --foreground: var(--color-text-primary);
-  --border: var(--color-border);
-  --primary: var(--color-text-interactive-primary);
-  --accent: var(--color-text-interactive-accent);
-
-  /* Keep existing spacing tokens */
+  /* Spacing tokens */
   --page-padding-x: clamp(1rem, 5vw, 2rem);
   --section-spacing: clamp(3rem, 8vw, 6rem);
   --component-spacing: clamp(1.5rem, 4vw, 3rem);
+  --radius: 0.625rem;
+
+  /* Shadcn UI tokens - map to design system semantic tokens */
+  --border: var(--border-default);
+  --primary: var(--bg-primary);
+  --accent: var(--bg-accent);
+  --background: var(--bg-page);
+  --foreground: var(--text-default);
+  --card: var(--bg-surface);
+  --card-foreground: var(--text-default);
+  --popover: var(--bg-surface);
+  --popover-foreground: var(--text-default);
+  --primary-foreground: var(--text-inverse);
+  --secondary: var(--bg-base);
+  --secondary-foreground: var(--text-default);
+  --muted: var(--bg-subtle);
+  --muted-foreground: var(--text-muted);
+  --accent-foreground: var(--text-inverse);
+  --destructive: var(--bg-error-subtle);
+  --input: var(--border-default);
+  --ring: var(--focus-ring-accent);
+
+  /* Chart colors - use Tailwind primitives */
+  --chart-1: var(--color-orange-500);
+  --chart-2: var(--color-teal-500);
+  --chart-3: var(--color-blue-500);
+  --chart-4: var(--color-lime-500);
+  --chart-5: var(--color-yellow-500);
+
+  /* Sidebar tokens - use design system */
+  --sidebar: var(--bg-surface);
+  --sidebar-foreground: var(--text-default);
+  --sidebar-primary: var(--bg-primary);
+  --sidebar-primary-foreground: var(--text-inverse);
+  --sidebar-accent: var(--bg-subtle);
+  --sidebar-accent-foreground: var(--text-default);
+  --sidebar-border: var(--border-default);
+  --sidebar-ring: var(--focus-ring-accent);
 }
 
-/* ============================================
-   DARK MODE SHIM VARIABLES
-   Only override shim variables, semantic tokens are handled in design-system/tokens/semantic.css
-   ============================================ */
 .dark {
-  /* Dark mode shim variables - reference semantic tokens */
-  --background: var(--color-bg-primary);
-  --foreground: var(--color-text-primary);
-  --border: var(--color-border);
-  --primary: var(--color-text-interactive-primary);
-  --accent: var(--color-text-interactive-accent);
+  /* Dark mode - design system tokens automatically handle this
+     No need to override, tokens in colors.css handle dark mode */
 }
 
-/* ============================================
-   GLOBAL SCROLLBAR STYLES
-   Modern, polished scrollbar with smooth transitions
-   ============================================ */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
 
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
 /* Firefox scrollbar - auto width for better visibility, darker colors */
 * {
   scrollbar-width: auto;
@@ -90,23 +147,6 @@
   background: transparent;
 }
 
-/* Dark mode scrollbar - Firefox */
-.dark * {
-  scrollbar-color: var(--scrollbar-thumb-color-firefox-dark) transparent;
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-thumb-color-dark);
-}
-
-.dark ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--scrollbar-thumb-hover-color-dark);
-}
-
-.dark ::-webkit-scrollbar-thumb:active {
-  background-color: var(--scrollbar-thumb-active-color-dark);
-}
-
 /* ============================================
    GLOBAL BEHAVIOR
    ============================================ */
@@ -120,59 +160,3 @@ body {
   overflow-x: hidden;
 }
 
-/* ============================================
-   UTILITY CLASSES
-   ============================================ */
-
-/* Scrollable hint (shows gradient at bottom to indicate more content) */
-.scrollable-hint {
-  position: relative;
-}
-
-.scrollable-hint::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 24px;
-  background: linear-gradient(
-    to top,
-    var(--color-bg-subtle) 0%,
-    transparent 100%
-  );
-  pointer-events: none;
-  z-index: 1;
-  border-bottom-left-radius: inherit;
-  border-bottom-right-radius: inherit;
-}
-
-.dark .scrollable-hint::before {
-  background: linear-gradient(
-    to top,
-    var(--color-surface-hover) 0%,
-    transparent 100%
-  );
-}
-
-/* Logo sizing */
-.logo-image {
-  max-width: 200px;
-  height: auto;
-}
-
-/* Print styles */
-@media print {
-  html,
-  body {
-    scroll-behavior: auto;
-  }
-
-  * {
-    scrollbar-width: none;
-  }
-
-  *::-webkit-scrollbar {
-    display: none;
-  }
-}

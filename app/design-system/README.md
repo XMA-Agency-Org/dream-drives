@@ -58,16 +58,17 @@ Purpose-driven tokens that describe what colors are used for. These reference th
 design-system/
 ├── tokens/
 │   ├── colors.css           # Foundation + Semantic color tokens
-│   ├── typography.css        # Font system
-│   └── visual.css           # Shadows, radius, transitions
+│   └── typography.css        # Font system
 ├── components/
-│   ├── buttons.css
-│   ├── cards.css
-│   ├── forms.css
-│   ├── layout.css
-│   └── utilities.css
+│   ├── forms.css            # Form and input styles
+│   ├── layout.css           # Layout utilities and typography
+│   └── utilities.css        # General utility classes
 └── index.css                # Imports everything
 ```
+
+**Note:**
+- Button components use the `Button` component with CVA and Tailwind utilities. See `/docs/BUTTON_MIGRATION.md`
+- Card components use Tailwind utilities directly. See `/docs/CARD_MIGRATION.md`
 
 ## @theme vs :root
 
@@ -128,15 +129,24 @@ Use semantic tokens that reference foundation tokens:
 Use Tailwind utility classes that map to semantic tokens:
 
 ```tsx
-// Good - using Tailwind utilities
+// Good - using Tailwind utilities with semantic tokens
 <button className="bg-primary text-inverse">Click me</button>
 
-// Also good - using semantic token utilities
-<div className="bg-surface border-default">Content</div>
+// Cards use Tailwind utilities directly
+<div className="bg-surface border border-default rounded-3xl p-6">
+  Card content
+</div>
+
+// Interactive cards
+<div className="bg-surface rounded-3xl hover:shadow-lg hover:scale-[1.02] transition-all">
+  Interactive card
+</div>
 
 // Avoid - direct color classes
 <button className="bg-blue-700 text-white">Click me</button>
 ```
+
+**For card components**, see `/docs/CARD_MIGRATION.md` for complete migration examples.
 
 ### When to Create New Tokens
 

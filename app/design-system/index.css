@@ -6,11 +6,8 @@
 /* Import design tokens */
 @import "./tokens/colors.css";
 @import "./tokens/typography.css";
-@import "./tokens/visual.css";
 
 /* Import component styles */
-@import "./components/buttons.css";
-@import "./components/cards.css";
 @import "./components/forms.css";
 @import "./components/layout.css";
 @import "./components/utilities.css";
