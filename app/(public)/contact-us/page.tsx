@@ -19,7 +19,7 @@ const location = {
   id: "main-office",
   name: "Dubai Office",
   address: "Dubai, United Arab Emirates",
-  phone: "+971 56 970 0700",
+  phone: "+971 54 555 5402",
   email: "info@dreamdrives.com",
   hours: "Mon-Fri: 9am-8pm | Sat-Sun: 10am-6pm",
   coordinates: { lat: 25.186, lng: 55.28 }, // Dubai Business Bay coordinates
