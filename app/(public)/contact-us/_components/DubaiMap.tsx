@@ -37,7 +37,7 @@ export default function DubaiMap({ location }: DubaiMapProps) {
       {/* Map container */}
       <div className="h-full w-full relative">
         {!mapLoaded ? (
-          <div className="absolute inset-0 flex items-center justify-center bg-secondary-100 dark:bg-secondary-800">
+          <div className="absolute inset-0 flex items-center justify-center bg-base-100 dark:bg-base-800">
             <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary-500"></div>
           </div>
         ) : (
@@ -57,14 +57,14 @@ export default function DubaiMap({ location }: DubaiMapProps) {
             />
             
             {/* Information overlay */}
-            <div className="absolute bottom-0 left-0 right-0 md:right-auto md:w-80 bg-white/90 dark:bg-secondary-800/90 backdrop-blur-sm p-4 rounded-t-lg md:rounded-tr-none md:rounded-tl-lg shadow-lg m-4 z-10">
+            <div className="absolute bottom-0 left-0 right-0 md:right-auto md:w-80 bg-white/90 dark:bg-base-800/90 backdrop-blur-sm p-4 rounded-t-lg md:rounded-tr-none md:rounded-tl-lg shadow-lg m-4 z-10">
               <div className="space-y-3">
-                <h3 className="font-bold text-secondary-900 dark:text-white flex items-center">
+                <h3 className="font-bold text-base-900 dark:text-white flex items-center">
                   <MapPin className="h-4 w-4 text-primary-500 mr-2" />
                   {location.name}
                 </h3>
                 
-                <p className="text-sm text-secondary-600 dark:text-secondary-400">
+                <p className="text-sm text-base-600 dark:text-base-400">
                   {location.address}
                 </p>
                 

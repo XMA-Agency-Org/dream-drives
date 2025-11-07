@@ -17,7 +17,7 @@ export default function RelatedVehicles({ cars }: RelatedVehiclesProps) {
   }
 
   return (
-    <section className="section bg-secondary-50 dark:bg-secondary-900">
+    <section className="section bg-base-50 dark:bg-base-900">
       <div className="container-default">
         <SectionHeader
           title="Similar Vehicles You Might Like"

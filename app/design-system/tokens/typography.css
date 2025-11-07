@@ -44,7 +44,7 @@
 
 @layer base {
   body {
-    background-color: var(--color-bg-secondary);
+    background-color: var(--color-bg-base);
     color: var(--color-text-primary);
     font-feature-settings: "ss01", "ss03", "cv01", "cv02";
     font-family: var(--font-sans);

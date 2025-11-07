@@ -9,16 +9,10 @@ import StaggerContainer, {
 
 export default function ContactSection() {
   return (
-    <section className="relative section overflow-hidden bg-secondary-200 dark:bg-secondary-800">
+    <section className="relative section overflow-hidden bg-base-300">
       {/* Map Background with Gradient Mask */}
       <div
         className="absolute top-0 bottom-0 -right-1/4 left-1/4 z-0"
-        style={{
-          maskImage:
-            "radial-gradient(circle at 70% center, black 0%, black 20%, transparent 60%)",
-          WebkitMaskImage:
-            "radial-gradient(circle at 70% center, black 0%, black 20%, transparent 60%)",
-        }}
       >
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.0864458515984!2d55.13693931501204!3d25.08037998395047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6ca7b1b1b1b1%3A0x1b1b1b1b1b1b1b1b!2sDubai%20Marina!5e0!3m2!1sen!2sae!4v1635789012345!5m2!1sen!2sae"

@@ -40,7 +40,7 @@ export default async function BrandsPage() {
   return (
     <>
       <Header />
-      <div className="min-h-screen bg-white dark:bg-secondary-950 pt-28 pb-16">
+      <div className="min-h-screen bg-white dark:bg-base-950 pt-28 pb-16">
         <div className="container-default">
           <div className="section-header">
             <p className="subtitle">Luxury Vehicles</p>
@@ -64,7 +64,7 @@ export default async function BrandsPage() {
                   <div className="w-16 h-16 md:w-20 md:h-20 relative flex items-center justify-center">
                     {getBrandIcon(brand.id)}
                   </div>
-                  <h3 className="font-semibold text-secondary-900 dark:text-white group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">
+                  <h3 className="font-semibold text-base-900 dark:text-white group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">
                     {brand.label}
                   </h3>
                 </div>

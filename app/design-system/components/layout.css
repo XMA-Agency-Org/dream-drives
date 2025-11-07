@@ -18,9 +18,9 @@
     background-color: var(--section-bg);
   }
 
-  .section-bg-secondary {
+  .section-bg-base {
     @apply py-16;
-    background-color: var(--section-bg-secondary);
+    background-color: var(--section-bg-base);
   }
 
   .section-bg-subtle {
@@ -124,7 +124,7 @@
   }
 
   .text-subheading {
-    color: var(--typography-body-sm-color);
+    color: var(--color-text-muted);
   }
 
   .text-description {
@@ -199,7 +199,7 @@
   }
 
   .step-description {
-    color: var(--step-description-color);
+    color: var(--color-text-base);
     @apply text-sm leading-relaxed;
   }
 
@@ -223,9 +223,9 @@
     color: var(--icon-container-primary-text);
   }
 
-  .icon-container-secondary {
-    background-color: var(--icon-container-secondary-bg);
-    color: var(--icon-container-secondary-text);
+  .icon-container-base {
+    background-color: var(--icon-container-base-bg);
+    color: var(--icon-container-base-text);
   }
 
   .icon-container-accent {

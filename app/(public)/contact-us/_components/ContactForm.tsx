@@ -61,8 +61,8 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="card card-bordered p-6 text-center bg-accent-50 dark:bg-accent-900/20 border-accent-200 dark:border-accent-800">
-        <div className="inline-flex items-center justify-center bg-accent-100 dark:bg-accent-900/40 text-accent-600 dark:text-accent-400 p-3 rounded-full mb-4">
+      <div className="card card-bordered p-6 text-center bg-primary-50 dark:bg-primary-900/20 border-accent-200 dark:border-accent-800">
+        <div className="inline-flex items-center justify-center bg-primary-100 dark:bg-primary-900/40 text-accent-600 dark:text-accent-400 p-3 rounded-full mb-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -209,7 +209,7 @@ export default function ContactForm() {
           id="privacy"
           type="checkbox"
           required
-          className="mt-0.5 h-4 w-4 accent-success-500 dark:accent-success-600 border-secondary-300 dark:border-secondary-600 rounded focus:ring-2 focus:ring-success-500 cursor-pointer"
+          className="mt-0.5 h-4 w-4 accent-success-500 dark:accent-success-600 border-base-300 dark:border-base-600 rounded focus:ring-2 focus:ring-success-500 cursor-pointer"
         />
         <label htmlFor="privacy" className="text-sm text-muted cursor-pointer">
           I agree to the{" "}

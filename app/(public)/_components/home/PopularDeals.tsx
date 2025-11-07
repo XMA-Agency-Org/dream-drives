@@ -94,7 +94,7 @@ export default function PopularDeals() {
   );
 
   return (
-    <section className="section bg-white dark:bg-secondary-950">
+    <section className="section bg-white dark:bg-base-950">
       <div className="container-default">
         {/* Section Header */}
         <ScrollReveal variant="fadeUp">
@@ -117,8 +117,8 @@ export default function PopularDeals() {
                 onClick={() => setActiveCategory(category.id as CategoryType)}
                 className={`px-6 py-3 rounded-xl text-sm font-medium transition-all cursor-pointer ${
                   activeCategory === category.id
-                    ? "bg-accent-50 dark:bg-accent-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 shadow-sm"
-                    : "bg-secondary-50 dark:bg-secondary-800 border-2 border-transparent hover:border-secondary-300 dark:hover:border-secondary-600 text-body"
+                    ? "bg-primary-50 dark:bg-primary-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 shadow-sm"
+                    : "bg-base-50 dark:bg-base-800 border-2 border-transparent hover:border-base-300 dark:hover:border-base-600 text-body"
                 }`}
               >
                 {category.label}
@@ -172,7 +172,7 @@ export default function PopularDeals() {
           {/* View all button */}
           <div className="mx-auto md:mx-0">
             <Button
-              variant="outline"
+              variant="primary"
               size="lg"
               icon={<ArrowRight />}
               iconPosition="right"

@@ -28,7 +28,7 @@ export default function VehicleInfo({ car }: VehicleInfoProps) {
     <div className="card card-shadow p-12">
       <div className="flex justify-between items-start mb-4">
         <div>
-          <div className="badge badge-secondary mb-2">{brandName}</div>
+          <div className="badge badge-base mb-2">{brandName}</div>
           <h1 className="title-card-lg mb-2">{car.name}</h1>
           <div className="flex items-center">
             <StarRating
@@ -43,7 +43,7 @@ export default function VehicleInfo({ car }: VehicleInfoProps) {
       </div>
 
       {/* Quick Info */}
-      <div className="border-t border-b border-secondary-200 dark:border-secondary-800 py-4 my-4 grid grid-cols-2 gap-y-3">
+      <div className="border-t border-b border-base-200 dark:border-base-800 py-4 my-4 grid grid-cols-2 gap-y-3">
         <div className="flex items-center">
           <Users className="w-5 h-5 text-accent-500 dark:text-accent-400 mr-2" />
           <span className="text-body">{car.passengers} Passengers</span>

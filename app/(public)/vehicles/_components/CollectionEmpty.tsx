@@ -6,7 +6,7 @@ import Button from "@/components/ui/Button";
 export default function CollectionEmpty() {
   return (
     <div className="flex flex-col items-center justify-center text-center py-16">
-      <div className="icon-container icon-container-secondary icon-container-lg mb-6">
+      <div className="icon-container icon-container-base icon-container-lg mb-6">
         <SearchX className="h-12 w-12" />
       </div>
       

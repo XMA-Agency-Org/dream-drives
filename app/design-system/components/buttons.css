@@ -40,23 +40,23 @@
     background-color: var(--button-primary-bg-active);
   }
 
-  .btn-secondary {
-    background-color: var(--button-secondary-bg);
-    color: var(--button-secondary-text);
+  .btn-base {
+    background-color: var(--button-base-bg);
+    color: var(--button-base-text);
   }
 
-  .btn-secondary:focus-visible {
+  .btn-base:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 2px var(--focus-ring-secondary),
+    box-shadow: 0 0 0 2px var(--focus-ring-base),
       0 0 0 4px var(--button-focus-ring-bg);
   }
 
-  .btn-secondary:hover {
-    background-color: var(--button-secondary-bg-hover);
+  .btn-base:hover {
+    background-color: var(--button-base-bg-hover);
   }
 
-  .btn-secondary:active {
-    background-color: var(--button-secondary-bg-active);
+  .btn-base:active {
+    background-color: var(--button-base-bg-active);
   }
 
   .btn-accent {
@@ -106,7 +106,7 @@
 
   .btn-white:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 2px var(--focus-ring-secondary),
+    box-shadow: 0 0 0 2px var(--focus-ring-base),
       0 0 0 4px var(--button-focus-ring-bg);
   }
 
@@ -149,7 +149,7 @@
 
   .btn-ghost:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 2px var(--focus-ring-secondary),
+    box-shadow: 0 0 0 2px var(--focus-ring-base),
       0 0 0 4px var(--button-focus-ring-bg);
   }
 

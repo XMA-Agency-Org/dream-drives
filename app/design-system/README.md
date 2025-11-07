@@ -28,7 +28,7 @@ Maps base colors to semantic roles. Still in `@theme` because Tailwind uses thes
 @theme {
   --color-primary-500: var(--color-blue-gray-500);
   --color-accent-500: var(--color-teal-500);
-  --color-secondary-500: var(--color-slate-500);
+  --color-base-500: var(--color-slate-500);
 }
 ```
 
@@ -38,10 +38,10 @@ Purpose-driven tokens that describe what colors are used for, not what they are.
 
 ```css
 :root {
-  --color-text-primary: var(--color-secondary-950);
+  --color-text-primary: var(--color-base-950);
   --color-text-interactive-accent: var(--color-accent-500);
   --color-bg-primary: var(--color-white);
-  --color-border: var(--color-secondary-300);
+  --color-border: var(--color-base-300);
 }
 ```
 
@@ -165,8 +165,8 @@ Dark mode overrides are defined in `semantic.css`:
 
 ```css
 .dark {
-  --color-text-primary: var(--color-secondary-100);
-  --color-bg-primary: var(--color-secondary-950);
+  --color-text-primary: var(--color-base-100);
+  --color-bg-primary: var(--color-base-950);
   /* ... */
 }
 ```

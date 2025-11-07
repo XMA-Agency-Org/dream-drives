@@ -87,12 +87,12 @@ export default function ImageCarousel({ images, altText }: ImageCarouselProps) {
   // Show placeholder if no valid images
   if (validImages.length === 0) {
     return (
-      <div className="w-full h-96 bg-secondary-200 dark:bg-secondary-800 rounded-lg flex items-center justify-center">
+      <div className="w-full h-96 bg-base-200 dark:bg-base-800 rounded-lg flex items-center justify-center">
         <div className="text-center">
-          <div className="w-24 h-24 mx-auto mb-4 rounded-lg bg-secondary-300 dark:bg-secondary-700 flex items-center justify-center">
+          <div className="w-24 h-24 mx-auto mb-4 rounded-lg bg-base-300 dark:bg-base-700 flex items-center justify-center">
             <span className="text-4xl">🚗</span>
           </div>
-          <p className="text-secondary-500 dark:text-secondary-400">
+          <p className="text-base-500 dark:text-base-400">
             No images available
           </p>
         </div>
@@ -103,7 +103,7 @@ export default function ImageCarousel({ images, altText }: ImageCarouselProps) {
   return (
     <>
       {/* Main Carousel */}
-      <div className="relative w-full h-96 md:h-[550px] rounded-lg overflow-hidden bg-secondary-100 dark:bg-secondary-900">
+      <div className="relative w-full h-96 md:h-[550px] rounded-lg overflow-hidden bg-base-100 dark:bg-base-900">
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={currentImageIndex}
@@ -136,14 +136,14 @@ export default function ImageCarousel({ images, altText }: ImageCarouselProps) {
           <div className="absolute z-50 inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-4">
             <button
               onClick={handlePrevious}
-            className="w-10 h-10 rounded-full bg-white/80 dark:bg-secondary-800/80 flex items-center justify-center text-secondary-700 dark:text-secondary-200 hover:bg-white dark:hover:bg-secondary-800 focus:outline-none focus:ring-2 focus:ring-primary-500 z-50 cursor-pointer"
+            className="w-10 h-10 rounded-full bg-white/80 dark:bg-base-800/80 flex items-center justify-center text-base-700 dark:text-base-200 hover:bg-white dark:hover:bg-base-800 focus:outline-none focus:ring-2 focus:ring-primary-500 z-50 cursor-pointer"
             aria-label="Previous image"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             onClick={handleNext}
-            className="w-10 h-10 rounded-full bg-white/80 dark:bg-secondary-800/80 flex items-center justify-center text-secondary-700 dark:text-secondary-200 hover:bg-white dark:hover:bg-secondary-800 focus:outline-none focus:ring-2 focus:ring-primary-500 z-50 cursor-pointer"
+            className="w-10 h-10 rounded-full bg-white/80 dark:bg-base-800/80 flex items-center justify-center text-base-700 dark:text-base-200 hover:bg-white dark:hover:bg-base-800 focus:outline-none focus:ring-2 focus:ring-primary-500 z-50 cursor-pointer"
             aria-label="Next image"
           >
             <ChevronRight className="w-6 h-6" />
@@ -154,7 +154,7 @@ export default function ImageCarousel({ images, altText }: ImageCarouselProps) {
         {/* Fullscreen button */}
         <button
           onClick={toggleFullscreen}
-          className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/80 dark:bg-secondary-800/80 flex items-center justify-center text-secondary-700 dark:text-secondary-200 hover:bg-white dark:hover:bg-secondary-800 focus:outline-none focus:ring-2 focus:ring-primary-500 z-10 cursor-pointer"
+          className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/80 dark:bg-base-800/80 flex items-center justify-center text-base-700 dark:text-base-200 hover:bg-white dark:hover:bg-base-800 focus:outline-none focus:ring-2 focus:ring-primary-500 z-10 cursor-pointer"
           aria-label="View fullscreen"
         >
           <Maximize2 className="w-5 h-5" />
@@ -176,7 +176,7 @@ export default function ImageCarousel({ images, altText }: ImageCarouselProps) {
               className={`relative aspect-video rounded-md overflow-hidden border-2 transition-all ${
                 currentImageIndex === index
                   ? "border-primary-500 dark:border-primary-400"
-                  : "border-transparent hover:border-secondary-300 dark:hover:border-secondary-700"
+                  : "border-transparent hover:border-base-300 dark:hover:border-base-700"
               }`}
               aria-label={`View image ${index + 1}`}
             >

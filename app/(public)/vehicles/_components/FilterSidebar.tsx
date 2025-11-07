@@ -33,10 +33,10 @@ interface FilterSectionProps {
 }
 
 const FilterSection = ({ title, isOpen, onToggle, children }: FilterSectionProps) => (
-  <div className="border-b border-secondary-200 dark:border-secondary-700 py-4">
+  <div className="border-b border-base-200 dark:border-base-700 py-4">
     <button
       onClick={onToggle}
-      className="flex items-center justify-between w-full text-left font-semibold text-secondary-900 dark:text-white hover:text-accent-600 dark:hover:text-accent-400 transition-colors cursor-pointer"
+      className="flex items-center justify-between w-full text-left font-semibold text-base-900 dark:text-white hover:text-accent-600 dark:hover:text-accent-400 transition-colors cursor-pointer"
     >
       {title}
       {isOpen ? (
@@ -240,25 +240,25 @@ export default function FilterSidebar() {
 
       {/* Mobile Filter Sidebar (Overlay) */}
       <div
-        className={`lg:hidden fixed inset-0 bg-secondary-900/80 z-50 transition-opacity duration-300 ${
+        className={`lg:hidden fixed inset-0 bg-base-900/80 z-50 transition-opacity duration-300 ${
           isMobileFilterVisible ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={toggleMobileFilter}
       />
 
       <div
-        className={`lg:hidden fixed inset-y-0 left-0 z-50 w-full max-w-xs bg-white dark:bg-secondary-900 shadow-xl transform transition-transform duration-300 ease-in-out overflow-y-auto ${
+        className={`lg:hidden fixed inset-y-0 left-0 z-50 w-full max-w-xs bg-white dark:bg-base-900 shadow-xl transform transition-transform duration-300 ease-in-out overflow-y-auto ${
           isMobileFilterVisible ? "translate-x-0" : "-translate-x-full"
         }`}
         onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
       >
-        <div className="sticky top-0 z-10 bg-white dark:bg-secondary-900 p-4 border-b border-secondary-200 dark:border-secondary-700 flex justify-between items-center">
-          <h2 className="font-bold text-lg text-secondary-900 dark:text-white">Filters</h2>
+        <div className="sticky top-0 z-10 bg-white dark:bg-base-900 p-4 border-b border-base-200 dark:border-base-700 flex justify-between items-center">
+          <h2 className="font-bold text-lg text-base-900 dark:text-white">Filters</h2>
           <button
             onClick={toggleMobileFilter}
-            className="p-2 rounded-md hover:bg-secondary-100 dark:hover:bg-secondary-800"
+            className="p-2 rounded-md hover:bg-base-100 dark:hover:bg-base-800"
           >
-            <X className="h-5 w-5 text-secondary-500" />
+            <X className="h-5 w-5 text-base-500" />
           </button>
         </div>
 
@@ -275,8 +275,8 @@ export default function FilterSidebar() {
                 onClick={() => handleCategoryChange(category.id)}
                 className={`w-full text-left px-4 py-2.5 rounded-lg transition-all cursor-pointer ${
                   currentCategory === category.id
-                    ? "bg-accent-50 dark:bg-accent-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 font-medium"
-                    : "bg-secondary-50 dark:bg-secondary-800 border-2 border-transparent hover:border-secondary-300 dark:hover:border-secondary-600 text-body"
+                    ? "bg-primary-50 dark:bg-primary-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 font-medium"
+                    : "bg-base-50 dark:bg-base-800 border-2 border-transparent hover:border-base-300 dark:hover:border-base-600 text-body"
                 }`}
               >
                 {category.label}
@@ -296,8 +296,8 @@ export default function FilterSidebar() {
                   onClick={() => handleBrandChange(brand.id)}
                   className={`w-full text-left px-4 py-2.5 rounded-lg transition-all cursor-pointer ${
                     currentBrand === brand.id
-                      ? "bg-accent-50 dark:bg-accent-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 font-medium"
-                      : "bg-secondary-50 dark:bg-secondary-800 border-2 border-transparent hover:border-secondary-300 dark:hover:border-secondary-600 text-body"
+                      ? "bg-primary-50 dark:bg-primary-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 font-medium"
+                      : "bg-base-50 dark:bg-base-800 border-2 border-transparent hover:border-base-300 dark:hover:border-base-600 text-body"
                   }`}
                 >
                   {brand.label}
@@ -320,7 +320,7 @@ export default function FilterSidebar() {
                 onChange={handlePriceChange}
                 onChangeEnd={handlePriceChangeEnd}
               />
-              <div className="flex justify-between mt-2 text-sm text-secondary-600 dark:text-secondary-400">
+              <div className="flex justify-between mt-2 text-sm text-base-600 dark:text-base-400">
                 <span>{formatPrice(priceRange[0])}</span>
                 <span>{formatPrice(priceRange[1])}+</span>
               </div>
@@ -341,7 +341,7 @@ export default function FilterSidebar() {
                 onChange={handleYearChange}
                 onChangeEnd={handleYearChangeEnd}
               />
-              <div className="flex justify-between mt-2 text-sm text-secondary-600 dark:text-secondary-400">
+              <div className="flex justify-between mt-2 text-sm text-base-600 dark:text-base-400">
                 <span>{yearRange[0]}</span>
                 <span>{yearRange[1]}</span>
               </div>
@@ -359,8 +359,8 @@ export default function FilterSidebar() {
                 onClick={() => handlePassengerChange(option.value)}
                 className={`w-full text-left px-4 py-2.5 rounded-lg transition-all cursor-pointer ${
                   currentPassengers === option.value
-                    ? "bg-accent-50 dark:bg-accent-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 font-medium"
-                    : "bg-secondary-50 dark:bg-secondary-800 border-2 border-transparent hover:border-secondary-300 dark:hover:border-secondary-600 text-body"
+                    ? "bg-primary-50 dark:bg-primary-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 font-medium"
+                    : "bg-base-50 dark:bg-base-800 border-2 border-transparent hover:border-base-300 dark:hover:border-base-600 text-body"
                 }`}
               >
                 {option.label}
@@ -392,7 +392,7 @@ export default function FilterSidebar() {
       {/* Desktop Filter Sidebar */}
       <div className="hidden lg:block sticky top-24 card card-shadow card-body">
         <div className="flex justify-between items-center mb-6">
-          <h2 className="font-bold text-lg text-secondary-900 dark:text-white">Filters</h2>
+          <h2 className="font-bold text-lg text-base-900 dark:text-white">Filters</h2>
           {/* Show clear button if any filters are applied */}
           {(currentCategory !== "all" || 
             currentBrand !== "all" || 
@@ -423,8 +423,8 @@ export default function FilterSidebar() {
               onClick={() => handleCategoryChange(category.id)}
               className={`w-full text-left px-4 py-2.5 rounded-lg transition-all cursor-pointer ${
                 currentCategory === category.id
-                  ? "bg-accent-50 dark:bg-accent-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 font-medium"
-                  : "bg-secondary-50 dark:bg-secondary-800 border-2 border-transparent hover:border-secondary-300 dark:hover:border-secondary-600 text-body"
+                  ? "bg-primary-50 dark:bg-primary-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 font-medium"
+                  : "bg-base-50 dark:bg-base-800 border-2 border-transparent hover:border-base-300 dark:hover:border-base-600 text-body"
               }`}
             >
               {category.label}
@@ -444,8 +444,8 @@ export default function FilterSidebar() {
                 onClick={() => handleBrandChange(brand.id)}
                 className={`w-full text-left px-4 py-2.5 rounded-lg transition-all cursor-pointer ${
                   currentBrand === brand.id
-                    ? "bg-accent-50 dark:bg-accent-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 font-medium"
-                    : "bg-secondary-50 dark:bg-secondary-800 border-2 border-transparent hover:border-secondary-300 dark:hover:border-secondary-600 text-body"
+                    ? "bg-primary-50 dark:bg-primary-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 font-medium"
+                    : "bg-base-50 dark:bg-base-800 border-2 border-transparent hover:border-base-300 dark:hover:border-base-600 text-body"
                 }`}
               >
                 {brand.label}
@@ -468,7 +468,7 @@ export default function FilterSidebar() {
               onChange={handlePriceChange}
               onChangeEnd={handlePriceChangeEnd}
             />
-            <div className="flex justify-between mt-2 text-sm text-secondary-600 dark:text-secondary-400">
+            <div className="flex justify-between mt-2 text-sm text-base-600 dark:text-base-400">
               <span>{formatPrice(priceRange[0])}</span>
               <span>{formatPrice(priceRange[1])}+</span>
             </div>
@@ -489,7 +489,7 @@ export default function FilterSidebar() {
               onChange={handleYearChange}
               onChangeEnd={handleYearChangeEnd}
             />
-            <div className="flex justify-between mt-2 text-sm text-secondary-600 dark:text-secondary-400">
+            <div className="flex justify-between mt-2 text-sm text-base-600 dark:text-base-400">
               <span>{yearRange[0]}</span>
               <span>{yearRange[1]}</span>
             </div>
@@ -507,8 +507,8 @@ export default function FilterSidebar() {
               onClick={() => handlePassengerChange(option.value)}
               className={`w-full text-left px-4 py-2.5 rounded-lg transition-all cursor-pointer ${
                 currentPassengers === option.value
-                  ? "bg-accent-50 dark:bg-accent-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 font-medium"
-                  : "bg-secondary-50 dark:bg-secondary-800 border-2 border-transparent hover:border-secondary-300 dark:hover:border-secondary-600 text-body"
+                  ? "bg-primary-50 dark:bg-primary-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 font-medium"
+                  : "bg-base-50 dark:bg-base-800 border-2 border-transparent hover:border-base-300 dark:hover:border-base-600 text-body"
               }`}
             >
               {option.label}

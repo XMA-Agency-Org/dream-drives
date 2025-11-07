@@ -108,13 +108,13 @@ export default async function CarCollection({
       {/* Collection header with total count, filters and sorting */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8">
         <div className="mb-4 sm:mb-0 flex items-center">
-          <p className="text-sm text-secondary-600 dark:text-secondary-400 mr-4">
+          <p className="text-sm text-base-600 dark:text-base-400 mr-4">
             Showing{" "}
-            <span className="font-medium text-secondary-900 dark:text-white">
+            <span className="font-medium text-base-900 dark:text-white">
               {cars.length}
             </span>{" "}
             of{" "}
-            <span className="font-medium text-secondary-900 dark:text-white">
+            <span className="font-medium text-base-900 dark:text-white">
               {totalCars}
             </span>{" "}
             vehicles
@@ -136,7 +136,7 @@ export default async function CarCollection({
       {/* Pagination */}
       {totalPages > 1 && (
         <div className="flex flex-col sm:flex-row justify-between items-center mt-12">
-          <div className="text-sm text-secondary-600 dark:text-secondary-400 mb-4 sm:mb-0">
+          <div className="text-sm text-base-600 dark:text-base-400 mb-4 sm:mb-0">
             Page {currentPage} of {totalPages}
           </div>
 
@@ -145,13 +145,13 @@ export default async function CarCollection({
             {currentPage > 1 ? (
               <Link
                 href={createPageUrl(currentPage - 1)}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-secondary-200 dark:border-secondary-800 text-secondary-800 dark:text-secondary-200 hover:bg-secondary-100 dark:hover:bg-secondary-800"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-base-200 dark:border-base-800 text-base-800 dark:text-base-200 hover:bg-base-100 dark:hover:bg-base-800"
                 aria-label="Previous page"
               >
                 <ChevronLeft className="h-4 w-4" />
               </Link>
             ) : (
-              <div className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-secondary-200 dark:border-secondary-800 text-secondary-400 dark:text-secondary-600 cursor-not-allowed">
+              <div className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-base-200 dark:border-base-800 text-base-400 dark:text-base-600 cursor-not-allowed">
                 <ChevronLeft className="h-4 w-4" />
               </div>
             )}
@@ -162,7 +162,7 @@ export default async function CarCollection({
                 return (
                   <span
                     key={link}
-                    className="inline-flex h-9 w-9 items-center justify-center text-secondary-600 dark:text-secondary-400"
+                    className="inline-flex h-9 w-9 items-center justify-center text-base-600 dark:text-base-400"
                   >
                     ...
                   </span>
@@ -176,7 +176,7 @@ export default async function CarCollection({
                   className={`inline-flex h-9 min-w-[36px] items-center justify-center rounded-md px-2 ${
                     currentPage === link
                       ? "bg-primary-600 text-white font-medium hover:bg-primary-700"
-                      : "border border-secondary-200 dark:border-secondary-800 text-secondary-800 dark:text-secondary-200 hover:bg-secondary-100 dark:hover:bg-secondary-800"
+                      : "border border-base-200 dark:border-base-800 text-base-800 dark:text-base-200 hover:bg-base-100 dark:hover:bg-base-800"
                   }`}
                 >
                   {link}
@@ -188,13 +188,13 @@ export default async function CarCollection({
             {currentPage < totalPages ? (
               <Link
                 href={createPageUrl(currentPage + 1)}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-secondary-200 dark:border-secondary-800 text-secondary-800 dark:text-secondary-200 hover:bg-secondary-100 dark:hover:bg-secondary-800"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-base-200 dark:border-base-800 text-base-800 dark:text-base-200 hover:bg-base-100 dark:hover:bg-base-800"
                 aria-label="Next page"
               >
                 <ChevronRight className="h-4 w-4" />
               </Link>
             ) : (
-              <div className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-secondary-200 dark:border-secondary-800 text-secondary-400 dark:text-secondary-600 cursor-not-allowed">
+              <div className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-base-200 dark:border-base-800 text-base-400 dark:text-base-600 cursor-not-allowed">
                 <ChevronRight className="h-4 w-4" />
               </div>
             )}

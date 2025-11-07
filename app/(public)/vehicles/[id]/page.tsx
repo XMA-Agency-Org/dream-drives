@@ -48,7 +48,7 @@ export default async function VehicleDetailPage({
   const relatedCars = await getRelatedCars(carId, car.category);
 
   return (
-    <div className="w-full min-h-screen bg-white dark:bg-secondary-950">
+    <div className="w-full min-h-screen bg-white dark:bg-base-950">
       <ScrollToTop />
       <Header />
 

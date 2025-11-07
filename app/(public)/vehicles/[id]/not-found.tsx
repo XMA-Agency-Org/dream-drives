@@ -7,12 +7,12 @@ import Button from "@/components/ui/Button";
 
 export default function VehicleNotFound() {
   return (
-    <div className="w-full min-h-screen bg-white dark:bg-secondary-950">
+    <div className="w-full min-h-screen bg-white dark:bg-base-950">
       <Header />
 
       <main className="pt-24">
         <div className="max-w-3xl mx-auto px-4 py-24 flex flex-col items-center text-center">
-          <div className="icon-container icon-container-secondary icon-container-lg mb-8">
+          <div className="icon-container icon-container-base icon-container-lg mb-8">
             <Search className="h-16 w-16" />
           </div>
 

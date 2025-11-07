@@ -49,7 +49,7 @@ export default function StarRating({
             return (
               <span key={i} className="relative mr-0.5">
                 {/* Background star (empty) */}
-                <Star className={`${iconSize} text-secondary-300 dark:text-secondary-700`} />
+                <Star className={`${iconSize} text-base-300 dark:text-base-700`} />
 
                 {/* Foreground star (filled) with width based on rating decimal */}
                 <div
@@ -66,20 +66,20 @@ export default function StarRating({
           return (
             <Star
               key={i}
-              className={`${iconSize} text-secondary-300 dark:text-secondary-700 mr-0.5`}
+              className={`${iconSize} text-base-300 dark:text-base-700 mr-0.5`}
             />
           );
         })}
       </div>
       
       {showRating && (
-        <span className="ml-1.5 font-medium text-secondary-900 dark:text-white">
+        <span className="ml-1.5 font-medium text-base-900 dark:text-white">
           {rating.toFixed(1)}
         </span>
       )}
       
       {showCount && count > 0 && (
-        <span className="ml-1 text-secondary-500 dark:text-secondary-400 text-sm">
+        <span className="ml-1 text-base-500 dark:text-base-400 text-sm">
           ({count > 999 ? `${(count / 1000).toFixed(1)}k` : count})
         </span>
       )}

@@ -66,7 +66,7 @@ export default function SortDropdown({ currentSort }: SortDropdownProps) {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 bg-white dark:bg-secondary-800 border border-secondary-200 dark:border-secondary-700 rounded-lg px-3 py-2 text-sm font-medium text-secondary-900 dark:text-white hover:bg-secondary-50 dark:hover:bg-secondary-700 transition-colors cursor-pointer"
+        className="flex items-center space-x-2 bg-white dark:bg-base-800 border border-base-200 dark:border-base-700 rounded-lg px-3 py-2 text-sm font-medium text-base-900 dark:text-white hover:bg-base-50 dark:hover:bg-base-700 transition-colors cursor-pointer"
         aria-label="Sort vehicles"
       >
         <span className="flex items-center">
@@ -85,8 +85,8 @@ export default function SortDropdown({ currentSort }: SortDropdownProps) {
                 onClick={() => handleSortChange(option.id)}
                 className={`flex items-center w-full px-4 py-2 text-sm transition-colors cursor-pointer ${
                   currentSort === option.id
-                    ? "bg-accent-50 dark:bg-accent-900/30 text-accent-600 dark:text-accent-400 font-medium"
-                    : "text-body hover:bg-secondary-50 dark:hover:bg-secondary-700"
+                    ? "bg-primary-50 dark:bg-primary-900/30 text-accent-600 dark:text-accent-400 font-medium"
+                    : "text-body hover:bg-base-50 dark:hover:bg-base-700"
                 }`}
               >
                 <span className="mr-2">{option.icon}</span>

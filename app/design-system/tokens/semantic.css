@@ -6,19 +6,19 @@
      TEXT COLORS
      ============================================ */
   /* Base text colors */
-  --color-text-primary: var(--color-secondary-950);
-  --color-text-secondary: var(--color-secondary-600);
-  --color-text-muted: var(--color-primary-600);
+  --color-text-primary: var(--color-base-950);
+  --color-text-base: var(--color-base-600);
+  --color-text-muted: var(--color-base-500);
   --color-text-inverse: var(--color-white);
-  --color-text-accent: var(--color-accent-600);
+  --color-text-accent: var(--color-primary-600);
 
   /* Interactive text colors */
   --color-text-interactive-primary: var(--color-primary-700);
   --color-text-interactive-primary-hover: var(--color-primary-800);
   --color-text-interactive-primary-active: var(--color-primary-900);
-  --color-text-interactive-accent: var(--color-accent-500);
-  --color-text-interactive-accent-hover: var(--color-accent-600);
-  --color-text-interactive-accent-active: var(--color-accent-700);
+  --color-text-interactive-accent: var(--color-primary-500);
+  --color-text-interactive-accent-hover: var(--color-primary-600);
+  --color-text-interactive-accent-active: var(--color-primary-700);
 
   /* Status text colors */
   --color-text-success: var(--color-success-600);
@@ -35,10 +35,10 @@
   /* Badge text colors */
   --color-text-badge-primary: var(--color-primary-800);
   --color-text-badge-primary-dark: var(--color-primary-200);
-  --color-text-badge-secondary: var(--color-secondary-800);
-  --color-text-badge-secondary-dark: var(--color-secondary-200);
-  --color-text-badge-accent: var(--color-accent-800);
-  --color-text-badge-accent-dark: var(--color-accent-200);
+  --color-text-badge-base: var(--color-base-800);
+  --color-text-badge-base-dark: var(--color-base-200);
+  --color-text-badge-accent: var(--color-primary-800);
+  --color-text-badge-accent-dark: var(--color-primary-200);
   --color-text-badge-success: var(--color-success-800);
   --color-text-badge-success-dark: var(--color-success-200);
   --color-text-badge-warning: var(--color-warning-800);
@@ -51,27 +51,27 @@
      ============================================ */
   /* Base background colors */
   --color-bg-primary: var(--color-white);
-  --color-bg-secondary: var(--color-secondary-50);
-  --color-bg-subtle: var(--color-secondary-100);
-  --color-bg-muted: var(--color-secondary-200);
+  --color-bg-base: var(--color-base-50);
+  --color-bg-subtle: var(--color-base-100);
+  --color-bg-muted: var(--color-base-200);
   --color-bg-emphasized: var(--color-primary-500);
   --color-bg-primary-light: var(--color-primary-600);
   --color-bg-dark: var(--color-primary-950);
 
   /* Dark button background colors */
   --color-bg-dark-button: var(--color-black);
-  --color-bg-dark-button-hover: var(--color-secondary-800);
-  --color-bg-dark-button-active: var(--color-secondary-900);
+  --color-bg-dark-button-hover: var(--color-base-800);
+  --color-bg-dark-button-active: var(--color-base-900);
 
   /* Interactive background colors */
   --color-bg-interactive-primary: var(--color-primary-700);
   --color-bg-interactive-primary-hover: var(--color-primary-800);
   --color-bg-interactive-primary-active: var(--color-primary-900);
   --color-bg-interactive-primary-subtle: var(--color-primary-50);
-  --color-bg-interactive-accent: var(--color-accent-500);
-  --color-bg-interactive-accent-hover: var(--color-accent-600);
-  --color-bg-interactive-accent-active: var(--color-accent-700);
-  --color-bg-interactive-accent-subtle: var(--color-accent-50);
+  --color-bg-interactive-accent: var(--color-primary-500);
+  --color-bg-interactive-accent-hover: var(--color-primary-600);
+  --color-bg-interactive-accent-active: var(--color-primary-700);
+  --color-bg-interactive-accent-subtle: var(--color-primary-50);
 
   /* Status background colors */
   --color-bg-success: var(--color-success-600);
@@ -84,10 +84,10 @@
   /* Badge background colors */
   --color-bg-badge-primary: var(--color-primary-100);
   --color-bg-badge-primary-dark: var(--color-primary-900);
-  --color-bg-badge-secondary: var(--color-secondary-100);
-  --color-bg-badge-secondary-dark: var(--color-secondary-800);
-  --color-bg-badge-accent: var(--color-accent-100);
-  --color-bg-badge-accent-dark: var(--color-accent-900);
+  --color-bg-badge-base: var(--color-base-100);
+  --color-bg-badge-base-dark: var(--color-base-800);
+  --color-bg-badge-accent: var(--color-primary-100);
+  --color-bg-badge-accent-dark: var(--color-primary-900);
   --color-bg-badge-success: var(--color-success-100);
   --color-bg-badge-success-dark: var(--color-success-900);
   --color-bg-badge-warning: var(--color-warning-100);
@@ -98,33 +98,33 @@
   /* Badge dot background colors */
   --color-bg-badge-dot-primary: var(--color-primary-600);
   --color-bg-badge-dot-primary-dark: var(--color-primary-500);
-  --color-bg-badge-dot-accent: var(--color-accent-600);
-  --color-bg-badge-dot-accent-dark: var(--color-accent-500);
+  --color-bg-badge-dot-accent: var(--color-primary-600);
+  --color-bg-badge-dot-accent-dark: var(--color-primary-500);
 
   /* ============================================
      SURFACE COLORS
      ============================================ */
   --color-surface: var(--color-white);
-  --color-surface-hover: var(--color-secondary-50);
-  --color-surface-active: var(--color-secondary-100);
-  --color-surface-subtle: var(--color-secondary-100);
+  --color-surface-hover: var(--color-base-50);
+  --color-surface-active: var(--color-base-100);
+  --color-surface-subtle: var(--color-base-100);
 
   /* ============================================
      BORDER COLORS
      ============================================ */
   /* Base border colors */
-  --color-border: var(--color-secondary-300);
-  --color-border-light: var(--color-secondary-200);
-  --color-border-strong: var(--color-secondary-400);
-  --color-border-focus: var(--color-accent-500);
+  --color-border: var(--color-base-300);
+  --color-border-light: var(--color-base-200);
+  --color-border-strong: var(--color-base-400);
+  --color-border-focus: var(--color-primary-500);
 
   /* Interactive border colors */
   --color-border-interactive-primary: var(--color-primary-700);
   --color-border-interactive-primary-hover: var(--color-primary-800);
   --color-border-interactive-primary-active: var(--color-primary-900);
-  --color-border-interactive-accent: var(--color-accent-500);
-  --color-border-interactive-accent-hover: var(--color-accent-600);
-  --color-border-interactive-accent-active: var(--color-accent-700);
+  --color-border-interactive-accent: var(--color-primary-500);
+  --color-border-interactive-accent-hover: var(--color-primary-600);
+  --color-border-interactive-accent-active: var(--color-primary-700);
 
   /* Status border colors */
   --color-border-success: var(--color-success-600);
@@ -132,12 +132,12 @@
 
   /* Badge border colors */
   --color-border-badge-primary: var(--color-primary-200);
-  --color-border-badge-accent: var(--color-accent-200);
+  --color-border-badge-accent: var(--color-primary-200);
 
   /* Focus ring border colors */
   --color-border-focus-ring-primary: var(--color-text-interactive-primary);
   --color-border-focus-ring-accent: var(--color-text-interactive-accent);
-  --color-border-focus-ring-secondary: var(--color-text-muted);
+  --color-border-focus-ring-base: var(--color-text-muted);
   --color-border-focus-ring-success: var(--color-text-focus-success);
   --color-border-focus-ring-error: var(--color-text-focus-error);
   --color-border-focus-ring-dark: var(--color-text-inverse);
@@ -158,46 +158,46 @@
    ============================================ */
 .dark {
   /* Text Colors - Dark Mode */
-  --color-text-primary: var(--color-secondary-100);
-  --color-text-secondary: var(--color-secondary-400);
-  --color-text-muted: var(--color-secondary-500);
+  --color-text-primary: var(--color-base-100);
+  --color-text-base: var(--color-base-400);
+  --color-text-muted: var(--color-base-500);
 
   /* Background Colors - Dark Mode */
-  --color-bg-primary: var(--color-secondary-950);
-  --color-bg-secondary: var(--color-secondary-900);
-  --color-bg-subtle: var(--color-secondary-800);
-  --color-bg-muted: var(--color-secondary-800);
+  --color-bg-primary: var(--color-base-950);
+  --color-bg-base: var(--color-base-900);
+  --color-bg-subtle: var(--color-base-800);
+  --color-bg-muted: var(--color-base-800);
 
   /* Surface Colors - Dark Mode */
-  --color-surface: var(--color-secondary-900);
-  --color-surface-hover: var(--color-secondary-800);
-  --color-surface-active: var(--color-secondary-700);
-  --color-surface-subtle: var(--color-secondary-800);
+  --color-surface: var(--color-base-900);
+  --color-surface-hover: var(--color-base-800);
+  --color-surface-active: var(--color-base-700);
+  --color-surface-subtle: var(--color-base-800);
 
   /* Border Colors - Dark Mode */
-  --color-border: var(--color-secondary-700);
-  --color-border-light: var(--color-secondary-800);
-  --color-border-strong: var(--color-secondary-600);
+  --color-border: var(--color-base-700);
+  --color-border-light: var(--color-base-800);
+  --color-border-strong: var(--color-base-600);
   --color-border-interactive-primary: var(--color-primary-300);
   --color-border-interactive-primary-hover: var(--color-primary-400);
   --color-border-interactive-primary-active: var(--color-primary-500);
-  --color-border-interactive-accent: var(--color-accent-400);
-  --color-border-interactive-accent-hover: var(--color-accent-500);
-  --color-border-interactive-accent-active: var(--color-accent-600);
+  --color-border-interactive-accent: var(--color-primary-400);
+  --color-border-interactive-accent-hover: var(--color-primary-500);
+  --color-border-interactive-accent-active: var(--color-primary-600);
 
   /* Text Colors - Dark Mode (Interactive) */
   --color-text-interactive-primary: var(--color-primary-300);
   --color-text-interactive-primary-hover: var(--color-primary-400);
   --color-text-interactive-primary-active: var(--color-primary-500);
-  --color-text-interactive-accent: var(--color-accent-400);
-  --color-text-interactive-accent-hover: var(--color-accent-500);
-  --color-text-interactive-accent-active: var(--color-accent-600);
+  --color-text-interactive-accent: var(--color-primary-400);
+  --color-text-interactive-accent-hover: var(--color-primary-500);
+  --color-text-interactive-accent-active: var(--color-primary-600);
 
   /* Background Colors - Dark Mode (Interactive) */
   --color-bg-interactive-primary: var(--color-primary-300);
   --color-bg-interactive-primary-hover: var(--color-primary-400);
   --color-bg-interactive-primary-active: var(--color-primary-500);
-  --color-bg-interactive-accent: var(--color-accent-400);
-  --color-bg-interactive-accent-hover: var(--color-accent-500);
-  --color-bg-interactive-accent-active: var(--color-accent-600);
+  --color-bg-interactive-accent: var(--color-primary-400);
+  --color-bg-interactive-accent-hover: var(--color-primary-500);
+  --color-bg-interactive-accent-active: var(--color-primary-600);
 }

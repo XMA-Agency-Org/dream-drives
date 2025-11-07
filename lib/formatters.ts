@@ -66,7 +66,7 @@ export function getBrandStyle(brand: string): string {
     case "bmw":
     case "audi":
     case "cadillac":
-      return "badge badge-secondary";
+      return "badge badge-base";
     case "bentley":
     case "range-rover":
       return "badge badge-success";
@@ -81,7 +81,7 @@ export function getBrandStyle(brand: string): string {
     case "gmc":
       return "badge badge-accent";
     default:
-      return "badge badge-secondary";
+      return "badge badge-base";
   }
 }
 

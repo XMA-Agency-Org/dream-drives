@@ -112,7 +112,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white dark:bg-secondary-950 py-4 border-b border-secondary-200 dark:border-secondary-800">
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white dark:bg-base-950 py-4 border-b border-base-200 dark:border-base-800">
       <div className="container-default">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -127,7 +127,7 @@ const Header: React.FC = () => {
                 className="h-14 w-auto"
               /> */}
               <CarFront className="h-6 w-6 md:h-7 md:w-7 text-accent-600 dark:text-accent-400" />
-              <span className="text-xl md:text-2xl font-bold text-secondary-900 dark:text-white">
+              <span className="text-xl md:text-2xl font-bold text-base-900 dark:text-white">
                 Dream Drives
               </span>
             </div>
@@ -140,7 +140,7 @@ const Header: React.FC = () => {
                 {item.children ? (
                   <button
                     className={`px-4 py-2 text-sm font-semibold rounded-md transition-colors flex items-center cursor-pointer
-                      text-secondary-900 dark:text-white
+                      text-base-900 dark:text-white
                       hover:text-accent-600 dark:hover:text-accent-400`}
                   >
                     {item.label}
@@ -150,7 +150,7 @@ const Header: React.FC = () => {
                   <Link
                     href={item.href}
                     className={`px-4 py-2 text-sm font-semibold rounded-md transition-colors
-                      text-secondary-900 dark:text-white
+                      text-base-900 dark:text-white
                       hover:text-accent-600 dark:hover:text-accent-400`}
                   >
                     {item.label}
@@ -159,7 +159,7 @@ const Header: React.FC = () => {
 
                 {/* Dropdown for desktop */}
                 {item.children && item.label === "Brands" && (
-                  <div className="absolute left-0 mt-1 w-80 origin-top-right rounded-md shadow-lg overflow-hidden bg-white dark:bg-secondary-900 ring-1 ring-secondary-200 dark:ring-secondary-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
+                  <div className="absolute left-0 mt-1 w-80 origin-top-right rounded-md shadow-lg overflow-hidden bg-white dark:bg-base-900 ring-1 ring-base-200 dark:ring-base-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
                     <div className="p-4">
                       <div className="grid grid-cols-3 gap-3">
                         {item.children.map((child) => {
@@ -171,7 +171,7 @@ const Header: React.FC = () => {
                             <Link
                               key={child.label}
                               href={child.href}
-                              className={`flex flex-col items-center justify-center p-3 text-xs text-secondary-900 dark:text-white hover:bg-secondary-100 dark:hover:bg-secondary-800 rounded-md transition-colors ${
+                              className={`flex flex-col items-center justify-center p-3 text-xs text-base-900 dark:text-white hover:bg-base-100 dark:hover:bg-base-800 rounded-md transition-colors ${
                                 isAllBrands ? "min-h-[80px]" : ""
                               }`}
                             >
@@ -194,13 +194,13 @@ const Header: React.FC = () => {
                 )}
                 {/* Regular dropdown for other items */}
                 {item.children && item.label !== "Brands" && (
-                  <div className="absolute left-0 mt-1 w-56 origin-top-right rounded-md shadow-lg overflow-hidden bg-white dark:bg-secondary-900 ring-1 ring-secondary-200 dark:ring-secondary-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
+                  <div className="absolute left-0 mt-1 w-56 origin-top-right rounded-md shadow-lg overflow-hidden bg-white dark:bg-base-900 ring-1 ring-base-200 dark:ring-base-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
                     <div className="py-1">
                       {item.children.map((child) => (
                         <Link
                           key={child.label}
                           href={child.href}
-                          className="block px-4 py-2.5 text-sm text-secondary-900 dark:text-white hover:bg-secondary-100 dark:hover:bg-secondary-800"
+                          className="block px-4 py-2.5 text-sm text-base-900 dark:text-white hover:bg-base-100 dark:hover:bg-base-800"
                         >
                           {child.label}
                         </Link>
@@ -232,9 +232,9 @@ const Header: React.FC = () => {
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <X className={`h-6 w-6 text-secondary-900 dark:text-white`} />
+              <X className={`h-6 w-6 text-base-900 dark:text-white`} />
             ) : (
-              <Menu className={`h-6 w-6 text-secondary-900 dark:text-white`} />
+              <Menu className={`h-6 w-6 text-base-900 dark:text-white`} />
             )}
           </button>
         </div>
@@ -242,7 +242,7 @@ const Header: React.FC = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`md:hidden fixed inset-0 bg-secondary-800/95 backdrop-blur-sm z-40 transition-transform duration-300 ease-in-out transform ${
+        className={`md:hidden fixed inset-0 bg-base-800/95 backdrop-blur-sm z-40 transition-transform duration-300 ease-in-out transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

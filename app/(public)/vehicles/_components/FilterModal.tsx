@@ -39,10 +39,10 @@ const FilterSection = ({
   onToggle,
   children,
 }: FilterSectionProps) => (
-  <div className="border-b border-secondary-200 dark:border-secondary-700 py-4">
+  <div className="border-b border-base-200 dark:border-base-700 py-4">
     <button
       onClick={onToggle}
-      className="flex items-center justify-between w-full text-left font-semibold text-secondary-900 dark:text-white hover:text-accent-600 dark:hover:text-accent-400 transition-colors cursor-pointer"
+      className="flex items-center justify-between w-full text-left font-semibold text-base-900 dark:text-white hover:text-accent-600 dark:hover:text-accent-400 transition-colors cursor-pointer"
     >
       {title}
       {isOpen ? (
@@ -363,7 +363,7 @@ export default function FilterModal() {
       >
         Filters
         {activeFilterCount > 0 && (
-          <span className="ml-2 bg-accent-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+          <span className="ml-2 bg-primary-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
             {activeFilterCount}
           </span>
         )}
@@ -384,19 +384,19 @@ export default function FilterModal() {
 
       {/* Filter Modal Overlay */}
       {isFilterModalOpen && (
-        <div className="fixed inset-0 bg-secondary-900/60 z-50 backdrop-blur-sm flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-base-900/60 z-50 backdrop-blur-sm flex items-center justify-center p-4">
           {/* Modal Content */}
           <div className="filter-modal-content card card-shadow w-full max-w-lg max-h-[90vh] overflow-y-auto pointer-events-auto">
-            <div className="sticky top-0 z-10 bg-white dark:bg-secondary-900 p-4 border-b border-secondary-200 dark:border-secondary-700 flex justify-between items-center">
-              <h2 className="font-bold text-xl text-secondary-900 dark:text-white">
+            <div className="sticky top-0 z-10 bg-white dark:bg-base-900 p-4 border-b border-base-200 dark:border-base-700 flex justify-between items-center">
+              <h2 className="font-bold text-xl text-base-900 dark:text-white">
                 Filters
               </h2>
               <button
                 onClick={toggleFilterModal}
-                className="p-2 rounded-md hover:bg-secondary-100 dark:hover:bg-secondary-800"
+                className="p-2 rounded-md hover:bg-base-100 dark:hover:bg-base-800"
                 aria-label="Close filters"
               >
-                <X className="h-5 w-5 text-secondary-500" />
+                <X className="h-5 w-5 text-base-500" />
               </button>
             </div>
 
@@ -413,12 +413,12 @@ export default function FilterModal() {
                       onClick={() => handleCategoryChange(category.id)}
                       className={`cursor-pointer border rounded-lg p-3 transition-colors ${
                         tempFilters.category === category.id
-                          ? "border-accent-500 bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300"
-                          : "border-secondary-200 dark:border-secondary-700 hover:bg-secondary-50 dark:hover:bg-secondary-800"
+                          ? "border-accent-500 bg-primary-50 dark:bg-primary-900/30 text-accent-700 dark:text-accent-300"
+                          : "border-base-200 dark:border-base-700 hover:bg-base-50 dark:hover:bg-base-800"
                       }`}
                     >
                       <div className="flex items-center justify-between">
-                        <span className="text-secondary-900 dark:text-white">
+                        <span className="text-base-900 dark:text-white">
                           {category.label}
                         </span>
                         {tempFilters.category === category.id && (
@@ -437,24 +437,24 @@ export default function FilterModal() {
               >
                 <div className="relative pt-1">
                   {/* Top fade effect to indicate scrollable content */}
-                  <div className="absolute top-0 left-0 right-2 h-8 bg-gradient-to-b from-white dark:from-secondary-900 to-transparent z-10 pointer-events-none"></div>
+                  <div className="absolute top-0 left-0 right-2 h-8 bg-gradient-to-b from-white dark:from-base-900 to-transparent z-10 pointer-events-none"></div>
 
                   {/* Bottom fade effect to indicate scrollable content */}
-                  <div className="absolute bottom-0 left-0 right-2 h-8 bg-gradient-to-t from-white dark:from-secondary-900 to-transparent z-10 pointer-events-none"></div>
+                  <div className="absolute bottom-0 left-0 right-2 h-8 bg-gradient-to-t from-white dark:from-base-900 to-transparent z-10 pointer-events-none"></div>
 
-                  <div className="max-h-48 overflow-y-auto pr-2 pt-2 pb-2 scrollbar-thin scrollbar-thumb-secondary-300 dark:scrollbar-thumb-secondary-700 scrollbar-track-transparent scrollbar-thumb-rounded-full">
+                  <div className="max-h-48 overflow-y-auto pr-2 pt-2 pb-2 scrollbar-thin scrollbar-thumb-base-300 dark:scrollbar-thumb-base-700 scrollbar-track-transparent scrollbar-thumb-rounded-full">
                     {brands.map((brand) => (
                       <div
                         key={brand.id}
                         onClick={() => handleBrandChange(brand.id)}
                         className={`cursor-pointer border rounded-lg p-3 mb-2 transition-colors ${
                           tempFilters.brand === brand.id
-                            ? "border-accent-500 bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300"
-                            : "border-secondary-200 dark:border-secondary-700 hover:bg-secondary-50 dark:hover:bg-secondary-800"
+                            ? "border-accent-500 bg-primary-50 dark:bg-primary-900/30 text-accent-700 dark:text-accent-300"
+                            : "border-base-200 dark:border-base-700 hover:bg-base-50 dark:hover:bg-base-800"
                         }`}
                       >
                         <div className="flex items-center justify-between">
-                          <span className="text-secondary-900 dark:text-white">
+                          <span className="text-base-900 dark:text-white">
                             {brand.label}
                           </span>
                           {tempFilters.brand === brand.id && (
@@ -483,7 +483,7 @@ export default function FilterModal() {
                     value={priceRange}
                     onValueChange={handlePriceChange}
                   />
-                  <div className="flex justify-between mt-2 text-sm text-secondary-600 dark:text-secondary-400">
+                  <div className="flex justify-between mt-2 text-sm text-base-600 dark:text-base-400">
                     <span>{formatPrice(priceRange[0])}</span>
                     <span>{formatPrice(priceRange[1])}</span>
                   </div>
@@ -503,7 +503,7 @@ export default function FilterModal() {
                     value={yearRange}
                     onValueChange={handleYearChange}
                   />
-                  <div className="flex justify-between mt-2 text-sm text-secondary-600 dark:text-secondary-400">
+                  <div className="flex justify-between mt-2 text-sm text-base-600 dark:text-base-400">
                     <span>{yearRange[0]}</span>
                     <span>{yearRange[1]}</span>
                   </div>
@@ -528,12 +528,12 @@ export default function FilterModal() {
                       }
                       className={`cursor-pointer border-2 rounded-lg p-3 transition-all ${
                         tempFilters.passengers === option.value
-                          ? "border-accent-500 bg-accent-50 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 font-medium"
-                          : "border-secondary-200 dark:border-secondary-700 hover:bg-secondary-50 dark:hover:bg-secondary-800"
+                          ? "border-accent-500 bg-primary-50 dark:bg-primary-900/30 text-accent-700 dark:text-accent-300 font-medium"
+                          : "border-base-200 dark:border-base-700 hover:bg-base-50 dark:hover:bg-base-800"
                       }`}
                     >
                       <div className="flex items-center justify-between">
-                        <span className="text-sm text-secondary-900 dark:text-white">
+                        <span className="text-sm text-base-900 dark:text-white">
                           {option.label}
                         </span>
                         {tempFilters.passengers === option.value && (
@@ -545,7 +545,7 @@ export default function FilterModal() {
                 </div>
               </FilterSection>
 
-              <div className="mt-6 flex space-x-3 pt-4 border-t border-secondary-200 dark:border-secondary-700">
+              <div className="mt-6 flex space-x-3 pt-4 border-t border-base-200 dark:border-base-700">
                 <Button
                   variant="outline"
                   size="lg"

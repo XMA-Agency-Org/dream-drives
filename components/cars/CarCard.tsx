@@ -25,7 +25,7 @@ export default function CarCard({ car, showFeatures = true }: CarCardProps) {
       {/* Car Image - Clickable with larger size */}
       <Link
         href={detailUrl}
-        className="block card-image h-64 bg-gradient-to-b from-secondary-100 to-white dark:from-secondary-700 dark:to-secondary-800"
+        className="block card-image h-64 bg-gradient-to-b from-base-100 to-white dark:from-base-700 dark:to-base-800"
       >
         {car.image ? (
           <>
@@ -44,9 +44,9 @@ export default function CarCard({ car, showFeatures = true }: CarCardProps) {
             <div className="card-overlay"></div>
           </>
         ) : (
-          <div className="w-full h-full bg-gradient-to-br from-secondary-200 to-secondary-300 dark:from-secondary-600 dark:to-secondary-700 flex items-center justify-center">
-            <div className="text-secondary-500 dark:text-secondary-400 text-center">
-              <div className="w-16 h-16 mx-auto mb-2 rounded-lg bg-secondary-300 dark:bg-secondary-600 flex items-center justify-center">
+          <div className="w-full h-full bg-gradient-to-br from-base-200 to-base-300 dark:from-base-600 dark:to-base-700 flex items-center justify-center">
+            <div className="text-base-500 dark:text-base-400 text-center">
+              <div className="w-16 h-16 mx-auto mb-2 rounded-lg bg-base-300 dark:bg-base-600 flex items-center justify-center">
                 <span className="text-2xl">🚗</span>
               </div>
               <p className="text-sm">No Image</p>
@@ -55,23 +55,23 @@ export default function CarCard({ car, showFeatures = true }: CarCardProps) {
         )}
 
         {/* Rating badge */}
-        <div className="absolute top-3 left-3 flex items-center bg-white/90 dark:bg-secondary-800/90 backdrop-blur-sm px-2.5 py-1.5 rounded-md shadow-sm">
+        <div className="absolute top-3 left-3 flex items-center bg-white/90 dark:bg-base-800/90 backdrop-blur-sm px-2.5 py-1.5 rounded-md shadow-sm">
           <Star className="icon-rating mr-1.5" />
-          <span className="text-secondary-900 dark:text-white text-sm font-medium">
+          <span className="text-base-900 dark:text-white text-sm font-medium">
             {car.rating.toFixed(1)}
           </span>
-          <span className="text-secondary-500 text-xs ml-1.5">
+          <span className="text-base-500 text-xs ml-1.5">
             ({car.reviews})
           </span>
         </div>
 
         {/* Brand icon - Using same icon system as nav */}
         {brandIcon ? (
-          <div className="absolute top-3 right-3 bg-white/95 dark:bg-secondary-800/95 backdrop-blur-sm p-1.5 rounded-lg shadow-sm w-12 h-12 flex items-center justify-center">
+          <div className="absolute top-3 right-3 bg-white/95 dark:bg-base-800/95 backdrop-blur-sm p-1.5 rounded-lg shadow-sm w-12 h-12 flex items-center justify-center">
             {brandIcon}
           </div>
         ) : (
-          <div className="absolute top-3 right-3 badge badge-secondary">
+          <div className="absolute top-3 right-3 badge badge-base">
             {brandName}
           </div>
         )}
@@ -133,9 +133,9 @@ export default function CarCard({ car, showFeatures = true }: CarCardProps) {
         <div className="flex-grow"></div>
 
         {/* Price and Action */}
-        <div className="flex justify-between items-center pt-4 mt-2 border-t border-secondary-200 dark:border-secondary-800">
+        <div className="flex justify-between items-center pt-4 mt-2 border-t border-base-200 dark:border-base-800">
           <div>
-            <span className="block text-2xl font-bold text-secondary-900 dark:text-white">
+            <span className="block text-2xl font-bold text-base-900 dark:text-white">
               AED {car.price}
             </span>
             <span className="text-accent-600 dark:text-accent-400 text-sm font-medium">

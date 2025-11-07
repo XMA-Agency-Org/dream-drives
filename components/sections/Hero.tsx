@@ -22,7 +22,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative bg-secondary-50 dark:bg-secondary-950 overflow-hidden">
+    <section className="relative bg-base-50 dark:bg-base-950 overflow-hidden">
       {/* Decorative circles */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border-[80px] border-gray-200/30 -translate-y-1/3 translate-x-1/4 xl:hidden"></div>
       <div className="absolute top-20 right-20 w-[600px] h-[600px] rounded-full border-[60px] border-gray-200/30 translate-x-1/4 xl:hidden"></div>
@@ -55,7 +55,7 @@ export default function HeroSection() {
               duration={0.8}
               animateOnMount
             >
-              <p className="text-body text-subheading lg:max-w-xl">
+              <p className="text-body lg:max-w-xl">
                 Our team offering you a wide selection of high-end cars for rent
               </p>
             </ScrollReveal>
@@ -103,7 +103,7 @@ export default function HeroSection() {
               />
               <button
                 onClick={handleSearch}
-                className="btn-icon bg-accent-500 hover:bg-accent-600 active:bg-accent-700 text-white transition-all duration-200 cursor-pointer"
+                className="btn-icon bg-primary-500 hover:bg-primary-600 active:bg-primary-700 text-white transition-all duration-200 cursor-pointer"
                 aria-label="Search"
               >
                 <Search className="w-5 h-5" />
@@ -114,7 +114,7 @@ export default function HeroSection() {
       </div>
 
       {/* Bottom decorative element */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-secondary-100/50 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-base-100/50 to-transparent"></div>
     </section>
   );
 }

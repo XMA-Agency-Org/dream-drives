@@ -28,7 +28,7 @@ interface VehiclesPageProps {
 
 export default function VehiclesPage({ searchParams }: VehiclesPageProps) {
   return (
-    <div className="w-full min-h-screen bg-white dark:bg-secondary-950">
+    <div className="w-full min-h-screen bg-white dark:bg-base-950">
       <Header />
       <main className="pt-24">
         {/* Page Header */}

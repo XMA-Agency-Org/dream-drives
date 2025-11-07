@@ -41,48 +41,48 @@ export default function LocationMap({ locations }: LocationMapProps) {
       {/* Map container */}
       <div className="h-full w-full relative">
         {!mapLoaded ? (
-          <div className="absolute inset-0 flex items-center justify-center bg-secondary-100 dark:bg-secondary-800">
+          <div className="absolute inset-0 flex items-center justify-center bg-base-100 dark:bg-base-800">
             <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary-500"></div>
           </div>
         ) : (
           <>
           <>
             {/* Dubai map embedded SVG */}
-            <div className="absolute inset-0 overflow-hidden bg-secondary-50 dark:bg-secondary-800">
+            <div className="absolute inset-0 overflow-hidden bg-base-50 dark:bg-base-800">
               <svg width="100%" height="100%" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
                 {/* Background */}
-                <rect width="1200" height="800" fill="currentColor" className="text-secondary-100 dark:text-secondary-900" />
+                <rect width="1200" height="800" fill="currentColor" className="text-base-100 dark:text-base-900" />
                 
                 {/* Water - Dubai Creek/Canal */}
                 <path d="M200,400 C300,350 400,450 500,400 C600,350 700,400 800,350 C900,300 1000,370 1100,350 L1100,800 L200,800 Z" className="fill-primary-100 dark:fill-primary-900/30" />
                 
                 {/* Main roads */}
-                <path d="M100,350 L1100,350" className="stroke-secondary-200 dark:stroke-secondary-700" strokeWidth="15" />
-                <path d="M100,500 L1100,500" className="stroke-secondary-200 dark:stroke-secondary-700" strokeWidth="15" />
-                <path d="M300,100 L300,700" className="stroke-secondary-200 dark:stroke-secondary-700" strokeWidth="15" />
-                <path d="M600,100 L600,700" className="stroke-secondary-200 dark:stroke-secondary-700" strokeWidth="15" />
-                <path d="M900,100 L900,700" className="stroke-secondary-200 dark:stroke-secondary-700" strokeWidth="15" />
+                <path d="M100,350 L1100,350" className="stroke-base-200 dark:stroke-base-700" strokeWidth="15" />
+                <path d="M100,500 L1100,500" className="stroke-base-200 dark:stroke-base-700" strokeWidth="15" />
+                <path d="M300,100 L300,700" className="stroke-base-200 dark:stroke-base-700" strokeWidth="15" />
+                <path d="M600,100 L600,700" className="stroke-base-200 dark:stroke-base-700" strokeWidth="15" />
+                <path d="M900,100 L900,700" className="stroke-base-200 dark:stroke-base-700" strokeWidth="15" />
                 
-                {/* Secondary roads */}
-                <path d="M150,200 L1050,200" className="stroke-secondary-200 dark:stroke-secondary-700" strokeWidth="8" />
-                <path d="M150,650 L1050,650" className="stroke-secondary-200 dark:stroke-secondary-700" strokeWidth="8" />
-                <path d="M450,100 L450,700" className="stroke-secondary-200 dark:stroke-secondary-700" strokeWidth="8" />
-                <path d="M750,100 L750,700" className="stroke-secondary-200 dark:stroke-secondary-700" strokeWidth="8" />
+                {/* base roads */}
+                <path d="M150,200 L1050,200" className="stroke-base-200 dark:stroke-base-700" strokeWidth="8" />
+                <path d="M150,650 L1050,650" className="stroke-base-200 dark:stroke-base-700" strokeWidth="8" />
+                <path d="M450,100 L450,700" className="stroke-base-200 dark:stroke-base-700" strokeWidth="8" />
+                <path d="M750,100 L750,700" className="stroke-base-200 dark:stroke-base-700" strokeWidth="8" />
                 
                 {/* Buildings */}
-                <rect x="320" y="220" width="70" height="40" className="fill-secondary-300 dark:fill-secondary-600" />
-                <rect x="420" y="230" width="80" height="60" className="fill-secondary-300 dark:fill-secondary-600" />
-                <rect x="530" y="220" width="50" height="70" className="fill-secondary-300 dark:fill-secondary-600" />
-                <rect x="620" y="240" width="40" height="40" className="fill-secondary-300 dark:fill-secondary-600" />
-                <rect x="700" y="220" width="90" height="50" className="fill-secondary-300 dark:fill-secondary-600" />
-                <rect x="830" y="230" width="60" height="70" className="fill-secondary-300 dark:fill-secondary-600" />
+                <rect x="320" y="220" width="70" height="40" className="fill-base-300 dark:fill-base-600" />
+                <rect x="420" y="230" width="80" height="60" className="fill-base-300 dark:fill-base-600" />
+                <rect x="530" y="220" width="50" height="70" className="fill-base-300 dark:fill-base-600" />
+                <rect x="620" y="240" width="40" height="40" className="fill-base-300 dark:fill-base-600" />
+                <rect x="700" y="220" width="90" height="50" className="fill-base-300 dark:fill-base-600" />
+                <rect x="830" y="230" width="60" height="70" className="fill-base-300 dark:fill-base-600" />
                 
-                <rect x="350" y="370" width="60" height="80" className="fill-secondary-300 dark:fill-secondary-600" />
-                <rect x="440" y="390" width="70" height="50" className="fill-secondary-300 dark:fill-secondary-600" />
-                <rect x="550" y="370" width="40" height="90" className="fill-secondary-300 dark:fill-secondary-600" />
-                <rect x="630" y="380" width="90" height="60" className="fill-secondary-300 dark:fill-secondary-600" />
-                <rect x="760" y="370" width="70" height="70" className="fill-secondary-300 dark:fill-secondary-600" />
-                <rect x="860" y="390" width="50" height="50" className="fill-secondary-300 dark:fill-secondary-600" />
+                <rect x="350" y="370" width="60" height="80" className="fill-base-300 dark:fill-base-600" />
+                <rect x="440" y="390" width="70" height="50" className="fill-base-300 dark:fill-base-600" />
+                <rect x="550" y="370" width="40" height="90" className="fill-base-300 dark:fill-base-600" />
+                <rect x="630" y="380" width="90" height="60" className="fill-base-300 dark:fill-base-600" />
+                <rect x="760" y="370" width="70" height="70" className="fill-base-300 dark:fill-base-600" />
+                <rect x="860" y="390" width="50" height="50" className="fill-base-300 dark:fill-base-600" />
                 
                 {/* Business Bay area */}
                 <rect x="570" y="420" width="60" height="70" className="fill-primary-100 dark:fill-primary-900/30 stroke-primary-500 dark:stroke-primary-400" strokeWidth="3" />
@@ -91,31 +91,31 @@ export default function LocationMap({ locations }: LocationMapProps) {
                 <rect x="580" y="435" width="40" height="40" className="fill-primary-200 dark:fill-primary-800/50 stroke-primary-600 dark:stroke-primary-400" strokeWidth="3" />
                 
                 {/* Labels */}
-                <text x="600" y="415" fontFamily="Arial" fontSize="12" textAnchor="middle" className="fill-secondary-600 dark:fill-secondary-400">Business Bay</text>
+                <text x="600" y="415" fontFamily="Arial" fontSize="12" textAnchor="middle" className="fill-base-600 dark:fill-base-400">Business Bay</text>
                 <text x="600" y="490" fontFamily="Arial" fontSize="10" textAnchor="middle" className="fill-primary-700 dark:fill-primary-300">Marquise Square</text>
                 
                 {/* Burj Khalifa (iconic landmark) */}
-                <polygon points="650,300 670,200 690,300" className="fill-secondary-400 dark:fill-secondary-500 stroke-secondary-500 dark:stroke-secondary-400" strokeWidth="2" />
-                <text x="670" y="320" fontFamily="Arial" fontSize="10" textAnchor="middle" className="fill-secondary-600 dark:fill-secondary-400">Burj Khalifa</text>
+                <polygon points="650,300 670,200 690,300" className="fill-base-400 dark:fill-base-500 stroke-base-500 dark:stroke-base-400" strokeWidth="2" />
+                <text x="670" y="320" fontFamily="Arial" fontSize="10" textAnchor="middle" className="fill-base-600 dark:fill-base-400">Burj Khalifa</text>
                 
                 {/* Dubai Mall */}
-                <rect x="700" y="300" width="80" height="40" className="fill-secondary-400 dark:fill-secondary-500 stroke-secondary-500 dark:stroke-secondary-400" strokeWidth="2" />
-                <text x="740" y="320" fontFamily="Arial" fontSize="10" textAnchor="middle" className="fill-secondary-600 dark:fill-secondary-400">Dubai Mall</text>
+                <rect x="700" y="300" width="80" height="40" className="fill-base-400 dark:fill-base-500 stroke-base-500 dark:stroke-base-400" strokeWidth="2" />
+                <text x="740" y="320" fontFamily="Arial" fontSize="10" textAnchor="middle" className="fill-base-600 dark:fill-base-400">Dubai Mall</text>
                 
                 {/* Compass */}
-                <circle cx="1100" cy="100" r="30" className="fill-white dark:fill-secondary-700 stroke-secondary-400 dark:stroke-secondary-500" strokeWidth="1" />
-                <text x="1100" y="85" fontFamily="Arial" fontSize="16" textAnchor="middle" className="fill-secondary-600 dark:fill-secondary-400">N</text>
-                <text x="1100" y="120" fontFamily="Arial" fontSize="16" textAnchor="middle" className="fill-secondary-600 dark:fill-secondary-400">S</text>
-                <text x="1080" y="103" fontFamily="Arial" fontSize="16" textAnchor="middle" className="fill-secondary-600 dark:fill-secondary-400">W</text>
-                <text x="1120" y="103" fontFamily="Arial" fontSize="16" textAnchor="middle" className="fill-secondary-600 dark:fill-secondary-400">E</text>
-                <path d="M1100,70 L1100,90" className="stroke-secondary-600 dark:stroke-secondary-400" strokeWidth="2" />
-                <path d="M1100,110 L1100,130" className="stroke-secondary-600 dark:stroke-secondary-400" strokeWidth="2" />
-                <path d="M1070,100 L1090,100" className="stroke-secondary-600 dark:stroke-secondary-400" strokeWidth="2" />
-                <path d="M1110,100 L1130,100" className="stroke-secondary-600 dark:stroke-secondary-400" strokeWidth="2" />
+                <circle cx="1100" cy="100" r="30" className="fill-white dark:fill-base-700 stroke-base-400 dark:stroke-base-500" strokeWidth="1" />
+                <text x="1100" y="85" fontFamily="Arial" fontSize="16" textAnchor="middle" className="fill-base-600 dark:fill-base-400">N</text>
+                <text x="1100" y="120" fontFamily="Arial" fontSize="16" textAnchor="middle" className="fill-base-600 dark:fill-base-400">S</text>
+                <text x="1080" y="103" fontFamily="Arial" fontSize="16" textAnchor="middle" className="fill-base-600 dark:fill-base-400">W</text>
+                <text x="1120" y="103" fontFamily="Arial" fontSize="16" textAnchor="middle" className="fill-base-600 dark:fill-base-400">E</text>
+                <path d="M1100,70 L1100,90" className="stroke-base-600 dark:stroke-base-400" strokeWidth="2" />
+                <path d="M1100,110 L1100,130" className="stroke-base-600 dark:stroke-base-400" strokeWidth="2" />
+                <path d="M1070,100 L1090,100" className="stroke-base-600 dark:stroke-base-400" strokeWidth="2" />
+                <path d="M1110,100 L1130,100" className="stroke-base-600 dark:stroke-base-400" strokeWidth="2" />
               </svg>
               
               {/* Overlay to darken the map in dark mode */}
-              <div className="absolute inset-0 bg-white/0 dark:bg-secondary-900/20"></div>
+              <div className="absolute inset-0 bg-white/0 dark:bg-base-900/20"></div>
               
               {/* Business Bay marker */}
               <div 
@@ -133,11 +133,11 @@ export default function LocationMap({ locations }: LocationMapProps) {
                     <MapPin className="h-8 w-8" />
                   </div>
                   
-                  <div className="mt-2 px-4 py-2 bg-white dark:bg-secondary-800 rounded-lg shadow-lg whitespace-nowrap">
-                    <h3 className="font-medium text-secondary-900 dark:text-white text-sm">
+                  <div className="mt-2 px-4 py-2 bg-white dark:bg-base-800 rounded-lg shadow-lg whitespace-nowrap">
+                    <h3 className="font-medium text-base-900 dark:text-white text-sm">
                       Dream Drives Rental
                     </h3>
-                    <p className="text-xs text-secondary-500 dark:text-secondary-400">
+                    <p className="text-xs text-base-500 dark:text-base-400">
                       Business Bay
                     </p>
                   </div>
@@ -158,18 +158,18 @@ export default function LocationMap({ locations }: LocationMapProps) {
             </div>
             
             {/* Information overlay */}
-            <div className="absolute bottom-0 left-0 right-0 md:right-auto md:w-80 bg-white/90 dark:bg-secondary-800/90 backdrop-blur-sm p-4 rounded-t-lg md:rounded-tr-none md:rounded-tl-lg shadow-lg m-4">
+            <div className="absolute bottom-0 left-0 right-0 md:right-auto md:w-80 bg-white/90 dark:bg-base-800/90 backdrop-blur-sm p-4 rounded-t-lg md:rounded-tr-none md:rounded-tl-lg shadow-lg m-4">
               <div className="space-y-3">
-                <h3 className="font-bold text-secondary-900 dark:text-white flex items-center">
+                <h3 className="font-bold text-base-900 dark:text-white flex items-center">
                   <MapPin className="h-4 w-4 text-primary-500 mr-2" />
                   {location.name}
                 </h3>
                 
-                <p className="text-sm text-secondary-600 dark:text-secondary-400">
+                <p className="text-sm text-base-600 dark:text-base-400">
                   {location.address}
                 </p>
                 
-                <p className="text-sm text-secondary-600 dark:text-secondary-400">
+                <p className="text-sm text-base-600 dark:text-base-400">
                   {location.hours}
                 </p>
                 
@@ -199,7 +199,7 @@ export default function LocationMap({ locations }: LocationMapProps) {
       </div>
 
       {/* Map attribution - Always include attribution for maps */}
-      <div className="absolute bottom-0 right-0 text-xs text-secondary-500 dark:text-secondary-400 p-1 bg-white/80 dark:bg-secondary-800/80 rounded-tl-md">
+      <div className="absolute bottom-0 right-0 text-xs text-base-500 dark:text-base-400 p-1 bg-white/80 dark:bg-base-800/80 rounded-tl-md">
         Map data © {new Date().getFullYear()}
       </div>
     </div>

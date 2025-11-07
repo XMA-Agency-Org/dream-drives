@@ -27,11 +27,11 @@ const location = {
 
 export default function ContactUsPage() {
   return (
-    <div className="min-h-screen bg-white dark:bg-secondary-950">
+    <div className="min-h-screen bg-white dark:bg-base-950">
       <Header />
       <main className="pt-24">
         {/* Hero Section - Contact */}
-        <section className="relative section overflow-hidden bg-secondary-200 dark:bg-secondary-800">
+        <section className="relative section overflow-hidden bg-base-200 dark:bg-base-800">
           {/* Map Background with Gradient Mask */}
           <div
             className="absolute top-0 bottom-0 -right-1/4 left-1/4 z-0"
@@ -124,7 +124,7 @@ export default function ContactUsPage() {
         </section>
 
         {/* Contact Form and Info Section */}
-        <section className="section bg-secondary-50 dark:bg-secondary-900">
+        <section className="section bg-base-50 dark:bg-base-900">
           <div className="container-default">
             <div className="grid md:grid-cols-2 gap-12 items-start">
               {/* Contact Form */}

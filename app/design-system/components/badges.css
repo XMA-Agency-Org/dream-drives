@@ -16,14 +16,14 @@
     color: var(--badge-primary-text-dark);
   }
 
-  .badge-secondary {
-    background-color: var(--badge-secondary-bg);
-    color: var(--badge-secondary-text);
+  .badge-base {
+    background-color: var(--badge-base-bg);
+    color: var(--badge-base-text);
   }
 
-  .dark .badge-secondary {
-    background-color: var(--badge-secondary-bg-dark);
-    color: var(--badge-secondary-text-dark);
+  .dark .badge-base {
+    background-color: var(--badge-base-bg-dark);
+    color: var(--badge-base-text-dark);
   }
 
   .badge-accent {

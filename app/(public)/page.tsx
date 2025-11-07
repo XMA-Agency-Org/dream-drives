@@ -3,7 +3,6 @@ import Header from "@/components/layout/Header";
 import Hero from "@/components/sections/Hero";
 import Logos from "@/components/sections/Logos";
 import HowItWorksSection from "@/components/sections/HowItWorksSection";
-import BrandTeaser from "@/components/sections/BrandTeaser";
 import PopularDeals from "./_components/home/PopularDeals";
 import FaqSection from "@/components/sections/FaqSection";
 import ContactSection from "@/components/sections/ContactSection";
@@ -15,9 +14,9 @@ export default function Home() {
       <Header />
       <Hero />
       <Logos />
+      <PopularDeals category="luxury" />
+      <PopularDeals category="family" />
       <HowItWorksSection />
-      <BrandTeaser />
-      <PopularDeals />
       <FaqSection />
       <ContactSection />
       <Footer />

@@ -28,7 +28,7 @@ export default function Breadcrumbs({ carName }: BreadcrumbsProps) {
           </Link>
           <ChevronRight className="w-4 h-4 mx-1" />
         </li>
-        <li className="text-secondary-900 dark:text-white font-medium truncate">
+        <li className="text-base-900 dark:text-white font-medium truncate">
           {carName}
         </li>
       </ol>

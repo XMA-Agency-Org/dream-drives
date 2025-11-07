@@ -52,7 +52,7 @@ export default function HowItWorksSection() {
                   <CalendarDays className="w-7 h-7" />
                 </div>
                 <h3 className="step-title">Select pick-up date</h3>
-                <p className="step-description">
+                <p className="text-sm leading-relaxed text-body">
                   Know before you buy: Honest reviews, rankings and video
                   test-drives
                 </p>

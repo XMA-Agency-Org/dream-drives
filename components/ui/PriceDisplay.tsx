@@ -36,7 +36,7 @@ export default function PriceDisplay({
     <div className={`font-bold ${sizes[size]} ${className}`}>
       <span>{formattedPrice}</span>
       {period && (
-        <span className="text-secondary-400 text-sm font-normal ml-1">
+        <span className="text-base-400 text-sm font-normal ml-1">
           /{period}
         </span>
       )}

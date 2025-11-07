@@ -78,7 +78,7 @@ export default function Testimonials() {
   }, [currentIndex]);
 
   return (
-    <section className="section-lg bg-secondary-50 dark:bg-secondary-950 relative overflow-hidden">
+    <section className="section-lg bg-base-50 dark:bg-base-950 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
         {/* Gradient background */}
@@ -128,16 +128,16 @@ export default function Testimonials() {
                 
                 {/* Rating on image */}
                 <div className="absolute bottom-4 left-4 flex items-center">
-                  <div className="badge-pill bg-white dark:bg-secondary-800 shadow-md">
+                  <div className="badge-pill bg-white dark:bg-base-800 shadow-md">
                     <div className="flex">
                       {[...Array(5)].map((_, i) => (
                         <Star
                           key={i}
-                          className={`w-4 h-4 ${i < Math.floor(testimonials[currentIndex].rating) ? "text-rating fill-rating" : "text-secondary-300"}`}
+                          className={`w-4 h-4 ${i < Math.floor(testimonials[currentIndex].rating) ? "text-rating fill-rating" : "text-base-300"}`}
                         />
                       ))}
                     </div>
-                    <span className="font-bold text-secondary-900 dark:text-white">
+                    <span className="font-bold text-base-900 dark:text-white">
                       {testimonials[currentIndex].rating.toFixed(1)}
                     </span>
                   </div>
@@ -146,7 +146,7 @@ export default function Testimonials() {
               
               {/* Person info - mobile only */}
               <div className="flex flex-col items-center text-center lg:hidden mt-4">
-                <h4 className="text-lg font-bold text-secondary-900 dark:text-white">
+                <h4 className="text-lg font-bold text-base-900 dark:text-white">
                   {testimonials[currentIndex].name}
                 </h4>
                 <p className="text-accent-600 dark:text-accent-400 text-sm">
@@ -186,14 +186,14 @@ export default function Testimonials() {
                       />
                     </div>
                     <div className="ml-4">
-                      <h4 className="font-bold text-secondary-900 dark:text-white">
+                      <h4 className="font-bold text-base-900 dark:text-white">
                         {testimonials[currentIndex].name}
                       </h4>
                       <div className="flex flex-col md:flex-row md:items-center">
                         <span className="text-accent-600 dark:text-accent-400 text-sm">
                           {testimonials[currentIndex].position}
                         </span>
-                        <span className="hidden md:block mx-2 text-secondary-400">•</span>
+                        <span className="hidden md:block mx-2 text-base-400">•</span>
                         <span className="text-muted text-sm">
                           {testimonials[currentIndex].location}
                         </span>
@@ -215,7 +215,7 @@ export default function Testimonials() {
             <div className="flex space-x-2">
               <button
                 onClick={handlePrev}
-                className="btn-icon bg-white dark:bg-secondary-800 text-secondary-600 dark:text-secondary-400 hover:text-accent-600 dark:hover:text-accent-400 shadow-md transition-colors"
+                className="btn-icon bg-white dark:bg-base-800 text-base-600 dark:text-base-400 hover:text-accent-600 dark:hover:text-accent-400 shadow-md transition-colors"
                 disabled={animating}
                 aria-label="Previous testimonial"
               >
@@ -223,7 +223,7 @@ export default function Testimonials() {
               </button>
               <button
                 onClick={handleNext}
-                className="btn-icon bg-white dark:bg-secondary-800 text-secondary-600 dark:text-secondary-400 hover:text-accent-600 dark:hover:text-accent-400 shadow-md transition-colors"
+                className="btn-icon bg-white dark:bg-base-800 text-base-600 dark:text-base-400 hover:text-accent-600 dark:hover:text-accent-400 shadow-md transition-colors"
                 disabled={animating}
                 aria-label="Next testimonial"
               >
@@ -238,8 +238,8 @@ export default function Testimonials() {
                   key={index}
                   className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                     currentIndex === index 
-                      ? "bg-accent-600 dark:bg-accent-400 w-6" 
-                      : "bg-secondary-300 dark:bg-secondary-700"
+                      ? "bg-primary-600 dark:bg-primary-400 w-6" 
+                      : "bg-base-300 dark:bg-base-700"
                   }`}
                   onClick={() => !animating && setCurrentIndex(index)}
                   aria-label={`Go to testimonial ${index + 1}`}

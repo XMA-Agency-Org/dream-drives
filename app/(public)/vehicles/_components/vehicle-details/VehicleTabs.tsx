@@ -34,14 +34,14 @@ export default function VehicleTabs({
 
   return (
     <div className="mt-10">
-      <div className="border-b border-secondary-200 dark:border-secondary-800">
+      <div className="border-b border-base-200 dark:border-base-800">
         <div className="flex space-x-8">
           <button
             onClick={() => setActiveTab("description")}
             className={`py-4 font-medium text-sm border-b-2 transition-colors cursor-pointer ${
               activeTab === "description"
                 ? "border-accent-500 text-accent-600 dark:text-accent-400"
-                : "border-transparent text-muted hover:text-secondary-900 dark:hover:text-white"
+                : "border-transparent text-muted hover:text-base-900 dark:hover:text-white"
             }`}
           >
             Description
@@ -51,7 +51,7 @@ export default function VehicleTabs({
             className={`py-4 font-medium text-sm border-b-2 transition-colors cursor-pointer ${
               activeTab === "specs"
                 ? "border-accent-500 text-accent-600 dark:text-accent-400"
-                : "border-transparent text-muted hover:text-secondary-900 dark:hover:text-white"
+                : "border-transparent text-muted hover:text-base-900 dark:hover:text-white"
             }`}
           >
             Specifications
@@ -114,7 +114,7 @@ export default function VehicleTabs({
                         {item.label}
                       </h3>
                     </div>
-                    <p className="text-lg font-semibold text-secondary-900 dark:text-white">
+                    <p className="text-lg font-semibold text-base-900 dark:text-white">
                       {item.value}
                     </p>
                   </div>

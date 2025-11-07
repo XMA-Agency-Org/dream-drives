@@ -43,7 +43,7 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section id="how-it-works" className="section-lg bg-white dark:bg-secondary-900 overflow-hidden">
+    <section id="how-it-works" className="section-lg bg-white dark:bg-base-900 overflow-hidden">
       <div className="container-default">
         <SectionHeader
           subtitle="Seamless Experience"
@@ -69,7 +69,7 @@ export default function HowItWorks() {
 
         {/* Brands Section */}
         <div className="mt-24">
-          <h3 className="text-center text-xl font-semibold text-secondary-900 dark:text-white mb-8">
+          <h3 className="text-center text-xl font-semibold text-base-900 dark:text-white mb-8">
             The World&apos;s Finest Automobile Brands
           </h3>
           <BrandGrid brands={brands} />
@@ -89,9 +89,9 @@ function CtaSection() {
         </p>
       </div>
       <Button 
-        variant="secondary" 
+        variant="base" 
         size="lg"
-        className="bg-white text-primary-950 hover:bg-secondary-100"
+        className="bg-white text-primary-950 hover:bg-base-100"
         asLink
         href="/vehicles"
       >

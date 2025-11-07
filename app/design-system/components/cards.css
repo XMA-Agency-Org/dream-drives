@@ -83,8 +83,8 @@
     @apply rounded-2xl p-8 shadow-lg;
   }
 
-  .card-filled-secondary {
-    background-color: var(--card-secondary-bg);
+  .card-filled-base {
+    background-color: var(--card-base-bg);
     @apply rounded-2xl p-8;
   }
 

@@ -4,7 +4,7 @@
      Raw color definitions - the source of truth
      ============================================ */
 
-  /* Slate Color Palette - for secondary/neutral colors */
+  /* Slate Color Palette - for base/neutral colors */
   --color-slate-50: oklch(0.991 0 0);
   --color-slate-100: oklch(0.982 0 247.95);
   --color-slate-200: oklch(0.961 0 0);
@@ -43,45 +43,6 @@
   --color-teal-900: oklch(0.386 0.06 188.42);
   --color-teal-950: oklch(0.277 0.04 192.52);
 
-  /* Green Color Palette - for success colors */
-  --color-green-50: oklch(0.982 0.02 155.82);
-  --color-green-100: oklch(0.962 0.04 156.74);
-  --color-green-200: oklch(0.925 0.08 155.99);
-  --color-green-300: oklch(0.871 0.14 154.45);
-  --color-green-400: oklch(0.8 0.18 151.71);
-  --color-green-500: oklch(0.723 0.19 149.58);
-  --color-green-600: oklch(0.627 0.17 149.21);
-  --color-green-700: oklch(0.527 0.14 150.07);
-  --color-green-800: oklch(0.448 0.11 151.33);
-  --color-green-900: oklch(0.393 0.09 152.54);
-  --color-green-950: oklch(0.266 0.06 152.93);
-
-  /* Orange/Amber Color Palette - for warning colors */
-  --color-orange-50: oklch(0.98 0.02 73.69);
-  --color-orange-100: oklch(0.954 0.04 75.17);
-  --color-orange-200: oklch(0.901 0.07 70.7);
-  --color-orange-300: oklch(0.837 0.12 66.29);
-  --color-orange-400: oklch(0.758 0.16 55.94);
-  --color-orange-500: oklch(0.705 0.19 47.6);
-  --color-orange-600: oklch(0.646 0.19 41.12);
-  --color-orange-700: oklch(0.553 0.17 38.4);
-  --color-orange-800: oklch(0.47 0.14 37.3);
-  --color-orange-900: oklch(0.408 0.12 38.17);
-  --color-orange-950: oklch(0.266 0.08 36.26);
-
-  /* Red Color Palette - for error colors */
-  --color-red-50: oklch(0.971 0.01 17.39);
-  --color-red-100: oklch(0.936 0.03 17.71);
-  --color-red-200: oklch(0.884 0.06 18.33);
-  --color-red-300: oklch(0.808 0.1 19.57);
-  --color-red-400: oklch(0.711 0.17 22.22);
-  --color-red-500: oklch(0.637 0.21 25.33);
-  --color-red-600: oklch(0.577 0.22 27.33);
-  --color-red-700: oklch(0.505 0.19 27.52);
-  --color-red-800: oklch(0.444 0.16 26.9);
-  --color-red-900: oklch(0.396 0.13 25.72);
-  --color-red-950: oklch(0.258 0.09 26.04);
-
   /* Base colors */
   --color-black: oklch(0 0 0);
   --color-white: oklch(1 0 0);
@@ -92,43 +53,30 @@
      ============================================ */
 
   /* Primary: Main brand colors - sophisticated slate/blue-gray */
-  --color-primary-50: var(--color-blue-gray-50);
-  --color-primary-100: var(--color-blue-gray-100);
-  --color-primary-200: var(--color-blue-gray-200);
-  --color-primary-300: var(--color-blue-gray-300);
-  --color-primary-400: var(--color-blue-gray-400);
-  --color-primary-500: var(--color-blue-gray-500);
-  --color-primary-600: var(--color-blue-gray-600);
-  --color-primary-700: var(--color-blue-gray-700);
-  --color-primary-800: var(--color-blue-gray-800);
-  --color-primary-900: var(--color-blue-gray-900);
-  --color-primary-950: var(--color-blue-gray-950);
+  --color-primary-50: var(--color-blue-50);
+  --color-primary-100: var(--color-blue-100);
+  --color-primary-200: var(--color-blue-200);
+  --color-primary-300: var(--color-blue-300);
+  --color-primary-400: var(--color-blue-400);
+  --color-primary-500: var(--color-blue-500);
+  --color-primary-600: var(--color-blue-600);
+  --color-primary-700: var(--color-blue-700);
+  --color-primary-800: var(--color-blue-800);
+  --color-primary-900: var(--color-blue-900);
+  --color-primary-950: var(--color-blue-950);
 
-  /* Secondary: Neutral grays for backgrounds and subtle elements */
-  --color-secondary-50: var(--color-slate-50);
-  --color-secondary-100: var(--color-slate-100);
-  --color-secondary-200: var(--color-slate-200);
-  --color-secondary-300: var(--color-slate-300);
-  --color-secondary-400: var(--color-slate-400);
-  --color-secondary-500: var(--color-slate-500);
-  --color-secondary-600: var(--color-slate-600);
-  --color-secondary-700: var(--color-slate-700);
-  --color-secondary-800: var(--color-slate-800);
-  --color-secondary-900: var(--color-slate-900);
-  --color-secondary-950: var(--color-slate-950);
-
-  /* Accent: Sophisticated teal for highlights and CTAs (10% rule) */
-  --color-accent-50: var(--color-teal-50);
-  --color-accent-100: var(--color-teal-100);
-  --color-accent-200: var(--color-teal-200);
-  --color-accent-300: var(--color-teal-300);
-  --color-accent-400: var(--color-teal-400);
-  --color-accent-500: var(--color-teal-500);
-  --color-accent-600: var(--color-teal-600);
-  --color-accent-700: var(--color-teal-700);
-  --color-accent-800: var(--color-teal-800);
-  --color-accent-900: var(--color-teal-900);
-  --color-accent-950: var(--color-teal-950);
+  /* base: Neutral grays for backgrounds and subtle elements */
+  --color-base-50: var(--color-slate-50);
+  --color-base-100: var(--color-slate-100);
+  --color-base-200: var(--color-slate-200);
+  --color-base-300: var(--color-slate-300);
+  --color-base-400: var(--color-slate-400);
+  --color-base-500: var(--color-slate-500);
+  --color-base-600: var(--color-slate-600);
+  --color-base-700: var(--color-slate-700);
+  --color-base-800: var(--color-slate-800);
+  --color-base-900: var(--color-slate-900);
+  --color-base-950: var(--color-slate-950);
 
   /* Status colors - using base color palettes */
   /* Success: Green for positive actions and states */

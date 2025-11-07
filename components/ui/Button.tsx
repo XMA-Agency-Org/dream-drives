@@ -11,7 +11,7 @@ import { Loader2 } from "lucide-react";
 interface BaseButtonProps {
   variant?:
     | "primary"
-    | "secondary"
+    | "base"
     | "accent"
     | "outline"
     | "ghost"
@@ -76,8 +76,8 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
     const variantClass =
       variant === "primary"
         ? "btn-primary"
-        : variant === "secondary"
-        ? "btn-secondary"
+        : variant === "base"
+        ? "btn-base"
         : variant === "accent"
         ? "btn-accent"
         : variant === "black"
