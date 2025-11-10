@@ -4,28 +4,58 @@ import {
   ReactNode,
   forwardRef,
 } from "react";
+import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 
-// Base button properties - mapped to design system classes
-interface BaseButtonProps {
-  variant?:
-    | "primary"
-    | "base"
-    | "accent"
-    | "outline"
-    | "ghost"
-    | "ghost-accent"
-    | "black"
-    | "white";
-  size?: "sm" | "md" | "lg";
+// Button variants using CVA with Tailwind utilities and design system tokens
+const buttonVariants = cva(
+  // Base styles
+  "inline-flex items-center justify-center gap-2 font-bold transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
+  {
+    variants: {
+      variant: {
+        primary:
+          "bg-primary text-inverse hover:bg-primary-hover active:bg-primary-active focus-visible:ring-accent focus-visible:ring-offset-page",
+        base: "bg-base text-default hover:bg-subtle active:bg-muted focus-visible:ring-base focus-visible:ring-offset-page",
+        accent:
+          "bg-accent text-inverse hover:bg-accent-hover active:bg-accent-active focus-visible:ring-accent focus-visible:ring-offset-page",
+        black:
+          "bg-dark-button text-inverse hover:bg-dark-button-hover active:bg-dark-button-active focus-visible:ring-white focus-visible:ring-offset-page",
+        white:
+          "bg-page text-default border border-default hover:bg-base active:bg-subtle focus-visible:ring-base focus-visible:ring-offset-page",
+        outline:
+          "bg-transparent text-primary border-2 border-primary hover:bg-primary hover:text-inverse hover:border-primary-hover active:bg-primary-active active:border-primary-active focus-visible:ring-primary focus-visible:ring-offset-page",
+        ghost:
+          "bg-transparent text-base hover:bg-surface-hover hover:text-primary-hover active:bg-surface-active active:text-primary-active focus-visible:ring-base focus-visible:ring-offset-page",
+        // Using var() because --bg-accent-subtle isn't mapped to Tailwind's @theme, so we reference the CSS variable directly.
+        "ghost-accent":
+          "bg-transparent text-accent hover:[background-color:var(--bg-accent-subtle)] active:[background-color:var(--bg-accent-subtle)] active:text-accent-active active:opacity-80 focus-visible:ring-accent focus-visible:ring-offset-page",
+      },
+      size: {
+        sm: "px-4 py-2 text-sm rounded-lg",
+        md: "px-6 py-3 text-base rounded-xl",
+        lg: "px-8 py-4 text-lg rounded-xl",
+      },
+      fullWidth: {
+        true: "w-full",
+      },
+    },
+    defaultVariants: {
+      variant: "primary",
+      size: "md",
+    },
+  }
+);
+
+// Base button properties
+interface BaseButtonProps extends VariantProps<typeof buttonVariants> {
   isLoading?: boolean;
   isDisabled?: boolean;
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
   icon?: ReactNode;
   iconPosition?: "left" | "right";
-  fullWidth?: boolean;
 }
 
 // Button as a regular button element
@@ -50,54 +80,24 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
     {
       children,
       className,
-      variant = "primary",
-      size = "md",
+      variant,
+      size,
+      fullWidth,
       isLoading = false,
       isDisabled = false,
       leftIcon,
       rightIcon,
       icon,
       iconPosition = "left",
-      fullWidth = false,
       asLink,
       href,
       ...props
     },
     ref
   ) => {
-    // Map to design system classes from design-system/components/
-    const baseClass = "btn";
-
-    // Size variations - use design system btn-* classes
-    const sizeClass =
-      size === "sm" ? "btn-sm" : size === "lg" ? "btn-lg" : "btn-md";
-
-    // Variant styles - use design system btn-* classes
-    const variantClass =
-      variant === "primary"
-        ? "btn-primary"
-        : variant === "base"
-        ? "btn-base"
-        : variant === "accent"
-        ? "btn-accent"
-        : variant === "black"
-        ? "btn-black"
-        : variant === "white"
-        ? "btn-white"
-        : variant === "outline"
-        ? "btn-outline"
-        : variant === "ghost"
-        ? "btn-ghost"
-        : variant === "ghost-accent"
-        ? "btn-ghost-accent"
-        : "btn-primary";
-
     const buttonStyles = cn(
-      baseClass,
-      sizeClass,
-      variantClass,
+      buttonVariants({ variant, size, fullWidth }),
       {
-        "w-full": fullWidth,
         "opacity-60 pointer-events-none": isLoading || isDisabled,
       },
       className
@@ -107,20 +107,20 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
     const content = (
       <>
         {isLoading && (
-          <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />
+          <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
         )}
         {!isLoading && leftIcon && (
-          <span className="mr-2 inline-flex">{leftIcon}</span>
+          <span className="inline-flex">{leftIcon}</span>
         )}
         {!isLoading && icon && iconPosition === "left" && (
-          <span className="mr-2 inline-flex">{icon}</span>
+          <span className="inline-flex">{icon}</span>
         )}
         {children}
         {!isLoading && rightIcon && (
-          <span className="ml-2 inline-flex">{rightIcon}</span>
+          <span className="inline-flex">{rightIcon}</span>
         )}
         {!isLoading && icon && iconPosition === "right" && (
-          <span className="ml-2 inline-flex">{icon}</span>
+          <span className="inline-flex">{icon}</span>
         )}
       </>
     );
@@ -154,5 +154,5 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
 
 Button.displayName = "Button";
 
-export { type ButtonProps, type BaseButtonProps };
+export { buttonVariants, type ButtonProps, type BaseButtonProps };
 export default Button;

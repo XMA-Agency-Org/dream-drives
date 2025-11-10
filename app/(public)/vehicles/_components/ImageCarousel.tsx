@@ -13,8 +13,8 @@ interface ImageCarouselProps {
 
 export default function ImageCarousel({ images, altText }: ImageCarouselProps) {
   // Filter out empty/invalid images
-  const validImages = images?.filter(img => img && img.trim() !== '') || [];
-  
+  const validImages = images?.filter((img) => img && img.trim() !== "") || [];
+
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [direction, setDirection] = useState(0); // -1 for left, 1 for right
@@ -23,7 +23,7 @@ export default function ImageCarousel({ images, altText }: ImageCarouselProps) {
   const handlePrevious = () => {
     setDirection(-1);
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? validImages.length - 1 : prevIndex - 1,
+      prevIndex === 0 ? validImages.length - 1 : prevIndex - 1
     );
   };
 
@@ -31,7 +31,7 @@ export default function ImageCarousel({ images, altText }: ImageCarouselProps) {
   const handleNext = () => {
     setDirection(1);
     setCurrentImageIndex((prevIndex) =>
-      prevIndex === validImages.length - 1 ? 0 : prevIndex + 1,
+      prevIndex === validImages.length - 1 ? 0 : prevIndex + 1
     );
   };
 
@@ -103,7 +103,7 @@ export default function ImageCarousel({ images, altText }: ImageCarouselProps) {
   return (
     <>
       {/* Main Carousel */}
-      <div className="relative w-full h-96 md:h-[550px] rounded-lg overflow-hidden bg-base-100 dark:bg-base-900">
+      <div className="relative w-full h-96 md:h-[550px] rounded-2xl overflow-hidden bg-base-100 dark:bg-base-900">
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={currentImageIndex}
@@ -136,18 +136,18 @@ export default function ImageCarousel({ images, altText }: ImageCarouselProps) {
           <div className="absolute z-50 inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-4">
             <button
               onClick={handlePrevious}
-            className="w-10 h-10 rounded-full bg-white/80 dark:bg-base-800/80 flex items-center justify-center text-base-700 dark:text-base-200 hover:bg-white dark:hover:bg-base-800 focus:outline-none focus:ring-2 focus:ring-primary-500 z-50 cursor-pointer"
-            aria-label="Previous image"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <button
-            onClick={handleNext}
-            className="w-10 h-10 rounded-full bg-white/80 dark:bg-base-800/80 flex items-center justify-center text-base-700 dark:text-base-200 hover:bg-white dark:hover:bg-base-800 focus:outline-none focus:ring-2 focus:ring-primary-500 z-50 cursor-pointer"
-            aria-label="Next image"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
+              className="w-10 h-10 rounded-full bg-white/80 dark:bg-base-800/80 flex items-center justify-center text-base-700 dark:text-base-200 hover:bg-white dark:hover:bg-base-800 focus:outline-none focus:ring-2 focus:ring-primary-500 z-50 cursor-pointer"
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button
+              onClick={handleNext}
+              className="w-10 h-10 rounded-full bg-white/80 dark:bg-base-800/80 flex items-center justify-center text-base-700 dark:text-base-200 hover:bg-white dark:hover:bg-base-800 focus:outline-none focus:ring-2 focus:ring-primary-500 z-50 cursor-pointer"
+              aria-label="Next image"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
           </div>
         )}
 
@@ -194,7 +194,7 @@ export default function ImageCarousel({ images, altText }: ImageCarouselProps) {
 
       {/* Fullscreen Modal */}
       {isFullscreen && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center"
           onClick={toggleFullscreen}
         >
@@ -206,7 +206,7 @@ export default function ImageCarousel({ images, altText }: ImageCarouselProps) {
             <X className="w-6 h-6" />
           </button>
 
-          <div 
+          <div
             className="relative w-full h-full"
             onClick={(e) => e.stopPropagation()}
           >
@@ -238,7 +238,7 @@ export default function ImageCarousel({ images, altText }: ImageCarouselProps) {
           </div>
 
           {/* Fullscreen Navigation */}
-          <div 
+          <div
             className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-4"
             onClick={(e) => e.stopPropagation()}
           >
@@ -259,7 +259,7 @@ export default function ImageCarousel({ images, altText }: ImageCarouselProps) {
           </div>
 
           {/* Image counter in fullscreen */}
-          <div 
+          <div
             className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/70 dark:bg-black/70 text-white dark:text-white px-4 py-2 rounded-full"
             onClick={(e) => e.stopPropagation()}
           >

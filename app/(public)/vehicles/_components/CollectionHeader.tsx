@@ -4,7 +4,7 @@ import SectionHeader from "@/components/ui/SectionHeader";
 
 export default function CollectionHeader() {
   return (
-    <div className="relative py-16 bg-base-50 dark:bg-base-900 overflow-hidden">
+    <div className="relative py-16 bg-base-50/50 dark:bg-base-900 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-6 z-10 relative">
         <SectionHeader
           title="Explore Our Vehicle Collection"

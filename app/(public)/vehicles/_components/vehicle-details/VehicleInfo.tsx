@@ -25,7 +25,7 @@ export default function VehicleInfo({ car }: VehicleInfoProps) {
   const brandName = formatBrandName(car.brand);
 
   return (
-    <div className="card card-shadow p-12">
+    <div className="card card-shadow p-12 shadow-sm rounded-3xl">
       <div className="flex justify-between items-start mb-4">
         <div>
           <div className="badge badge-base mb-2">{brandName}</div>
@@ -72,7 +72,7 @@ export default function VehicleInfo({ car }: VehicleInfoProps) {
             size="lg"
             className="text-accent-600 dark:text-accent-400"
           />
-          <div className="text-muted text-sm">+AED 75 booking fee</div>
+          <div className="text-body text-sm">+AED 75 booking fee</div>
         </div>
 
         <div className="space-y-4 mt-6">
@@ -88,7 +88,7 @@ export default function VehicleInfo({ car }: VehicleInfoProps) {
           </div>
           <div className="text-body">
             <strong>24/7 Concierge Service</strong>
-            <p className="text-muted text-xs mt-0.5">
+            <p className="text-xs mt-0.5">
               Premium assistance whenever you need it
             </p>
           </div>
@@ -100,7 +100,7 @@ export default function VehicleInfo({ car }: VehicleInfoProps) {
           </div>
           <div className="text-body">
             <strong>Comprehensive Insurance</strong>
-            <p className="text-muted text-xs mt-0.5">
+            <p className="text-xs mt-0.5">
               All rentals include premium coverage
             </p>
           </div>
@@ -112,7 +112,7 @@ export default function VehicleInfo({ car }: VehicleInfoProps) {
           </div>
           <div className="text-body">
             <strong>Exclusive Experience</strong>
-            <p className="text-muted text-xs mt-0.5">
+            <p className="text-xs mt-0.5">
               Personalized service and special amenities
             </p>
           </div>

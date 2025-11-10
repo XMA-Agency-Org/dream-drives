@@ -10,7 +10,6 @@ import {
   Car,
   Tag,
   Building2,
-  Zap,
   Filter,
 } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -285,36 +284,24 @@ export default function VehicleSearch({ className }: VehicleSearchProps) {
   // Quick filters for common actions
   const quickFilters: QuickFilter[] = [
     {
+      id: "family",
+      label: "Family Cars",
+      icon: Car,
+      action: () => {
+        const params = new URLSearchParams(searchParams);
+        params.set("category", "family");
+        params.delete("q");
+        router.push(`/vehicles?${params.toString()}`);
+        setIsOpen(false);
+      },
+    },
+    {
       id: "luxury",
       label: "Luxury Cars",
       icon: Car,
       action: () => {
         const params = new URLSearchParams(searchParams);
         params.set("category", "luxury");
-        params.delete("q");
-        router.push(`/vehicles?${params.toString()}`);
-        setIsOpen(false);
-      },
-    },
-    {
-      id: "sports",
-      label: "Sports Cars",
-      icon: Zap,
-      action: () => {
-        const params = new URLSearchParams(searchParams);
-        params.set("category", "sports");
-        params.delete("q");
-        router.push(`/vehicles?${params.toString()}`);
-        setIsOpen(false);
-      },
-    },
-    {
-      id: "suv",
-      label: "SUVs",
-      icon: Car,
-      action: () => {
-        const params = new URLSearchParams(searchParams);
-        params.set("category", "suv");
         params.delete("q");
         router.push(`/vehicles?${params.toString()}`);
         setIsOpen(false);

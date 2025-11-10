@@ -7,13 +7,13 @@ import Button from "@/components/ui/Button";
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-base-50 dark:bg-base-950 z-20">
+    <section className="relative bg-base-50/30 dark:bg-base-950 z-20">
       {/* Decorative circles */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border-[80px] border-gray-200/30 -translate-y-1/3 translate-x-1/4 xl:hidden z-[-1]"></div>
       <div className="absolute top-20 right-20 w-[600px] h-[600px] rounded-full border-[60px] border-gray-200/30 translate-x-1/4 xl:hidden z-[-1]"></div>
 
       {/* Background art element */}
-      <div className="absolute top-[390px] left-[650px] xl:left-1/2  -translate-x-1/4 -translate-y-1/2 w-[700px] h-[700px] md:w-[750px] md:h-[750px] lg:w-[800px] lg:h-[800px] pointer-events-none z-[-1]">
+      <div className="absolute top-[375px] left-[650px] xl:left-1/2  -translate-x-1/4 -translate-y-1/2 w-[700px] h-[700px] md:w-[750px] md:h-[750px] lg:w-[800px] lg:h-[800px] pointer-events-none z-[-1]">
         <Image
           src="/landing-redesign/43RJTEoD8nGmYVtJBcLKrep0W8.avif"
           alt="Bg Shape"
@@ -86,6 +86,19 @@ export default function HeroSection() {
                 />
               </div>
             </div>
+
+            {/* Browse Vehicles Button - Visible on small screens only */}
+            <ScrollReveal
+              variant="fadeUp"
+              delay={0.4}
+              duration={0.8}
+              animateOnMount
+              className="md:hidden mt-12 text-center"
+            >
+              <Button variant="primary" size="lg" asLink href="/vehicles">
+                Browse Vehicles
+              </Button>
+            </ScrollReveal>
           </ScrollReveal>
         </div>
 

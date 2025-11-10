@@ -117,34 +117,34 @@ export default function ShareButton({ car }: ShareButtonProps) {
       {/* Share options dropdown */}
       {showShareOptions && (
         <div
-          className="absolute right-0 top-full mt-2 w-48 card card-shadow z-10"
+          className="absolute bg-surface rounded-2xl shadow-md p-4 right-0 top-full mt-2 w-48 z-10"
           onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside dropdown
         >
           <div className="py-1">
             <button
               onClick={() => shareWith("facebook")}
-              className="w-full flex items-center px-4 py-2 text-sm text-body hover:bg-base-100 dark:hover:bg-base-700 transition-colors cursor-pointer"
+              className="w-full flex items-center px-4 py-2 text-sm text-body hover:bg-base-100 dark:hover:bg-base-700 transition-colors cursor-pointer rounded-2xl"
             >
               <Facebook className="mr-3 h-4 w-4 text-[#1877F2]" />
               Facebook
             </button>
             <button
               onClick={() => shareWith("twitter")}
-              className="w-full flex items-center px-4 py-2 text-sm text-body hover:bg-base-100 dark:hover:bg-base-700 transition-colors cursor-pointer"
+              className="w-full flex items-center px-4 py-2 text-sm text-body hover:bg-base-100 dark:hover:bg-base-700 transition-colors cursor-pointer rounded-2xl"
             >
               <Twitter className="mr-3 h-4 w-4 text-[#1DA1F2]" />
               Twitter
             </button>
             <button
               onClick={() => shareWith("linkedin")}
-              className="w-full flex items-center px-4 py-2 text-sm text-body hover:bg-base-100 dark:hover:bg-base-700 transition-colors cursor-pointer"
+              className="w-full flex items-center px-4 py-2 text-sm text-body hover:bg-base-100 dark:hover:bg-base-700 transition-colors cursor-pointer rounded-2xl"
             >
               <Linkedin className="mr-3 h-4 w-4 text-[#0A66C2]" />
               LinkedIn
             </button>
             <button
               onClick={() => shareWith("copy")}
-              className="w-full flex items-center px-4 py-2 text-sm text-body hover:bg-base-100 dark:hover:bg-base-700 transition-colors cursor-pointer"
+              className="w-full flex items-center px-4 py-2 text-sm text-body hover:bg-base-100 dark:hover:bg-base-700 transition-colors cursor-pointer rounded-2xl"
             >
               {copySuccess ? (
                 <>

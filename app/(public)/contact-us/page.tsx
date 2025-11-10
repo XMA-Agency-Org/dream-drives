@@ -7,6 +7,7 @@ import FaqSection from "@/components/sections/FaqSection";
 import ContactForm from "./_components/ContactForm";
 import LocationMapContainer from "./_components/LocationMapContainer";
 import ScrollReveal from "@/lib/animations/ScrollReveal";
+import { Card, CardContent } from "@/components/ui/Card";
 
 export const metadata: Metadata = {
   title: "Contact Us | Dream Drives Luxury Car Rental",
@@ -42,28 +43,28 @@ export default function ContactUsPage() {
             {/* Three Column Layout - Contact Cards */}
             <div className="grid md:grid-cols-3 gap-6">
               {/* Headquarter Office */}
-              <div className="card-filled-primary-dark">
-                <div className="flex flex-col h-full">
-                  <div className="flex items-start justify-between mb-4">
+              <Card className="h-full border-none bg-primary text-inverse rounded-3xl">
+                <CardContent className="p-6 md:p-8">
+                  <div className="flex items-start justify-between">
                     <div className="flex-1">
                       <h3 className="title-card-white mb-2">
                         Headquarter office
                       </h3>
-                      <div className="text-gray-200 text-sm leading-snug space-y-0.5">
+                      <div className="text-inverse text-sm leading-snug space-y-0.5 opacity-80">
                         <p>Dubai, United Arab Emirates</p>
                       </div>
                     </div>
-                    <div className="bg-white/10 p-3 rounded-lg flex-shrink-0">
+                    <div className="bg-white/10 p-3 rounded-lg shrink-0">
                       <Building2 className="w-6 h-6 text-white" />
                     </div>
                   </div>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
 
               {/* Phone */}
-              <div className="card-filled-primary">
-                <div className="flex flex-col h-full">
-                  <div className="flex items-start justify-between mb-4">
+              <Card className="h-full border-none bg-primary text-inverse rounded-3xl">
+                <CardContent className="p-6 md:p-8">
+                  <div className="flex items-start justify-between">
                     <div className="flex-1">
                       <h3 className="title-card-white mb-1">
                         +971 54 555 5402
@@ -71,90 +72,98 @@ export default function ContactUsPage() {
                       <h3 className="title-card-white mb-1">
                         +971 54 555 5403
                       </h3>
-                      <p className="text-gray-200 text-sm">Call us anytime</p>
+                      <p className="text-inverse text-sm opacity-80">
+                        Call us anytime
+                      </p>
                     </div>
-                    <div className="bg-white/10 p-3 rounded-lg flex-shrink-0">
+                    <div className="bg-white/10 p-3 rounded-lg shrink-0">
                       <Phone className="w-6 h-6 text-white" />
                     </div>
                   </div>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
 
               {/* Email */}
-              <div className="card-filled-primary-light">
-                <div className="flex flex-col h-full">
-                  <div className="flex items-start justify-between mb-4">
+              <Card className="h-full border-none bg-primary text-inverse rounded-3xl">
+                <CardContent className="p-6 md:p-8">
+                  <div className="flex items-start justify-between">
                     <div className="flex-1">
                       <h3 className="title-card-white mb-1">
                         info@dreamdrives.com
                       </h3>
-                      <p className="text-gray-200 text-sm">Send your email</p>
+                      <p className="text-inverse text-sm opacity-80">
+                        Send your email
+                      </p>
                     </div>
-                    <div className="bg-white/10 p-3 rounded-lg flex-shrink-0">
+                    <div className="bg-white/10 p-3 rounded-lg shrink-0">
                       <Mail className="w-6 h-6 text-white" />
                     </div>
                   </div>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
 
         {/* Contact Form and Info Section */}
-        <section className="section bg-base-50 dark:bg-base-900">
+        <section className="section bg-base-50/50 dark:bg-base-900">
           <div className="container-default">
             <div className="grid md:grid-cols-2 gap-12 items-start">
               {/* Contact Form */}
-              <ScrollReveal variant="slideRight" duration={0.8}>
-                <div className="card card-shadow card-body-lg">
-                  <h2 className="title-card mb-4">Send Us a Message</h2>
-                  <p className="text-muted mb-6">
-                    Fill out the form below and we&apos;ll get back to you
-                    shortly.
-                  </p>
+              <ScrollReveal variant="slideRight" duration={0.8} animateOnMount>
+                <Card className="border-0 p-8 rounded-3xl">
+                  <CardContent className="p-0">
+                    <h2 className="title-card mb-4">Send Us a Message</h2>
+                    <p className="text-body mb-6">
+                      Fill out the form below and we&apos;ll get back to you
+                      shortly.
+                    </p>
 
-                  <ContactForm />
-                </div>
+                    <ContactForm />
+                  </CardContent>
+                </Card>
               </ScrollReveal>
 
               {/* Locations Info */}
               <ScrollReveal variant="slideLeft" delay={0.2} duration={0.8}>
                 <div>
                   <h2 className="title-subsection mb-4">Our Location</h2>
-                  <p className="text-muted mb-6">
+                  <p className="text-body mb-6">
                     Call us today and book your car with zero deposit required.
                   </p>
 
-                  <div className="card card-bordered card-body">
-                    <h3 className="title-card mb-4">{location.name}</h3>
+                  <Card className="border-0 rounded-3xl">
+                    <CardContent>
+                      <h3 className="title-card mb-4">{location.name}</h3>
 
-                    <div className="space-y-3">
-                      <div className="flex items-start">
-                        <MapPin className="w-5 h-5 text-muted mr-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-body">{location.address}</span>
-                      </div>
+                      <div className="space-y-3">
+                        <div className="flex items-start">
+                          <MapPin className="text-body w-5 h-5  mr-3 shrink-0 mt-0.5" />
+                          <span className="text-body">{location.address}</span>
+                        </div>
 
-                      <div className="flex items-start">
-                        <Phone className="w-5 h-5 text-muted mr-3 flex-shrink-0 mt-0.5" />
-                        <a
-                          href={`tel:${location.phone.replace(/\D/g, "")}`}
-                          className="text-body hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
-                        >
-                          {location.phone}
-                        </a>
-                      </div>
+                        <div className="flex items-start">
+                          <Phone className="text-body w-5 h-5  mr-3 shrink-0 mt-0.5" />
+                          <a
+                            href={`tel:${location.phone.replace(/\D/g, "")}`}
+                            className="text-body hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
+                          >
+                            {location.phone}
+                          </a>
+                        </div>
 
-                      <div className="flex items-start">
-                        <Mail className="w-5 h-5 text-muted mr-3 flex-shrink-0 mt-0.5" />
-                        <a
-                          href={`mailto:${location.email}`}
-                          className="text-body hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
-                        >
-                          {location.email}
-                        </a>
+                        <div className="flex items-start">
+                          <Mail className="text-body w-5 h-5  mr-3 shrink-0 mt-0.5" />
+                          <a
+                            href={`mailto:${location.email}`}
+                            className="text-body hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
+                          >
+                            {location.email}
+                          </a>
+                        </div>
                       </div>
-                    </div>
-                  </div>
+                    </CardContent>
+                  </Card>
                 </div>
               </ScrollReveal>
             </div>
@@ -167,7 +176,7 @@ export default function ContactUsPage() {
             <ScrollReveal variant="fadeUp">
               <div className="section-header">
                 <h2 className="title-section mb-4">Find Us</h2>
-                <p className="text-body text-muted max-w-2xl mx-auto">
+                <p className="text-body  max-w-2xl mx-auto">
                   We are here for you in Dubai – book your car today, deposit
                   free.
                 </p>
@@ -176,9 +185,9 @@ export default function ContactUsPage() {
 
             {/* Map Component */}
             <ScrollReveal variant="fadeUp" delay={0.2}>
-              <div className="card card-shadow overflow-hidden h-[500px]">
+              <Card className="shadow-lg overflow-hidden h-[500px] p-0">
                 <LocationMapContainer location={location} />
-              </div>
+              </Card>
             </ScrollReveal>
           </div>
         </section>

@@ -171,9 +171,7 @@ export default function PopularDeals({ category }: PopularDealsProps) {
           <div className="section-header-left">
             <div className="subtitle mb-4">{content.subtitle}</div>
             <h2 className="title-section mb-4">{content.title}</h2>
-            <p className="text-body text-muted max-w-2xl">
-              {content.description}
-            </p>
+            <p className="text-body max-w-2xl">{content.description}</p>
           </div>
         </ScrollReveal>
 
@@ -224,7 +222,7 @@ export default function PopularDeals({ category }: PopularDealsProps) {
             ) : currentCars.length > 0 ? (
               currentCars.map((car) => <CarCard key={car.id} car={car} />)
             ) : (
-              <div className="col-span-full text-center text-muted py-12">
+              <div className="col-span-full text-center text-body py-12">
                 No vehicles found for this category.
               </div>
             )}

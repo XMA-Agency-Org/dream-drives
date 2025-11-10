@@ -355,7 +355,7 @@ export default function FilterModal() {
     <>
       {/* Filter Toggle Button */}
       <Button
-        variant="outline"
+        variant="ghost-accent"
         size="sm"
         leftIcon={<SlidersHorizontal className="h-4 w-4" />}
         onClick={toggleFilterModal}
@@ -386,7 +386,7 @@ export default function FilterModal() {
       {isFilterModalOpen && (
         <div className="fixed inset-0 bg-base-900/60 z-50 backdrop-blur-sm flex items-center justify-center p-4">
           {/* Modal Content */}
-          <div className="filter-modal-content card card-shadow w-full max-w-lg max-h-[90vh] overflow-y-auto pointer-events-auto">
+          <div className="bg-surface filter-modal-content card card-shadow w-full max-w-lg max-h-[90vh] overflow-y-auto pointer-events-auto rounded-3xl">
             <div className="sticky top-0 z-10 bg-white dark:bg-base-900 p-4 border-b border-base-200 dark:border-base-700 flex justify-between items-center">
               <h2 className="font-bold text-xl text-base-900 dark:text-white">
                 Filters
@@ -547,7 +547,7 @@ export default function FilterModal() {
 
               <div className="mt-6 flex space-x-3 pt-4 border-t border-base-200 dark:border-base-700">
                 <Button
-                  variant="outline"
+                  variant="ghost-accent"
                   size="lg"
                   fullWidth
                   onClick={clearFilters}

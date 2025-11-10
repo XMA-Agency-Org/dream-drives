@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X, ChevronDown, Phone, CarFront } from "lucide-react";
+import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import Button from "../ui/Button";
 import {
   MBIcon,
@@ -112,7 +112,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white dark:bg-base-950 py-4 border-b border-base-200 dark:border-base-800">
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white dark:bg-base-950 py-4 border-b border-base-100 dark:border-base-800">
       <div className="container-default">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -166,7 +166,7 @@ const Header: React.FC = () => {
                             <Link
                               key={child.label}
                               href={child.href}
-                              className={`flex flex-col items-center justify-center p-3 text-xs text-base-900 dark:text-white hover:bg-base-100 dark:hover:bg-base-800 rounded-md transition-colors ${
+                              className={`flex flex-col rounded-2xl items-center justify-center p-3 text-xs text-base-900 dark:text-white hover:bg-base-50 dark:hover:bg-base-50 transition-colors ${
                                 isAllBrands ? "min-h-[80px]" : ""
                               }`}
                             >
@@ -190,12 +190,12 @@ const Header: React.FC = () => {
                 {/* Regular dropdown for other items */}
                 {item.children && item.label !== "Brands" && (
                   <div className="absolute left-0 mt-1 w-56 origin-top-right rounded-md shadow-lg overflow-hidden bg-white dark:bg-base-900 ring-1 ring-base-200 dark:ring-base-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
-                    <div className="py-1">
+                    <div className="p-2">
                       {item.children.map((child) => (
                         <Link
                           key={child.label}
                           href={child.href}
-                          className="block px-4 py-2.5 text-sm text-base-900 dark:text-white hover:bg-base-100 dark:hover:bg-base-800"
+                          className="block px-4 py-2.5 text-sm text-base-900 dark:text-white hover:bg-base-50 dark:hover:bg-base-50 rounded-full transition-colors"
                         >
                           {child.label}
                         </Link>
@@ -237,14 +237,14 @@ const Header: React.FC = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`md:hidden fixed inset-0 bg-base-800/95 backdrop-blur-sm z-40 transition-transform duration-300 ease-in-out transform ${
+        className={`md:hidden fixed inset-0 bg-base-50 backdrop-blur-sm z-40 transition-transform duration-300 ease-in-out transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Close button - Fixed at top right */}
         <button
           onClick={closeMobileMenu}
-          className="absolute top-6 right-6 p-2 text-white hover:text-white/80 transition-colors"
+          className="absolute top-6 right-6 p-2 text-base-900 dark:text-white hover:text-base-700 dark:hover:text-white/80 transition-colors"
           aria-label="Close menu"
         >
           <X className="h-6 w-6" />
@@ -253,16 +253,19 @@ const Header: React.FC = () => {
         <div className="flex flex-col h-full pt-20 pb-6 px-6 overflow-auto">
           <nav className="space-y-1 mb-8">
             {navItems.map((item) => (
-              <div key={item.label} className="border-b border-white/60">
+              <div
+                key={item.label}
+                className="border-b border-base-200 dark:border-base-700"
+              >
                 {item.children ? (
                   <div>
                     <button
                       onClick={() => toggleMobileDropdown(item.label)}
-                      className="flex items-center justify-between w-full py-4 text-white font-semibold"
+                      className="flex items-center justify-between w-full py-4 text-base-900 dark:text-white font-semibold"
                     >
                       {item.label}
                       <ChevronDown
-                        className={`h-5 w-5 transition-transform text-white ${
+                        className={`h-5 w-5 transition-transform text-base-900 dark:text-white ${
                           activeMobileDropdown === item.label
                             ? "rotate-180"
                             : ""
@@ -271,12 +274,12 @@ const Header: React.FC = () => {
                     </button>
 
                     {activeMobileDropdown === item.label && (
-                      <div className="ml-4 mb-4 border-l border-white/60 pl-4 space-y-3">
+                      <div className="ml-4 mb-4 border-l border-base-200 dark:border-base-700 pl-4 space-y-3">
                         {item.children.map((child) => (
                           <Link
                             key={child.label}
                             href={child.href}
-                            className="flex items-center py-2 text-white hover:text-white/90 text-sm"
+                            className="flex items-center py-2 text-base-900 dark:text-white hover:text-base-700 dark:hover:text-white/90 text-sm"
                             onClick={closeMobileMenu}
                           >
                             {getBrandIcon(child.href.split("brand=")[1])}
@@ -289,7 +292,7 @@ const Header: React.FC = () => {
                 ) : (
                   <Link
                     href={item.href}
-                    className="block py-4 text-white font-semibold"
+                    className="block py-4 text-base-900 dark:text-white font-semibold"
                     onClick={closeMobileMenu}
                   >
                     {item.label}

@@ -49,7 +49,7 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="section bg-white dark:bg-base-950 pt-24">
+    <section className="section pt-24">
       <div className="container-default max-w-6xl">
         {/* Header */}
         <ScrollReveal variant="fadeUp">
@@ -63,7 +63,7 @@ export default function FaqSection() {
         <StaggerContainer staggerDelay={0.08} className="space-y-2">
           {faqItems.map((item, index) => (
             <StaggerItem key={index} variants={staggerItemVariants}>
-              <div className="accordion-item">
+              <div className="accordion-item border border-base-200">
                 <button
                   onClick={() => toggleFaq(index)}
                   className="accordion-button group"
@@ -80,8 +80,8 @@ export default function FaqSection() {
                     <ChevronDown
                       className={`w-5 h-5 transition-all duration-200 ${
                         openIndex === index
-                          ? "rotate-180 text-white dark:text-base-900"
-                          : "text-black dark:text-white"
+                          ? "rotate-180 text-inverse"
+                          : "text-default"
                       }`}
                     />
                   </div>

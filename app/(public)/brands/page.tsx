@@ -45,7 +45,7 @@ export default async function BrandsPage() {
           <div className="section-header">
             <p className="subtitle">Luxury Vehicles</p>
             <h1 className="title-section">Our Premium Brands</h1>
-            <p className="text-body text-muted max-w-2xl mx-auto">
+            <p className="text-base-500 max-w-2xl mx-auto">
               Discover our collection of luxury and premium automotive brands,
               each offering exceptional quality and performance.
             </p>
@@ -56,7 +56,7 @@ export default async function BrandsPage() {
               <Link
                 key={brand.id}
                 href={`/vehicles?brand=${brand.id}`}
-                className="group card card-shadow p-6 hover:border-accent-200 dark:hover:border-accent-700 transition-all duration-300"
+                className="group shadow-sm rounded-3xl p-6 hover:border-accent-200 dark:hover:border-accent-700 transition-all duration-300"
               >
                 <div className="flex flex-col items-center text-center space-y-4">
                   <div className="w-16 h-16 md:w-20 md:h-20 relative flex items-center justify-center">

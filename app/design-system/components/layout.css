@@ -5,27 +5,27 @@
   /* Section containers */
   .section {
     @apply py-16;
-    background-color: var(--section-bg);
+    background-color: var(--bg-page);
   }
 
   .section-sm {
     @apply py-8;
-    background-color: var(--section-bg);
+    background-color: var(--bg-page);
   }
 
   .section-lg {
     @apply py-24;
-    background-color: var(--section-bg);
+    background-color: var(--bg-page);
   }
 
   .section-bg-base {
     @apply py-16;
-    background-color: var(--section-bg-base);
+    background-color: var(--bg-page-base);
   }
 
   .section-bg-subtle {
     @apply py-16;
-    background-color: var(--section-bg-subtle);
+    background-color: var(--bg-page-subtle);
   }
 
   /* Container utilities */
@@ -73,53 +73,53 @@
   /* Typography components */
   /* Titles */
   .title-hero {
-    color: var(--typography-title-color);
+    color: var(--text-default);
     @apply text-5xl md:text-5xl lg:text-6xl font-extrabold leading-tight;
   }
 
   .title-section {
-    color: var(--typography-title-color);
+    color: var(--text-default);
     @apply text-3xl md:text-4xl font-extrabold;
   }
 
   .title-subsection {
-    color: var(--typography-title-color);
+    color: var(--text-default);
     @apply text-2xl md:text-3xl font-bold;
   }
 
   .title-card {
-    color: var(--typography-title-color);
+    color: var(--text-default);
     @apply text-xl font-bold;
   }
 
   .title-card-white {
-    color: var(--typography-title-white-color);
+    color: var(--text-inverse);
     @apply text-xl font-bold;
   }
 
   /* Subtitles & labels */
   .subtitle {
-    color: var(--typography-subtitle-color);
+    color: var(--text-accent);
     @apply text-xs uppercase tracking-wider mb-3;
   }
 
   .label {
-    color: var(--typography-label-color);
+    color: var(--text-base);
     @apply text-sm font-semibold mb-2;
   }
 
   /* Body text */
   .text-muted {
-    color: var(--typography-body-sm-color);
+    color: var(--text-muted);
   }
 
   .text-body {
-    color: var(--typography-body-color);
+    color: var(--text-base);
     @apply text-base leading-relaxed;
   }
 
   .text-body-sm {
-    color: var(--typography-body-sm-color);
+    color: var(--text-muted);
     @apply text-sm leading-relaxed;
   }
 
@@ -128,58 +128,60 @@
   }
 
   .text-description {
-    color: var(--typography-description-color);
+    color: var(--text-muted);
     @apply text-sm leading-relaxed;
   }
 
   /* Link styles */
   .link {
-    color: var(--link-text);
+    color: var(--text-primary);
     @apply underline underline-offset-2 transition-colors;
   }
 
   .link:hover {
-    color: var(--link-text-hover);
+    color: var(--text-primary-hover);
   }
 
   .link-muted {
-    color: var(--typography-link-muted-color);
+    color: var(--text-muted);
     @apply transition-colors;
   }
 
   .link-muted:hover {
-    color: var(--typography-link-muted-hover-color);
+    color: var(--text-default);
   }
 
   /* Footer components */
   .footer-heading {
-    color: var(--footer-heading-color);
+    color: var(--text-default);
     @apply text-lg font-bold mb-6;
   }
 
   .footer-link {
-    color: var(--footer-link-color);
+    color: var(--text-base);
     @apply transition-opacity duration-200;
-    opacity: 0.7;
+    opacity: 0.8;
   }
 
   .footer-link:hover {
     opacity: 1;
+    color: var(--text-default);
   }
 
   .footer-social {
-    color: var(--footer-social-color);
+    color: var(--text-base);
     @apply transition-opacity duration-200;
-    opacity: 0.6;
+    opacity: 0.7;
   }
 
   .footer-social:hover {
     opacity: 1;
+    color: var(--text-default);
   }
 
   .footer-text {
-    color: var(--footer-text-color);
-    opacity: 0.7;
+    color: var(--text-base);
+    opacity: 0.8;
   }
 
   /* Step / Feature components */
@@ -188,24 +190,24 @@
   }
 
   .step-icon {
-    background-color: var(--step-icon-bg);
-    color: var(--step-icon-text);
+    background-color: var(--bg-primary);
+    color: var(--text-inverse);
     @apply w-16 h-16 rounded-2xl flex items-center justify-center mb-5;
   }
 
   .step-title {
-    color: var(--step-title-color);
+    color: var(--text-default);
     @apply text-xl font-bold mb-3;
   }
 
   .step-description {
-    color: var(--color-text-base);
+    color: var(--text-base);
     @apply text-sm leading-relaxed;
   }
 
   /* Icon containers */
   .icon-container {
-    background-color: var(--icon-container-bg);
+    background-color: var(--bg-accent);
     color: var(--icon-container-text);
     @apply w-16 h-16 rounded-2xl flex items-center justify-center;
   }
@@ -231,5 +233,25 @@
   .icon-container-accent {
     background-color: var(--icon-container-accent-bg);
     color: var(--icon-container-accent-text);
+  }
+
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center gap-1 px-3 py-1 text-xs font-semibold rounded-full;
+  }
+
+  .badge-primary {
+    background-color: var(--badge-primary-bg);
+    color: var(--badge-primary-text);
+  }
+
+  .badge-base {
+    background-color: var(--badge-base-bg);
+    color: var(--badge-base-text);
+  }
+
+  .badge-accent {
+    background-color: var(--badge-accent-bg);
+    color: var(--badge-accent-text);
   }
 }

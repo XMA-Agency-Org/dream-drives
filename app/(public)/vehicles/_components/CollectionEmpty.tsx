@@ -9,25 +9,24 @@ export default function CollectionEmpty() {
       <div className="icon-container icon-container-base icon-container-lg mb-6">
         <SearchX className="h-12 w-12" />
       </div>
-      
-      <h3 className="title-subsection mb-3">
-        No vehicles found
-      </h3>
-      
-      <p className="text-body text-muted max-w-md mb-8">
-        We couldn't find any vehicles matching your current filter criteria. Try adjusting your filters or browse our complete collection.
+
+      <h3 className="title-subsection mb-3">No vehicles found</h3>
+
+      <p className="text-body max-w-md mb-8">
+        We couldn&apos;t find any vehicles matching your current filter
+        criteria. Try adjusting your filters or browse our complete collection.
       </p>
-      
+
       <div className="flex flex-col sm:flex-row gap-4">
         <Button
-          variant="outline"
+          variant="ghost-accent"
           leftIcon={<RefreshCw className="h-4 w-4" />}
           asLink
           href="/vehicles"
         >
           Clear All Filters
         </Button>
-        
+
         <Button
           variant="accent"
           leftIcon={<Car className="h-4 w-4" />}

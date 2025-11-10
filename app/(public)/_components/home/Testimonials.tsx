@@ -4,6 +4,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import ScrollReveal from "@/lib/animations/ScrollReveal";
+import { Card, CardDescription } from "@/components/ui/Card";
 
 interface Testimonial {
   id: number;
@@ -115,19 +116,11 @@ export default function Testimonials() {
   }, [cardsPerSlide]);
 
   return (
-    <section className="section bg-base-50 dark:bg-base-950 relative overflow-hidden">
+    <section className="section bg-base-50/50 dark:bg-base-950 relative overflow-hidden py-24">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
         {/* Gradient background */}
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-accent-50/30 to-transparent dark:from-accent-900/10 dark:to-transparent"></div>
-
-        {/* Decorative quotes */}
-        <div className="absolute top-20 left-20 text-accent-200/10 dark:text-accent-900/10">
-          <Quote size={120} />
-        </div>
-        <div className="absolute bottom-20 right-20 text-accent-200/10 dark:text-accent-900/10 transform rotate-180">
-          <Quote size={120} />
-        </div>
+        <div className="absolute top-0 left-0 w-full h-full bg-linear-to-br from-accent-50/30 to-transparent dark:from-accent-900/10 dark:to-transparent"></div>
       </div>
 
       <div className="container-default">
@@ -168,7 +161,7 @@ export default function Testimonials() {
                 {testimonials.map((testimonial) => (
                   <div
                     key={testimonial.id}
-                    className="flex-shrink-0"
+                    className="shrink-0"
                     style={{
                       width:
                         cardsPerSlide === 1
@@ -178,7 +171,7 @@ export default function Testimonials() {
                           : "calc((100% - 3rem) / 3)",
                     }}
                   >
-                    <div className="card card-shadow card-body-lg h-full">
+                    <Card className="h-full bg-surface border-none p-8 rounded-3xl hover:shadow-md duration-200">
                       <div className="relative">
                         <div className="pt-6 pl-6 md:pt-8 md:pl-8">
                           {/* Rating */}
@@ -200,9 +193,9 @@ export default function Testimonials() {
                             </span>
                           </div>
 
-                          <p className="text-body text-muted italic leading-relaxed mb-8">
+                          <CardDescription className="text-body text-base italic leading-relaxed mb-8">
                             {testimonial.text}
-                          </p>
+                          </CardDescription>
 
                           {/* Person info */}
                           <div className="flex flex-col">
@@ -220,19 +213,19 @@ export default function Testimonials() {
                                   </span>
                                 </>
                               )}
-                              <span className="text-muted text-sm">
+                              <span className="text-sm">
                                 {testimonial.location}
                               </span>
                             </div>
                             {testimonial.carRented && (
-                              <span className="text-muted text-xs italic mt-2">
+                              <span className="text-xs italic mt-2">
                                 Vehicle: {testimonial.carRented}
                               </span>
                             )}
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </Card>
                   </div>
                 ))}
               </div>

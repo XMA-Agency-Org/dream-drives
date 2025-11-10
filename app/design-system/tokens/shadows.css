@@ -1,0 +1,36 @@
+@theme {
+  --shadow-primary-sm: 0 4px 14px 0
+    oklch(from var(--color-primary-500) l c h / 0.2);
+  --shadow-primary-md: 0 8px 20px 0
+    oklch(from var(--color-primary-500) l c h / 0.3);
+  --shadow-primary-lg: 0 12px 28px 0
+    oklch(from var(--color-primary-500) l c h / 0.4);
+
+  --shadow-accent-sm: 0 4px 14px 0
+    oklch(from var(--color-primary-400) l c h / 0.2);
+  --shadow-accent-md: 0 8px 20px 0
+    oklch(from var(--color-primary-400) l c h / 0.3);
+  --shadow-accent-lg: 0 12px 28px 0
+    oklch(from var(--color-primary-400) l c h / 0.4);
+
+  --shadow-success: 0 4px 14px 0
+    oklch(from var(--color-success-600) l c h / 0.2);
+  --shadow-error: 0 4px 14px 0 oklch(from var(--color-error-600) l c h / 0.2);
+  --shadow-warning: 0 4px 14px 0
+    oklch(from var(--color-warning-600) l c h / 0.2);
+
+  --shadow-input-focus: 0 0 0 3px
+    oklch(from var(--color-primary-500) l c h / 0.1);
+  --shadow-input-error: 0 0 0 3px oklch(from var(--color-error-600) l c h / 0.1);
+  --shadow-input-success: 0 0 0 3px
+    oklch(from var(--color-success-600) l c h / 0.1);
+}
+
+.dark {
+  --shadow-primary-sm: 0 4px 14px 0
+    oklch(from var(--color-primary-400) l c h / 0.3);
+  --shadow-primary-md: 0 8px 20px 0
+    oklch(from var(--color-primary-400) l c h / 0.4);
+  --shadow-primary-lg: 0 12px 28px 0
+    oklch(from var(--color-primary-400) l c h / 0.5);
+}

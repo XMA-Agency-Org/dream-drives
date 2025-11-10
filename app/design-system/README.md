@@ -2,100 +2,83 @@
 
 ## Overview
 
-The design system uses a 4-layer token architecture that separates raw values from semantic meaning and component-specific usage. This keeps the system maintainable and allows for easy theming and updates.
+The design system uses a simplified 2-layer token architecture that provides scalability while avoiding over-abstraction. The system leverages Tailwind's color primitives and maps them through foundation tokens to semantic tokens.
 
 ## Token Layers
 
-### Layer 1: Base Colors (`tokens/colors.css`)
+### Layer 1: Foundation Tokens (`tokens/colors.css`)
 
-Raw color definitions in OKLCH color space. These are the source of truth for all colors.
-
-```css
-@theme {
-  --color-slate-500: oklch(0.769 0.01 248.03);
-  --color-teal-500: oklch(0.704 0.12 182.5);
-  --color-primary-500: var(--color-blue-gray-500);
-}
-```
-
-**Why OKLCH?** Better color manipulation, perceptual uniformity, and easier to generate accessible color scales.
-
-### Layer 2: Foundation Tokens (`tokens/colors.css`)
-
-Maps base colors to semantic roles. Still in `@theme` because Tailwind uses these to generate utilities.
+Maps Tailwind's color primitives to brand identity tokens. These are the "rebrand" layer - change these to rebrand the entire system.
 
 ```css
 @theme {
-  --color-primary-500: var(--color-blue-gray-500);
-  --color-accent-500: var(--color-teal-500);
+  /* Primary: Main brand colors */
+  --color-primary-500: var(--color-blue-500);
+  --color-primary-700: var(--color-blue-700);
+  /* etc. */
+
+  /* Base: Neutral grays */
   --color-base-500: var(--color-slate-500);
+  --color-base-950: var(--color-slate-950);
+  /* etc. */
 }
 ```
 
-### Layer 3: Semantic Tokens (`tokens/semantic.css`)
+**Why?** If you want to switch from blue to teal as your primary color, you only change `--color-blue-*` to `--color-teal-*` in the foundation tokens. Everything downstream updates automatically.
 
-Purpose-driven tokens that describe what colors are used for, not what they are. These are in `:root` because they reference other tokens and shouldn't generate Tailwind utilities.
+### Layer 2: Semantic Tokens (`tokens/colors.css`)
+
+Purpose-driven tokens that describe what colors are used for. These reference the foundation tokens above for scalability.
 
 ```css
-:root {
-  --color-text-primary: var(--color-base-950);
-  --color-text-interactive-accent: var(--color-accent-500);
-  --color-bg-primary: var(--color-white);
-  --color-border: var(--color-base-300);
+@theme {
+  /* Text colors */
+  --text-default: var(--color-base-950);
+  --text-primary: var(--color-primary-700);
+  --text-muted: var(--color-base-500);
+
+  /* Background colors */
+  --bg-page: var(--color-white);
+  --bg-primary: var(--color-primary-700);
+  --bg-surface: var(--color-white);
+
+  /* Border colors */
+  --border-default: var(--color-base-300);
+  --border-primary: var(--color-primary-700);
 }
 ```
 
-**Why separate?** If you need to change what "primary text" means, you change one token and it updates everywhere.
+**Why semantic tokens?** Components use `--text-default` instead of `--color-base-950`. This provides meaning and makes it easy to understand the intent.
 
-### Layer 4: Component Tokens (`tokens/component-tokens.css`)
-
-Component-specific mappings. These are in `:root` and map semantic tokens to specific components.
-
-```css
-:root {
-  --button-primary-bg: var(--color-bg-interactive-primary);
-  --button-primary-text: var(--color-text-inverse);
-  --card-bg: var(--color-surface);
-  --input-border: var(--color-border);
-}
-```
-
-**Why component tokens?** Allows component-specific overrides without touching semantic tokens. For example, a button might need a slightly different shade than the general interactive color.
+**Why reference primary/base?** This makes the system scalable. If you change `--color-primary-700` to a different shade, all semantic tokens using it update automatically.
 
 ## File Structure
 
 ```
 design-system/
 ├── tokens/
-│   ├── colors.css           # Layers 1 & 2 (base + foundation)
-│   ├── semantic.css         # Layer 3 (semantic tokens)
-│   ├── component-tokens.css # Layer 4 (component tokens)
-│   ├── typography.css        # Font system
-│   ├── visual.css           # Shadows, radius, transitions
-│   └── spacing.css          # Custom spacing (not used by Tailwind)
+│   ├── colors.css           # Foundation + Semantic color tokens
+│   └── typography.css        # Font system
 ├── components/
-│   ├── buttons.css
-│   ├── cards.css
-│   ├── forms.css
-│   ├── badges.css
-│   ├── layout.css
-│   └── utilities.css
+│   ├── forms.css            # Form and input styles
+│   ├── layout.css           # Layout utilities and typography
+│   └── utilities.css        # General utility classes
 └── index.css                # Imports everything
 ```
 
+**Note:**
+- Button components use the `Button` component with CVA and Tailwind utilities. See `/docs/BUTTON_MIGRATION.md`
+- Card components use Tailwind utilities directly. See `/docs/CARD_MIGRATION.md`
+
 ## @theme vs :root
 
-**@theme** - Base design tokens that Tailwind uses to generate utilities. These should be raw values or simple references.
+**@theme** - Base design tokens that Tailwind uses to generate utilities.
 
-- `colors.css` - Base color palettes
+- `colors.css` - Foundation tokens (primary, base) and semantic tokens
 - `typography.css` - Font families, sizes, weights
 - `visual.css` - Shadows, radius, transitions
 
-**:root** - Derived tokens that reference other tokens. These don't generate Tailwind utilities.
-
-- `semantic.css` - References foundation tokens
-- `component-tokens.css` - References semantic tokens
-- `spacing.css` - Custom spacing (kept in :root to avoid overriding Tailwind's max-width scale)
+All tokens are in `@theme` so they're available to Tailwind for utility class generation (e.g., `bg-primary`, `text-default`).
 
 ## Import Order
 
@@ -115,87 +98,140 @@ Tailwind needs `@theme` tokens to be available when it processes, so the design 
 
 ### In CSS Components
 
-Use component tokens or semantic tokens, never base colors directly:
+Use semantic tokens that reference foundation tokens:
 
 ```css
-/* Good */
+/* Good - using semantic tokens */
 .btn-primary {
-  background-color: var(--button-primary-bg);
-  color: var(--button-primary-text);
+  background-color: var(--bg-primary);
+  color: var(--text-inverse);
 }
 
-/* Also good */
+/* Also good - using other semantic tokens */
 .card {
-  background-color: var(--card-bg);
-  border-color: var(--card-border);
+  background-color: var(--bg-surface);
+  border-color: var(--border-default);
 }
 
-/* Bad - don't use base colors */
+/* Avoid - don't use foundation tokens directly */
 .btn-primary {
   background-color: var(--color-primary-700);
+}
+
+/* Never - don't use Tailwind primitives directly */
+.btn-primary {
+  background-color: var(--color-blue-700);
 }
 ```
 
 ### In React Components
 
-Use design system classes when available:
+Use Tailwind utility classes that map to semantic tokens:
 
 ```tsx
-// Good
-<button className="btn btn-primary">Click me</button>
+// Good - using Tailwind utilities with semantic tokens
+<button className="bg-primary text-inverse">Click me</button>
 
-// Also good - using semantic tokens via Tailwind
-<div className="bg-surface border-border">Content</div>
+// Cards use Tailwind utilities directly
+<div className="bg-surface border border-default rounded-3xl p-6">
+  Card content
+</div>
 
-// Bad - direct Tailwind color classes
-<button className="bg-primary-700 text-white">Click me</button>
+// Interactive cards
+<div className="bg-surface rounded-3xl hover:shadow-lg hover:scale-[1.02] transition-all">
+  Interactive card
+</div>
+
+// Avoid - direct color classes
+<button className="bg-blue-700 text-white">Click me</button>
 ```
+
+**For card components**, see `/docs/CARD_MIGRATION.md` for complete migration examples.
 
 ### When to Create New Tokens
 
-1. **New base color?** Add to `colors.css` Layer 1
-2. **New semantic meaning?** Add to `semantic.css` Layer 3
-3. **Component-specific need?** Add to `component-tokens.css` Layer 4
-
-Avoid creating tokens for one-off use cases. Use CSS custom properties directly in that component's CSS file instead.
+1. **New brand color?** Add to foundation tokens (Layer 1) in `colors.css`
+2. **New semantic meaning?** Add semantic token (Layer 2) that references foundation tokens
+3. **Component-specific styling?** Use existing semantic tokens or add new ones if needed
 
 ## Dark Mode
 
-Dark mode overrides are defined in `semantic.css`:
+Dark mode overrides are defined at the semantic token level:
 
 ```css
 .dark {
-  --color-text-primary: var(--color-base-100);
-  --color-bg-primary: var(--color-base-950);
+  --text-default: var(--color-base-100);
+  --bg-page: var(--color-base-950);
+  --bg-primary: var(--color-primary-300);
   /* ... */
 }
 ```
 
-Components automatically adapt because they reference semantic tokens, not base colors.
+Components automatically adapt because they reference semantic tokens, not foundation or primitive colors.
 
 ## Common Patterns
 
-### Adding a New Color
+### Rebranding
 
-1. Add base color to `colors.css` Layer 1
-2. Add foundation token to `colors.css` Layer 2 (if needed)
-3. Add semantic token to `semantic.css` Layer 3
-4. Add component token to `component-tokens.css` Layer 4 (if component-specific)
+To change the primary brand color:
 
-### Adding a New Component Style
+1. Update foundation tokens in `colors.css`:
+   ```css
+   --color-primary-500: var(--color-teal-500); /* was blue-500 */
+   ```
+2. All semantic tokens and components update automatically
 
-1. Add component tokens to `component-tokens.css`
-2. Create component class in appropriate `components/*.css` file
-3. Use component tokens in the class definition
+### Adding a New Semantic Token
 
-### Modifying Existing Styles
+```css
+@theme {
+  /* Add new semantic token that references foundation */
+  --text-link: var(--color-primary-600);
+  --text-link-hover: var(--color-primary-700);
+}
 
-1. Change semantic token in `semantic.css` to affect all components using it
-2. Change component token in `component-tokens.css` to affect only that component
-3. Change base color in `colors.css` to affect everything downstream
+/* Add dark mode override */
+.dark {
+  --text-link: var(--color-primary-400);
+  --text-link-hover: var(--color-primary-300);
+}
+```
 
-## Notes
+### Component Styling
 
-- Spacing tokens in `spacing.css` are currently unused but kept for future use
-- All tokens use CSS custom properties for runtime theming capability
-- The system is designed to be extended, not replaced
+Always use semantic tokens in components:
+
+```css
+.card-special {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  color: var(--text-default);
+}
+
+.card-special:hover {
+  background-color: var(--bg-surface-hover);
+  border-color: var(--border-strong);
+}
+```
+
+## Benefits of This System
+
+1. **Scalable**: Change foundation tokens to rebrand the entire system
+2. **Semantic**: Token names describe purpose, not appearance
+3. **Simple**: Only 2 layers instead of 4
+4. **Type-safe**: Tailwind generates utilities from all tokens
+5. **Dark mode friendly**: Override semantic tokens for themes
+6. **Maintainable**: Clear hierarchy and purpose for each token
+
+## Migration from Old System
+
+The old 4-layer system has been simplified:
+
+- **Old Layer 1 (Base colors)**: Now Tailwind primitives (blue, slate, etc.)
+- **Old Layer 2 (Foundation)**: Now Layer 1 (primary, base mapping)
+- **Old Layer 3 (Semantic)**: Now Layer 2 (text-default, bg-surface, etc.)
+- **Old Layer 4 (Component tokens)**: Removed - components use semantic tokens directly
+
+This reduces `var(--button-primary-bg)` → `var(--color-bg-interactive-primary)` → `var(--color-primary-700)` → `var(--color-blue-700)`
+
+To just: `var(--bg-primary)` → `var(--color-primary-700)` → `var(--color-blue-700)`

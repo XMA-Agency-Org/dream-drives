@@ -8,11 +8,11 @@ interface BreadcrumbsProps {
 
 export default function Breadcrumbs({ carName }: BreadcrumbsProps) {
   return (
-    <nav className="mb-6 text-sm text-muted">
+    <nav className="mb-6 text-sm">
       <ol className="flex items-center flex-wrap">
         <li className="flex items-center">
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
           >
             Home
@@ -20,8 +20,8 @@ export default function Breadcrumbs({ carName }: BreadcrumbsProps) {
           <ChevronRight className="w-4 h-4 mx-1" />
         </li>
         <li className="flex items-center">
-          <Link 
-            href="/vehicles" 
+          <Link
+            href="/vehicles"
             className="hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
           >
             Vehicles

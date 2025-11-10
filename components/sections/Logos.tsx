@@ -27,7 +27,7 @@ const brands = [
 
 export default function Logos() {
   return (
-    <section className="relative section-sm bg-white border-b border-base-300 dark:border-base-700 z-10">
+    <section className="relative section-sm bg-white border-b border-base-100 dark:border-base-700 z-10">
       <div className="container-default">
         <StaggerContainer
           staggerDelay={0.08}

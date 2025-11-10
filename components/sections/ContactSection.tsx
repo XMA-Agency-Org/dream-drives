@@ -6,6 +6,7 @@ import StaggerContainer, {
   StaggerItem,
   staggerItemVariants,
 } from "@/lib/animations/StaggerContainer";
+import { Card, CardContent } from "@/components/ui/Card";
 
 export default function ContactSection() {
   return (
@@ -27,56 +28,66 @@ export default function ContactSection() {
           <StaggerContainer staggerDelay={0.12} className="space-y-4">
             {/* Headquarter Office */}
             <StaggerItem variants={staggerItemVariants}>
-              <div className="card-filled-primary-dark">
-                <div className="flex items-start justify-between">
-                  <div>
-                    <h3 className="title-card-white mb-2">
-                      Headquarter office
-                    </h3>
-                    <div className="text-inverse text-sm leading-snug space-y-0.5 opacity-80">
-                      <p>Dubai, United Arab Emirates</p>
+              <Card className="h-full border-none bg-primary text-inverse rounded-3xl">
+                <CardContent className="p-6 md:p-8">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <h3 className="title-card-white mb-2">
+                        Headquarter office
+                      </h3>
+                      <div className="text-inverse text-sm leading-snug space-y-0.5 opacity-80">
+                        <p>Dubai, United Arab Emirates</p>
+                      </div>
+                    </div>
+                    <div className="bg-white/10 p-3 rounded-lg">
+                      <Building2 className="w-6 h-6 text-white" />
                     </div>
                   </div>
-                  <div className="bg-white/10 p-3 rounded-lg">
-                    <Building2 className="w-6 h-6 text-white" />
-                  </div>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             </StaggerItem>
 
             {/* Phone */}
             <StaggerItem variants={staggerItemVariants}>
-              <div className="card-filled-primary">
-                <div className="flex items-start justify-between">
-                  <div>
-                    <h3 className="title-card-white mb-1">+971 54 555 5402</h3>
-                    <h3 className="title-card-white mb-1">+971 54 555 5403</h3>
-                    <p className="text-inverse text-sm opacity-80">Call us</p>
+              <Card className="h-full border-none bg-primary text-inverse rounded-3xl">
+                <CardContent className="p-6 md:p-8">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <h3 className="title-card-white mb-1">
+                        +971 54 555 5402
+                      </h3>
+                      <h3 className="title-card-white mb-1">
+                        +971 54 555 5403
+                      </h3>
+                      <p className="text-inverse text-sm opacity-80">Call us</p>
+                    </div>
+                    <div className="bg-white/10 p-3 rounded-lg">
+                      <Phone className="w-6 h-6 text-white" />
+                    </div>
                   </div>
-                  <div className="bg-white/10 p-3 rounded-lg">
-                    <Phone className="w-6 h-6 text-white" />
-                  </div>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             </StaggerItem>
 
             {/* Email */}
             <StaggerItem variants={staggerItemVariants}>
-              <div className="card-filled-primary-light">
-                <div className="flex items-start justify-between">
-                  <div>
-                    <h3 className="title-card-white mb-1">
-                      info@dreamdrives.com
-                    </h3>
-                    <p className="text-inverse text-sm opacity-80">
-                      Send your email
-                    </p>
+              <Card className="h-full border-none bg-primary text-inverse rounded-3xl">
+                <CardContent className="p-6 md:p-8">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <h3 className="title-card-white mb-1">
+                        info@dreamdrives.com
+                      </h3>
+                      <p className="text-inverse text-sm opacity-80">
+                        Send your email
+                      </p>
+                    </div>
+                    <div className="bg-white/10 p-3 rounded-lg">
+                      <Mail className="w-6 h-6 text-white" />
+                    </div>
                   </div>
-                  <div className="bg-white/10 p-3 rounded-lg">
-                    <Mail className="w-6 h-6 text-white" />
-                  </div>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             </StaggerItem>
           </StaggerContainer>
 
@@ -90,7 +101,7 @@ export default function ContactSection() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="rounded-xl"
+              className="rounded-3xl"
             ></iframe>
           </div>
         </div>

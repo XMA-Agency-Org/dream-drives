@@ -2,6 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Star, Zap, Settings, Gauge, Fuel, ArrowRight } from "lucide-react";
+import { Card, CardContent, CardFooter } from "@/components/ui/Card";
+import Button from "@/components/ui/Button";
 import { Car } from "@/types/car";
 import { formatBrandName } from "@/lib/formatters";
 import { getBrandIcon } from "@/lib/brand-icons";
@@ -18,14 +20,14 @@ export default function CarCard({ car, showFeatures = true }: CarCardProps) {
   const detailUrl = `/vehicles/${car.id}`;
 
   return (
-    <div className="group relative card card-shadow overflow-hidden h-full flex flex-col">
+    <Card className="group relative h-full overflow-hidden gap-0 p-0 py-0 border-0 rounded-3xl shadow-sm hover:shadow-md transition-all duration-200">
       {/* Accent top border with gradient */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-400 to-accent-600"></div>
 
       {/* Car Image - Clickable with larger size */}
       <Link
         href={detailUrl}
-        className="block card-image h-64 bg-gradient-to-b from-base-100 to-white dark:from-base-700 dark:to-base-800"
+        className="block relative rounded-3xl overflow-hidden h-64 bg-gradient-to-b from-base-100 to-white dark:from-base-700 dark:to-base-800 group/image"
       >
         {car.image ? (
           <>
@@ -34,14 +36,14 @@ export default function CarCard({ car, showFeatures = true }: CarCardProps) {
               alt={car.name}
               height={100}
               width={500}
-              className="object-cover p-0 w-full h-full transform group-hover:scale-105 transition-transform duration-500"
+              className="object-cover p-0 w-full h-full transform group-hover/image:scale-105 transition-transform duration-500"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               priority={
                 car.id.includes("mercedes") || car.id.includes("bentley")
               }
             />
             {/* Overlay using design system */}
-            <div className="card-overlay"></div>
+            <div className="absolute inset-0 bg-black/10 transition-all duration-400 group-hover/image:bg-black/0"></div>
           </>
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-base-200 to-base-300 dark:from-base-600 dark:to-base-700 flex items-center justify-center">
@@ -76,7 +78,7 @@ export default function CarCard({ car, showFeatures = true }: CarCardProps) {
       </Link>
 
       {/* Content */}
-      <div className="p-5 flex-1 flex flex-col">
+      <CardContent className="flex flex-1 flex-col px-5 py-5">
         {/* Car Name - Clickable */}
         <Link href={detailUrl} className="block">
           <h3 className="title-card mb-2 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">
@@ -89,7 +91,7 @@ export default function CarCard({ car, showFeatures = true }: CarCardProps) {
           <div className="grid grid-cols-2 gap-y-3 gap-x-2 mt-3 mb-4">
             {car.specs?.acceleration && (
               <div className="flex items-center">
-                <Zap className="w-4 h-4 text-muted mr-2 flex-shrink-0" />
+                <Zap className="w-4 h-4 text-body mr-2 flex-shrink-0" />
                 <span className="text-body text-sm">
                   {car.specs.acceleration}
                 </span>
@@ -97,7 +99,7 @@ export default function CarCard({ car, showFeatures = true }: CarCardProps) {
             )}
             {car.specs?.driveTrain && (
               <div className="flex items-center">
-                <Settings className="w-4 h-4 text-muted mr-2 flex-shrink-0" />
+                <Settings className="w-4 h-4 text-body mr-2 flex-shrink-0" />
                 <span className="text-body text-sm">
                   {car.specs.driveTrain}
                 </span>
@@ -105,13 +107,13 @@ export default function CarCard({ car, showFeatures = true }: CarCardProps) {
             )}
             {car.specs?.topSpeed && (
               <div className="flex items-center">
-                <Gauge className="w-4 h-4 text-muted mr-2 flex-shrink-0" />
+                <Gauge className="w-4 h-4 text-body mr-2 flex-shrink-0" />
                 <span className="text-body text-sm">{car.specs.topSpeed}</span>
               </div>
             )}
             {car.specs?.fuelConsumption && (
               <div className="flex items-center">
-                <Fuel className="w-4 h-4 text-muted mr-2 flex-shrink-0" />
+                <Fuel className="w-4 h-4 text-body mr-2 flex-shrink-0" />
                 <span className="text-body text-sm">
                   {car.specs.fuelConsumption}
                 </span>
@@ -126,12 +128,11 @@ export default function CarCard({ car, showFeatures = true }: CarCardProps) {
             {car.category.charAt(0).toUpperCase() + car.category.slice(1)}
           </span>
         </div>
+      </CardContent>
 
-        {/* Spacer */}
-        <div className="flex-grow"></div>
-
-        {/* Price and Action */}
-        <div className="flex justify-between items-center pt-4 mt-2 border-t border-base-200 dark:border-base-800">
+      {/* Price and Action */}
+      <div className="pb-5 px-5">
+        <CardFooter className="justify-between gap-4 border-t border-base-100 dark:border-base-800">
           <div>
             <span className="block text-2xl font-bold text-base-900 dark:text-white">
               AED {car.price}
@@ -140,15 +141,18 @@ export default function CarCard({ car, showFeatures = true }: CarCardProps) {
               per day
             </span>
           </div>
-          <Link
+          <Button
+            asLink
             href={detailUrl}
-            className="btn-sm btn-ghost-accent inline-flex items-center"
+            variant="ghost-accent"
+            size="sm"
+            rightIcon={<ArrowRight className="w-4 h-4" />}
+            className="font-normal"
           >
             View details
-            <ArrowRight className="ml-1.5 w-4 h-4" />
-          </Link>
-        </div>
+          </Button>
+        </CardFooter>
       </div>
-    </div>
+    </Card>
   );
 }
