@@ -67,11 +67,9 @@ export default function FilterSidebar() {
   
   // Brands state
   const [brands, setBrands] = useState([{ id: "all", label: "All Brands" }]);
-  const [brandsLoading, setBrandsLoading] = useState(true);
   
   // Categories state
   const [categories, setCategories] = useState([{ id: "all", label: "All Vehicles" }]);
-  const [categoriesLoading, setCategoriesLoading] = useState(true);
   
   // Get current filter values from URL
   const currentCategory = searchParams.get("category") || "all";
@@ -96,8 +94,6 @@ export default function FilterSidebar() {
         setBrands(fetchedBrands);
       } catch (error) {
         console.error('Error fetching brands:', error);
-      } finally {
-        setBrandsLoading(false);
       }
     };
     
@@ -113,8 +109,6 @@ export default function FilterSidebar() {
         setCategories(fetchedCategories);
       } catch (error) {
         console.error('Error fetching categories:', error);
-      } finally {
-        setCategoriesLoading(false);
       }
     };
     
@@ -317,8 +311,8 @@ export default function FilterSidebar() {
                 max={MAX_PRICE}
                 step={100}
                 value={priceRange}
-                onChange={handlePriceChange}
-                onChangeEnd={handlePriceChangeEnd}
+                onValueChange={handlePriceChange}
+                onValueCommit={handlePriceChangeEnd}
               />
               <div className="flex justify-between mt-2 text-sm text-base-600 dark:text-base-400">
                 <span>{formatPrice(priceRange[0])}</span>
@@ -338,8 +332,8 @@ export default function FilterSidebar() {
                 max={2025}
                 step={1}
                 value={yearRange}
-                onChange={handleYearChange}
-                onChangeEnd={handleYearChangeEnd}
+                onValueChange={handleYearChange}
+                onValueCommit={handleYearChangeEnd}
               />
               <div className="flex justify-between mt-2 text-sm text-base-600 dark:text-base-400">
                 <span>{yearRange[0]}</span>
@@ -465,8 +459,8 @@ export default function FilterSidebar() {
               max={MAX_PRICE}
               step={100}
               value={priceRange}
-              onChange={handlePriceChange}
-              onChangeEnd={handlePriceChangeEnd}
+              onValueChange={handlePriceChange}
+              onValueCommit={handlePriceChangeEnd}
             />
             <div className="flex justify-between mt-2 text-sm text-base-600 dark:text-base-400">
               <span>{formatPrice(priceRange[0])}</span>
@@ -486,8 +480,8 @@ export default function FilterSidebar() {
               max={2025}
               step={1}
               value={yearRange}
-              onChange={handleYearChange}
-              onChangeEnd={handleYearChangeEnd}
+              onValueChange={handleYearChange}
+              onValueCommit={handleYearChangeEnd}
             />
             <div className="flex justify-between mt-2 text-sm text-base-600 dark:text-base-400">
               <span>{yearRange[0]}</span>

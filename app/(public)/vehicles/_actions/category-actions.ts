@@ -54,9 +54,9 @@ export async function getCategories() {
       content_type: "vehicleCategory",
     });
 
-    const categories = response.items.map((item: any) => ({
-      id: item.fields.urlSlug,
-      label: item.fields.categoryName,
+    const categories = response.items.map((item) => ({
+      id: item.fields.urlSlug as string,
+      label: item.fields.categoryName as string,
     }));
 
     // Sort categories in a specific order

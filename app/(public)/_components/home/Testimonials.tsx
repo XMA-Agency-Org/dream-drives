@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import ScrollReveal from "@/lib/animations/ScrollReveal";
 import { Card, CardDescription } from "@/components/ui/Card";
 

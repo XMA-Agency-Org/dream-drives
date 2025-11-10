@@ -1,10 +1,6 @@
 // app/(public)/vehicles/_actions/car-database.ts
 import { Car } from "@/types/car";
 
-const convertToAED = (usdPrice: number): number => {
-  return Math.round(usdPrice/10 * 2) * 10;
-};
-
 // Updated car database featuring cars from the client's collection
 export const carsDatabase: Car[] = [
   // Mercedes-Benz Vehicles

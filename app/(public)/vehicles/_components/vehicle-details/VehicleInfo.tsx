@@ -5,7 +5,6 @@ import {
   Gauge,
   Users,
   Clock,
-  Zap,
   Shield,
   Award,
 } from "lucide-react";

@@ -21,7 +21,7 @@ interface LocationMapProps {
 }
 
 export default function LocationMap({ locations }: LocationMapProps) {
-  const [activeLocation, setActiveLocation] = useState<string>(
+  const [activeLocation] = useState<string>(
     locations[0]?.id || ""
   );
   const [mapLoaded, setMapLoaded] = useState(false);

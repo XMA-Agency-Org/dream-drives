@@ -4,7 +4,7 @@ import { Car } from "@/types/car";
 /**
  * Generates the absolute URL for a vehicle detail page
  */
-export function getVehicleUrl(carId: number, baseUrl: string = typeof window !== 'undefined' ? window.location.origin : ''): string {
+export function getVehicleUrl(carId: string, baseUrl: string = typeof window !== 'undefined' ? window.location.origin : ''): string {
   return `${baseUrl}/vehicles/${carId}`;
 }
 

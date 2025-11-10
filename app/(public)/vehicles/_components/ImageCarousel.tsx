@@ -1,7 +1,7 @@
 // app/(public)/vehicles/_components/ImageCarousel.tsx
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
@@ -20,20 +20,20 @@ export default function ImageCarousel({ images, altText }: ImageCarouselProps) {
   const [direction, setDirection] = useState(0); // -1 for left, 1 for right
 
   // Function to handle going to previous image
-  const handlePrevious = () => {
+  const handlePrevious = useCallback(() => {
     setDirection(-1);
     setCurrentImageIndex((prevIndex) =>
       prevIndex === 0 ? validImages.length - 1 : prevIndex - 1
     );
-  };
+  }, [validImages.length]);
 
   // Function to handle going to next image
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setDirection(1);
     setCurrentImageIndex((prevIndex) =>
       prevIndex === validImages.length - 1 ? 0 : prevIndex + 1
     );
-  };
+  }, [validImages.length]);
 
   // Handle keyboard navigation
   useEffect(() => {
@@ -49,7 +49,7 @@ export default function ImageCarousel({ images, altText }: ImageCarouselProps) {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [currentImageIndex, isFullscreen]);
+  }, [currentImageIndex, isFullscreen, handleNext, handlePrevious]);
 
   // Function to handle thumbnail click
   const handleThumbnailClick = (index: number) => {

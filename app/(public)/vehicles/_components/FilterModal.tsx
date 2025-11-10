@@ -92,13 +92,11 @@ export default function FilterModal() {
 
   // Brands state
   const [brands, setBrands] = useState([{ id: "all", label: "All Brands" }]);
-  const [brandsLoading, setBrandsLoading] = useState(true);
 
   // Categories state
   const [categories, setCategories] = useState([
     { id: "all", label: "All Vehicles" },
   ]);
-  const [categoriesLoading, setCategoriesLoading] = useState(true);
 
   // State for temporary filter values (before applying)
   const [tempFilters, setTempFilters] = useState({
@@ -143,8 +141,6 @@ export default function FilterModal() {
         setBrands(fetchedBrands);
       } catch (error) {
         console.error("Error fetching brands:", error);
-      } finally {
-        setBrandsLoading(false);
       }
     };
 
@@ -160,8 +156,6 @@ export default function FilterModal() {
         setCategories(fetchedCategories);
       } catch (error) {
         console.error("Error fetching categories:", error);
-      } finally {
-        setCategoriesLoading(false);
       }
     };
 

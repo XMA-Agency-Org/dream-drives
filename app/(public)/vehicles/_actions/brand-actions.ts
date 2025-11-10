@@ -57,9 +57,9 @@ export async function getBrands() {
       content_type: "carRentalBrand",
     });
 
-    const brands = response.items.map((item: any) => ({
-      id: item.fields.urlSlug,
-      label: item.fields.brandName,
+    const brands = response.items.map((item) => ({
+      id: item.fields.urlSlug as string,
+      label: item.fields.brandName as string,
     }));
 
     // Sort brands alphabetically by label

@@ -32,12 +32,14 @@ async function createContentTypes() {
             name: "Brand Name",
             type: "Symbol",
             required: true,
+            localized: false,
           },
           {
             id: "urlSlug",
             name: "URL Slug",
             type: "Symbol",
             required: true,
+            localized: false,
             validations: [{ unique: true }],
           },
           {
@@ -46,12 +48,14 @@ async function createContentTypes() {
             type: "Link",
             linkType: "Asset",
             required: false,
+            localized: false,
           },
           {
             id: "description",
             name: "Description",
             type: "Text",
             required: false,
+            localized: false,
           },
         ],
       }
@@ -79,12 +83,14 @@ async function createContentTypes() {
             name: "Category Name",
             type: "Symbol",
             required: true,
+            localized: false,
           },
           {
             id: "urlSlug",
             name: "URL Slug",
             type: "Symbol",
             required: true,
+            localized: false,
             validations: [{ unique: true }],
           },
           {
@@ -92,6 +98,7 @@ async function createContentTypes() {
             name: "Description",
             type: "Text",
             required: false,
+            localized: false,
           },
         ],
       }
@@ -119,12 +126,14 @@ async function createContentTypes() {
             name: "Vehicle Name",
             type: "Symbol",
             required: true,
+            localized: false,
           },
           {
             id: "urlSlug",
             name: "URL Slug",
             type: "Symbol",
             required: true,
+            localized: false,
             validations: [{ unique: true }],
           },
           {
@@ -132,12 +141,14 @@ async function createContentTypes() {
             name: "Description",
             type: "RichText",
             required: false,
+            localized: false,
           },
           {
             id: "dailyPrice",
             name: "Daily Price",
             type: "Integer",
             required: true,
+            localized: false,
           },
           {
             id: "brand",
@@ -145,6 +156,7 @@ async function createContentTypes() {
             type: "Link",
             linkType: "Entry",
             required: false,
+            localized: false,
             validations: [
               {
                 linkContentType: ["carRentalBrand"],
@@ -157,6 +169,7 @@ async function createContentTypes() {
             type: "Link",
             linkType: "Entry",
             required: false,
+            localized: false,
             validations: [
               {
                 linkContentType: ["vehicleCategory"],
@@ -168,54 +181,63 @@ async function createContentTypes() {
             name: "Passenger Count",
             type: "Integer",
             required: false,
+            localized: false,
           },
           {
             id: "doorCount",
             name: "Door Count",
             type: "Integer",
             required: false,
+            localized: false,
           },
           {
             id: "transmissionType",
             name: "Transmission Type",
             type: "Symbol",
             required: false,
+            localized: false,
           },
           {
             id: "airConditioning",
             name: "Air Conditioning",
             type: "Boolean",
             required: false,
+            localized: false,
           },
           {
             id: "accelerationTime",
             name: "Acceleration Time",
             type: "Symbol",
             required: false,
+            localized: false,
           },
           {
             id: "fuelConsumption",
             name: "Fuel Consumption",
             type: "Symbol",
             required: false,
+            localized: false,
           },
           {
             id: "features",
             name: "Features",
             type: "Text",
             required: false,
+            localized: false,
           },
           {
             id: "rating",
             name: "Rating",
             type: "Number",
             required: false,
+            localized: false,
           },
           {
             id: "reviewCount",
             name: "Review Count",
             type: "Integer",
             required: false,
+            localized: false,
           },
           {
             id: "mainImage",
@@ -223,12 +245,14 @@ async function createContentTypes() {
             type: "Link",
             linkType: "Asset",
             required: false,
+            localized: false,
           },
           {
             id: "imageGallery",
             name: "Image Gallery",
             type: "Array",
             required: false,
+            localized: false,
             items: {
               type: "Link",
               linkType: "Asset",
@@ -239,12 +263,14 @@ async function createContentTypes() {
             name: "Featured Flag",
             type: "Boolean",
             required: false,
+            localized: false,
           },
           {
             id: "availabilityStatus",
             name: "Availability Status",
             type: "Boolean",
             required: false,
+            localized: false,
           },
         ],
       }
@@ -263,4 +289,3 @@ async function createContentTypes() {
 }
 
 createContentTypes().catch(console.error);
-

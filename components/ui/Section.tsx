@@ -54,7 +54,7 @@ const Section = forwardRef<HTMLElement, SectionProps>(
   ) => {
     return (
       <Component
-        ref={ref as any}
+        ref={ref as never}
         className={cn(
           sectionVariants({ size, background, overflow, position }),
           className

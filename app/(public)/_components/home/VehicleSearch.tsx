@@ -153,7 +153,7 @@ export default function VehicleSearch({ className }: VehicleSearchProps) {
             text: item,
             type: (["Luxury", "Family"].includes(item)
               ? "category"
-              : "vehicle") as const,
+              : "vehicle") as "vehicle" | "brand" | "category",
           }));
 
         setSuggestions(basicSuggestions);
@@ -181,46 +181,55 @@ export default function VehicleSearch({ className }: VehicleSearchProps) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const handleSearch = (searchQuery: string) => {
-    if (!searchQuery.trim()) return;
+  const handleSearch = useCallback(
+    (searchQuery: string) => {
+      if (!searchQuery.trim()) return;
 
-    // Add to search history
-    const newHistory = [
-      searchQuery,
-      ...searchHistory.filter((h) => h !== searchQuery),
-    ].slice(0, 5);
-    setSearchHistory(newHistory);
-    localStorage.setItem("vehicle-search-history", JSON.stringify(newHistory));
+      // Add to search history
+      const newHistory = [
+        searchQuery,
+        ...searchHistory.filter((h) => h !== searchQuery),
+      ].slice(0, 5);
+      setSearchHistory(newHistory);
+      localStorage.setItem(
+        "vehicle-search-history",
+        JSON.stringify(newHistory)
+      );
 
-    // Navigate with search query
-    const params = new URLSearchParams(searchParams);
-    params.set("search", searchQuery);
-    params.delete("page"); // Reset to first page
-    router.push(`/vehicles?${params.toString()}`);
-
-    setIsOpen(false);
-    inputRef.current?.blur();
-  };
-
-  const handleSuggestionClick = (suggestion: SearchSuggestion) => {
-    setQuery(suggestion.text);
-
-    if (suggestion.type === "brand") {
+      // Navigate with search query
       const params = new URLSearchParams(searchParams);
-      params.set("brand", suggestion.text);
-      params.delete("q");
-      params.delete("page");
+      params.set("search", searchQuery);
+      params.delete("page"); // Reset to first page
       router.push(`/vehicles?${params.toString()}`);
-    } else if (suggestion.type === "category") {
-      const params = new URLSearchParams(searchParams);
-      params.set("category", suggestion.text);
-      params.delete("q");
-      params.delete("page");
-      router.push(`/vehicles?${params.toString()}`);
-    } else {
-      handleSearch(suggestion.text);
-    }
-  };
+
+      setIsOpen(false);
+      inputRef.current?.blur();
+    },
+    [searchHistory, searchParams, router]
+  );
+
+  const handleSuggestionClick = useCallback(
+    (suggestion: SearchSuggestion) => {
+      setQuery(suggestion.text);
+
+      if (suggestion.type === "brand") {
+        const params = new URLSearchParams(searchParams);
+        params.set("brand", suggestion.text);
+        params.delete("q");
+        params.delete("page");
+        router.push(`/vehicles?${params.toString()}`);
+      } else if (suggestion.type === "category") {
+        const params = new URLSearchParams(searchParams);
+        params.set("category", suggestion.text);
+        params.delete("q");
+        params.delete("page");
+        router.push(`/vehicles?${params.toString()}`);
+      } else {
+        handleSearch(suggestion.text);
+      }
+    },
+    [searchParams, router, handleSearch]
+  );
 
   const clearHistory = () => {
     setSearchHistory([]);
@@ -278,7 +287,15 @@ export default function VehicleSearch({ className }: VehicleSearchProps) {
           break;
       }
     },
-    [isOpen, selectedIndex, suggestions, query, searchHistory]
+    [
+      isOpen,
+      selectedIndex,
+      suggestions,
+      query,
+      searchHistory,
+      handleSearch,
+      handleSuggestionClick,
+    ]
   );
 
   // Quick filters for common actions
@@ -351,14 +368,6 @@ export default function VehicleSearch({ className }: VehicleSearchProps) {
   useEffect(() => {
     setSelectedIndex(-1);
   }, [suggestions]);
-
-  // Enhanced search function with analytics
-  const enhancedHandleSearch = useCallback((searchQuery: string) => {
-    if (!searchQuery.trim()) return;
-
-    trackSearchEvent("search_performed", searchQuery);
-    handleSearch(searchQuery);
-  }, []);
 
   return (
     <div className="relative mt-8 flex justify-center z-[100]">

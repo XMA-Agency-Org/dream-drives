@@ -1,5 +1,4 @@
 // app/(public)/vehicles/[id]/not-found.tsx
-import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Car, Search, Home } from "lucide-react";
@@ -21,7 +20,7 @@ export default function VehicleNotFound() {
           </h1>
 
           <p className="text-muted mb-8">
-            We couldn't find the vehicle you're looking for. It might have been
+            We couldn&apos;t find the vehicle you&apos;re looking for. It might have been
             removed or the link may be incorrect.
           </p>
 

@@ -5,7 +5,6 @@ import { getFilteredVehicles, getVehicleBySlug, getAllVehicles } from "@/lib/con
 import { MAX_PRICE } from "./car-config";
 import { DATA_SOURCE } from "@/lib/data-source-config";
 import { carsDatabase } from "./car-database";
-import { Car } from "@/types/car";
 
 interface GetCarsParams {
   category?: string;

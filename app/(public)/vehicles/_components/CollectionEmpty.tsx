@@ -1,5 +1,4 @@
 // app/(public)/vehicles/_components/CollectionEmpty.tsx
-import Link from "next/link";
 import { Car, SearchX, RefreshCw } from "lucide-react";
 import Button from "@/components/ui/Button";
 
