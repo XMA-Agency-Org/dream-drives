@@ -20,7 +20,7 @@ export default function VehicleNotFound() {
             Vehicle Not Found
           </h1>
 
-          <p className="text-body text-muted mb-8">
+          <p className="text-muted mb-8">
             We couldn't find the vehicle you're looking for. It might have been
             removed or the link may be incorrect.
           </p>

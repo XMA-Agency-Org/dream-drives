@@ -185,7 +185,7 @@ export default function PopularDeals({ category }: PopularDealsProps) {
                   onClick={() => setActiveCategory(cat.id as CategoryType)}
                   className={`px-6 py-3 rounded-xl text-sm font-medium transition-all cursor-pointer ${
                     activeCategory === cat.id
-                      ? "bg-primary-50 dark:bg-primary-900/30 border-2 border-base-700 text-accent-700 dark:text-accent-300 shadow-sm"
+                      ? "bg-primary-50 dark:bg-primary-900/30 border-2 border-base-700 text-primary-700 dark:text-primary-300 shadow-sm"
                       : "bg-base-50 dark:bg-base-800 border-2 border-transparent hover:border-base-300 dark:hover:border-base-600 text-body"
                   }`}
                 >
@@ -213,7 +213,7 @@ export default function PopularDeals({ category }: PopularDealsProps) {
             {loading ? (
               // Loading skeleton
               Array.from({ length: 3 }).map((_, i) => (
-                <div key={i} className="card p-4">
+                <div key={i} className="bg-surface p-4 rounded-3xl">
                   <div className="skeleton h-48 rounded-lg mb-4"></div>
                   <div className="skeleton h-4 rounded mb-2"></div>
                   <div className="skeleton h-4 rounded w-3/4"></div>

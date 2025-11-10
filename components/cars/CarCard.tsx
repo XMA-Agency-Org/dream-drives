@@ -20,9 +20,9 @@ export default function CarCard({ car, showFeatures = true }: CarCardProps) {
   const detailUrl = `/vehicles/${car.id}`;
 
   return (
-    <Card className="group relative h-full overflow-hidden gap-0 p-0 py-0 border-0 rounded-3xl shadow-sm hover:shadow-md transition-all duration-200">
+    <Card className="group relative h-full overflow-hidden gap-0 p-0 border-0 rounded-3xl shadow-sm hover:shadow-md transition-all duration-200">
       {/* Accent top border with gradient */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-400 to-accent-600"></div>
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-400 to-primary-600"></div>
 
       {/* Car Image - Clickable with larger size */}
       <Link
@@ -43,7 +43,7 @@ export default function CarCard({ car, showFeatures = true }: CarCardProps) {
               }
             />
             {/* Overlay using design system */}
-            <div className="absolute inset-0 bg-black/10 transition-all duration-400 group-hover/image:bg-black/0"></div>
+            <div className="absolute inset-0 bg-black/10 transition-all duration-300 group-hover/image:bg-black/0"></div>
           </>
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-base-200 to-base-300 dark:from-base-600 dark:to-base-700 flex items-center justify-center">
@@ -81,9 +81,7 @@ export default function CarCard({ car, showFeatures = true }: CarCardProps) {
       <CardContent className="flex flex-1 flex-col px-5 py-5">
         {/* Car Name - Clickable */}
         <Link href={detailUrl} className="block">
-          <h3 className="title-card mb-2 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">
-            {car.name}
-          </h3>
+          <h3 className="title-card mb-2">{car.name}</h3>
         </Link>
 
         {/* Car Performance Specs - Optional */}
@@ -137,9 +135,7 @@ export default function CarCard({ car, showFeatures = true }: CarCardProps) {
             <span className="block text-2xl font-bold text-base-900 dark:text-white">
               AED {car.price}
             </span>
-            <span className="text-accent-600 dark:text-accent-400 text-sm font-medium">
-              per day
-            </span>
+            <span className="text-default text-sm font-medium">per day</span>
           </div>
           <Button
             asLink

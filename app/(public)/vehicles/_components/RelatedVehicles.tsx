@@ -35,7 +35,7 @@ export default function RelatedVehicles({ cars }: RelatedVehiclesProps) {
         <div className="text-center">
           <Link
             href="/vehicles"
-            className="inline-flex items-center text-accent-600 dark:text-accent-400 font-medium hover:text-accent-700 dark:hover:text-accent-300 transition-colors"
+            className="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
           >
             View all vehicles
             <ArrowRight className="ml-2 w-4 h-4" />

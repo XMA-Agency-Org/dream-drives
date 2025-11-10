@@ -36,7 +36,7 @@ const FilterSection = ({ title, isOpen, onToggle, children }: FilterSectionProps
   <div className="border-b border-base-200 dark:border-base-700 py-4">
     <button
       onClick={onToggle}
-      className="flex items-center justify-between w-full text-left font-semibold text-base-900 dark:text-white hover:text-accent-600 dark:hover:text-accent-400 transition-colors cursor-pointer"
+      className="flex items-center justify-between w-full text-left font-semibold text-base-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors cursor-pointer"
     >
       {title}
       {isOpen ? (
@@ -275,7 +275,7 @@ export default function FilterSidebar() {
                 onClick={() => handleCategoryChange(category.id)}
                 className={`w-full text-left px-4 py-2.5 rounded-lg transition-all cursor-pointer ${
                   currentCategory === category.id
-                    ? "bg-primary-50 dark:bg-primary-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 font-medium"
+                    ? "bg-primary-50 dark:bg-primary-900/30 border-2 border-primary-500 text-primary-700 dark:text-primary-300 font-medium"
                     : "bg-base-50 dark:bg-base-800 border-2 border-transparent hover:border-base-300 dark:hover:border-base-600 text-body"
                 }`}
               >
@@ -296,7 +296,7 @@ export default function FilterSidebar() {
                   onClick={() => handleBrandChange(brand.id)}
                   className={`w-full text-left px-4 py-2.5 rounded-lg transition-all cursor-pointer ${
                     currentBrand === brand.id
-                      ? "bg-primary-50 dark:bg-primary-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 font-medium"
+                      ? "bg-primary-50 dark:bg-primary-900/30 border-2 border-primary-500 text-primary-700 dark:text-primary-300 font-medium"
                       : "bg-base-50 dark:bg-base-800 border-2 border-transparent hover:border-base-300 dark:hover:border-base-600 text-body"
                   }`}
                 >
@@ -359,7 +359,7 @@ export default function FilterSidebar() {
                 onClick={() => handlePassengerChange(option.value)}
                 className={`w-full text-left px-4 py-2.5 rounded-lg transition-all cursor-pointer ${
                   currentPassengers === option.value
-                    ? "bg-primary-50 dark:bg-primary-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 font-medium"
+                    ? "bg-primary-50 dark:bg-primary-900/30 border-2 border-primary-500 text-primary-700 dark:text-primary-300 font-medium"
                     : "bg-base-50 dark:bg-base-800 border-2 border-transparent hover:border-base-300 dark:hover:border-base-600 text-body"
                 }`}
               >
@@ -390,7 +390,7 @@ export default function FilterSidebar() {
       </div>
 
       {/* Desktop Filter Sidebar */}
-      <div className="hidden lg:block sticky top-24 card card-shadow card-body">
+      <div className="hidden lg:block sticky top-24 bg-surface rounded-3xl p-6">
         <div className="flex justify-between items-center mb-6">
           <h2 className="font-bold text-lg text-base-900 dark:text-white">Filters</h2>
           {/* Show clear button if any filters are applied */}
@@ -423,7 +423,7 @@ export default function FilterSidebar() {
               onClick={() => handleCategoryChange(category.id)}
               className={`w-full text-left px-4 py-2.5 rounded-lg transition-all cursor-pointer ${
                 currentCategory === category.id
-                  ? "bg-primary-50 dark:bg-primary-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 font-medium"
+                  ? "bg-primary-50 dark:bg-primary-900/30 border-2 border-primary-500 text-primary-700 dark:text-primary-300 font-medium"
                   : "bg-base-50 dark:bg-base-800 border-2 border-transparent hover:border-base-300 dark:hover:border-base-600 text-body"
               }`}
             >
@@ -444,7 +444,7 @@ export default function FilterSidebar() {
                 onClick={() => handleBrandChange(brand.id)}
                 className={`w-full text-left px-4 py-2.5 rounded-lg transition-all cursor-pointer ${
                   currentBrand === brand.id
-                    ? "bg-primary-50 dark:bg-primary-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 font-medium"
+                    ? "bg-primary-50 dark:bg-primary-900/30 border-2 border-primary-500 text-primary-700 dark:text-primary-300 font-medium"
                     : "bg-base-50 dark:bg-base-800 border-2 border-transparent hover:border-base-300 dark:hover:border-base-600 text-body"
                 }`}
               >
@@ -507,7 +507,7 @@ export default function FilterSidebar() {
               onClick={() => handlePassengerChange(option.value)}
               className={`w-full text-left px-4 py-2.5 rounded-lg transition-all cursor-pointer ${
                 currentPassengers === option.value
-                  ? "bg-primary-50 dark:bg-primary-900/30 border-2 border-accent-500 text-accent-700 dark:text-accent-300 font-medium"
+                  ? "bg-primary-50 dark:bg-primary-900/30 border-2 border-primary-500 text-primary-700 dark:text-primary-300 font-medium"
                   : "bg-base-50 dark:bg-base-800 border-2 border-transparent hover:border-base-300 dark:hover:border-base-600 text-body"
               }`}
             >

@@ -9,8 +9,8 @@ export default function HeroSection() {
   return (
     <section className="relative bg-base-50/30 dark:bg-base-950 z-20">
       {/* Decorative circles */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border-[80px] border-gray-200/30 -translate-y-1/3 translate-x-1/4 xl:hidden z-[-1]"></div>
-      <div className="absolute top-20 right-20 w-[600px] h-[600px] rounded-full border-[60px] border-gray-200/30 translate-x-1/4 xl:hidden z-[-1]"></div>
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border-[80px] border-base-200/30 -translate-y-1/3 translate-x-1/4 xl:hidden z-[-1]"></div>
+      <div className="absolute top-20 right-20 w-[600px] h-[600px] rounded-full border-[60px] border-base-200/30 translate-x-1/4 xl:hidden z-[-1]"></div>
 
       {/* Background art element */}
       <div className="absolute top-[375px] left-[650px] xl:left-1/2  -translate-x-1/4 -translate-y-1/2 w-[700px] h-[700px] md:w-[750px] md:h-[750px] lg:w-[800px] lg:h-[800px] pointer-events-none z-[-1]">
@@ -81,8 +81,7 @@ export default function HeroSection() {
                   alt="g-wagon"
                   fill
                   priority
-                  className="object-contain object-top drop-shadow-2xl"
-                  style={{ transform: "scale(1.1)" }}
+                  className="object-contain object-top drop-shadow-2xl scale-110"
                 />
               </div>
             </div>

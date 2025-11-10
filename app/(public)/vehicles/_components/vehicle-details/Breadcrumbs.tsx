@@ -13,7 +13,7 @@ export default function Breadcrumbs({ carName }: BreadcrumbsProps) {
         <li className="flex items-center">
           <Link
             href="/"
-            className="hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
+            className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
           >
             Home
           </Link>
@@ -22,7 +22,7 @@ export default function Breadcrumbs({ carName }: BreadcrumbsProps) {
         <li className="flex items-center">
           <Link
             href="/vehicles"
-            className="hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
+            className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
           >
             Vehicles
           </Link>

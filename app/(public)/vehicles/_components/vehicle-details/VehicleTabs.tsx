@@ -30,7 +30,7 @@ export default function VehicleTabs({
 
   return (
     <div className="mt-10">
-      <div className="border-b border-light">
+      <div className="border-b border-default">
         <div className="flex space-x-8">
           <button
             onClick={() => setActiveTab("description")}
@@ -58,7 +58,7 @@ export default function VehicleTabs({
       {/* Tab Content */}
       <div className="py-8">
         {activeTab === "description" && (
-          <div className="prose prose-lg dark:prose-invert max-w-none">
+          <div className="max-w-none">
             <h2 className="title-card mb-4">About this vehicle</h2>
             <p className="text-body">
               {car.description ||
@@ -67,7 +67,7 @@ export default function VehicleTabs({
 
             {car.specs?.features && car.specs.features.length > 0 && (
               <div className="mt-6">
-                <h3 className="title-card-sm mb-3">Key Features</h3>
+                <h3 className="title-card mb-3">Key Features</h3>
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                   {car.specs.features.map((feature, index) => (
                     <li key={index} className="flex items-start">
@@ -90,7 +90,7 @@ export default function VehicleTabs({
             {specificationItems.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {specificationItems.map((item, index) => (
-                  <div key={index} className="card card-bordered p-4">
+                  <div key={index} className="bg-surface p-4 rounded-3xl">
                     <div className="flex items-center mb-2">
                       <div className="mr-2 text-accent">{item.icon}</div>
                       <h3 className="text-sm font-medium">{item.label}</h3>

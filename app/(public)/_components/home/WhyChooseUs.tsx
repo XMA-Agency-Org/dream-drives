@@ -13,25 +13,25 @@ interface Feature {
 export default function WhyChooseUs() {
   const features: Feature[] = [
     {
-      icon: <Briefcase className="text-accent-500 h-6 w-6" />,
+      icon: <Briefcase className="text-primary-500 h-6 w-6" />,
       title: "Best price guaranteed",
       description:
         "Find a lower price? We'll refund you 100% of the difference.",
     },
     {
-      icon: <User className="text-accent-500 h-6 w-6" />,
+      icon: <User className="text-primary-500 h-6 w-6" />,
       title: "Experience driver",
       description:
         "Don't have driver? Don't worry, we have many experienced driver for you.",
     },
     {
-      icon: <Car className="text-accent-500 h-6 w-6" />,
+      icon: <Car className="text-primary-500 h-6 w-6" />,
       title: "24 hour car delivery",
       description:
         "Book your car anytime and we will deliver it directly to you.",
     },
     {
-      icon: <Headset className="text-accent-500 h-6 w-6" />,
+      icon: <Headset className="text-primary-500 h-6 w-6" />,
       title: "24/7 technical support",
       description:
         "Have a question? Contact Rentcars support any time when you have problem.",
@@ -54,7 +54,7 @@ export default function WhyChooseUs() {
   return (
     <div
       ref={sectionRef}
-      className="relative bg-base-50 dark:bg-[#0b102b] min-h-[600px] overflow-hidden"
+      className="relative bg-base-50 dark:bg-base-950 min-h-[600px] overflow-hidden"
     >
       {/* Car absolute positioned at bottom left with Framer Motion animation */}
       <div className="hidden lg:block absolute bottom-0 left-0 z-10">
@@ -73,7 +73,7 @@ export default function WhyChooseUs() {
       {/* Diagonal background shape */}
       <div className="absolute inset-0 z-0">
         <div
-          className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-br from-base-100 to-base-200 dark:from-[#131c3f] dark:to-[#0d1229] opacity-80"
+          className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-br from-base-100 to-base-200 dark:from-base-900 dark:to-base-950 opacity-80"
           style={{
             clipPath: "polygon(0 30%, 40% 0, 40% 100%, 0% 100%)",
           }}
@@ -83,7 +83,7 @@ export default function WhyChooseUs() {
       {/* Content container - positioned to the right */}
       <div className="container-default py-24 relative z-20">
         <div className="flex justify-end">
-          <div className="w-full lg:w-1/2 lg:pl-12 card-glass p-6 lg:p-8">
+          <div className="w-full lg:w-1/2 lg:pl-12 bg-surface rounded-3xl p-6 lg:p-8">
             {/* Header */}
             <div className="mb-12">
               <p className="subtitle mb-4">WHY CHOOSE US</p>
@@ -100,9 +100,7 @@ export default function WhyChooseUs() {
                     {feature.icon}
                   </div>
                   <div className="mt-3">
-                    <h3 className="title-card-sm mb-2">
-                      {feature.title}
-                    </h3>
+                    <h3 className="title-card mb-2">{feature.title}</h3>
                     <p className="text-muted leading-relaxed">
                       {feature.description}
                     </p>

@@ -25,11 +25,11 @@ export default function VehicleInfo({ car }: VehicleInfoProps) {
   const brandName = formatBrandName(car.brand);
 
   return (
-    <div className="card card-shadow p-12 shadow-sm rounded-3xl">
+    <div className="bg-surface p-12 shadow-sm rounded-3xl">
       <div className="flex justify-between items-start mb-4">
         <div>
           <div className="badge badge-base mb-2">{brandName}</div>
-          <h1 className="title-card-lg mb-2">{car.name}</h1>
+          <h1 className="title-card mb-2">{car.name}</h1>
           <div className="flex items-center">
             <StarRating
               rating={car.rating}
@@ -45,19 +45,19 @@ export default function VehicleInfo({ car }: VehicleInfoProps) {
       {/* Quick Info */}
       <div className="border-t border-b border-base-200 dark:border-base-800 py-4 my-4 grid grid-cols-2 gap-y-3">
         <div className="flex items-center">
-          <Users className="w-5 h-5 text-accent-500 dark:text-accent-400 mr-2" />
+          <Users className="w-5 h-5 text-primary-500 dark:text-primary-400 mr-2" />
           <span className="text-body">{car.passengers} Passengers</span>
         </div>
         <div className="flex items-center">
-          <DoorOpen className="w-5 h-5 text-accent-500 dark:text-accent-400 mr-2" />
+          <DoorOpen className="w-5 h-5 text-primary-500 dark:text-primary-400 mr-2" />
           <span className="text-body">{car.doors} Doors</span>
         </div>
         <div className="flex items-center">
-          <Gauge className="w-5 h-5 text-accent-500 dark:text-accent-400 mr-2" />
+          <Gauge className="w-5 h-5 text-primary-500 dark:text-primary-400 mr-2" />
           <span className="text-body">{car.transmission}</span>
         </div>
         <div className="flex items-center">
-          <Fuel className="w-5 h-5 text-accent-500 dark:text-accent-400 mr-2" />
+          <Fuel className="w-5 h-5 text-primary-500 dark:text-primary-400 mr-2" />
           <span className="text-body">{car.specs?.fuelType || "Gasoline"}</span>
         </div>
       </div>
@@ -70,7 +70,6 @@ export default function VehicleInfo({ car }: VehicleInfoProps) {
             currency="AED"
             period="day"
             size="lg"
-            className="text-accent-600 dark:text-accent-400"
           />
           <div className="text-body text-sm">+AED 75 booking fee</div>
         </div>
@@ -83,7 +82,7 @@ export default function VehicleInfo({ car }: VehicleInfoProps) {
       {/* Benefits */}
       <div className="space-y-3 text-sm">
         <div className="flex items-start">
-          <div className="mt-0.5 mr-2 text-accent-500 dark:text-accent-400">
+          <div className="mt-0.5 mr-2 text-primary-500 dark:text-primary-400">
             <Clock className="w-4 h-4" />
           </div>
           <div className="text-body">
@@ -95,7 +94,7 @@ export default function VehicleInfo({ car }: VehicleInfoProps) {
         </div>
 
         <div className="flex items-start">
-          <div className="mt-0.5 mr-2 text-accent-500 dark:text-accent-400">
+          <div className="mt-0.5 mr-2 text-primary-500 dark:text-primary-400">
             <Shield className="w-4 h-4" />
           </div>
           <div className="text-body">
@@ -107,7 +106,7 @@ export default function VehicleInfo({ car }: VehicleInfoProps) {
         </div>
 
         <div className="flex items-start">
-          <div className="mt-0.5 mr-2 text-accent-500 dark:text-accent-400">
+          <div className="mt-0.5 mr-2 text-primary-500 dark:text-primary-400">
             <Award className="w-4 h-4" />
           </div>
           <div className="text-body">

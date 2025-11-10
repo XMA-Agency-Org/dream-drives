@@ -136,7 +136,7 @@ const Header: React.FC = () => {
                   <button
                     className={`px-4 py-2 text-sm font-semibold rounded-md transition-colors flex items-center cursor-pointer
                       text-base-900 dark:text-white
-                      hover:text-accent-600 dark:hover:text-accent-400`}
+                      hover:text-primary-600 dark:hover:text-primary-400`}
                   >
                     {item.label}
                     <ChevronDown className="h-4 w-4 ml-1 opacity-70" />
@@ -146,7 +146,7 @@ const Header: React.FC = () => {
                     href={item.href}
                     className={`px-4 py-2 text-sm font-semibold rounded-md transition-colors
                       text-base-900 dark:text-white
-                      hover:text-accent-600 dark:hover:text-accent-400`}
+                      hover:text-primary-600 dark:hover:text-primary-400`}
                   >
                     {item.label}
                   </Link>

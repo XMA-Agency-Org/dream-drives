@@ -120,7 +120,7 @@ export default function Testimonials() {
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
         {/* Gradient background */}
-        <div className="absolute top-0 left-0 w-full h-full bg-linear-to-br from-accent-50/30 to-transparent dark:from-accent-900/10 dark:to-transparent"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-linear-to-br from-primary-50/30 to-transparent dark:from-primary-900/10 dark:to-transparent"></div>
       </div>
 
       <div className="container-default">
@@ -193,7 +193,7 @@ export default function Testimonials() {
                             </span>
                           </div>
 
-                          <CardDescription className="text-body text-base italic leading-relaxed mb-8">
+                          <CardDescription className="text-body italic leading-relaxed mb-8">
                             {testimonial.text}
                           </CardDescription>
 
@@ -205,7 +205,7 @@ export default function Testimonials() {
                             <div className="flex flex-col sm:flex-row sm:items-center mt-2">
                               {testimonial.position && (
                                 <>
-                                  <span className="text-accent-600 dark:text-accent-400 text-sm">
+                                  <span className="text-primary-600 dark:text-primary-400 text-sm">
                                     {testimonial.position}
                                   </span>
                                   <span className="hidden sm:block mx-2 text-base-400">
@@ -235,7 +235,7 @@ export default function Testimonials() {
             <div className="mt-8 flex items-center justify-center gap-6">
               <button
                 onClick={handlePrev}
-                className="cursor-pointer btn-icon bg-white dark:bg-base-800 text-base-600 dark:text-base-400 hover:text-accent-600 dark:hover:text-accent-400 shadow-md transition-colors"
+                className="cursor-pointer btn-icon bg-white dark:bg-base-800 text-base-600 dark:text-base-400 hover:text-primary-600 dark:hover:text-primary-400 shadow-md transition-colors"
                 disabled={animating}
                 aria-label="Previous testimonial"
               >
@@ -260,7 +260,7 @@ export default function Testimonials() {
 
               <button
                 onClick={handleNext}
-                className="cursor-pointer btn-icon bg-white dark:bg-base-800 text-base-600 dark:text-base-400 hover:text-accent-600 dark:hover:text-accent-400 shadow-md transition-colors"
+                className="cursor-pointer btn-icon bg-white dark:bg-base-800 text-base-600 dark:text-base-400 hover:text-primary-600 dark:hover:text-primary-400 shadow-md transition-colors"
                 disabled={animating}
                 aria-label="Next testimonial"
               >

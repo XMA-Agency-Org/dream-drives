@@ -56,13 +56,13 @@ export default async function BrandsPage() {
               <Link
                 key={brand.id}
                 href={`/vehicles?brand=${brand.id}`}
-                className="group shadow-sm rounded-3xl p-6 hover:border-accent-200 dark:hover:border-accent-700 transition-all duration-300"
+                className="group shadow-sm rounded-3xl p-6 hover:border-primary-200 dark:hover:border-primary-700 transition-all duration-300"
               >
                 <div className="flex flex-col items-center text-center space-y-4">
                   <div className="w-16 h-16 md:w-20 md:h-20 relative flex items-center justify-center">
                     {getBrandIcon(brand.id)}
                   </div>
-                  <h3 className="font-semibold text-base-900 dark:text-white group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">
+                  <h3 className="font-semibold text-base-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                     {brand.label}
                   </h3>
                 </div>

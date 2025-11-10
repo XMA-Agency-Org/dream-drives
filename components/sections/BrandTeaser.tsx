@@ -6,7 +6,7 @@ export default function BrandTeaser() {
       <div className="container-default">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Card */}
-          <div className="card-image h-[500px] group">
+          <div className="relative h-[500px] group">
             <Image
               src="/landing-redesign/ahmed-aldaie-lVSrpZ-0B8o-unsplash-opt.jpg"
               alt="Luxury car on city street"
@@ -14,11 +14,11 @@ export default function BrandTeaser() {
               className="object-cover"
             />
             {/* Overlay */}
-            <div className="card-overlay"></div>
+            <div className="absolute inset-0 bg-black/40"></div>
 
             {/* Content */}
             <div className="absolute top-8 left-8 right-8">
-              <div className="card-filled-primary text-center">
+              <div className="bg-primary rounded-3xl text-center p-6">
                 <h3 className="title-card-white mb-2">
                   Experience luxury car rentals in Dubai
                 </h3>
@@ -33,7 +33,7 @@ export default function BrandTeaser() {
           </div>
 
           {/* Right Card */}
-          <div className="card-image h-[500px] group">
+          <div className="relative h-[500px] group">
             <Image
               src="/landing-redesign/zafeerah-heesambee-bXsJnwcIykw-unsplash.jpg"
               alt="Premium car rental service in Dubai"
@@ -41,11 +41,11 @@ export default function BrandTeaser() {
               className="object-cover"
             />
             {/* Overlay */}
-            <div className="card-overlay"></div>
+            <div className="absolute inset-0 bg-black/40"></div>
 
             {/* Content */}
             <div className="absolute bottom-8 left-8 right-8">
-              <div className="card-filled-primary-light text-center">
+              <div className="bg-primary/80 rounded-3xl text-center p-6">
                 <h3 className="title-card-white mb-2">
                   Transparent pricing across Dubai
                 </h3>

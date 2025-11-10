@@ -125,7 +125,12 @@ export default function ContactUsPage() {
               </ScrollReveal>
 
               {/* Locations Info */}
-              <ScrollReveal variant="slideLeft" delay={0.2} duration={0.8}>
+              <ScrollReveal
+                variant="slideLeft"
+                delay={0.2}
+                duration={0.8}
+                animateOnMount
+              >
                 <div>
                   <h2 className="title-subsection mb-4">Our Location</h2>
                   <p className="text-body mb-6">
@@ -138,25 +143,25 @@ export default function ContactUsPage() {
 
                       <div className="space-y-3">
                         <div className="flex items-start">
-                          <MapPin className="text-body w-5 h-5  mr-3 shrink-0 mt-0.5" />
+                          <MapPin className="text-body w-5 h-5 mr-3 shrink-0 mt-0.5" />
                           <span className="text-body">{location.address}</span>
                         </div>
 
                         <div className="flex items-start">
-                          <Phone className="text-body w-5 h-5  mr-3 shrink-0 mt-0.5" />
+                          <Phone className="text-body w-5 h-5 mr-3 shrink-0 mt-0.5" />
                           <a
                             href={`tel:${location.phone.replace(/\D/g, "")}`}
-                            className="text-body hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
+                            className="text-body hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                           >
                             {location.phone}
                           </a>
                         </div>
 
                         <div className="flex items-start">
-                          <Mail className="text-body w-5 h-5  mr-3 shrink-0 mt-0.5" />
+                          <Mail className="text-body w-5 h-5 mr-3 shrink-0 mt-0.5" />
                           <a
                             href={`mailto:${location.email}`}
-                            className="text-body hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
+                            className="text-body hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                           >
                             {location.email}
                           </a>
@@ -176,7 +181,7 @@ export default function ContactUsPage() {
             <ScrollReveal variant="fadeUp">
               <div className="section-header">
                 <h2 className="title-section mb-4">Find Us</h2>
-                <p className="text-body  max-w-2xl mx-auto">
+                <p className="text-body max-w-2xl mx-auto">
                   We are here for you in Dubai – book your car today, deposit
                   free.
                 </p>

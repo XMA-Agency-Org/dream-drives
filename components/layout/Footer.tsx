@@ -167,7 +167,7 @@ export default function Footer() {
               href="https://xma.ae"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-accent-400 hover:text-accent-300 transition-colors font-medium"
+              className="text-primary-400 hover:text-primary-300 transition-colors font-medium"
             >
               XMA
             </a>
