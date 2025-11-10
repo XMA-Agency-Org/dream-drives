@@ -13,11 +13,8 @@ export default function Footer() {
   ];
 
   const vehicleTypes = [
-    { name: "Luxury Sedans", href: "/vehicles?category=luxury" },
-    { name: "Premium SUVs", href: "/vehicles?category=suv" },
-    { name: "Sports Cars", href: "/vehicles?category=sports" },
-    { name: "Minivans", href: "/vehicles?category=minivan" },
-    { name: "Economy Cars", href: "/vehicles?category=economy" },
+    { name: "Luxury Cars", href: "/vehicles?category=luxury" },
+    { name: "Family Cars", href: "/vehicles?category=family" },
   ];
 
   const brands = [
