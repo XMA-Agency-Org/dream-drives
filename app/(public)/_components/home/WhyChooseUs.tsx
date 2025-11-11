@@ -13,25 +13,25 @@ interface Feature {
 export default function WhyChooseUs() {
   const features: Feature[] = [
     {
-      icon: <Briefcase className="text-primary-400 h-6 w-6" />,
+      icon: <Briefcase className="text-primary-500 h-6 w-6" />,
       title: "Best price guaranteed",
       description:
         "Find a lower price? We'll refund you 100% of the difference.",
     },
     {
-      icon: <User className="text-primary-400 h-6 w-6" />,
+      icon: <User className="text-primary-500 h-6 w-6" />,
       title: "Experience driver",
       description:
         "Don't have driver? Don't worry, we have many experienced driver for you.",
     },
     {
-      icon: <Car className="text-primary-400 h-6 w-6" />,
+      icon: <Car className="text-primary-500 h-6 w-6" />,
       title: "24 hour car delivery",
       description:
         "Book your car anytime and we will deliver it directly to you.",
     },
     {
-      icon: <Headset className="text-primary-400 h-6 w-6" />,
+      icon: <Headset className="text-primary-500 h-6 w-6" />,
       title: "24/7 technical support",
       description:
         "Have a question? Contact Rentcars support any time when you have problem.",
@@ -54,7 +54,7 @@ export default function WhyChooseUs() {
   return (
     <div
       ref={sectionRef}
-      className="relative bg-[#0b102b] min-h-[600px] overflow-hidden"
+      className="relative bg-base-50 dark:bg-base-950 min-h-[600px] overflow-hidden"
     >
       {/* Car absolute positioned at bottom left with Framer Motion animation */}
       <div className="hidden lg:block absolute bottom-0 left-0 z-10">
@@ -73,25 +73,21 @@ export default function WhyChooseUs() {
       {/* Diagonal background shape */}
       <div className="absolute inset-0 z-0">
         <div
-          className="absolute bottom-0 left-0 w-full h-full"
+          className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-br from-base-100 to-base-200 dark:from-base-900 dark:to-base-950 opacity-80"
           style={{
             clipPath: "polygon(0 30%, 40% 0, 40% 100%, 0% 100%)",
-            background: "linear-gradient(135deg, #131c3f 0%, #0d1229 100%)",
-            opacity: 0.8,
           }}
         ></div>
       </div>
 
       {/* Content container - positioned to the right */}
-      <div className="max-w-7xl mx-auto px-4 py-24 relative z-20">
+      <div className="container-default py-24 relative z-20">
         <div className="flex justify-end">
-          <div className="w-full lg:w-1/2 lg:pl-12">
+          <div className="w-full lg:w-1/2 lg:pl-12 bg-surface rounded-3xl p-6 lg:p-8">
             {/* Header */}
             <div className="mb-12">
-              <div className="inline-block bg-blue-600 text-white text-xs font-medium px-4 py-2 rounded-md uppercase tracking-wider mb-4">
-                WHY CHOOSE US
-              </div>
-              <h2 className="text-white text-3xl md:text-4xl font-bold mb-8">
+              <p className="subtitle mb-4">WHY CHOOSE US</p>
+              <h2 className="title-section mb-8">
                 We offer the best experience with our rental deals
               </h2>
             </div>
@@ -100,14 +96,12 @@ export default function WhyChooseUs() {
             <div className="space-y-8">
               {features.map((feature, index) => (
                 <div key={index} className="flex items-start">
-                  <div className="bg-primary-100 dark:bg-primary-900/40 rounded-full aspect-square w-14 h-14 flex items-center justify-center mr-4" >
+                  <div className="icon-container icon-container-accent mr-4">
                     {feature.icon}
                   </div>
                   <div className="mt-3">
-                    <h3 className="text-white text-lg font-semibold mb-2">
-                      {feature.title}
-                    </h3>
-                    <p className="text-gray-400 leading-relaxed">
+                    <h3 className="title-card mb-2">{feature.title}</h3>
+                    <p className="text-muted leading-relaxed">
                       {feature.description}
                     </p>
                   </div>

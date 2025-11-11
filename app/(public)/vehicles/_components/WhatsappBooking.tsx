@@ -22,11 +22,11 @@ export default function WhatsappBooking({
   const handleWhatsAppBooking = () => {
     // The phone number should be replaced with your actual business phone number
     // Format: Country code without + and then the number, e.g., 1XXXXXXXXXX for US
-    const phoneNumber = "+971563626000";
+    const phoneNumber = "+971545555402";
 
     // Create a template message with the car details and luxury service offering
     const message = `
-Hello 4MATIC Luxury Car Rental,
+Hello Dream Drives Luxury Car Rental,
 
 I'm interested in booking the ${brandName} ${car.name}.
 
@@ -54,7 +54,7 @@ Thank you.
 
   return (
     <Button
-      variant="primary"
+      variant="accent"
       fullWidth
       size="lg"
       icon={<Phone className="w-5 h-5" />}

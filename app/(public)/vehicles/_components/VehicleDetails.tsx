@@ -14,12 +14,12 @@ interface VehicleDetailsProps {
 
 export default function VehicleDetails({ car }: VehicleDetailsProps) {
   const [activeTab, setActiveTab] = useState<"description" | "specs">(
-    "description",
+    "description"
   );
 
   return (
-    <div className="py-12">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
+    <div className="section">
+      <div className="container-default">
         {/* Breadcrumbs */}
         <Breadcrumbs carName={car.name} />
 

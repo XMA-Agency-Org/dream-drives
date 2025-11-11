@@ -4,7 +4,7 @@ import { Car } from "@/types/car";
 /**
  * Generates the absolute URL for a vehicle detail page
  */
-export function getVehicleUrl(carId: number, baseUrl: string = typeof window !== 'undefined' ? window.location.origin : ''): string {
+export function getVehicleUrl(carId: string, baseUrl: string = typeof window !== 'undefined' ? window.location.origin : ''): string {
   return `${baseUrl}/vehicles/${carId}`;
 }
 
@@ -13,8 +13,8 @@ export function getVehicleUrl(carId: number, baseUrl: string = typeof window !==
  */
 export async function shareVehicle(car: Car, baseUrl: string = ''): Promise<boolean> {
   const url = getVehicleUrl(car.id, baseUrl);
-  const title = `4MATIC: ${car.name}`;
-  const text = `Check out the ${car.name} for $${car.price}/day on 4MATIC Car Rental!`;
+  const title = `Dream Drives: ${car.name}`;
+  const text = `Check out the ${car.name} for $${car.price}/day on Dream Drives Car Rental!`;
   
   // Try using the Web Share API if available
   if (navigator.share) {

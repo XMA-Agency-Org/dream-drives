@@ -8,12 +8,13 @@ import Footer from "@/components/layout/Footer";
 import Loading from "./_components/Loading";
 
 export const metadata: Metadata = {
-  title: "4MATIC | Browse Our Vehicle Collection",
-  description: "Explore our premium selection of vehicles. Find the perfect car for your needs with our easy-to-use filtering options.",
+  title: "Dream Drives | Browse Our Vehicle Collection",
+  description:
+    "Explore our premium selection of vehicles. Find the perfect car for your needs with our easy-to-use filtering options.",
 };
 
 interface VehiclesPageProps {
-  searchParams: {
+  searchParams: Promise<{
     category?: string;
     brand?: string;
     minPrice?: string;
@@ -21,18 +22,19 @@ interface VehiclesPageProps {
     passengers?: string;
     sort?: string;
     page?: string;
-  };
+    search?: string;
+  }>;
 }
 
 export default function VehiclesPage({ searchParams }: VehiclesPageProps) {
   return (
-    <div className="w-full min-h-screen bg-white dark:bg-secondary-950">
+    <div className="w-full min-h-screen bg-white dark:bg-base-950">
       <Header />
       <main className="pt-24">
         {/* Page Header */}
         <CollectionHeader />
-        
-        <div className="max-w-7xl mx-auto px-4 md:px-6 py-12">
+
+        <div className="container-default py-12">
           {/* Car Collection - Now with modal filtering */}
           <Suspense fallback={<Loading />}>
             <CarCollection searchParams={searchParams} />

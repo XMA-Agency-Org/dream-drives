@@ -1,0 +1,198 @@
+/* ============================================
+   UTILITY COMPONENTS
+   ============================================ */
+@layer components {
+  /* Surface & Background utilities */
+  .bg-surface {
+    background-color: var(--bg-surface);
+  }
+
+  .bg-surface-hover {
+    background-color: var(--bg-surface-hover);
+  }
+
+  .bg-surface-active {
+    background-color: var(--bg-surface-active);
+  }
+
+  /* Dark background */
+  .bg-dark {
+    background-color: var(--bg-dark);
+  }
+
+  /* Footer background */
+  .bg-footer {
+    background-color: var(--color-white);
+  }
+
+  /* Inverse text */
+  .text-inverse {
+    color: var(--text-inverse);
+  }
+
+  /* Primary text */
+  .text-primary-color {
+    color: var(--text-default);
+  }
+
+  /* Skeleton loader */
+  .skeleton {
+    background-color: var(--bg-subtle);
+    @apply animate-pulse rounded;
+  }
+
+  /* Spinner */
+  .spinner {
+    border-color: var(--border-default);
+    border-top-color: var(--border-primary);
+    @apply animate-spin h-5 w-5 border-2 rounded-full;
+  }
+
+  /* Connecting line - for step indicators */
+  .connecting-line {
+    background-color: var(--border-default);
+  }
+
+  .connecting-line-vertical {
+    @apply w-px;
+    background-color: var(--border-default);
+  }
+
+  .connecting-line-horizontal {
+    @apply h-px;
+    background-color: var(--border-default);
+  }
+
+  /* Scrollbar utilities */
+  /* Thin scrollbar */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  /* Thumb styles */
+  .scrollbar-thumb::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+  }
+
+  .scrollbar-thumb::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover);
+  }
+
+  .scrollbar-thumb::-webkit-scrollbar-thumb:active {
+    background-color: var(--scrollbar-thumb-active);
+  }
+
+  .dark .scrollbar-thumb::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb-dark);
+  }
+
+  .dark .scrollbar-thumb::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover-dark);
+  }
+
+  .dark .scrollbar-thumb::-webkit-scrollbar-thumb:active {
+    background-color: var(--scrollbar-thumb-active-dark);
+  }
+
+  /* Track styles */
+  .scrollbar-track-transparent::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  /* Thumb border radius */
+  .scrollbar-thumb-rounded-full::-webkit-scrollbar-thumb {
+    border-radius: 9999px;
+  }
+
+  /* Scrollable container */
+  .scrollable-container {
+    position: relative;
+    overflow-y: auto;
+    padding-right: 8px;
+  }
+
+  /* Fade edges for scrollable content */
+  .fade-edges {
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 5%,
+      black 95%,
+      transparent 100%
+    );
+  }
+
+  /* Rating / Star components */
+  .icon-rating {
+    color: var(--text-rating);
+    fill: var(--text-rating-fill);
+    @apply w-4 h-4;
+  }
+
+  .text-rating {
+    color: var(--text-rating);
+  }
+
+  .fill-rating {
+    fill: var(--text-rating-fill);
+  }
+
+  /* WhatsApp / Communication components */
+  /* WhatsApp floating action button */
+  .whatsapp-fab {
+    @apply fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-colors cursor-pointer;
+    background-color: var(--bg-success);
+    color: var(--text-inverse);
+  }
+
+  .whatsapp-fab:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--focus-ring-success);
+  }
+
+  .whatsapp-fab:hover {
+    background-color: var(--bg-success-hover);
+  }
+
+  .whatsapp-fab:active {
+    background-color: var(--bg-success-active);
+  }
+
+  /* Success/check icons */
+  .icon-success {
+    color: var(--text-success);
+  }
+
+  .text-success {
+    color: var(--text-success);
+  }
+
+  /* Icon button - square button with icon only */
+  .btn-icon {
+    @apply inline-flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-200 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-icon:focus {
+    box-shadow: 0 0 0 2px var(--focus-ring-accent);
+  }
+
+  /* Icon button with ghost variant */
+  .btn-ghost {
+    background-color: transparent;
+    color: var(--text-base);
+  }
+
+  .btn-ghost:hover {
+    background-color: var(--bg-subtle);
+    color: var(--text-default);
+  }
+
+  .btn-ghost:active {
+    background-color: var(--bg-base);
+  }
+}

@@ -23,14 +23,14 @@ export async function generateMetadata({
 
   if (!car) {
     return {
-      title: "Vehicle Not Found | 4MATIC",
+      title: "Vehicle Not Found | Dream Drives",
       description: "The requested vehicle could not be found.",
     };
   }
 
   return {
-    title: `${car.name} | 4MATIC Luxury Car Rental`,
-    description: `Rent the ${car.name}. ${car.passengers} passengers, ${car.doors} doors, ${car.transmission} transmission. Book now with 4MATIC Luxury Car Rental.`,
+    title: `${car.name} | Dream Drives Luxury Car Rental`,
+    description: `Rent the ${car.name}. ${car.passengers} passengers, ${car.doors} doors, ${car.transmission} transmission. Book now with Dream Drives Luxury Car Rental.`,
   };
 }
 
@@ -48,7 +48,7 @@ export default async function VehicleDetailPage({
   const relatedCars = await getRelatedCars(carId, car.category);
 
   return (
-    <div className="w-full min-h-screen bg-white dark:bg-secondary-950">
+    <div className="w-full min-h-screen bg-white dark:bg-base-950">
       <ScrollToTop />
       <Header />
 

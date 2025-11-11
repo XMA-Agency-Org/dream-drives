@@ -3,10 +3,19 @@ import { Car, CarSpecs } from '@/types/car'
 import { Entry } from 'contentful'
 
 // Contentful field interfaces matching the actual content types
+interface ContentfulRichText {
+  content?: Array<{
+    nodeType?: string;
+    content?: Array<{
+      value?: string;
+    }>;
+  }>;
+}
+
 interface ContentfulRentalVehicle {
   vehicleName: string;
   urlSlug: string;
-  description?: any;
+  description?: ContentfulRichText;
   dailyPrice: number;
   brand?: {
     fields: {
@@ -29,8 +38,20 @@ interface ContentfulRentalVehicle {
   airConditioning?: boolean;
   rating?: number;
   reviewCount?: number;
-  mainImage?: any;
-  imageGallery?: any[];
+  mainImage?: {
+    fields?: {
+      file?: {
+        url?: string;
+      };
+    };
+  };
+  imageGallery?: Array<{
+    fields?: {
+      file?: {
+        url?: string;
+      };
+    };
+  }>;
   featuredFlag?: boolean;
   availabilityStatus?: boolean;
 }
@@ -42,8 +63,8 @@ function extractYearFromName(name: string): number | undefined {
 }
 
 // Transform Contentful vehicle data to legacy Car interface
-function transformVehicleToLegacyCar(vehicle: Entry<ContentfulRentalVehicle>): Car {
-  const fields = vehicle.fields
+function transformVehicleToLegacyCar(vehicle: Entry): Car {
+  const fields = vehicle.fields as unknown as ContentfulRentalVehicle;
   
   // Get car data for fallback images
   const carData = getCarDataBySlug(fields.urlSlug)
@@ -76,22 +97,23 @@ function transformVehicleToLegacyCar(vehicle: Entry<ContentfulRentalVehicle>): C
 function getCarDataBySlug(slug: string) {
   // Import car database dynamically to avoid circular dependency
   try {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     const { carsDatabase } = require('../app/(public)/vehicles/_actions/car-database')
-    return carsDatabase.find((car: any) => car.id === slug)
+    return carsDatabase.find((car: Car) => car.id === slug)
   } catch {
     return null
   }
 }
 
 // Helper function to extract text from Contentful rich text
-function extractTextFromRichText(richText: any): string {
+function extractTextFromRichText(richText: ContentfulRichText | undefined): string {
   if (!richText || !richText.content) return ''
   
   return richText.content
-    .map((node: any) => {
+    .map((node) => {
       if (node.nodeType === 'paragraph' && node.content) {
         return node.content
-          .map((textNode: any) => textNode.value || '')
+          .map((textNode) => textNode.value || '')
           .join('')
       }
       return ''
@@ -101,12 +123,12 @@ function extractTextFromRichText(richText: any): string {
 
 export async function getAllVehicles(): Promise<Car[]> {
   try {
-    const response = await contentfulClient.getEntries<ContentfulRentalVehicle>({
+    const response = await contentfulClient.getEntries({
       content_type: 'rentalVehicle',
       include: 2, // Include linked entries (brand, category, specs)
     })
     
-    return response.items.map(transformVehicleToLegacyCar)
+    return response.items.map((item) => transformVehicleToLegacyCar(item as Entry))
   } catch (error) {
     console.error('Error fetching vehicles from Contentful:', error)
     return []
@@ -115,7 +137,7 @@ export async function getAllVehicles(): Promise<Car[]> {
 
 export async function getVehicleBySlug(slug: string): Promise<Car | null> {
   try {
-    const response = await contentfulClient.getEntries<ContentfulRentalVehicle>({
+    const response = await contentfulClient.getEntries({
       content_type: 'rentalVehicle',
       'fields.urlSlug': slug,
       include: 2,
@@ -126,7 +148,7 @@ export async function getVehicleBySlug(slug: string): Promise<Car | null> {
       return null
     }
     
-    return transformVehicleToLegacyCar(response.items[0])
+    return transformVehicleToLegacyCar(response.items[0] as Entry)
   } catch (error) {
     console.error('Error fetching vehicle by slug:', error)
     return null
@@ -135,13 +157,13 @@ export async function getVehicleBySlug(slug: string): Promise<Car | null> {
 
 export async function getFeaturedVehicles(): Promise<Car[]> {
   try {
-    const response = await contentfulClient.getEntries<ContentfulRentalVehicle>({
+    const response = await contentfulClient.getEntries({
       content_type: 'rentalVehicle',
       'fields.featuredFlag': true,
       include: 2,
     })
     
-    return response.items.map(transformVehicleToLegacyCar)
+    return response.items.map((item) => transformVehicleToLegacyCar(item as Entry))
   } catch (error) {
     console.error('Error fetching featured vehicles:', error)
     return []
@@ -149,6 +171,19 @@ export async function getFeaturedVehicles(): Promise<Car[]> {
 }
 
 // Get vehicles with filtering and pagination (for car-actions.ts)
+interface ContentfulQuery {
+  content_type: string;
+  include: number;
+  'fields.category.fields.urlSlug'?: string;
+  'fields.category.sys.contentType.sys.id'?: string;
+  'fields.brand.fields.urlSlug'?: string;
+  'fields.brand.sys.contentType.sys.id'?: string;
+  'fields.dailyPrice[gte]'?: number;
+  'fields.dailyPrice[lte]'?: number;
+  'fields.passengerCount[gte]'?: number;
+  'fields.passengerCount'?: number;
+}
+
 export async function getFilteredVehicles(params: {
   category?: string;
   brand?: string;
@@ -160,10 +195,11 @@ export async function getFilteredVehicles(params: {
   sort?: string;
   page?: number;
   pageSize?: number;
+  search?: string;
 }): Promise<{ cars: Car[], totalCars: number }> {
   try {
     // Build Contentful query
-    const query: any = {
+    const query: ContentfulQuery = {
       content_type: 'rentalVehicle',
       include: 2,
     }
@@ -198,8 +234,19 @@ export async function getFilteredVehicles(params: {
     }
 
     // Get all matching vehicles first
-    const response = await contentfulClient.getEntries<ContentfulRentalVehicle>(query)
-    let cars = response.items.map(transformVehicleToLegacyCar)
+    const response = await contentfulClient.getEntries(query)
+    let cars = response.items.map((item) => transformVehicleToLegacyCar(item as Entry))
+
+    // Apply text search filter (search in name, brand, and category)
+    if (params.search && params.search.trim()) {
+      const searchLower = params.search.toLowerCase().trim();
+      cars = cars.filter((car) => {
+        const nameMatch = car.name.toLowerCase().includes(searchLower);
+        const brandMatch = car.brand.toLowerCase().includes(searchLower);
+        const categoryMatch = car.category.toLowerCase().includes(searchLower);
+        return nameMatch || brandMatch || categoryMatch;
+      });
+    }
 
     // Apply year filtering (client-side since we extract year from names)
     if (params.minYear !== undefined) {

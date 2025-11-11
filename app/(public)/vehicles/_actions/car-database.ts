@@ -1,16 +1,12 @@
 // app/(public)/vehicles/_actions/car-database.ts
 import { Car } from "@/types/car";
 
-const convertToAED = (usdPrice: number): number => {
-  return Math.round(usdPrice/10 * 2) * 10;
-};
-
 // Updated car database featuring cars from the client's collection
 export const carsDatabase: Car[] = [
   // Mercedes-Benz Vehicles
   {
     id: "mercedes-s-class",
-    name: "Mercedes-Benz S-Class 4MATIC 2021",
+    name: "Mercedes-Benz S-Class 2021",
     image: "/car-real/mercedes-s-class-4matic-black.JPG",
     images: [
       "/car-real/mercedes-s-class-4matic-black.JPG",
@@ -24,7 +20,7 @@ export const carsDatabase: Car[] = [
     price: 1200, // Updated from PDF: 1200 AED daily (2021/2022 models)
     category: "luxury",
     brand: "mercedes",
-    description: "The Mercedes-Benz S-Class 4MATIC represents the pinnacle of luxury and technology in the automotive world. With its opulent interior, cutting-edge features, and exceptional comfort, it delivers an unmatched premium experience with the added capability of all-wheel drive.",
+    description: "The Mercedes-Benz S-Class represents the pinnacle of luxury and technology in the automotive world. With its opulent interior, cutting-edge features, and exceptional comfort, it delivers an unmatched premium experience with the added capability of all-wheel drive.",
     specs: {
       engine: "3.0L Inline-6 with EQ Boost",
       power: "429 hp",
@@ -33,7 +29,7 @@ export const carsDatabase: Car[] = [
       topSpeed: "250 km/h",
       fuelType: "Gasoline",
       fuelConsumption: "8.2 L/100km",
-      driveTrain: "AWD (4MATIC)",
+      driveTrain: "AWD",
       features: [
         "MBUX with augmented reality",
         "Burmester 4D surround sound",
@@ -109,9 +105,9 @@ export const carsDatabase: Car[] = [
       topSpeed: "250 km/h",
       fuelType: "Gasoline",
       fuelConsumption: "9.3 L/100km",
-      driveTrain: "AWD (4MATIC+)",
+      driveTrain: "AWD",
       features: [
-        "AMG Performance 4MATIC+",
+        "AMG Performance all-wheel drive",
         "AMG RIDE CONTROL air suspension",
         "AMG Dynamic Select driving modes",
         "AMG-specific grille and bodywork",

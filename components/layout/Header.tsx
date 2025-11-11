@@ -13,7 +13,6 @@ import {
   LamborghiniIcon,
   FerrariLogo,
   AudiIcon,
-  BMWIcon,
   PorscheIcon,
   ToyotaIcon,
   KiaIcon,
@@ -27,7 +26,7 @@ import {
   MazdaIcon,
   GMCLogo,
 } from "@cardog-icons/react";
-import BMW from "@/public/brands/bmw-logo-2020-white-download.png";
+import BMW from "@/public/brands/light-mode/BMW-logo-lm.png";
 
 interface NavItem {
   label: string;
@@ -37,15 +36,17 @@ interface NavItem {
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [activeMobileDropdown, setActiveMobileDropdown] = useState<
     string | null
   >(null);
   const [brands, setBrands] = useState<Array<{ id: string; label: string }>>(
-    [],
+    []
   );
+  const [categories, setCategories] = useState<
+    Array<{ id: string; label: string }>
+  >([]);
 
-  // Updated navigation items for a luxury car rental service
+  // Build navigation items dynamically based on fetched data
   const navItems: NavItem[] = [
     { label: "Home", href: "/" },
     {
@@ -53,10 +54,12 @@ const Header: React.FC = () => {
       href: "#",
       children: [
         { label: "Browse All", href: "/vehicles" },
-        { label: "Luxury Sedans", href: "/vehicles?category=luxury" },
-        { label: "Sports Cars", href: "/vehicles?category=sports" },
-        { label: "Premium SUVs", href: "/vehicles?category=suv" },
-        { label: "Economy Cars", href: "/vehicles?category=economy" },
+        ...categories
+          .filter((cat) => cat.id !== "all")
+          .map((cat) => ({
+            label: cat.label,
+            href: `/vehicles?category=${cat.id}`,
+          })),
       ],
     },
     {
@@ -70,7 +73,7 @@ const Header: React.FC = () => {
     { label: "Contact Us", href: "/contact-us" },
   ];
 
-  // Fetch brands on mount
+  // Fetch brands and categories on mount
   useEffect(() => {
     const fetchBrands = async () => {
       try {
@@ -82,25 +85,20 @@ const Header: React.FC = () => {
         setBrands([{ id: "all", label: "All Brands" }]);
       }
     };
+
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch("/api/categories");
+        const categoriesData = await response.json();
+        setCategories(categoriesData);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+        setCategories([{ id: "all", label: "All Vehicles" }]);
+      }
+    };
+
     fetchBrands();
-  }, []);
-
-  // Handle scroll effect
-  useEffect(() => {
-    // Check the scroll position immediately when component mounts
-    const checkInitialScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-
-    // Run once on mount to set the correct initial state
-    checkInitialScroll();
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    fetchCategories();
   }, []);
 
   // Toggle mobile dropdown
@@ -114,24 +112,18 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/90 dark:bg-secondary-950/90 shadow-sm md:backdrop-blur-sm py-3"
-          : "bg-transparent py-5"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white dark:bg-base-950 py-4 border-b border-base-100 dark:border-base-800">
+      <div className="container-default">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="relative z-10">
-            <div className="flex items-center">
+            <div className="flex items-center gap-2">
               <Image
-                src="/4MAticlogo.png"
-                alt="4MATIC Logo"
-                width={100}
-                height={100}
-                className="h-14 w-auto"
+                src="/logo.png"
+                alt="Dream Drives Logo"
+                width={200}
+                height={200}
+                className="h-20 w-auto"
               />
             </div>
           </Link>
@@ -142,8 +134,8 @@ const Header: React.FC = () => {
               <div key={item.label} className="relative group">
                 {item.children ? (
                   <button
-                    className={`px-4 py-2 text-sm font-medium rounded-md transition-colors flex items-center 
-                      ${scrolled ? "text-secondary-900 dark:text-white" : "text-white"}
+                    className={`px-4 py-2 text-sm font-semibold rounded-md transition-colors flex items-center cursor-pointer
+                      text-base-900 dark:text-white
                       hover:text-primary-600 dark:hover:text-primary-400`}
                   >
                     {item.label}
@@ -152,8 +144,8 @@ const Header: React.FC = () => {
                 ) : (
                   <Link
                     href={item.href}
-                    className={`px-4 py-2 text-sm font-medium rounded-md transition-colors
-                      ${scrolled ? "text-secondary-900 dark:text-white" : "text-white"}
+                    className={`px-4 py-2 text-sm font-semibold rounded-md transition-colors
+                      text-base-900 dark:text-white
                       hover:text-primary-600 dark:hover:text-primary-400`}
                   >
                     {item.label}
@@ -162,36 +154,48 @@ const Header: React.FC = () => {
 
                 {/* Dropdown for desktop */}
                 {item.children && item.label === "Brands" && (
-                  <div className="absolute left-0 mt-1 w-80 origin-top-right rounded-md shadow-lg overflow-hidden bg-white dark:bg-secondary-900 ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
+                  <div className="absolute left-0 mt-1 w-80 origin-top-right rounded-md shadow-lg overflow-hidden bg-white dark:bg-base-900 ring-1 ring-base-200 dark:ring-base-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
                     <div className="p-4">
                       <div className="grid grid-cols-3 gap-3">
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.label}
-                            href={child.href}
-                            className="flex flex-col items-center p-3 text-xs text-secondary-900 dark:text-white hover:bg-secondary-100 dark:hover:bg-secondary-800 rounded-md transition-colors"
-                          >
-                            <div className="mb-1">
-                              {getBrandIcon(child.href.split("brand=")[1])}
-                            </div>
-                            <span className="text-center leading-tight">
-                              {child.label}
-                            </span>
-                          </Link>
-                        ))}
+                        {item.children.map((child) => {
+                          const isAllBrands = child.label === "All Brands";
+                          const brandIcon = getBrandIcon(
+                            child.href.split("brand=")[1]
+                          );
+                          return (
+                            <Link
+                              key={child.label}
+                              href={child.href}
+                              className={`flex flex-col rounded-2xl items-center justify-center p-3 text-xs text-base-900 dark:text-white hover:bg-base-50 dark:hover:bg-base-50 transition-colors ${
+                                isAllBrands ? "min-h-[80px]" : ""
+                              }`}
+                            >
+                              {brandIcon && (
+                                <div className="mb-1">{brandIcon}</div>
+                              )}
+                              <span
+                                className={`text-center leading-tight w-full ${
+                                  isAllBrands ? "font-bold" : ""
+                                }`}
+                              >
+                                {child.label}
+                              </span>
+                            </Link>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
                 )}
                 {/* Regular dropdown for other items */}
                 {item.children && item.label !== "Brands" && (
-                  <div className="absolute left-0 mt-1 w-56 origin-top-right rounded-md shadow-lg overflow-hidden bg-white dark:bg-secondary-900 ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
-                    <div className="py-1">
+                  <div className="absolute left-0 mt-1 w-56 origin-top-right rounded-md shadow-lg overflow-hidden bg-white dark:bg-base-900 ring-1 ring-base-200 dark:ring-base-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
+                    <div className="p-2">
                       {item.children.map((child) => (
                         <Link
                           key={child.label}
                           href={child.href}
-                          className="block px-4 py-2.5 text-sm text-secondary-900 dark:text-white hover:bg-secondary-100 dark:hover:bg-secondary-800"
+                          className="block px-4 py-2.5 text-sm text-base-900 dark:text-white hover:bg-base-50 dark:hover:bg-base-50 rounded-full transition-colors"
                         >
                           {child.label}
                         </Link>
@@ -210,9 +214,9 @@ const Header: React.FC = () => {
               size="sm"
               icon={<Phone className="h-4 w-4" />}
               asLink
-              href="tel:+971563626000"
+              href="tel:+971545555402"
             >
-              +971 56 362 6000
+              +971 54 555 5402
             </Button>
           </div>
 
@@ -223,13 +227,9 @@ const Header: React.FC = () => {
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <X
-                className={`h-6 w-6 ${scrolled ? "text-secondary-900 dark:text-white" : "text-white"}`}
-              />
+              <X className={`h-6 w-6 text-base-900 dark:text-white`} />
             ) : (
-              <Menu
-                className={`h-6 w-6 ${scrolled ? "text-secondary-900 dark:text-white" : "text-white"}`}
-              />
+              <Menu className={`h-6 w-6 text-base-900 dark:text-white`} />
             )}
           </button>
         </div>
@@ -237,14 +237,14 @@ const Header: React.FC = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`md:hidden fixed inset-0 bg-secondary-800/95 backdrop-blur-sm z-40 transition-transform duration-300 ease-in-out transform ${
+        className={`md:hidden fixed inset-0 bg-base-50 backdrop-blur-sm z-40 transition-transform duration-300 ease-in-out transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Close button - Fixed at top right */}
         <button
           onClick={closeMobileMenu}
-          className="absolute top-6 right-6 p-2 text-white hover:text-primary-400 transition-colors"
+          className="absolute top-6 right-6 p-2 text-base-900 dark:text-white hover:text-base-700 dark:hover:text-white/80 transition-colors"
           aria-label="Close menu"
         >
           <X className="h-6 w-6" />
@@ -255,17 +255,17 @@ const Header: React.FC = () => {
             {navItems.map((item) => (
               <div
                 key={item.label}
-                className="border-b border-secondary-700/30"
+                className="border-b border-base-200 dark:border-base-700"
               >
                 {item.children ? (
                   <div>
                     <button
                       onClick={() => toggleMobileDropdown(item.label)}
-                      className="flex items-center justify-between w-full py-4 text-white font-medium"
+                      className="flex items-center justify-between w-full py-4 text-base-900 dark:text-white font-semibold"
                     >
                       {item.label}
                       <ChevronDown
-                        className={`h-5 w-5 transition-transform ${
+                        className={`h-5 w-5 transition-transform text-base-900 dark:text-white ${
                           activeMobileDropdown === item.label
                             ? "rotate-180"
                             : ""
@@ -274,12 +274,12 @@ const Header: React.FC = () => {
                     </button>
 
                     {activeMobileDropdown === item.label && (
-                      <div className="ml-4 mb-4 border-l border-primary-600/30 pl-4 space-y-3">
+                      <div className="ml-4 mb-4 border-l border-base-200 dark:border-base-700 pl-4 space-y-3">
                         {item.children.map((child) => (
                           <Link
                             key={child.label}
                             href={child.href}
-                            className="flex items-center py-2 text-secondary-200 hover:text-white text-sm"
+                            className="flex items-center py-2 text-base-900 dark:text-white hover:text-base-700 dark:hover:text-white/90 text-sm"
                             onClick={closeMobileMenu}
                           >
                             {getBrandIcon(child.href.split("brand=")[1])}
@@ -292,7 +292,7 @@ const Header: React.FC = () => {
                 ) : (
                   <Link
                     href={item.href}
-                    className="block py-4 text-white font-medium"
+                    className="block py-4 text-base-900 dark:text-white font-semibold"
                     onClick={closeMobileMenu}
                   >
                     {item.label}
@@ -309,9 +309,9 @@ const Header: React.FC = () => {
               fullWidth
               icon={<Phone className="h-5 w-5" />}
               asLink
-              href="tel:+971563626000"
+              href="tel:+971545555402"
             >
-              +971 56 362 6000
+              +971 54 555 5402
             </Button>
           </div>
         </div>
@@ -322,35 +322,39 @@ const Header: React.FC = () => {
 
 // Helper function to get brand icons for dropdown
 function getBrandIcon(brandId: string) {
-  const iconProps = {
-    className: "mr-2 md:mr-0 text-3xl",
-  };
+  const baseClassName = "mr-2 md:mr-0 text-3xl";
 
-  const brandIconMap: Record<string, JSX.Element> = {
-    mercedes: <MBIcon style={{ filter: "invert(1)" }} {...iconProps} />,
-    "mercedes-benz": <MBIcon style={{ filter: "invert(1)" }} {...iconProps} />,
-    bentley: <BentleyIcon {...iconProps} />,
-    "rolls-royce": (
-      <RollsRoyceIcon style={{ filter: "invert(1)" }} {...iconProps} />
+  const brandIconMap: Record<string, React.ReactElement> = {
+    mercedes: <MBIcon className={baseClassName} />,
+    "mercedes-benz": <MBIcon className={baseClassName} />,
+    bentley: <BentleyIcon className={baseClassName} />,
+    "rolls-royce": <RollsRoyceIcon className={baseClassName} />,
+    "land-rover": <LandroverIcon className={baseClassName} />,
+    "range-rover": <LandroverIcon className={baseClassName} />,
+    lamborghini: <LamborghiniIcon className={baseClassName} />,
+    ferrari: <FerrariLogo className={baseClassName} />,
+    audi: <AudiIcon className={baseClassName} />,
+    bmw: (
+      <Image
+        src={BMW}
+        width={20}
+        height={50}
+        alt="BMW"
+        className={baseClassName}
+      />
     ),
-    "land-rover": <LandroverIcon {...iconProps} />,
-    "range-rover": <LandroverIcon {...iconProps} />,
-    lamborghini: <LamborghiniIcon {...iconProps} />,
-    ferrari: <FerrariLogo {...iconProps} />,
-    audi: <AudiIcon style={{ filter: "invert(1)" }} {...iconProps} />,
-    bmw: <Image src={BMW} width={20} height={50} {...iconProps} />,
-    porsche: <PorscheIcon {...iconProps} />,
-    toyota: <ToyotaIcon {...iconProps} />,
-    kia: <KiaIcon style={{ filter: "invert(1)" }} {...iconProps} />,
-    hyundai: <HyundaiIcon {...iconProps} />,
-    nissan: <NissanLogo style={{ filter: "invert(1)" }} {...iconProps} />,
-    mitsubishi: <MitsubishiIcon {...iconProps} />,
-    chevrolet: <ChevroletLogo style={{ filter: "invert(1)" }} {...iconProps} />,
-    cadillac: <CadillacIcon {...iconProps} />,
-    gmc: <GMCLogo style={{ filter: "invert(1)" }} {...iconProps} />,
-    fiat: <FiatIcon {...iconProps} />,
-    mini: <MiniIcon style={{ filter: "invert(1)" }} {...iconProps} />,
-    mazda: <MazdaIcon {...iconProps} />,
+    porsche: <PorscheIcon className={baseClassName} />,
+    toyota: <ToyotaIcon className={baseClassName} />,
+    kia: <KiaIcon className={baseClassName} />,
+    hyundai: <HyundaiIcon className={baseClassName} />,
+    nissan: <NissanLogo className={baseClassName} />,
+    mitsubishi: <MitsubishiIcon className={baseClassName} />,
+    chevrolet: <ChevroletLogo className={baseClassName} />,
+    cadillac: <CadillacIcon className={baseClassName} />,
+    gmc: <GMCLogo className={baseClassName} />,
+    fiat: <FiatIcon className={baseClassName} />,
+    mini: <MiniIcon className={baseClassName} />,
+    mazda: <MazdaIcon className={baseClassName} />,
   };
 
   return brandIconMap[brandId] || null;

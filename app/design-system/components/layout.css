@@ -1,0 +1,257 @@
+/* ============================================
+   LAYOUT COMPONENTS
+   ============================================ */
+@layer components {
+  /* Section containers */
+  .section {
+    @apply py-16;
+    background-color: var(--bg-page);
+  }
+
+  .section-sm {
+    @apply py-8;
+    background-color: var(--bg-page);
+  }
+
+  .section-lg {
+    @apply py-24;
+    background-color: var(--bg-page);
+  }
+
+  .section-bg-base {
+    @apply py-16;
+    background-color: var(--bg-page-base);
+  }
+
+  .section-bg-subtle {
+    @apply py-16;
+    background-color: var(--bg-page-subtle);
+  }
+
+  /* Container utilities */
+  .container-fluid {
+    @apply w-full px-4 mx-auto;
+  }
+
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-4;
+  }
+
+  .container-default {
+    @apply max-w-7xl mx-auto px-4;
+  }
+
+  @media (min-width: 640px) {
+    .container-fluid,
+    .container-narrow,
+    .container-default {
+      @apply px-6;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-fluid,
+    .container-narrow,
+    .container-default {
+      @apply px-8;
+    }
+  }
+
+  /* Section headers */
+  .section-header {
+    @apply text-center mb-12;
+  }
+
+  .section-header-lg {
+    @apply text-center mb-16;
+  }
+
+  .section-header-left {
+    @apply text-left mb-12;
+  }
+
+  /* Typography components */
+  /* Titles */
+  .title-hero {
+    color: var(--text-default);
+    @apply text-5xl md:text-5xl lg:text-6xl font-extrabold leading-tight;
+  }
+
+  .title-section {
+    color: var(--text-default);
+    @apply text-3xl md:text-4xl font-extrabold;
+  }
+
+  .title-subsection {
+    color: var(--text-default);
+    @apply text-2xl md:text-3xl font-bold;
+  }
+
+  .title-card {
+    color: var(--text-default);
+    @apply text-xl font-bold;
+  }
+
+  .title-card-white {
+    color: var(--text-inverse);
+    @apply text-xl font-bold;
+  }
+
+  /* Subtitles & labels */
+  .subtitle {
+    color: var(--text-accent);
+    @apply text-xs uppercase tracking-wider mb-3;
+  }
+
+  .label {
+    color: var(--text-base);
+    @apply text-sm font-semibold mb-2;
+  }
+
+  /* Body text */
+  .text-muted {
+    color: var(--text-muted);
+  }
+
+  .text-body {
+    color: var(--text-base);
+    @apply text-base leading-relaxed;
+  }
+
+  .text-body-sm {
+    color: var(--text-muted);
+    @apply text-sm leading-relaxed;
+  }
+
+  .text-subheading {
+    color: var(--color-text-muted);
+  }
+
+  .text-description {
+    color: var(--text-muted);
+    @apply text-sm leading-relaxed;
+  }
+
+  /* Link styles */
+  .link {
+    color: var(--text-primary);
+    @apply underline underline-offset-2 transition-colors;
+  }
+
+  .link:hover {
+    color: var(--text-primary-hover);
+  }
+
+  .link-muted {
+    color: var(--text-muted);
+    @apply transition-colors;
+  }
+
+  .link-muted:hover {
+    color: var(--text-default);
+  }
+
+  /* Footer components */
+  .footer-heading {
+    color: var(--text-default);
+    @apply text-lg font-bold mb-6;
+  }
+
+  .footer-link {
+    color: var(--text-base);
+    @apply transition-opacity duration-200;
+    opacity: 0.8;
+  }
+
+  .footer-link:hover {
+    opacity: 1;
+    color: var(--text-default);
+  }
+
+  .footer-social {
+    color: var(--text-base);
+    @apply transition-opacity duration-200;
+    opacity: 0.7;
+  }
+
+  .footer-social:hover {
+    opacity: 1;
+    color: var(--text-default);
+  }
+
+  .footer-text {
+    color: var(--text-base);
+    opacity: 0.8;
+  }
+
+  /* Step / Feature components */
+  .step-container {
+    @apply flex flex-col items-center text-center;
+  }
+
+  .step-icon {
+    background-color: var(--bg-primary);
+    color: var(--text-inverse);
+    @apply w-16 h-16 rounded-2xl flex items-center justify-center mb-5;
+  }
+
+  .step-title {
+    color: var(--text-default);
+    @apply text-xl font-bold mb-3;
+  }
+
+  .step-description {
+    color: var(--text-base);
+    @apply text-sm leading-relaxed;
+  }
+
+  /* Icon containers */
+  .icon-container {
+    background-color: var(--bg-accent);
+    color: var(--icon-container-text);
+    @apply w-16 h-16 rounded-2xl flex items-center justify-center;
+  }
+
+  .icon-container-sm {
+    @apply w-12 h-12 rounded-xl;
+  }
+
+  .icon-container-lg {
+    @apply w-20 h-20 rounded-3xl;
+  }
+
+  .icon-container-primary {
+    background-color: var(--icon-container-primary-bg);
+    color: var(--icon-container-primary-text);
+  }
+
+  .icon-container-base {
+    background-color: var(--icon-container-base-bg);
+    color: var(--icon-container-base-text);
+  }
+
+  .icon-container-accent {
+    background-color: var(--icon-container-accent-bg);
+    color: var(--icon-container-accent-text);
+  }
+
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center gap-1 px-3 py-1 text-xs font-semibold rounded-full;
+  }
+
+  .badge-primary {
+    background-color: var(--badge-primary-bg);
+    color: var(--badge-primary-text);
+  }
+
+  .badge-base {
+    background-color: var(--badge-base-bg);
+    color: var(--badge-base-text);
+  }
+
+  .badge-accent {
+    background-color: var(--badge-accent-bg);
+    color: var(--badge-accent-text);
+  }
+}

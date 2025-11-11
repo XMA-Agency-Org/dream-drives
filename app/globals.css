@@ -1,73 +1,177 @@
-@import "tailwindcss";
-@import "./theme.css";
-@import "./components.css";
+/* ============================================
+   DREAM DRIVES - GLOBAL STYLES
+   Unified Design System
+   ============================================ */
 
+/* Import Tailwind CSS AFTER tokens are defined */
+@import "tailwindcss";
+
+/* Import design system tokens FIRST so Tailwind can use @theme tokens */
+@import "./design-system/index.css";
+@import "tw-animate-css";
+
+/* Custom dark mode variant */
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Spacing tokens */
+  --page-padding-x: clamp(1rem, 5vw, 2rem);
+  --section-spacing: clamp(3rem, 8vw, 6rem);
+  --component-spacing: clamp(1.5rem, 4vw, 3rem);
+  --radius: 0.625rem;
+
+  /* Shadcn UI tokens - map to design system semantic tokens */
+  --border: var(--border-default);
+  --primary: var(--bg-primary);
+  --accent: var(--bg-accent);
+  --background: var(--bg-page);
+  --foreground: var(--text-default);
+  --card: var(--bg-surface);
+  --card-foreground: var(--text-default);
+  --popover: var(--bg-surface);
+  --popover-foreground: var(--text-default);
+  --primary-foreground: var(--text-inverse);
+  --secondary: var(--bg-base);
+  --secondary-foreground: var(--text-default);
+  --muted: var(--bg-subtle);
+  --muted-foreground: var(--text-muted);
+  --accent-foreground: var(--text-inverse);
+  --destructive: var(--bg-error-subtle);
+  --input: var(--border-default);
+  --ring: var(--focus-ring-accent);
+
+  /* Chart colors - use Tailwind primitives */
+  --chart-1: var(--color-orange-500);
+  --chart-2: var(--color-teal-500);
+  --chart-3: var(--color-blue-500);
+  --chart-4: var(--color-lime-500);
+  --chart-5: var(--color-yellow-500);
+
+  /* Sidebar tokens - use design system */
+  --sidebar: var(--bg-surface);
+  --sidebar-foreground: var(--text-default);
+  --sidebar-primary: var(--bg-primary);
+  --sidebar-primary-foreground: var(--text-inverse);
+  --sidebar-accent: var(--bg-subtle);
+  --sidebar-accent-foreground: var(--text-default);
+  --sidebar-border: var(--border-default);
+  --sidebar-ring: var(--focus-ring-accent);
 }
 
-/* Define scrollbar appearance for the entire app */
+.dark {
+  /* Dark mode - design system tokens automatically handle this
+     No need to override, tokens in colors.css handle dark mode */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+/* Firefox scrollbar - auto width for better visibility, darker colors */
 * {
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-secondary-300) transparent;
+  scrollbar-width: auto;
+  scrollbar-color: var(--scrollbar-thumb-firefox) transparent;
+}
+
+.dark * {
+  scrollbar-color: var(--scrollbar-thumb-firefox-dark) transparent;
 }
 
 /* Webkit browsers (Chrome, Safari, newer Edge) */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
   background: transparent;
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--color-secondary-300);
-  border-radius: 20px;
+  background-color: var(--scrollbar-thumb);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.2s ease,
+    height 0.2s ease;
+  min-height: 20px;
 }
 
-/* Dark mode scrollbar */
-.dark * {
-  scrollbar-color: var(--color-secondary-700) transparent;
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+  border-color: transparent;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--scrollbar-thumb-active);
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background-color: var(--color-secondary-700);
+  background-color: var(--scrollbar-thumb-dark);
 }
 
-/* Scroll behavior */
+.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover-dark);
+}
+
+.dark ::-webkit-scrollbar-thumb:active {
+  background-color: var(--scrollbar-thumb-active-dark);
+}
+
+/* Corner where horizontal and vertical scrollbars meet */
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* ============================================
+   GLOBAL BEHAVIOR
+   ============================================ */
 html {
   scroll-behavior: smooth;
 }
 
-/* Additional helper utilities */
-.scrollable-hint {
-  position: relative;
-}
-
-.scrollable-hint::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 24px;
-  background: linear-gradient(to top, var(--color-secondary-100) 0%, transparent 100%);
-  pointer-events: none;
-  z-index: 1;
-  border-bottom-left-radius: inherit;
-  border-bottom-right-radius: inherit;
-}
-
-.dark .scrollable-hint::before {
-  background: linear-gradient(to top, var(--color-secondary-800) 0%, transparent 100%);
-}
-
-.logo-image {
-  max-width: 200px;
-  height: auto;
+/* Prevent layout shift */
+html,
+body {
+  overflow-x: hidden;
 }

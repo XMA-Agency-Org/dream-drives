@@ -38,8 +38,8 @@ export default function ShareButton({ car }: ShareButtonProps) {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: `4MATIC Luxury: ${brandName} ${car.name}`,
-          text: `Discover the exceptional ${brandName} ${car.name} starting at AED ${car.price}/day with 4MATIC Luxury Car Rental.`,
+          title: `Dream Drives Luxury: ${brandName} ${car.name}`,
+          text: `Discover the exceptional ${brandName} ${car.name} starting at AED ${car.price}/day with Dream Drives Luxury Car Rental.`,
           url: getVehicleUrl(),
         });
       } catch (error) {
@@ -55,26 +55,32 @@ export default function ShareButton({ car }: ShareButtonProps) {
   // Share with specific platforms
   const shareWith = (platform: string) => {
     const url = getVehicleUrl();
-    const title = `4MATIC Luxury: ${brandName} ${car.name}`;
-    const text = `Discover the exceptional ${brandName} ${car.name} starting at AED ${car.price}/day with 4MATIC Luxury Car Rental.`;
+    const title = `Dream Drives Luxury: ${brandName} ${car.name}`;
+    const text = `Discover the exceptional ${brandName} ${car.name} starting at AED ${car.price}/day with Dream Drives Luxury Car Rental.`;
 
     switch (platform) {
       case "facebook":
         window.open(
-          `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
-          "_blank",
+          `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+            url
+          )}`,
+          "_blank"
         );
         break;
       case "twitter":
         window.open(
-          `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,
-          "_blank",
+          `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+            text
+          )}&url=${encodeURIComponent(url)}`,
+          "_blank"
         );
         break;
       case "linkedin":
         window.open(
-          `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
-          "_blank",
+          `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+            url
+          )}`,
+          "_blank"
         );
         break;
       case "copy":
@@ -102,7 +108,7 @@ export default function ShareButton({ car }: ShareButtonProps) {
     <div className="relative">
       <button
         onClick={handleShareClick}
-        className="p-2 rounded-full hover:bg-secondary-100 dark:hover:bg-secondary-800 text-secondary-500 dark:text-secondary-400"
+        className="p-2 rounded-full hover:bg-base-100 dark:hover:bg-base-800 text-base-500 dark:text-base-400 cursor-pointer"
         aria-label="Share vehicle"
       >
         <Share2 className="w-5 h-5" />
@@ -111,38 +117,38 @@ export default function ShareButton({ car }: ShareButtonProps) {
       {/* Share options dropdown */}
       {showShareOptions && (
         <div
-          className="absolute right-0 top-full mt-2 w-48 bg-white dark:bg-secondary-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-10"
+          className="absolute bg-surface rounded-2xl shadow-md p-4 right-0 top-full mt-2 w-48 z-10"
           onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside dropdown
         >
           <div className="py-1">
             <button
               onClick={() => shareWith("facebook")}
-              className="w-full flex items-center px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-700"
+              className="w-full flex items-center px-4 py-2 text-sm text-body hover:bg-base-100 dark:hover:bg-base-700 transition-colors cursor-pointer rounded-2xl"
             >
               <Facebook className="mr-3 h-4 w-4 text-[#1877F2]" />
               Facebook
             </button>
             <button
               onClick={() => shareWith("twitter")}
-              className="w-full flex items-center px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-700"
+              className="w-full flex items-center px-4 py-2 text-sm text-body hover:bg-base-100 dark:hover:bg-base-700 transition-colors cursor-pointer rounded-2xl"
             >
               <Twitter className="mr-3 h-4 w-4 text-[#1DA1F2]" />
               Twitter
             </button>
             <button
               onClick={() => shareWith("linkedin")}
-              className="w-full flex items-center px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-700"
+              className="w-full flex items-center px-4 py-2 text-sm text-body hover:bg-base-100 dark:hover:bg-base-700 transition-colors cursor-pointer rounded-2xl"
             >
               <Linkedin className="mr-3 h-4 w-4 text-[#0A66C2]" />
               LinkedIn
             </button>
             <button
               onClick={() => shareWith("copy")}
-              className="w-full flex items-center px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-700"
+              className="w-full flex items-center px-4 py-2 text-sm text-body hover:bg-base-100 dark:hover:bg-base-700 transition-colors cursor-pointer rounded-2xl"
             >
               {copySuccess ? (
                 <>
-                  <Check className="mr-3 h-4 w-4 text-green-500" />
+                  <Check className="mr-3 h-4 w-4 icon-success" />
                   Copied!
                 </>
               ) : (

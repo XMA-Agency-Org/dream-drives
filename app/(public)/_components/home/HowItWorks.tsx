@@ -4,10 +4,10 @@ import Button from "@/components/ui/Button";
 import StepCard from "./StepCard";
 import SectionHeader from "@/components/ui/SectionHeader";
 import BrandGrid from "./BrandGrid";
-import Mercedes from "@/public/brands/Mercedes-Benz-logo-2009-1920x1080.png"
+import Mercedes from "@/public/brands/light-mode/mercedes-lm.png"
 import Bentley from "@/public/brands/bentley-logo-2002-download.png"
-import Rollsroyce from "@/public/brands/rolls-royce.svg"
-import Bmw from "@/public/brands/bmw-logo-2020-white-download.png"
+import Rollsroyce from "@/public/brands/light-mode/rolls-royce-lm.png"
+import Bmw from "@/public/brands/light-mode/BMW-logo-lm.png"
 import Lamborghini from "@/public/brands/lamborghini.svg"
 import Porsche from "@/public/brands/porsche-logo-2014-download.png"
 
@@ -43,8 +43,8 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section id="how-it-works" className="py-24 bg-white dark:bg-secondary-900 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
+    <section id="how-it-works" className="section-lg bg-white dark:bg-base-900 overflow-hidden">
+      <div className="container-default">
         <SectionHeader
           subtitle="Seamless Experience"
           title="Luxury Made Simple in Three Steps"
@@ -69,8 +69,8 @@ export default function HowItWorks() {
 
         {/* Brands Section */}
         <div className="mt-24">
-          <h3 className="text-center text-xl font-semibold text-secondary-900 dark:text-white mb-8">
-            The World's Finest Automobile Brands
+          <h3 className="text-center text-xl font-semibold text-base-900 dark:text-white mb-8">
+            The World&apos;s Finest Automobile Brands
           </h3>
           <BrandGrid brands={brands} />
         </div>
@@ -81,17 +81,17 @@ export default function HowItWorks() {
 
 function CtaSection() {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-primary-600 to-primary-700 rounded-xl p-8 md:p-10 shadow-lg">
-      <div className="mb-6 md:mb-0 text-white">
-        <h3 className="text-2xl font-bold mb-2">Ready to experience luxury?</h3>
-        <p className="text-primary-100 max-w-md">
+    <div className="flex flex-col md:flex-row items-center justify-between bg-primary shadow-lg p-8 md:p-10 rounded-3xl">
+      <div className="mb-6 md:mb-0">
+        <h3 className="text-2xl font-bold text-white mb-2">Ready to experience luxury?</h3>
+        <p className="text-white/90 max-w-md">
           Book your premium vehicle today and elevate your journey with our exceptional service and attention to detail.
         </p>
       </div>
       <Button 
-        variant="secondary" 
+        variant="base" 
         size="lg"
-        className="bg-primary-100 text-primary-950 hover:bg-primary-200"
+        className="bg-white text-primary-950 hover:bg-base-100"
         asLink
         href="/vehicles"
       >

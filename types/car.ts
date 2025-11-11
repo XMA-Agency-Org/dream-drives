@@ -1,5 +1,5 @@
 // types/car.ts
-import { Asset } from 'contentful'
+import { Asset } from "contentful";
 
 // Contentful content type interfaces
 export interface ContentfulBrand {
@@ -49,7 +49,13 @@ export interface ContentfulVehicle {
 
 // Legacy interfaces for backward compatibility
 export interface CarSpecs {
+  engine?: string;
+  power?: string;
+  torque?: string;
   acceleration: string;
+  topSpeed?: string;
+  driveTrain?: string;
+  fuelType?: string;
   fuelConsumption?: string;
   features: string[];
 }
@@ -81,7 +87,7 @@ export interface CarFilters {
   passengers?: number;
   minYear?: number;
   maxYear?: number;
-  sort?: 'recommended' | 'price-asc' | 'price-desc' | 'rating-desc';
+  sort?: "recommended" | "price-asc" | "price-desc" | "rating-desc";
   page?: number;
   pageSize?: number;
 }

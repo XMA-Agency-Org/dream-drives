@@ -1,0 +1,238 @@
+/* ============================================
+   FORM & INPUT COMPONENTS
+   ============================================ */
+@layer components {
+  /* Input base */
+  .input {
+    background-color: var(--bg-surface);
+    border-color: var(--border-default);
+    @apply w-full px-4 py-3 text-base rounded-xl transition-all duration-200 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .input:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 2px var(--focus-ring-accent);
+  }
+
+  .input-sm {
+    @apply px-3 py-2 text-sm rounded-lg;
+  }
+
+  .input-lg {
+    @apply px-6 py-4 text-lg rounded-xl;
+  }
+
+  /* Input with icon */
+  .input-group {
+    @apply relative flex items-center;
+  }
+
+  .input-icon-left {
+    @apply pl-12;
+  }
+
+  .input-icon-right {
+    @apply pr-12;
+  }
+
+  .input-icon {
+    color: var(--text-muted);
+    @apply absolute top-1/2 -translate-y-1/2 pointer-events-none;
+  }
+
+  .input-icon-left-pos {
+    @apply left-4;
+  }
+
+  .input-icon-right-pos {
+    @apply right-4;
+  }
+
+  /* Textarea */
+  .textarea {
+    background-color: var(--bg-surface);
+    border-color: var(--border-default);
+    @apply w-full px-4 py-3 text-base rounded-xl transition-all duration-200 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed resize-none;
+  }
+
+  .textarea:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 2px var(--focus-ring-accent);
+  }
+
+  /* Select */
+  .select {
+    background-color: var(--bg-surface);
+    border-color: var(--border-default);
+    @apply w-full px-4 py-3 text-base rounded-xl transition-all duration-200 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed appearance-none;
+  }
+
+  .select:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 2px var(--focus-ring-accent);
+  }
+
+  /* Checkbox & Radio */
+  .checkbox,
+  .radio {
+    background-color: transparent;
+    border-color: var(--border-default);
+    color: var(--text-primary);
+    @apply w-5 h-5 rounded transition-colors cursor-pointer;
+  }
+
+  .checkbox:focus,
+  .radio:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--focus-ring-accent);
+  }
+
+  .radio {
+    @apply rounded-full;
+  }
+
+  /* Form group */
+  .form-group {
+    @apply mb-6;
+  }
+
+  /* Form aliases for consistency */
+  .form-label {
+    color: var(--text-base);
+    @apply block text-sm font-medium mb-2;
+  }
+
+  .form-input {
+    background-color: var(--bg-base);
+    border-color: var(--border-default);
+    color: var(--text-default);
+    @apply w-full px-4 py-3 text-base rounded-xl transition-all duration-200 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .form-input::placeholder {
+    color: var(--text-muted);
+  }
+
+  .form-input:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 2px var(--focus-ring-accent);
+  }
+
+  .form-select {
+    background-color: var(--bg-base);
+    border-color: var(--border-default);
+    color: var(--text-default);
+    @apply w-full px-4 py-3 text-base rounded-xl transition-all duration-200 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed appearance-none cursor-pointer;
+  }
+
+  .form-select:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 2px var(--focus-ring-accent);
+  }
+
+  .form-textarea {
+    background-color: var(--bg-base);
+    border-color: var(--border-default);
+    color: var(--text-default);
+    @apply w-full px-4 py-3 text-base rounded-xl transition-all duration-200 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed resize-none;
+  }
+
+  .form-textarea::placeholder {
+    color: var(--text-muted);
+  }
+
+  .form-textarea:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 2px var(--focus-ring-accent);
+  }
+
+  /* Error states */
+  .input-error {
+    border-color: var(--border-error);
+  }
+
+  .input-error:focus {
+    border-color: var(--border-error);
+    box-shadow: 0 0 0 2px var(--focus-ring-error);
+  }
+
+  .error-message {
+    color: var(--text-error);
+    @apply mt-2 text-sm;
+  }
+
+  /* Success states */
+  .input-success {
+    border-color: var(--border-success);
+  }
+
+  .input-success:focus {
+    border-color: var(--border-success);
+    box-shadow: 0 0 0 2px var(--focus-ring-success);
+  }
+
+  /* Search components */
+  .search-container {
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-xl);
+    @apply py-3 px-4 flex items-center w-full shadow-sm;
+  }
+
+  .search-input {
+    @apply flex-1 text-base font-bold bg-transparent border-none outline-none focus:ring-0;
+    color: var(--text-default);
+  }
+
+  .search-input::placeholder {
+    color: var(--text-default);
+  }
+
+  .search-input:focus {
+    @apply ring-0 outline-none;
+  }
+
+  /* Accordion / FAQ components */
+  .accordion-item {
+    background-color: var(--bg-surface);
+    border-color: var(--border-default);
+    @apply rounded-2xl border overflow-hidden transition-all duration-200;
+  }
+
+  .accordion-item:hover {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .accordion-button {
+    @apply w-full px-8 py-4 flex items-center justify-between text-left transition-colors cursor-pointer;
+  }
+
+  .accordion-title {
+    color: var(--text-default);
+    @apply text-base md:text-lg font-bold pr-8;
+  }
+
+  .accordion-icon-container {
+    @apply p-3 rounded-lg flex-shrink-0 transition-colors;
+  }
+
+  .accordion-icon-inactive {
+    background-color: var(--bg-subtle);
+  }
+
+  .accordion-icon-inactive:hover {
+    background-color: var(--bg-surface-hover);
+  }
+
+  .accordion-icon-active {
+    background-color: var(--bg-primary);
+  }
+
+  .accordion-content {
+    @apply overflow-hidden transition-all duration-300;
+  }
+
+  .accordion-body {
+    color: var(--text-base);
+    @apply px-8 pb-6 pt-2 text-base;
+  }
+}
