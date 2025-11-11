@@ -66,23 +66,18 @@ function extractYearFromName(name: string): number | undefined {
 function transformVehicleToLegacyCar(vehicle: Entry): Car {
   const fields = vehicle.fields as unknown as ContentfulRentalVehicle;
 
-  // Get car data for fallback images
-  const carData = getCarDataBySlug(fields.urlSlug);
-
   return {
     id: fields.urlSlug,
     name: fields.vehicleName,
     image: fields.mainImage?.fields?.file?.url
       ? `https:${fields.mainImage.fields.file.url}`
-      : carData?.image || "",
+      : "",
     images:
       fields.imageGallery
         ?.map((img) =>
           img?.fields?.file?.url ? `https:${img.fields.file.url}` : ""
         )
-        .filter(Boolean) ||
-      carData?.images ||
-      [],
+        .filter(Boolean) || [],
     rating: fields.rating || 0,
     reviews: fields.reviewCount || 0,
     passengers: fields.passengerCount || 0,
@@ -102,20 +97,6 @@ function transformVehicleToLegacyCar(vehicle: Entry): Car {
         : fields.features?.split("\n") || [],
     } as CarSpecs,
   };
-}
-
-// Helper to get car data for fallback images
-function getCarDataBySlug(slug: string) {
-  // Import car database dynamically to avoid circular dependency
-  try {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const {
-      carsDatabase,
-    } = require("../app/(public)/vehicles/_actions/car-database");
-    return carsDatabase.find((car: Car) => car.id === slug);
-  } catch {
-    return null;
-  }
 }
 
 // Helper function to extract text from Contentful rich text
