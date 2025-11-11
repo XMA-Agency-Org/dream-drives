@@ -14,7 +14,7 @@ export default function Footer() {
 
   const vehicleTypes = [
     { name: "Luxury Cars", href: "/vehicles?category=luxury" },
-    { name: "Family Cars", href: "/vehicles?category=family" },
+    { name: "Economy Cars", href: "/vehicles?category=economy" },
   ];
 
   const brands = [
@@ -67,7 +67,7 @@ export default function Footer() {
               </div>
               <div className="flex items-start">
                 <MapPin className="w-5 h-5 footer-text mt-0.5 mr-3 flex-shrink-0" />
-                <span className="footer-text">Dubai, United Arab Emirates</span>
+                <span className="footer-text">Office 405, Business Avenue, Port Saeed Road - Sheikh Rashid Rd - Port Saeed - Dubai - United Arab Emirates</span>
               </div>
             </div>
           </div>

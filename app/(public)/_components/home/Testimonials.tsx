@@ -127,7 +127,7 @@ export default function Testimonials() {
         {/* Section Header */}
         <ScrollReveal variant="fadeUp">
           <div className="section-header">
-            <p className="subtitle">Attested Quality</p>
+            <p className="subtitle">Testimonials</p>
             <h2 className="title-section">What Our Clients Say</h2>
           </div>
         </ScrollReveal>

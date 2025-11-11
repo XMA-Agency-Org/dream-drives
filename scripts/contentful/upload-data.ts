@@ -3,42 +3,26 @@ import { carsDatabase } from "../../app/(public)/vehicles/_actions/car-database"
 import * as dotenv from "dotenv";
 import path from "path";
 import fs from "fs";
-import FormData from "form-data";
 
 // Load environment variables from .env.local
 dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
 
-// Define brands with proper names
+// Define brands with proper names (only brands used in the image data)
 const brands = [
   { slug: "mercedes", name: "Mercedes-Benz" },
   { slug: "bmw", name: "BMW" },
-  { slug: "audi", name: "Audi" },
-  { slug: "porsche", name: "Porsche" },
-  { slug: "lamborghini", name: "Lamborghini" },
-  { slug: "rolls-royce", name: "Rolls-Royce" },
-  { slug: "range-rover", name: "Range Rover" },
-  { slug: "chevrolet", name: "Chevrolet" },
   { slug: "gmc", name: "GMC" },
-  { slug: "cadillac", name: "Cadillac" },
-  { slug: "nissan", name: "Nissan" },
-  { slug: "toyota", name: "Toyota" },
-  { slug: "kia", name: "Kia" },
-  { slug: "mitsubishi", name: "Mitsubishi" },
-  { slug: "fiat", name: "Fiat" },
-  { slug: "mini", name: "Mini" },
+  { slug: "audi", name: "Audi" },
+  { slug: "lamborghini", name: "Lamborghini" },
+  { slug: "porsche", name: "Porsche" },
+  { slug: "range-rover", name: "Range Rover" },
+  { slug: "bentley", name: "Bentley" },
 ];
 
-// Define categories
+// Define categories (only categories used in the image data)
 const categories = [
   { slug: "luxury", name: "Luxury", description: "Premium luxury vehicles" },
-  { slug: "suv", name: "SUV", description: "Sport utility vehicles" },
-  {
-    slug: "sports",
-    name: "Sports",
-    description: "High-performance sports cars",
-  },
   { slug: "economy", name: "Economy", description: "Budget-friendly vehicles" },
-  { slug: "minivan", name: "Minivan", description: "Family-friendly minivans" },
 ];
 
 /**

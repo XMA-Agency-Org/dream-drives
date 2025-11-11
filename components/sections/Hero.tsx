@@ -77,7 +77,7 @@ export default function HeroSection() {
               {/* Car Image */}
               <div className="relative h-full w-full">
                 <Image
-                  src="/landing-redesign/hero-car.png"
+                  src="/landing-redesign/urus-hero.png"
                   alt="g-wagon"
                   fill
                   priority

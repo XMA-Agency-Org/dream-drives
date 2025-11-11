@@ -19,11 +19,12 @@ export const metadata: Metadata = {
 const location = {
   id: "main-office",
   name: "Dubai Office",
-  address: "Dubai, United Arab Emirates",
+  address:
+    "Office 405, Business Avenue, Port Saeed Road - Sheikh Rashid Rd - Port Saeed - Dubai - United Arab Emirates",
   phone: "+971 54 555 5402",
   email: "info@dreamdrives.com",
   hours: "Mon-Fri: 9am-8pm | Sat-Sun: 10am-6pm",
-  coordinates: { lat: 25.186, lng: 55.28 }, // Dubai Business Bay coordinates
+  coordinates: { lat: 25.2585414, lng: 55.3366432 }, // Dream Drives Rent A Car coordinates
 };
 
 export default function ContactUsPage() {
@@ -51,7 +52,10 @@ export default function ContactUsPage() {
                         Headquarter office
                       </h3>
                       <div className="text-inverse text-sm leading-snug space-y-0.5 opacity-80">
-                        <p>Dubai, United Arab Emirates</p>
+                        <p>
+                          Office 405, Business Avenue, Port Saeed Road - Sheikh
+                          Rashid Rd - Port Saeed - Dubai - United Arab Emirates
+                        </p>
                       </div>
                     </div>
                     <div className="bg-white/10 p-3 rounded-lg shrink-0">
