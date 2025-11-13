@@ -9,8 +9,8 @@ export default function HeroSection() {
   return (
     <section className="relative bg-base-50/30 dark:bg-base-950 z-20">
       {/* Decorative circles */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border-[80px] border-base-200/30 -translate-y-1/3 translate-x-1/4 xl:hidden z-[-1]"></div>
-      <div className="absolute top-20 right-20 w-[600px] h-[600px] rounded-full border-[60px] border-base-200/30 translate-x-1/4 xl:hidden z-[-1]"></div>
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full border-[80px] border-primary-200/10 -translate-y-1/3 translate-x-1/4 xl:hidden z-[-1]"></div>
+      <div className="absolute top-20 right-20 w-[600px] h-[600px] rounded-full border-[60px] border-primary-200/15 translate-x-1/4 xl:hidden z-[-1]"></div>
 
       {/* Background art element */}
       <div className="absolute top-[375px] left-[650px] xl:left-1/2  -translate-x-1/4 -translate-y-1/2 w-[700px] h-[700px] md:w-[750px] md:h-[750px] lg:w-[800px] lg:h-[800px] pointer-events-none z-[-1]">
@@ -77,7 +77,7 @@ export default function HeroSection() {
               {/* Car Image */}
               <div className="relative h-full w-full">
                 <Image
-                  src="/landing-redesign/hero-car.png"
+                  src="/landing-redesign/urus-hero.png"
                   alt="g-wagon"
                   fill
                   priority

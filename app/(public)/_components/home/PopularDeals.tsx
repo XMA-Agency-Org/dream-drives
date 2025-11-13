@@ -8,17 +8,10 @@ import Button from "@/components/ui/Button";
 import { Car } from "@/types/car";
 import ScrollReveal from "@/lib/animations/ScrollReveal";
 
-type CategoryType =
-  | "all"
-  | "luxury"
-  | "family"
-  | "suv"
-  | "sports"
-  | "economy"
-  | "minivan";
+type CategoryType = "all" | "luxury" | "economy" | "suv" | "sports" | "minivan";
 
 interface PopularDealsProps {
-  category?: "luxury" | "family";
+  category?: "luxury" | "economy";
 }
 
 export default function PopularDeals({ category }: PopularDealsProps) {
@@ -109,8 +102,8 @@ export default function PopularDeals({ category }: PopularDealsProps) {
     (currentPage + 1) * itemsPerPage
   );
 
-  // Only render if category is luxury or family
-  if (category && category !== "luxury" && category !== "family") {
+  // Only render if category is luxury or economy
+  if (category && category !== "luxury" && category !== "economy") {
     return null;
   }
 
@@ -122,11 +115,11 @@ export default function PopularDeals({ category }: PopularDealsProps) {
       description:
         "Indulge in the finest luxury vehicles with unparalleled comfort, advanced technology, and exquisite craftsmanship",
     },
-    family: {
-      subtitle: "Family Vehicles",
-      title: "Perfect for Family Adventures",
+    economy: {
+      subtitle: "Economy Vehicles",
+      title: "Affordable and Efficient",
       description:
-        "Spacious, safe, and reliable vehicles designed to make every family journey comfortable and memorable",
+        "Budget-friendly vehicles that offer great value without compromising on quality and reliability",
     },
     default: {
       subtitle: "Featured Vehicles",
@@ -149,10 +142,10 @@ export default function PopularDeals({ category }: PopularDealsProps) {
         href: "/vehicles?category=luxury",
       };
     }
-    if (category === "family") {
+    if (category === "economy") {
       return {
-        text: "Explore Family Cars",
-        href: "/vehicles?category=family",
+        text: "Explore Economy Cars",
+        href: "/vehicles?category=economy",
       };
     }
     return {
@@ -202,7 +195,7 @@ export default function PopularDeals({ category }: PopularDealsProps) {
           <button
             onClick={handlePrevPage}
             disabled={totalPages <= 1}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-primary-600 dark:bg-primary-600 shadow-xl border-2 border-primary-600 dark:border-primary-600 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed hover:scale-110 hover:bg-primary-700 dark:hover:bg-primary-700 transition-all duration-200 text-white"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-white shadow-sm cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed hover:scale-110 transition-all duration-200 text-black dark:text-black"
             aria-label="Previous page"
           >
             <ChevronLeft className="w-7 h-7" />
@@ -232,7 +225,7 @@ export default function PopularDeals({ category }: PopularDealsProps) {
           <button
             onClick={handleNextPage}
             disabled={totalPages <= 1}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-primary-600 dark:bg-primary-600 shadow-xl border-2 border-primary-600 dark:border-primary-600 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed hover:scale-110 hover:bg-primary-700 dark:hover:bg-primary-700 transition-all duration-200 text-white"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-white shadow-sm cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed hover:scale-110 transition-all duration-200 text-black dark:text-black"
             aria-label="Next page"
           >
             <ChevronRight className="w-7 h-7" />

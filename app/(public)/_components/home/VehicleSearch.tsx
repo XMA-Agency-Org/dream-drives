@@ -151,7 +151,7 @@ export default function VehicleSearch({ className }: VehicleSearchProps) {
           .map((item) => ({
             id: item.toLowerCase().replace(/\s+/g, "-"),
             text: item,
-            type: (["Luxury", "Family"].includes(item)
+            type: (["Luxury", "Economy"].includes(item)
               ? "category"
               : "vehicle") as "vehicle" | "brand" | "category",
           }));
@@ -301,12 +301,12 @@ export default function VehicleSearch({ className }: VehicleSearchProps) {
   // Quick filters for common actions
   const quickFilters: QuickFilter[] = [
     {
-      id: "family",
-      label: "Family Cars",
+      id: "economy",
+      label: "Economy Cars",
       icon: Car,
       action: () => {
         const params = new URLSearchParams(searchParams);
-        params.set("category", "family");
+        params.set("category", "economy");
         params.delete("q");
         router.push(`/vehicles?${params.toString()}`);
         setIsOpen(false);

@@ -28,7 +28,13 @@ export default function VehicleDetails({ car }: VehicleDetailsProps) {
           {/* Left Column - Images */}
           <div className="lg:col-span-2">
             <ImageCarousel
-              images={car.images || [car.image]}
+              images={
+                car.images && car.images.length > 0
+                  ? car.images
+                  : car.image
+                  ? [car.image]
+                  : []
+              }
               altText={car.name}
             />
           </div>

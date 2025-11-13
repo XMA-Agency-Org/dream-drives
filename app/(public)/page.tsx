@@ -16,7 +16,7 @@ export default function Home() {
       <Hero />
       <Logos />
       <PopularDeals category="luxury" />
-      <PopularDeals category="family" />
+      <PopularDeals category="economy" />
       <USP />
       <Testimonials />
       <FaqSection />
