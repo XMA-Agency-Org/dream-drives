@@ -131,6 +131,48 @@ export async function getAllVehicles(): Promise<Car[]> {
   }
 }
 
+// Get dynamic filter bounds from actual CMS data
+export interface FilterBounds {
+  minPrice: number;
+  maxPrice: number;
+  minYear: number;
+  maxYear: number;
+}
+
+export async function getFilterBounds(): Promise<FilterBounds> {
+  try {
+    const vehicles = await getAllVehicles();
+    
+    if (vehicles.length === 0) {
+      // Return sensible defaults if no vehicles
+      return {
+        minPrice: 0,
+        maxPrice: 10000,
+        minYear: 2020,
+        maxYear: new Date().getFullYear() + 1,
+      };
+    }
+    
+    const prices = vehicles.map(v => v.price).filter(p => p > 0);
+    const years = vehicles.map(v => v.year).filter((y): y is number => y !== undefined && y > 0);
+    
+    return {
+      minPrice: Math.min(...prices),
+      maxPrice: Math.max(...prices),
+      minYear: years.length > 0 ? Math.min(...years) : 2020,
+      maxYear: years.length > 0 ? Math.max(...years) : new Date().getFullYear() + 1,
+    };
+  } catch (error) {
+    console.error("Error getting filter bounds:", error);
+    return {
+      minPrice: 0,
+      maxPrice: 10000,
+      minYear: 2020,
+      maxYear: new Date().getFullYear() + 1,
+    };
+  }
+}
+
 export async function getVehicleBySlug(slug: string): Promise<Car | null> {
   try {
     const response = await contentfulClient.getEntries({

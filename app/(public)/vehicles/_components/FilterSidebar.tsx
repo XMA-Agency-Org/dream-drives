@@ -22,8 +22,13 @@ const passengerOptions = [
   { value: "6", label: "6+ Passengers" },
 ];
 
-// Increased maximum price to 5000 AED
-const MAX_PRICE = 5000;
+// Default bounds (will be overridden by CMS data)
+const DEFAULT_BOUNDS = {
+  minPrice: 0,
+  maxPrice: 10000,
+  minYear: 2020,
+  maxYear: new Date().getFullYear() + 1,
+};
 
 interface FilterSectionProps {
   title: string;
@@ -53,6 +58,9 @@ export default function FilterSidebar() {
   const router = useRouter();
   const searchParams = useSearchParams();
   
+  // Dynamic filter bounds from CMS
+  const [filterBounds, setFilterBounds] = useState(DEFAULT_BOUNDS);
+  
   // Track which filter sections are open
   const [openSections, setOpenSections] = useState({
     category: false,
@@ -71,19 +79,41 @@ export default function FilterSidebar() {
   // Categories state
   const [categories, setCategories] = useState([{ id: "all", label: "All Vehicles" }]);
   
-  // Get current filter values from URL
+  // Get current filter values from URL (using dynamic bounds as defaults)
   const currentCategory = searchParams.get("category") || "all";
   const currentBrand = searchParams.get("brand") || "all";
-  const currentMinPrice = Number(searchParams.get("minPrice") || "0");
-  const currentMaxPrice = Number(searchParams.get("maxPrice") || MAX_PRICE.toString());
-  const currentMinYear = Number(searchParams.get("minYear") || "2020");
-  const currentMaxYear = Number(searchParams.get("maxYear") || "2025");
+  const currentMinPrice = Number(searchParams.get("minPrice") || filterBounds.minPrice.toString());
+  const currentMaxPrice = Number(searchParams.get("maxPrice") || filterBounds.maxPrice.toString());
+  const currentMinYear = Number(searchParams.get("minYear") || filterBounds.minYear.toString());
+  const currentMaxYear = Number(searchParams.get("maxYear") || filterBounds.maxYear.toString());
   const currentPassengers = searchParams.get("passengers") || "";
   
   // State for price range slider
   const [priceRange, setPriceRange] = useState([currentMinPrice, currentMaxPrice]);
   // State for year range slider
   const [yearRange, setYearRange] = useState([currentMinYear, currentMaxYear]);
+
+  // Fetch filter bounds from CMS
+  useEffect(() => {
+    const fetchBounds = async () => {
+      try {
+        const response = await fetch("/api/filter-bounds");
+        const bounds = await response.json();
+        setFilterBounds(bounds);
+        // Update price and year ranges to use actual bounds if no URL params
+        if (!searchParams.get("minPrice") && !searchParams.get("maxPrice")) {
+          setPriceRange([bounds.minPrice, bounds.maxPrice]);
+        }
+        if (!searchParams.get("minYear") && !searchParams.get("maxYear")) {
+          setYearRange([bounds.minYear, bounds.maxYear]);
+        }
+      } catch (error) {
+        console.error("Error fetching filter bounds:", error);
+      }
+    };
+
+    fetchBounds();
+  }, [searchParams]);
 
   // Fetch brands via API route
   useEffect(() => {
@@ -150,8 +180,8 @@ export default function FilterSidebar() {
   // Clear all filters
   const clearFilters = () => {
     router.push('/vehicles');
-    setPriceRange([0, MAX_PRICE]);
-    setYearRange([2020, 2025]);
+    setPriceRange([filterBounds.minPrice, filterBounds.maxPrice]);
+    setYearRange([filterBounds.minYear, filterBounds.maxYear]);
   };
 
   // Handler for category selection
@@ -172,8 +202,8 @@ export default function FilterSidebar() {
   // Apply price filter on slider change end
   const handlePriceChangeEnd = (values: number[]) => {
     applyFilters({
-      minPrice: values[0] === 0 ? null : values[0].toString(),
-      maxPrice: values[1] === MAX_PRICE ? null : values[1].toString(),
+      minPrice: values[0] === filterBounds.minPrice ? null : values[0].toString(),
+      maxPrice: values[1] === filterBounds.maxPrice ? null : values[1].toString(),
     });
   };
 
@@ -185,8 +215,8 @@ export default function FilterSidebar() {
   // Apply year filter on slider change end
   const handleYearChangeEnd = (values: number[]) => {
     applyFilters({
-      minYear: values[0] === 2020 ? null : values[0].toString(),
-      maxYear: values[1] === 2025 ? null : values[1].toString(),
+      minYear: values[0] === filterBounds.minYear ? null : values[0].toString(),
+      maxYear: values[1] === filterBounds.maxYear ? null : values[1].toString(),
     });
   };
 
@@ -216,10 +246,10 @@ export default function FilterSidebar() {
         {/* Show "Clear Filters" button on mobile if any filters are applied */}
         {(currentCategory !== "all" || 
           currentBrand !== "all" || 
-          currentMinPrice > 0 || 
-          currentMaxPrice < MAX_PRICE || 
-          currentMinYear > 2020 || 
-          currentMaxYear < 2025 || 
+          searchParams.get("minPrice") || 
+          searchParams.get("maxPrice") || 
+          searchParams.get("minYear") || 
+          searchParams.get("maxYear") || 
           currentPassengers) && (
           <Button
             variant="ghost"
@@ -307,8 +337,8 @@ export default function FilterSidebar() {
           >
             <div className="px-2 pt-6 pb-2">
               <Slider
-                min={0}
-                max={MAX_PRICE}
+                min={filterBounds.minPrice}
+                max={filterBounds.maxPrice}
                 step={100}
                 value={priceRange}
                 onValueChange={handlePriceChange}
@@ -328,8 +358,8 @@ export default function FilterSidebar() {
           >
             <div className="px-2 pt-6 pb-2">
               <Slider
-                min={2020}
-                max={2025}
+                min={filterBounds.minYear}
+                max={filterBounds.maxYear}
                 step={1}
                 value={yearRange}
                 onValueChange={handleYearChange}
@@ -390,10 +420,10 @@ export default function FilterSidebar() {
           {/* Show clear button if any filters are applied */}
           {(currentCategory !== "all" || 
             currentBrand !== "all" || 
-            currentMinPrice > 0 || 
-            currentMaxPrice < MAX_PRICE || 
-            currentMinYear > 2020 || 
-            currentMaxYear < 2025 || 
+            searchParams.get("minPrice") || 
+            searchParams.get("maxPrice") || 
+            searchParams.get("minYear") || 
+            searchParams.get("maxYear") || 
             currentPassengers) && (
             <Button
               variant="ghost"
@@ -455,8 +485,8 @@ export default function FilterSidebar() {
         >
           <div className="px-2 pt-6 pb-2">
             <Slider
-              min={0}
-              max={MAX_PRICE}
+              min={filterBounds.minPrice}
+              max={filterBounds.maxPrice}
               step={100}
               value={priceRange}
               onValueChange={handlePriceChange}
@@ -476,8 +506,8 @@ export default function FilterSidebar() {
         >
           <div className="px-2 pt-6 pb-2">
             <Slider
-              min={2020}
-              max={2025}
+              min={filterBounds.minYear}
+              max={filterBounds.maxYear}
               step={1}
               value={yearRange}
               onValueChange={handleYearChange}

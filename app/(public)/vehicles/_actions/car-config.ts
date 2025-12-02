@@ -1,7 +1,9 @@
 // app/(public)/vehicles/_actions/car-config.ts
 
-// Maximum price for car rentals (in AED)
-export const MAX_PRICE = 5000; // Updated to match highest price in PDF
+// Fallback maximum price for car rentals (in AED)
+// Note: The frontend now dynamically fetches actual bounds from CMS via /api/filter-bounds
+// This is only used as a fallback in car-actions.ts when no maxPrice is specified
+export const MAX_PRICE = 100000; // High fallback to ensure no vehicles are filtered out
 
 // Currency code
 export const CURRENCY_CODE = 'AED';

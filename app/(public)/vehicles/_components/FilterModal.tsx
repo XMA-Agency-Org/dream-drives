@@ -23,8 +23,13 @@ const passengerOptions = [
   { value: "6", label: "6+ Passengers" },
 ];
 
-// Increased maximum price to 5000 AED
-const MAX_PRICE = 5000;
+// Default bounds (will be overridden by CMS data)
+const DEFAULT_BOUNDS = {
+  minPrice: 0,
+  maxPrice: 10000,
+  minYear: 2020,
+  maxYear: new Date().getFullYear() + 1,
+};
 
 interface FilterSectionProps {
   title: string;
@@ -62,6 +67,9 @@ export default function FilterModal() {
   // State for modal visibility
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
 
+  // Dynamic filter bounds from CMS
+  const [filterBounds, setFilterBounds] = useState(DEFAULT_BOUNDS);
+
   // Track which filter sections are open
   const [openSections, setOpenSections] = useState({
     category: true,
@@ -71,15 +79,13 @@ export default function FilterModal() {
     passengers: true,
   });
 
-  // Get current filter values from URL
+  // Get current filter values from URL (using dynamic bounds as defaults)
   const currentCategory = searchParams.get("category") || "all";
   const currentBrand = searchParams.get("brand") || "all";
-  const currentMinPrice = Number(searchParams.get("minPrice") || "0");
-  const currentMaxPrice = Number(
-    searchParams.get("maxPrice") || MAX_PRICE.toString()
-  );
-  const currentMinYear = Number(searchParams.get("minYear") || "2020");
-  const currentMaxYear = Number(searchParams.get("maxYear") || "2025");
+  const currentMinPrice = Number(searchParams.get("minPrice") || filterBounds.minPrice.toString());
+  const currentMaxPrice = Number(searchParams.get("maxPrice") || filterBounds.maxPrice.toString());
+  const currentMinYear = Number(searchParams.get("minYear") || filterBounds.minYear.toString());
+  const currentMaxYear = Number(searchParams.get("maxYear") || filterBounds.maxYear.toString());
   const currentPassengers = searchParams.get("passengers") || "";
 
   // State for price range slider
@@ -107,19 +113,54 @@ export default function FilterModal() {
     passengers: currentPassengers,
   });
 
+  // Fetch filter bounds from CMS
+  useEffect(() => {
+    const fetchBounds = async () => {
+      try {
+        const response = await fetch("/api/filter-bounds");
+        const bounds = await response.json();
+        setFilterBounds(bounds);
+        // Update price and year ranges to use actual bounds if no URL params
+        if (!searchParams.get("minPrice") && !searchParams.get("maxPrice")) {
+          setPriceRange([bounds.minPrice, bounds.maxPrice]);
+          setTempFilters(prev => ({
+            ...prev,
+            priceRange: [bounds.minPrice, bounds.maxPrice],
+          }));
+        }
+        if (!searchParams.get("minYear") && !searchParams.get("maxYear")) {
+          setYearRange([bounds.minYear, bounds.maxYear]);
+          setTempFilters(prev => ({
+            ...prev,
+            yearRange: [bounds.minYear, bounds.maxYear],
+          }));
+        }
+      } catch (error) {
+        console.error("Error fetching filter bounds:", error);
+      }
+    };
+
+    fetchBounds();
+  }, [searchParams]);
+
   // Reset temp filters whenever the modal opens
   useEffect(() => {
     if (isFilterModalOpen) {
+      const minPrice = searchParams.get("minPrice") ? currentMinPrice : filterBounds.minPrice;
+      const maxPrice = searchParams.get("maxPrice") ? currentMaxPrice : filterBounds.maxPrice;
+      const minYear = searchParams.get("minYear") ? currentMinYear : filterBounds.minYear;
+      const maxYear = searchParams.get("maxYear") ? currentMaxYear : filterBounds.maxYear;
+      
       setTempFilters({
         category: currentCategory,
         brand: currentBrand,
-        priceRange: [currentMinPrice, currentMaxPrice],
-        yearRange: [currentMinYear, currentMaxYear],
+        priceRange: [minPrice, maxPrice],
+        yearRange: [minYear, maxYear],
         passengers: currentPassengers,
       });
 
-      setPriceRange([currentMinPrice, currentMaxPrice]);
-      setYearRange([currentMinYear, currentMaxYear]);
+      setPriceRange([minPrice, maxPrice]);
+      setYearRange([minYear, maxYear]);
     }
   }, [
     isFilterModalOpen,
@@ -130,6 +171,8 @@ export default function FilterModal() {
     currentMinYear,
     currentMaxYear,
     currentPassengers,
+    filterBounds,
+    searchParams,
   ]);
 
   // Fetch brands via API route
@@ -220,27 +263,27 @@ export default function FilterModal() {
       params.set("brand", tempFilters.brand);
     }
 
-    // Price Range
-    if (tempFilters.priceRange[0] === 0) {
+    // Price Range - use dynamic bounds
+    if (tempFilters.priceRange[0] === filterBounds.minPrice) {
       params.delete("minPrice");
     } else {
       params.set("minPrice", tempFilters.priceRange[0].toString());
     }
 
-    if (tempFilters.priceRange[1] === MAX_PRICE) {
+    if (tempFilters.priceRange[1] === filterBounds.maxPrice) {
       params.delete("maxPrice");
     } else {
       params.set("maxPrice", tempFilters.priceRange[1].toString());
     }
 
-    // Year Range
-    if (tempFilters.yearRange[0] === 2020) {
+    // Year Range - use dynamic bounds
+    if (tempFilters.yearRange[0] === filterBounds.minYear) {
       params.delete("minYear");
     } else {
       params.set("minYear", tempFilters.yearRange[0].toString());
     }
 
-    if (tempFilters.yearRange[1] === 2025) {
+    if (tempFilters.yearRange[1] === filterBounds.maxYear) {
       params.delete("maxYear");
     } else {
       params.set("maxYear", tempFilters.yearRange[1].toString());
@@ -268,13 +311,13 @@ export default function FilterModal() {
     setTempFilters({
       category: "all",
       brand: "all",
-      priceRange: [0, MAX_PRICE],
-      yearRange: [2020, 2025],
+      priceRange: [filterBounds.minPrice, filterBounds.maxPrice],
+      yearRange: [filterBounds.minYear, filterBounds.maxYear],
       passengers: "",
     });
 
-    setPriceRange([0, MAX_PRICE]);
-    setYearRange([2020, 2025]);
+    setPriceRange([filterBounds.minPrice, filterBounds.maxPrice]);
+    setYearRange([filterBounds.minYear, filterBounds.maxYear]);
   };
 
   // Apply clear filters on button click and close modal
@@ -337,7 +380,10 @@ export default function FilterModal() {
 
     if (currentCategory !== "all") count++;
     if (currentBrand !== "all") count++;
-    if (currentMinPrice > 0 || currentMaxPrice < MAX_PRICE) count++;
+    // Use dynamic bounds for price check
+    if (searchParams.get("minPrice") || searchParams.get("maxPrice")) count++;
+    // Use dynamic bounds for year check
+    if (searchParams.get("minYear") || searchParams.get("maxYear")) count++;
     if (currentPassengers) count++;
 
     return count;
@@ -471,8 +517,8 @@ export default function FilterModal() {
               >
                 <div className="px-2 pt-6 pb-2 relative z-10">
                   <Slider
-                    min={0}
-                    max={MAX_PRICE}
+                    min={filterBounds.minPrice}
+                    max={filterBounds.maxPrice}
                     step={100}
                     value={priceRange}
                     onValueChange={handlePriceChange}
@@ -491,8 +537,8 @@ export default function FilterModal() {
               >
                 <div className="px-2 pt-6 pb-2 relative z-10">
                   <Slider
-                    min={2020}
-                    max={2025}
+                    min={filterBounds.minYear}
+                    max={filterBounds.maxYear}
                     step={1}
                     value={yearRange}
                     onValueChange={handleYearChange}
